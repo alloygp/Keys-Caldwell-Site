@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<!-- ============================================================
+     Keys-Caldwell — Services Overview
+     URL slot       :  /services/
+     Template type  :  HUB  (one-of-a-kind; sibling of /service-areas/)
+     Composition    :  KCNav · KCBreadcrumbs ·
+                       SVHero · SVPillarTiles · SVHowEngagement ·
+                       SVNotIncluded · KCCtaBand · KCFooter
+     Purpose        :  Single page that explains the four practice
+                       areas (condo, HOA, accounting, reserves) and
+                       how a Keys-Caldwell engagement is scoped. The
+                       "Services — overview" entry in the main nav
+                       resolves here. Pricing/proposal mechanics live
+                       on /pricing/; this page is the upstream "what
+                       we do" page that routes boards to the right
+                       pillar.
+     ============================================================ -->
+<title>Services · Keys-Caldwell Community Association Management</title>
+<meta name="description" content="The four practice areas at Keys-Caldwell — condo association management, HOA management, accounting, and reserve studies — and how a real engagement gets scoped, written, and run." />
+<link rel="canonical" href="https://keys-caldwell.com/services/" />
+
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://keys-caldwell.com/services/" />
+<meta property="og:title" content="Services · Keys-Caldwell" />
+<meta property="og:description" content="Four practice areas, one firm. Condo, HOA, accounting, reserve studies — and the man-hour-based engagement model that ties them together." />
+<meta property="og:image" content="https://keys-caldwell.com/assets/og/keys-caldwell-brand-og.jpg" />
+<meta property="og:image:alt" content="Keys-Caldwell — Community Association Management. Venice, Sarasota, Charlotte County. Est. 1978." />
+<meta property="og:site_name" content="Keys-Caldwell" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://unpkg.com">
+
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../pillar.css">
+<link rel="icon" href="data:,">
+
+<style>
+/* ── Services overview — page-specific styles ─────────────── */
+.sv-hero {
+  background: var(--shell);
+  border-bottom: 1px solid var(--shell-line);
+  padding: 96px 0 80px;
+}
+.sv-hero-grid {
+  display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  gap: 80px; align-items: stretch;
+}
+.sv-hero-text { display: flex; flex-direction: column; }
+.sv-hero-photo {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(40, 50, 90, 0.16),
+              0 6px 16px rgba(40, 50, 90, 0.08);
+  background: #2b3142;
+}
+.sv-hero-photo img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center 40%;
+  display: block;
+}
+.sv-hero-photo-cap {
+  position: absolute; left: 22px; top: 18px;
+  font-family: var(--font-heading);
+  font-size: 11px; color: rgba(245,239,227,0.92);
+  letter-spacing: 0.18em; text-transform: uppercase; font-weight: 700;
+  padding: 6px 12px;
+  background: rgba(26,29,46,0.46);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 2px;
+}
+.sv-hero-photo-overlay {
+  position: absolute;
+  left: 22px; right: 22px; bottom: 22px;
+  background: rgba(26, 29, 46, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--shell);
+  padding: 22px 24px 22px;
+  border-radius: 2px;
+}
+.sv-hero-photo-overlay-eye {
+  font-family: var(--font-heading); font-style: italic; font-weight: 600;
+  font-size: 11px; letter-spacing: 0.05em;
+  color: rgba(245,239,227,0.7);
+  margin-bottom: 8px;
+}
+.sv-hero-photo-overlay-h {
+  font-family: var(--font-heading); font-weight: 700;
+  font-size: 19px; line-height: 1.25; letter-spacing: -0.012em;
+  color: var(--shell); margin: 0;
+}
+.sv-hero-photo-overlay-h em {
+  font-style: italic; color: #c9a96e; font-weight: 700;
+}
+.sv-hero-eye {
+  font-family: var(--font-heading); font-style: italic; font-weight: 600;
+  font-size: 14px; color: var(--kc-indigo); letter-spacing: 0.02em;
+  margin-bottom: 24px;
+}
+.sv-hero-h {
+  font-family: var(--font-heading); font-weight: 700;
+  font-size: clamp(48px, 5.6vw, 84px); line-height: 1.02;
+  color: var(--deep-ink); letter-spacing: -0.022em;
+  margin: 0 0 32px; text-wrap: balance;
+}
+.sv-hero-h em { font-style: italic; color: var(--kc-indigo); font-weight: 700; }
+.sv-hero-lede {
+  font-family: var(--font-body); font-size: 19px; line-height: 1.55;
+  color: var(--deep-ink); opacity: .82; margin: 0; max-width: 56ch;
+}
+.sv-hero-meta {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+  border-top: 1px solid var(--shell-line);
+  border-bottom: 1px solid var(--shell-line);
+}
+.sv-hero-meta-cell {
+  padding: 24px 0;
+  border-right: 1px solid var(--shell-line);
+}
+.sv-hero-meta-cell:last-child { border-right: 0; padding-left: 24px; }
+.sv-hero-meta-cell:first-child { padding-right: 24px; }
+.sv-hero-meta-k {
+  font-family: var(--font-heading); font-style: italic; font-weight: 600;
+  font-size: 12px; color: var(--kc-indigo); letter-spacing: 0.04em;
+  text-transform: uppercase; margin-bottom: 6px;
+}
+.sv-hero-meta-v {
+  font-family: var(--font-heading); font-style: italic; font-weight: 700;
+  font-size: 32px; color: var(--deep-ink); line-height: 1; letter-spacing: -0.012em;
+}
+.sv-hero-meta-sub {
+  font-family: var(--font-body); font-size: 13px; color: var(--deep-ink);
+  opacity: .65; margin-top: 6px;
+}
+
+/* Pillar tiles */
+.sv-pillars { padding: 96px 0; background: #fff; }
+.sv-pillars-head { max-width: 720px; margin-bottom: 56px; }
+.sv-pillars-h {
+  font-family: var(--font-heading); font-weight: 700;
+  font-size: clamp(32px, 3vw, 44px); line-height: 1.1;
+  color: var(--deep-ink); letter-spacing: -0.018em; margin: 16px 0 0;
+  text-wrap: balance;
+}
+.sv-pillars-h em { font-style: italic; color: var(--kc-indigo); font-weight: 700; }
+.sv-pillars-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
+}
+.sv-pillar {
+  display: flex; flex-direction: column;
+  padding: 36px 36px 32px;
+  background: var(--shell);
+  border: 1px solid var(--shell-line);
+  border-radius: 12px;
+  text-decoration: none;
+  color: var(--deep-ink);
+  transition: border-color 200ms ease, transform 200ms ease, box-shadow 200ms ease;
+  position: relative;
+  min-height: 320px;
+}
+.sv-pillar:hover {
+  border-color: var(--kc-indigo);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(40, 50, 90, 0.08);
+}
+.sv-pillar-n {
+  font-family: var(--font-heading); font-style: italic; font-weight: 600;
+  font-size: 13px; color: var(--kc-indigo); letter-spacing: 0.04em;
+  margin-bottom: 16px;
+}
+.sv-pillar-label {
+  font-family: var(--font-heading); font-weight: 700;
+  font-size: 26px; line-height: 1.15; letter-spacing: -0.014em;
+  color: var(--deep-ink); margin: 0 0 12px;
+}
+.sv-pillar-blurb {
+  font-family: var(--font-body); font-size: 16px; line-height: 1.55;
+  color: var(--deep-ink); opacity: .78; margin: 0 0 20px; flex: 1;
+}
+.sv-pillar-meta {
+  font-family: var(--font-heading); font-style: italic; font-weight: 600;
+  font-size: 13px; color: var(--deep-ink); opacity: .6;
+  letter-spacing: 0.01em; margin-bottom: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--shell-line);
+}
+.sv-pillar-cta {
+  font-family: var(--font-heading); font-style: italic; font-weight: 600;
+  font-size: 14px; color: var(--kc-indigo);
+  display: flex; align-items: center; gap: 6px;
+}
+.sv-pillar-cta span { transition: transform 160ms ease; }
+.sv-pillar:hover .sv-pillar-cta span { transform: translateX(4px); }
+
+/* How an engagement works */
+.sv-how {
+  padding: 96px 0;
+  background: var(--shell);
+  border-top: 1px solid var(--shell-line);
+}
+.sv-how-grid {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 80px;
+  align-items: start;
+}
+.sv-how-aside { position: sticky; top: 124px; }
+.sv-how-h {
+  font-family: var(--font-heading); font-weight: 700;
+  font-size: clamp(32px, 3vw, 44px); line-height: 1.1;
+  color: var(--deep-ink); letter-spacing: -0.018em; margin: 16px 0 24px;
+  text-wrap: balance;
+}
+.sv-how-h em { font-style: italic; color: var(--kc-indigo); font-weight: 700; }
+.sv-how-aside-p {
+  font-family: var(--font-body); font-size: 16px; line-height: 1.6;
+  color: var(--deep-ink); opacity: .82; margin: 0 0 18px; max-width: 38ch;
+}
+.sv-how-aside-link {
+  font-family: var(--font-heading); font-style: italic; font-weight: 600;
+  font-size: 14px; color: var(--kc-indigo);
+  text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
+  border-bottom: 1px solid var(--kc-indigo); padding-bottom: 2px;
+}
+
+.sv-how-steps {
+  display: flex; flex-direction: column;
+  border-top: 1px solid var(--shell-line);
+}
+.sv-how-step {
+  display: grid; grid-template-columns: 60px 1fr;
+  gap: 32px;
+  padding: 32px 0;
+  border-bottom: 1px solid var(--shell-line);
+  align-items: start;
+}
+.sv-how-step-n {
+  font-family: var(--font-heading); font-style: italic; font-weight: 700;
+  font-size: 28px; color: var(--kc-indigo); line-height: 1;
+  letter-spacing: -0.012em;
+}
+.sv-how-step-t {
+  font-family: var(--font-heading); font-weight: 700;
+  font-size: 21px; color: var(--deep-ink); line-height: 1.2;
+  letter-spacing: -0.012em; margin: 0 0 8px;
+}
+.sv-how-step-p {
+  font-family: var(--font-body); font-size: 15.5px; line-height: 1.6;
+  color: var(--deep-ink); opacity: .82; margin: 0;
+  max-width: 58ch;
+}
+
+/* Not included strip */
+.sv-not { padding: 80px 0; background: #fff; }
+.sv-not-grid {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 80px;
+  align-items: start;
+}
+.sv-not-h {
+  font-family: var(--font-heading); font-weight: 700;
+  font-size: clamp(28px, 2.6vw, 36px); line-height: 1.15;
+  color: var(--deep-ink); letter-spacing: -0.016em; margin: 16px 0 0;
+}
+.sv-not-h em { font-style: italic; color: var(--kc-indigo); font-weight: 700; }
+.sv-not-list { display: flex; flex-direction: column; gap: 14px; padding: 0; margin: 0; list-style: none; }
+.sv-not-item {
+  font-family: var(--font-body); font-size: 16px; line-height: 1.55;
+  color: var(--deep-ink); padding: 16px 0;
+  border-bottom: 1px solid var(--shell-line);
+}
+.sv-not-item strong {
+  font-family: var(--font-heading); font-weight: 700; font-style: italic;
+  color: var(--deep-ink); display: block; margin-bottom: 4px;
+  font-size: 16px;
+}
+.sv-not-item span { opacity: .8; }
+
+/* Full-bleed image break between pillar tiles and engagement section */
+.sv-break {
+  position: relative;
+  height: 420px;
+  background: #2b3142;
+  overflow: hidden;
+}
+.sv-break img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center 50%;
+  display: block;
+}
+.sv-break::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(26,29,46,0) 0%, rgba(26,29,46,0.05) 50%, rgba(26,29,46,0.55) 100%);
+  pointer-events: none;
+}
+.sv-break-cap {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 0 0 36px;
+  z-index: 1;
+}
+.sv-break-cap-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 24px; align-items: end;
+}
+.sv-break-eye {
+  font-family: var(--font-heading); font-style: italic; font-weight: 600;
+  font-size: 12px; letter-spacing: 0.04em;
+  color: rgba(245,239,227,0.72);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.sv-break-h {
+  font-family: var(--font-heading); font-weight: 700;
+  font-size: clamp(22px, 2vw, 28px); line-height: 1.25; letter-spacing: -0.012em;
+  color: var(--shell); margin: 0;
+  text-wrap: balance;
+}
+.sv-break-h em {
+  font-style: italic; color: #c9a96e; font-weight: 700;
+}
+.sv-break-loc {
+  font-family: var(--font-heading); font-style: italic; font-weight: 600;
+  font-size: 13px; color: rgba(245,239,227,0.78);
+  letter-spacing: 0.02em;
+  text-align: right;
+}
+
+@media (max-width: 1024px) {
+  .sv-hero-grid, .sv-how-grid, .sv-not-grid { grid-template-columns: 1fr; gap: 48px; }
+  .sv-pillars-grid { grid-template-columns: 1fr; }
+  .sv-how-aside { position: static; }
+  .sv-hero-photo { aspect-ratio: 16 / 10; max-height: 420px; }
+  .sv-break { height: 320px; }
+  .sv-break-cap-inner { grid-template-columns: 1fr; gap: 8px; }
+  .sv-break-loc { text-align: left; }
+}
+@media (max-width: 560px) {
+  .sv-hero { padding: 72px 0 56px; }
+  .sv-pillar { padding: 28px 24px 26px; min-height: 0; }
+  .sv-how-step { grid-template-columns: 44px 1fr; gap: 16px; }
+  .sv-break { height: 260px; }
+}
+
+html, body { margin: 0; padding: 0; }
+body { font-family: 'Source Sans 3', system-ui, sans-serif; }
+#root { min-height: 100vh; }
+</style>
+
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body class="kc-page">
+<div id="root"></div>
+
+<script type="application/json" id="page-content">
+{
+  "_doc": "All page copy lives here. The JSX below holds zero free-form strings."
+}
+</script>
+
+<script>window.KC_ASSET_BASE = '../';</script>
+<script src="../components/kc-org.js"></script>
+<script type="text/babel" src="../components/kc-seo.jsx"></script>
+<script type="text/babel" src="../components/shared.jsx"></script>
+
+<script type="text/babel" data-presets="env,react">
+  const { useEffect } = React;
+
+  const CONTENT = {
+    breadcrumbs: [
+      { label: 'Home',     href: '/index.html' },
+      { label: 'Services', href: '/services/index.html' },
+    ],
+
+    hero: {
+      eyebrow: 'Practice areas · Engagement model',
+      titlePlain: 'One firm,',
+      titleItalic: 'four practice areas.',
+      lede: "Most management firms wear all four hats off one person's calendar. We split them — community management, accounting, capital projects, and client services — into separate teams with their own leads. Boards get specialists who actually have time, not a single overloaded manager juggling everything.",
+      meta: [
+        { k: 'Service area',     v: '24 cities',     sub: 'Sarasota, Manatee, Charlotte counties' },
+        { k: 'Communities',      v: '110+',          sub: 'Condo, HOA, master-planned' },
+      ],
+      photo: {
+        src: '../assets/hero/coastal-condo.jpg',
+        alt: 'Coastal condominium tower at golden hour, Gulf-side',
+        caption: 'Venice · Florida',
+        overlayEye: 'How we work',
+        overlayH: <>Four teams, one engagement letter — <em>and one number on the proposal.</em></>,
+      },
+    },
+
+    breakImage: {
+      src: '../assets/hero/condo-towers.jpg',
+      alt: 'Bay-front mid-rise condominiums under afternoon sun',
+      eyebrow: 'How a real engagement gets built',
+      h: <>Site walk, records read, custom man-hour scope. <em>Built from what we actually saw.</em></>,
+      loc: 'Sarasota County · since 1978',
+    },
+
+    pillars: {
+      eyebrow: 'What we do',
+      titlePlain: 'The four',
+      titleItalic: 'practice areas.',
+      tiles: [
+        {
+          n: '01 · Community management',
+          label: 'Condo association management',
+          blurb: 'Coastal mid-rise and high-rise governance. SB-4D milestone inspection coordination, structural reserve studies, and the document discipline a chapter-718 board needs to stay out of court.',
+          meta: 'Florida Statute Ch. 718  ·  CAM-licensed managers',
+          href: '/condo-association-management-sarasota/index.html',
+        },
+        {
+          n: '02 · Community management',
+          label: 'HOA management',
+          blurb: 'Single-family, villa, and master-planned community governance. CDD/master/sub-association layered structures, deed-restriction enforcement that holds up, and architectural-review process that owners can actually live with.',
+          meta: 'Florida Statute Ch. 720  ·  CAM-licensed managers',
+          href: '/hoa-management-company-sarasota/index.html',
+        },
+        {
+          n: '03 · CityBooks',
+          label: 'Accounting',
+          blurb: 'CPA-supervised reporting under Ande Duda. Daily reconciliation, monthly packets that read like books rather than printouts, and reserve oversight that flags shortfalls before the board has a number to deliver.',
+          meta: 'Supervised by a Florida CPA  ·  Monthly packet',
+          href: '/accounting/index.html',
+        },
+        {
+          n: '04 · AccuReserve',
+          label: 'Reserve studies',
+          blurb: 'In-house reserve studies and SIRS milestone reserve analyses. Component schedules built from the actual building, funding plans the board can defend, and updates kept current — not on a five-year refresh cycle.',
+          meta: 'SIRS-compliant  ·  Subscription tiers',
+          href: '/reserve-studies/index.html',
+        },
+      ],
+    },
+
+    how: {
+      eyebrow: 'Engagement model',
+      titlePlain: 'How a Keys-Caldwell',
+      titleItalic: 'engagement gets built.',
+      asideP: "Every contract starts from a man-hour estimate that matches the actual community — building count, meeting cadence, capital project load, owner profile. Boards co-build the scope. We don't sell tiers, and we don't quote per-door.",
+      asideLink: { label: 'See pricing & scope', href: '/pricing/index.html' },
+      steps: [
+        { n: '01', t: 'Discovery call.',           p: "Twenty minutes on the phone with the principal. Building count, statute exposure (chapter 718 vs 720), what's open right now — milestone, SIRS, reserve under-funding, vendor problems, owner litigation. We tell you whether we're the right fit before either side spends an hour on a proposal." },
+        { n: '02', t: 'Site walk + records read.', p: "Director walks the property, reads the documents, and sits in on a board meeting if you'll have us. We learn the operating reality — the elevator that breaks every quarter, the seawall the previous board kept deferring, the owner who emails every Tuesday. The proposal is built from what we actually saw, not from a template." },
+        { n: '03', t: 'Custom man-hour scope.',    p: "We write a scope from the man-hours the work actually takes. Manager time, accounting time, client-services coverage, capital-project oversight. The number is justified line by line — boards see exactly what they're buying. No buffet tiers, no à-la-carte trapdoors." },
+        { n: '04', t: 'Proposal + transparent fee.', p: "One number, in writing, with the assumptions behind it spelled out. Boards review with counsel if they want; we'll walk through it on a second call. If the scope changes after onboarding — building count, statute exposure, capital load — the fee changes in writing too. No surprise invoices, ever." },
+        { n: '05', t: 'Onboarding + day-one ops.', p: "Records transfer, vendor introductions, owner notifications, and the first board meeting on our calendar — typically within thirty days of contract signing. Your manager, accountant, and client-services lead are all named in the engagement letter. You know who to call from day one." },
+      ],
+    },
+
+    notIncluded: {
+      eyebrow: 'Boundary lines',
+      titlePlain: 'What we',
+      titleItalic: "don't do.",
+      lede: 'Knowing what a firm declines to take on is as useful as knowing what they cover. We are not a one-stop shop, and that is intentional.',
+      items: [
+        { t: 'Legal counsel.', p: 'We coordinate with your association attorney and we know which firms specialize in chapter 718, 720, and condo-act amendments. We do not give legal opinions ourselves, ever.' },
+        { t: 'Insurance brokerage.', p: 'We work with the broker the board chooses and we coordinate claims, but we do not place coverage. Boards interested in independent insurance review can ask us for referrals to firms that specialize in coastal condo placement.' },
+        { t: 'Construction or trade work in-house.', p: 'AccuReserve identifies what needs replacement and when. Property Services scopes, bids, and runs the project. The actual roof or balcony repair is performed by licensed trade contractors — not by Keys-Caldwell employees.' },
+        { t: 'Rental management or short-term-lease oversight.', p: 'We are an association management firm. Owner-tenant lease management, vacation-rental booking, and short-term-rental compliance are not in scope. Several Sarasota firms do this well; we will refer.' },
+      ],
+    },
+
+    ctaBand: {
+      eyebrow: 'Get a real number',
+      title: 'Ready to see what a Keys-Caldwell scope looks like?',
+      lede: "Twenty minutes on the phone is enough to know whether we're the right fit. If we are, the proposal lands within two weeks of the site walk.",
+      primary:   { label: 'Request a proposal',  href: '/request-proposal/index.html' },
+      secondary: { label: 'See pricing & scope', href: '/pricing/index.html' },
+    },
+
+    footer: {},
+  };
+
+  // ─────────────────── Sections ───────────────────────────
+  const SVHero = ({ content: c }) => (
+    <section className="sv-hero">
+      <div className="kc-container">
+        <div className="sv-hero-grid">
+          <div className="sv-hero-text">
+            <div className="sv-hero-eye">{c.eyebrow}</div>
+            <h1 className="sv-hero-h">
+              {c.titlePlain} <em>{c.titleItalic}</em>
+            </h1>
+            <p className="sv-hero-lede">{c.lede}</p>
+            <div className="sv-hero-meta" style={{ marginTop: 40 }}>
+              {c.meta.map((m, i) => (
+                <div className="sv-hero-meta-cell" key={i}>
+                  <div className="sv-hero-meta-k">{m.k}</div>
+                  <div className="sv-hero-meta-v">{m.v}</div>
+                  <div className="sv-hero-meta-sub">{m.sub}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+          {c.photo && (
+            <div className="sv-hero-photo">
+              <img src={c.photo.src} alt={c.photo.alt} loading="eager" />
+              <div className="sv-hero-photo-cap">{c.photo.caption}</div>
+              <div className="sv-hero-photo-overlay">
+                <div className="sv-hero-photo-overlay-eye">{c.photo.overlayEye}</div>
+                <h2 className="sv-hero-photo-overlay-h">{c.photo.overlayH}</h2>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
+  );
+
+  const SVBreak = ({ content: c }) => (
+    <section className="sv-break" aria-label="">
+      <img src={c.src} alt={c.alt} loading="lazy" />
+      <div className="sv-break-cap">
+        <div className="kc-container">
+          <div className="sv-break-cap-inner">
+            <div>
+              <div className="sv-break-eye">{c.eyebrow}</div>
+              <h2 className="sv-break-h">{c.h}</h2>
+            </div>
+            <div className="sv-break-loc">{c.loc}</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+
+  const SVPillarTiles = ({ content: c }) => (
+    <section className="sv-pillars">
+      <div className="kc-container">
+        <div className="sv-pillars-head">
+          <div className="kc-eyebrow">{c.eyebrow}</div>
+          <h2 className="sv-pillars-h">
+            {c.titlePlain} <em>{c.titleItalic}</em>
+          </h2>
+        </div>
+        <div className="sv-pillars-grid">
+          {c.tiles.map((t, i) => (
+            <a key={i} className="sv-pillar" href={kcHref(t.href)}>
+              <div className="sv-pillar-n">{t.n}</div>
+              <h3 className="sv-pillar-label">{t.label}</h3>
+              <p className="sv-pillar-blurb">{t.blurb}</p>
+              <div className="sv-pillar-meta">{t.meta}</div>
+              <div className="sv-pillar-cta">
+                Read more <span aria-hidden="true">→</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+
+  const SVHowEngagement = ({ content: c }) => (
+    <section className="sv-how">
+      <div className="kc-container">
+        <div className="sv-how-grid">
+          <aside className="sv-how-aside">
+            <div className="kc-eyebrow">{c.eyebrow}</div>
+            <h2 className="sv-how-h">
+              {c.titlePlain} <em>{c.titleItalic}</em>
+            </h2>
+            <p className="sv-how-aside-p">{c.asideP}</p>
+            <a className="sv-how-aside-link" href={kcHref(c.asideLink.href)}>
+              {c.asideLink.label} <span aria-hidden="true">→</span>
+            </a>
+          </aside>
+          <ol className="sv-how-steps">
+            {c.steps.map((s, i) => (
+              <li className="sv-how-step" key={i}>
+                <div className="sv-how-step-n">{s.n}</div>
+                <div>
+                  <h3 className="sv-how-step-t">{s.t}</h3>
+                  <p className="sv-how-step-p">{s.p}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </div>
+    </section>
+  );
+
+  const SVNotIncluded = ({ content: c }) => (
+    <section className="sv-not">
+      <div className="kc-container">
+        <div className="sv-not-grid">
+          <div>
+            <div className="kc-eyebrow">{c.eyebrow}</div>
+            <h2 className="sv-not-h">
+              {c.titlePlain} <em>{c.titleItalic}</em>
+            </h2>
+            <p style={{ fontFamily: 'var(--font-body)', fontSize: 16, lineHeight: 1.6, color: 'var(--deep-ink)', opacity: .82, marginTop: 18, maxWidth: '38ch' }}>{c.lede}</p>
+          </div>
+          <ul className="sv-not-list">
+            {c.items.map((it, i) => (
+              <li className="sv-not-item" key={i}>
+                <strong>{it.t}</strong>
+                <span>{it.p}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+  );
+
+  // ─────────────────── App ────────────────────────────────
+  const App = () => {
+    useEffect(() => {
+      if (window.lucide) lucide.createIcons();
+    }, []);
+    return (
+      <>
+        <KCNav            content={CONTENT.nav} />
+        <KCBreadcrumbs    items={CONTENT.breadcrumbs} />
+        <SVHero           content={CONTENT.hero} />
+        <SVPillarTiles    content={CONTENT.pillars} />
+        <SVBreak          content={CONTENT.breakImage} />
+        <SVHowEngagement  content={CONTENT.how} />
+        <SVNotIncluded    content={CONTENT.notIncluded} />
+        <KCCtaBand        content={CONTENT.ctaBand} />
+        <KCFooter         content={CONTENT.footer} />
+      </>
+    );
+  };
+
+  ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>

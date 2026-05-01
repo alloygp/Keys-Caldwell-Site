@@ -48,7 +48,7 @@ if (typeof window !== 'undefined') window.kcHref = kcHref;
 const KCNav = ({ active = 'home', variant = 'shell', content }) => {
   const links = content?.links || [
     { key: 'home',    label: 'Home',             href: '/index.html' },
-    { key: 'services', label: 'Services',        href: '/condo-association-management-sarasota/index.html', submenu: {
+    { key: 'services', label: 'Services',        href: '/services/index.html', submenu: {
       eyebrow: 'What we do',
       columns: [
         { title: 'Practice areas', items: [
@@ -124,6 +124,23 @@ const KCNav = ({ active = 'home', variant = 'shell', content }) => {
   const phoneHref = 'tel:' + phone.replace(/[^\d+]/g, '');
   const assetBase = (typeof window !== 'undefined' && window.KC_ASSET_BASE) || '';
 
+  // Current pathname for "you are here" highlighting in the submenu.
+  // Normalize trailing slash and ensure leading slash so href comparisons match.
+  const currentPath = (() => {
+    if (typeof window === 'undefined') return '';
+    let p = window.location.pathname || '';
+    // Treat /foo/ and /foo/index.html as the same page
+    if (p.endsWith('/')) p = p + 'index.html';
+    return p;
+  })();
+  const isCurrentHref = (href) => {
+    if (!href || !currentPath) return false;
+    let h = href;
+    if (h.endsWith('/')) h = h + 'index.html';
+    // Compare by suffix so kcHref('../') prefixes don't break the match
+    return currentPath === h || currentPath.endsWith(h);
+  };
+
   // Submenu state — single open key, hover-intent timing
   const [openKey, setOpenKey] = React.useState(null);
   const closeTimer = React.useRef(null);
@@ -139,6 +156,16 @@ const KCNav = ({ active = 'home', variant = 'shell', content }) => {
 
   return (
     <header className="kc-nav" data-variant={variant} onMouseLeave={close}>
+      <div className="kc-nav-utility">
+        <div className="kc-nav-utility-inner">
+          <a className="kc-nav-utility-link" href="https://keys-caldwell.cincwebaxis.com/" target="_blank" rel="noopener noreferrer">
+            <svg width="11" height="11" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+              <path d="M5 7.5V8.5M3.5 5.5V4.25C3.5 2.875 4.62 1.75 6 1.75C7.38 1.75 8.5 2.875 8.5 4.25V5.5M3 5.5H9C9.27 5.5 9.5 5.73 9.5 6V9.75C9.5 10.02 9.27 10.25 9 10.25H3C2.73 10.25 2.5 10.02 2.5 9.75V6C2.5 5.73 2.73 5.5 3 5.5Z" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            Homeowner login
+          </a>
+        </div>
+      </div>
       <div className="kc-nav-inner">
         <a className="kc-nav-logo" href={kcHref('/index.html')}>
           <img src={assetBase + 'assets/KC_Logo_Navy.svg'} alt="Keys-Caldwell" />
@@ -161,7 +188,13 @@ const KCNav = ({ active = 'home', variant = 'shell', content }) => {
                   onFocus={() => hasMenu ? open(l.key) : null}
                 >
                   {l.label}
-                  {hasMenu && <span className="kc-nav-caret" aria-hidden="true">▾</span>}
+                  {hasMenu && (
+                    <span className="kc-nav-caret" aria-hidden="true">
+                      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2.5 4.5 L6 8 L9.5 4.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </span>
+                  )}
                 </a>
               </div>
             );
@@ -192,17 +225,25 @@ const KCNav = ({ active = 'home', variant = 'shell', content }) => {
                       <div key={i} className="kc-nav-submenu-col">
                         {col.title && <div className="kc-nav-submenu-col-title">{col.title}</div>}
                         <ul>
-                          {col.items.map((it, j) => (
-                            <li key={j}>
-                              <a href={kcHref(it.href)} className="kc-nav-submenu-link">
-                                <span className="kc-nav-submenu-link-label">
-                                  {it.label}
-                                  {it.badge && <span className="kc-nav-submenu-badge">{it.badge}</span>}
-                                </span>
-                                {it.desc && <span className="kc-nav-submenu-link-desc">{it.desc}</span>}
-                              </a>
-                            </li>
-                          ))}
+                          {col.items.map((it, j) => {
+                            const cur = isCurrentHref(it.href);
+                            return (
+                              <li key={j}>
+                                <a
+                                  href={kcHref(it.href)}
+                                  className={'kc-nav-submenu-link' + (cur ? ' is-current' : '')}
+                                  aria-current={cur ? 'page' : undefined}
+                                >
+                                  <span className="kc-nav-submenu-link-label">
+                                    {it.label}
+                                    {it.badge && <span className="kc-nav-submenu-badge">{it.badge}</span>}
+                                    {cur && <span className="kc-nav-submenu-here" aria-hidden="true">You are here</span>}
+                                  </span>
+                                  {it.desc && <span className="kc-nav-submenu-link-desc">{it.desc}</span>}
+                                </a>
+                              </li>
+                            );
+                          })}
                         </ul>
                       </div>
                     ))}

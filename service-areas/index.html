@@ -33,7 +33,7 @@
   padding: 96px 0 80px;
 }
 .sa-hero-grid {
-  display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 80px;
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 64px;
   align-items: end;
 }
 .sa-hero-eye {
@@ -108,6 +108,36 @@
   text-wrap: balance;
 }
 .sa-region-h em { font-style: italic; color: var(--kc-indigo); font-weight: 700; }
+
+/* Notes section — title above, paragraphs in two-column flow */
+.sa-notes-head {
+  max-width: 920px; margin: 0 auto 56px; text-align: left;
+}
+.sa-notes-h {
+  font-family: var(--font-heading); font-weight: 700;
+  font-size: clamp(36px, 4vw, 56px); line-height: 1.05;
+  color: var(--deep-ink); margin: 8px 0 0; letter-spacing: -0.012em;
+  text-wrap: balance;
+}
+.sa-notes-h em { font-style: italic; color: var(--kc-indigo); font-weight: 700; }
+.sa-notes-rule {
+  border: 0; border-top: 1px solid var(--shell-line);
+  margin: 32px 0 0; max-width: 96px;
+  border-top-color: var(--aged-brass); opacity: 0.55;
+}
+.sa-notes-body {
+  max-width: 920px; margin: 0 auto;
+  columns: 2; column-gap: 56px;
+}
+.sa-notes-p {
+  font-family: var(--font-body); font-size: 16px; line-height: 1.65;
+  color: var(--deep-ink); opacity: .85; margin: 0 0 18px;
+  break-inside: avoid;
+}
+@media (max-width: 900px) {
+  .sa-notes-body { columns: 1; }
+  .sa-notes-head { margin-bottom: 32px; }
+}
 .sa-region-blurb {
   font-family: var(--font-body); font-size: 17px; line-height: 1.55;
   color: var(--deep-ink); opacity: .82; margin: 0;
@@ -290,9 +320,9 @@ const CONTENT = {
   // ─── HERO ────────────────────────────────────────────────
   hero: {
     eyebrow: "Service areas · Sarasota, Manatee & Charlotte counties",
-    titlePlain: "Where we manage. Twenty-four cities and barrier islands across",
-    titleItalic: "the Florida Gulf Coast.",
-    lede: "Our office is in Venice. From there we cover the I-75 corridor north to Bradenton and Anna Maria Island, south to Charlotte County, and west across every barrier island in between. Each city below links into the dedicated pillar coverage page — condo or HOA — for that location.",
+    titlePlain: "Where",
+    titleItalic: "we manage.",
+    lede: "Our office is in Venice. From there we cover the I-75 corridor north to Bradenton and Anna Maria Island, south to Charlotte County, and west across every barrier island in between. Twenty-four cities, three counties, one team. Each city below links into the dedicated pillar coverage page — condo or HOA — for that location.",
     meta: [
       { k: "Coverage radius",       v: "0 – 60 mi", sub: "from Venice HQ" },
       { k: "Cities served",         v: "14",        sub: "across 3 counties" },
@@ -366,8 +396,8 @@ const CONTENT = {
   // ─── COVERAGE NOTES ──────────────────────────────────────
   notes: {
     eye: "How this map actually works",
-    titlePlain: "Drive time matters more than driving distance.",
-    titleItalic: "matters more than driving distance.",
+    titlePlain: "Drive time matters more than",
+    titleItalic: "driving distance.",
     paragraphs: [
       "Distance from our Venice office is shown for every city, but it isn't the operational measure that matters. Manager visit cadence is. The associations we manage in Venice and Nokomis see a manager bi-weekly; Sarasota and Lakewood Ranch run on a monthly visit cycle plus emergency dispatch as needed. Boards in Bradenton and Anna Maria Island operate on the same monthly cadence with the same SLA on response.",
       "The 24-hour written response window is uniform across the coverage area. The 48-hour post-storm site assessment SLA is uniform. Vendor staging, after-hours coverage, and the Vantaca portal are uniform. What varies is the manager's drive time on a planned visit — and we've staffed and routed for that since 1978.",
@@ -465,18 +495,17 @@ const SARegion = ({ region, indexOffset }) => {
 };
 
 const SANotes = ({ content }) => (
-  <section className="sa-region" style={{ background: '#fcfaf6' }}>
+  <section className="sa-region sa-notes" style={{ background: '#fcfaf6' }}>
     <div className="kc-container">
-      <div className="sa-region-head">
-        <div>
-          <div className="sa-region-eye">{content.eye}</div>
-          <h2 className="sa-region-h">{italicize(content.titlePlain, content.titleItalic)}</h2>
-        </div>
-        <div style={{ display: 'grid', gap: 16 }}>
-          {content.paragraphs.map((p, i) => (
-            <p key={i} style={{ fontFamily: 'var(--font-body)', fontSize: 16, lineHeight: 1.6, color: 'var(--deep-ink)', opacity: .82, margin: 0, maxWidth: '64ch' }}>{p}</p>
-          ))}
-        </div>
+      <div className="sa-notes-head">
+        <div className="sa-region-eye">{content.eye}</div>
+        <h2 className="sa-notes-h">{italicize(content.titlePlain, content.titleItalic)}</h2>
+        <hr className="sa-notes-rule" />
+      </div>
+      <div className="sa-notes-body">
+        {content.paragraphs.map((p, i) => (
+          <p key={i} className="sa-notes-p">{p}</p>
+        ))}
       </div>
     </div>
   </section>
