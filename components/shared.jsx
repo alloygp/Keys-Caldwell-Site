@@ -58,6 +58,7 @@ const KCNav = ({ active = 'home', variant = 'shell', content }) => {
         ]},
         { title: 'Departments', items: [
           { label: 'Accounting · CityBooks',  href: '/accounting/index.html', desc: 'CPA-supervised reporting.' },
+          { label: 'Reserve studies · AccuReserve', href: '/reserve-studies/index.html', desc: 'SIRS, HOA, subscription tiers.' },
           { label: 'Property services',       href: '#', desc: 'Capital projects & maintenance.' },
           { label: 'Pricing & scope',         href: '/pricing/index.html', desc: 'How proposals are built.' },
         ]},
@@ -240,6 +241,7 @@ const KCFooter = ({ content }) => {
       { label: 'Condo association management', href: '/condo-association-management-sarasota/index.html' },
       { label: 'HOA management',                href: '/hoa-management-company-sarasota/index.html' },
       { label: 'Accounting & CityBooks',        href: '/accounting/index.html' },
+      { label: 'Reserve studies · AccuReserve', href: '/reserve-studies/index.html' },
       { label: 'Property services',             href: '#' },
       { label: 'Pricing & scope',               href: '/pricing/index.html' },
     ]},

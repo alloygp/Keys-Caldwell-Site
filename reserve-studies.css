@@ -1,0 +1,640 @@
+/* =============================================================
+   Keys-Caldwell — /reserve-studies/ (AccuReserve service page)
+   =============================================================
+   Loaded after styles.css and pillar.css. Page-specific styles
+   for the seven reserve-studies components defined in
+   components/reserve-studies.jsx.
+   ============================================================= */
+
+/* ─── HERO PHOTO TREATMENT ─────────────────────────────────
+   Coastal-condo image at low opacity behind hero. Scoped to
+   .kc-page-reserve so other pillar pages aren't affected. */
+.kc-page-reserve .kc-pillar-hero {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.kc-page-reserve .kc-pillar-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: url('assets/hero/coastal-condo.jpg');
+  background-size: cover;
+  background-position: center 40%;
+  opacity: 0.16;
+  z-index: 0;
+  pointer-events: none;
+}
+.kc-page-reserve .kc-pillar-hero::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(245,239,227,0.88) 0%,
+    rgba(245,239,227,0.65) 55%,
+    rgba(245,239,227,0.40) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+.kc-page-reserve .kc-pillar-hero > .kc-container {
+  position: relative;
+  z-index: 2;
+}
+
+/* ─── KCResStory — signature-story callout ───────────────── */
+.kc-res-story {
+  background: var(--deep-ink);
+  color: var(--shell);
+  padding: 80px 0;
+  border-top: 4px solid var(--aged-brass);
+}
+.kc-res-story .kc-eyebrow {
+  color: var(--aged-brass);
+}
+.kc-res-story-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+.kc-res-story-h {
+  font-family: var(--font-heading); font-style: italic; font-weight: 700;
+  font-size: 36px; line-height: 1.18; letter-spacing: -0.015em;
+  color: var(--shell); margin: 0 0 22px;
+  text-wrap: balance;
+}
+.kc-res-story-h em { color: var(--aged-brass-90); font-style: italic; }
+.kc-res-story-p {
+  font-size: 17px; line-height: 1.65; color: rgba(245,239,227,0.82);
+  margin: 0 0 24px;
+}
+.kc-res-story-link {
+  font-size: 14px; letter-spacing: 0.06em; font-weight: 700;
+  color: var(--aged-brass); text-decoration: none;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: gap .2s ease;
+}
+.kc-res-story-link:hover { color: var(--aged-brass-90); gap: 12px; }
+.kc-res-story-pull {
+  position: relative;
+  border-left: 3px solid var(--aged-brass);
+  padding: 8px 0 8px 32px;
+}
+.kc-res-story-pull-mark {
+  position: absolute; left: 16px; top: -28px;
+  font-family: var(--font-heading); font-weight: 700;
+  font-size: 96px; line-height: 1; color: var(--aged-brass);
+  opacity: 0.6;
+}
+.kc-res-story-pull-q {
+  font-family: var(--font-heading); font-style: italic; font-weight: 600;
+  font-size: 24px; line-height: 1.32; letter-spacing: -0.01em;
+  color: var(--shell); margin: 0;
+  text-wrap: balance;
+}
+
+/* ─── KCResContinuum — 3-tier centerpiece ────────────────── */
+.kc-res-continuum {
+  background: var(--shell);
+  padding: 96px 0 96px;
+}
+.kc-res-continuum-head {
+  max-width: 820px; margin: 0 0 56px;
+}
+.kc-res-continuum-h {
+  font-family: var(--font-heading); font-style: italic; font-weight: 700;
+  font-size: 44px; line-height: 1.12; color: var(--deep-ink);
+  letter-spacing: -0.018em; margin: 0 0 18px;
+  text-wrap: balance;
+}
+.kc-res-continuum-h em { color: var(--kc-indigo); font-style: italic; }
+.kc-res-continuum-p {
+  font-size: 18px; line-height: 1.65; color: var(--driftwood);
+  max-width: 720px;
+}
+.kc-res-continuum-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  margin-bottom: 28px;
+}
+.kc-res-tier {
+  background: #fff; border: 1px solid var(--shell-line);
+  border-radius: var(--radius-lg);
+  padding: 36px 32px 32px;
+  display: flex; flex-direction: column;
+  position: relative;
+  box-shadow: var(--shadow-2);
+  transition: box-shadow .25s ease, transform .25s ease;
+}
+.kc-res-tier:hover { box-shadow: var(--shadow-3); transform: translateY(-2px); }
+.kc-res-tier.has-flag {
+  border-top: 4px solid var(--aged-brass);
+  padding-top: 32px;
+}
+.kc-res-tier-flag {
+  position: absolute; top: -14px; left: 28px;
+  background: var(--aged-brass); color: var(--shell);
+  padding: 6px 14px; border-radius: 999px;
+  font-size: 10px; font-weight: 800; letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.kc-res-tier-numeral {
+  font-family: var(--font-heading); font-style: italic; font-weight: 700;
+  font-size: 14px; color: var(--aged-brass); letter-spacing: 0.02em;
+  margin-bottom: 14px;
+}
+.kc-res-tier-numeral sup { font-size: 0.7em; vertical-align: super; }
+.kc-res-tier-price {
+  display: flex; align-items: baseline; gap: 10px;
+  margin-bottom: 18px;
+}
+.kc-res-tier-price-num {
+  font-family: var(--font-heading); font-style: italic; font-weight: 700;
+  font-size: 44px; line-height: 1; color: var(--kc-indigo);
+  letter-spacing: -0.02em;
+}
+.kc-res-tier-price-unit {
+  font-size: 12px; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--driftwood);
+}
+.kc-res-tier-name {
+  font-family: var(--font-heading); font-style: italic; font-weight: 700;
+  font-size: 24px; line-height: 1.2; color: var(--deep-ink);
+  letter-spacing: -0.005em; margin: 0 0 8px;
+}
+.kc-res-tier-for {
+  font-size: 12px; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--aged-brass);
+  margin-bottom: 18px;
+}
+.kc-res-tier-desc {
+  font-size: 14.5px; line-height: 1.6; color: var(--driftwood);
+  margin: 0 0 22px;
+}
+.kc-res-tier-list {
+  list-style: none; padding: 0; margin: 0 0 0;
+  border-top: 1px solid var(--shell-line); padding-top: 22px;
+  display: grid; gap: 11px;
+}
+.kc-res-tier-list li {
+  display: grid; grid-template-columns: 18px 1fr; gap: 10px;
+  font-size: 13.5px; line-height: 1.5; color: var(--deep-ink);
+}
+.kc-res-tier-check {
+  color: var(--aged-brass); font-weight: 700;
+  font-family: var(--font-heading); font-style: italic;
+}
+.kc-res-continuum-note {
+  font-size: 13px; line-height: 1.6; color: var(--driftwood);
+  font-style: italic; max-width: 900px; margin: 28px 0 0;
+}
+
+/* ─── KCResHealth — funding-percentage chart ─────────────── */
+.kc-res-health {
+  background: #fff;
+  border-top: 1px solid var(--shell-line);
+  padding: 96px 0 96px;
+}
+.kc-res-health-head { max-width: 760px; margin: 0 0 48px; }
+.kc-res-health-h {
+  font-family: var(--font-heading); font-style: italic; font-weight: 700;
+  font-size: 44px; line-height: 1.12; color: var(--deep-ink);
+  letter-spacing: -0.018em; margin: 0 0 18px;
+  text-wrap: balance;
+}
+.kc-res-health-h em { color: var(--kc-indigo); font-style: italic; }
+.kc-res-health-p {
+  font-size: 18px; line-height: 1.65; color: var(--driftwood);
+  max-width: 720px;
+}
+.kc-res-health-frame {
+  position: relative;
+  background: var(--shell);
+  border: 1px solid var(--shell-line);
+  border-radius: var(--radius-lg);
+  padding: 48px 32px 80px;
+  margin-bottom: 32px;
+}
+.kc-res-health-axis {
+  position: relative;
+  height: 28px;
+  margin-bottom: 8px;
+}
+.kc-res-health-tick {
+  position: absolute; top: 0;
+  transform: translateX(-50%);
+  text-align: center;
+}
+.kc-res-health-tick-line {
+  width: 1px; height: 12px;
+  background: var(--driftwood-30);
+  margin: 0 auto 4px;
+}
+.kc-res-health-tick-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+  color: var(--driftwood);
+}
+.kc-res-health-bands {
+  position: relative;
+  height: 80px;
+  margin-bottom: 60px;
+  background: rgba(31,42,77,0.04);
+  border-radius: 4px;
+}
+.kc-res-health-band {
+  position: absolute; top: 0; bottom: 0;
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 0 12px;
+  border-right: 1px solid rgba(255,255,255,0.6);
+}
+.kc-res-health-band:last-child { border-right: 0; }
+.kc-res-health-band.is-high  { background: #B8493A; color: #fff; }
+.kc-res-health-band.is-med   { background: #C5A24E; color: var(--deep-ink); }
+.kc-res-health-band.is-low   { background: #5C8B68; color: #fff; }
+.kc-res-health-band.is-ideal { background: #2F6F45; color: #fff; }
+.kc-res-health-band-pct {
+  font-family: var(--font-heading); font-style: italic; font-weight: 700;
+  font-size: 18px;
+}
+.kc-res-health-band-label {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; opacity: 0.92;
+}
+.kc-res-health-target {
+  position: absolute;
+  bottom: 32px;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 2;
+}
+.kc-res-health-target-line {
+  width: 2px; height: 100px;
+  background: var(--deep-ink);
+  margin: 0 auto -8px;
+  border-radius: 1px;
+}
+.kc-res-health-target-line::before {
+  content: ''; display: block;
+  width: 12px; height: 12px;
+  background: var(--deep-ink);
+  border-radius: 50%;
+  transform: translate(-5px, -6px);
+}
+.kc-res-health-target-label {
+  display: inline-block;
+  background: var(--deep-ink); color: var(--shell);
+  padding: 5px 11px;
+  border-radius: 4px;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Per-band detail rows */
+.kc-res-health-detail {
+  display: grid; gap: 0;
+  border-top: 1px solid var(--shell-line);
+}
+.kc-res-health-detail-row {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 2fr;
+  gap: 24px; align-items: center;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--shell-line);
+}
+.kc-res-health-detail-row:last-child { border-bottom: 0; }
+.kc-res-health-detail-bar {
+  display: flex; align-items: center; gap: 14px;
+}
+.kc-res-health-detail-dot {
+  width: 12px; height: 12px; border-radius: 50%;
+  flex-shrink: 0;
+}
+.kc-res-health-detail-dot.is-high  { background: #B8493A; }
+.kc-res-health-detail-dot.is-med   { background: #C5A24E; }
+.kc-res-health-detail-dot.is-low   { background: #5C8B68; }
+.kc-res-health-detail-dot.is-ideal { background: #2F6F45; }
+.kc-res-health-detail-label {
+  font-family: var(--font-body); font-weight: 600;
+  font-size: 15px; color: var(--deep-ink);
+}
+.kc-res-health-detail-pct {
+  font-size: 12px; font-weight: 700; letter-spacing: 0.08em;
+  color: var(--driftwood);
+}
+.kc-res-health-detail-count {
+  font-family: var(--font-heading); font-style: italic; font-weight: 700;
+  font-size: 16px; color: var(--kc-indigo);
+}
+.kc-res-health-detail-note {
+  font-size: 13.5px; line-height: 1.55; color: var(--driftwood);
+}
+.kc-res-health-note {
+  font-size: 12.5px; line-height: 1.55; color: var(--driftwood);
+  font-style: italic; margin: 24px 0 0;
+}
+
+/* ─── KCResSchedule — component schedule artifact ────────── */
+.kc-res-sched {
+  background: var(--shell);
+  padding: 96px 0 96px;
+}
+.kc-res-sched-head { max-width: 760px; margin: 0 0 48px; }
+.kc-res-sched-h {
+  font-family: var(--font-heading); font-style: italic; font-weight: 700;
+  font-size: 44px; line-height: 1.12; color: var(--deep-ink);
+  letter-spacing: -0.018em; margin: 0 0 18px;
+  text-wrap: balance;
+}
+.kc-res-sched-h em { color: var(--kc-indigo); font-style: italic; }
+.kc-res-sched-p {
+  font-size: 18px; line-height: 1.65; color: var(--driftwood);
+  max-width: 720px;
+}
+.kc-res-sched-frame {
+  background: #fff;
+  border: 1px solid var(--shell-line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-3);
+  overflow: hidden;
+}
+.kc-res-sched-bar {
+  display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 18px;
+  padding: 14px 22px;
+  background: var(--deep-ink); color: var(--shell);
+  border-bottom: 3px solid var(--aged-brass);
+}
+.kc-res-sched-dots { display: flex; gap: 6px; }
+.kc-res-sched-dots span {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: rgba(245,239,227,0.25);
+}
+.kc-res-sched-title {
+  font-family: var(--font-heading); font-style: italic; font-weight: 600;
+  font-size: 14px; letter-spacing: 0.01em;
+  color: rgba(245,239,227,0.92);
+}
+.kc-res-sched-stamp {
+  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  font-weight: 700; color: var(--aged-brass);
+}
+
+.kc-res-sched-table { display: block; }
+.kc-res-sched-row {
+  display: grid;
+  grid-template-columns: 2.2fr 0.8fr 0.8fr 1.1fr 1.4fr 1.1fr;
+  gap: 18px; align-items: center;
+  padding: 16px 22px 6px;
+}
+.kc-res-sched-thead {
+  background: rgba(31,42,77,0.04);
+  padding: 12px 22px;
+}
+.kc-res-sched-thead > div {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--driftwood);
+}
+.kc-res-sched-comp-name {
+  font-family: var(--font-body); font-weight: 600;
+  font-size: 14.5px; color: var(--deep-ink);
+}
+.kc-res-sched-comp-cat {
+  font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--aged-brass); font-weight: 700; margin-top: 2px;
+}
+.kc-res-sched-cell { font-size: 13.5px; color: var(--driftwood); font-variant-numeric: tabular-nums; }
+.kc-res-sched-rem { color: var(--deep-ink); font-weight: 600; }
+.kc-res-sched-cost {
+  font-family: var(--font-heading); font-style: italic; font-weight: 700;
+  font-size: 15px; color: var(--kc-indigo);
+}
+.kc-res-sched-funded { display: flex; flex-direction: column; gap: 4px; }
+.kc-res-sched-funded-num {
+  font-size: 13px; font-weight: 700; color: var(--deep-ink);
+  font-variant-numeric: tabular-nums;
+}
+.kc-res-sched-funded-track {
+  height: 6px; border-radius: 3px;
+  background: rgba(31,42,77,0.08);
+  overflow: hidden;
+}
+.kc-res-sched-funded-fill { height: 100%; border-radius: 3px; }
+.kc-res-sched-funded-fill.is-ok      { background: #5C8B68; }
+.kc-res-sched-funded-fill.is-watch   { background: #C5A24E; }
+.kc-res-sched-funded-fill.is-action  { background: #B8493A; }
+
+.kc-res-sched-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 5px 10px; border-radius: 999px;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.kc-res-sched-badge.is-ok      { background: rgba(92,139,104,0.14);  color: #2F6F45; }
+.kc-res-sched-badge.is-watch   { background: rgba(197,162,78,0.18);  color: #8C6E1E; }
+.kc-res-sched-badge.is-action  { background: rgba(184,73,58,0.14);   color: #8B2D22; }
+.kc-res-sched-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: currentColor;
+}
+.kc-res-sched-rownote {
+  font-size: 12.5px; line-height: 1.5; color: var(--driftwood);
+  padding: 0 22px 16px 22px;
+  border-bottom: 1px solid var(--shell-line);
+  font-style: italic;
+}
+.kc-res-sched-rownote:last-of-type { border-bottom: 0; }
+.kc-res-sched-footnote {
+  font-size: 12px; line-height: 1.55; color: var(--driftwood);
+  font-style: italic; padding: 16px 22px;
+  background: rgba(31,42,77,0.03);
+  border-top: 1px solid var(--shell-line);
+}
+
+/* ─── KCResSplit — SIRS vs HOA two-column ────────────────── */
+.kc-res-split {
+  background: #fff;
+  border-top: 1px solid var(--shell-line);
+  padding: 96px 0 96px;
+}
+.kc-res-split-head { max-width: 820px; margin: 0 0 48px; }
+.kc-res-split-h {
+  font-family: var(--font-heading); font-style: italic; font-weight: 700;
+  font-size: 40px; line-height: 1.14; color: var(--deep-ink);
+  letter-spacing: -0.018em; margin: 0 0 18px;
+  text-wrap: balance;
+}
+.kc-res-split-h em { color: var(--kc-indigo); font-style: italic; }
+.kc-res-split-p {
+  font-size: 17px; line-height: 1.65; color: var(--driftwood);
+  max-width: 760px;
+}
+.kc-res-split-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 32px;
+}
+.kc-res-split-col {
+  background: var(--shell);
+  border: 1px solid var(--shell-line);
+  border-top: 4px solid var(--aged-brass);
+  border-radius: var(--radius-lg);
+  padding: 32px 32px 28px;
+}
+.kc-res-split-col-eye {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--aged-brass);
+  margin-bottom: 12px;
+}
+.kc-res-split-col-h {
+  font-family: var(--font-heading); font-style: italic; font-weight: 700;
+  font-size: 24px; line-height: 1.22; color: var(--deep-ink);
+  letter-spacing: -0.01em; margin: 0 0 8px;
+  text-wrap: balance;
+}
+.kc-res-split-col-statute {
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 12px; color: var(--kc-indigo);
+  letter-spacing: 0.02em;
+  margin-bottom: 22px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--shell-line);
+}
+.kc-res-split-col-list {
+  margin: 0 0 22px; padding: 0;
+  display: grid; gap: 14px;
+}
+.kc-res-split-col-row {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 16px; align-items: start;
+}
+.kc-res-split-col-row dt {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--aged-brass);
+  padding-top: 2px;
+}
+.kc-res-split-col-row dd {
+  margin: 0;
+  font-size: 13.5px; line-height: 1.55; color: var(--deep-ink);
+}
+.kc-res-split-col-link {
+  font-size: 13px; letter-spacing: 0.06em; font-weight: 700;
+  color: var(--kc-indigo); text-decoration: none;
+  display: inline-flex; align-items: center; gap: 6px;
+  padding-top: 12px;
+  border-top: 1px solid var(--shell-line);
+  transition: gap .2s ease;
+  width: fit-content;
+}
+.kc-res-split-col-link:hover { color: var(--kc-indigo-90); gap: 10px; }
+
+/* ─── KCResMethodology — 5-phase strip ───────────────────── */
+.kc-res-method {
+  background: var(--shell);
+  padding: 96px 0 88px;
+  border-top: 1px solid var(--shell-line);
+}
+.kc-res-method-head { max-width: 820px; margin: 0 0 56px; }
+.kc-res-method-h {
+  font-family: var(--font-heading); font-style: italic; font-weight: 700;
+  font-size: 44px; line-height: 1.12; color: var(--deep-ink);
+  letter-spacing: -0.018em; margin: 0 0 18px;
+  text-wrap: balance;
+}
+.kc-res-method-h em { color: var(--kc-indigo); font-style: italic; }
+.kc-res-method-p {
+  font-size: 18px; line-height: 1.65; color: var(--driftwood);
+  max-width: 720px;
+}
+.kc-res-method-strip {
+  list-style: none; padding: 0; margin: 0;
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: 0;
+  border-top: 1px solid var(--shell-line);
+  position: relative;
+}
+.kc-res-method-strip::before {
+  content: ''; position: absolute;
+  left: 0; top: -1px; width: 96px; height: 3px; background: var(--aged-brass);
+}
+.kc-res-method-step {
+  padding: 32px 22px 32px 0;
+  border-right: 1px solid var(--shell-line);
+}
+.kc-res-method-step:last-child { border-right: 0; padding-right: 0; }
+.kc-res-method-step + .kc-res-method-step { padding-left: 22px; }
+.kc-res-method-when {
+  font-family: var(--font-heading); font-style: italic; font-weight: 700;
+  font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--aged-brass); margin-bottom: 16px;
+}
+.kc-res-method-h3 {
+  font-family: var(--font-heading); font-style: italic; font-weight: 700;
+  font-size: 19px; line-height: 1.25; color: var(--deep-ink);
+  letter-spacing: -0.005em; margin: 0 0 10px;
+  text-wrap: balance;
+}
+.kc-res-method-body {
+  font-size: 13.5px; line-height: 1.6; color: var(--driftwood);
+  margin: 0;
+}
+
+/* ─── KCResReceipts — 8-row ledger ───────────────────────── */
+.kc-res-receipts {
+  background: #fff;
+  border-top: 1px solid var(--shell-line);
+  padding: 96px 0 96px;
+}
+.kc-res-receipts-head { max-width: 760px; margin: 0 0 48px; }
+.kc-res-receipts-h {
+  font-family: var(--font-heading); font-style: italic; font-weight: 700;
+  font-size: 40px; line-height: 1.12; color: var(--deep-ink);
+  letter-spacing: -0.018em; margin: 0 0 18px;
+  text-wrap: balance;
+}
+.kc-res-receipts-h em { color: var(--kc-indigo); font-style: italic; }
+.kc-res-receipts-p {
+  font-size: 17px; line-height: 1.65; color: var(--driftwood);
+  max-width: 720px;
+}
+.kc-res-receipts-list {
+  list-style: none; padding: 0; margin: 0;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+  border-top: 1px solid var(--shell-line);
+}
+.kc-res-receipts-row {
+  display: grid; grid-template-columns: 56px 1fr; gap: 18px;
+  padding: 26px 28px 26px 0;
+  border-bottom: 1px solid var(--shell-line);
+}
+.kc-res-receipts-row:nth-child(odd) { border-right: 1px solid var(--shell-line); padding-right: 28px; }
+.kc-res-receipts-row:nth-child(even) { padding-left: 28px; }
+.kc-res-receipts-n {
+  font-family: var(--font-heading); font-style: italic; font-weight: 700;
+  font-size: 22px; color: var(--aged-brass);
+  letter-spacing: -0.01em;
+}
+.kc-res-receipts-title {
+  font-family: var(--font-heading); font-style: italic; font-weight: 700;
+  font-size: 19px; color: var(--deep-ink); margin-bottom: 6px;
+  letter-spacing: -0.005em;
+}
+.kc-res-receipts-desc {
+  font-size: 14px; line-height: 1.6; color: var(--driftwood);
+  margin: 0;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 980px) {
+  .kc-res-story-grid,
+  .kc-res-continuum-grid,
+  .kc-res-split-grid,
+  .kc-res-receipts-list {
+    grid-template-columns: 1fr;
+  }
+  .kc-res-method-strip { grid-template-columns: repeat(2, 1fr); }
+  .kc-res-method-step { border-right: 0 !important; padding: 24px 0 !important; border-bottom: 1px solid var(--shell-line); }
+  .kc-res-receipts-row { border-right: 0 !important; padding: 20px 0 !important; }
+  .kc-res-sched-row { grid-template-columns: 1.6fr 0.7fr 0.7fr 1fr 1.2fr 1fr; gap: 12px; padding: 14px 16px 6px; font-size: 12px; }
+  .kc-res-sched-thead { padding: 10px 16px; }
+  .kc-res-sched-rownote { padding: 0 16px 14px; }
+  .kc-res-health-detail-row { grid-template-columns: 1fr; gap: 8px; }
+  .kc-res-story-h, .kc-res-continuum-h, .kc-res-health-h, .kc-res-sched-h, .kc-res-method-h { font-size: 32px; }
+  .kc-res-split-h, .kc-res-receipts-h { font-size: 30px; }
+}
