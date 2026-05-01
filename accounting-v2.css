@@ -1,0 +1,570 @@
+/* =============================================================
+   Keys-Caldwell — /accounting/v2/ — V2-only styles
+   =============================================================
+   Layered AFTER styles.css + pillar.css + accounting.css.
+   Every selector starts with .kc-v2-* so this never collides
+   with V1.
+   ============================================================= */
+
+:root {
+  --kc-v2-anchor-c: var(--brass, #B8943D);
+}
+
+/* ─── Shared anchor / italic line ─── */
+.kc-v2-anchor {
+  font-family: var(--serif, 'Lora', Georgia, serif);
+  font-style: italic;
+  color: var(--kc-v2-anchor-c);
+  font-size: 18px;
+  display: block;
+  margin: 0 0 28px;
+}
+
+/* ═══════════════════════════ HERO ═══════════════════════════ */
+.kc-v2-hero {
+  background: linear-gradient(180deg, #fff 0%, var(--shell, #F5EFE3) 100%);
+  padding: 88px 0 96px;
+  border-bottom: 1px solid var(--shell-line, rgba(26, 29, 46, 0.08));
+}
+.kc-v2-hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.kc-v2-hero-h1 {
+  font-family: var(--serif, 'Lora', Georgia, serif);
+  font-size: clamp(38px, 5vw, 56px);
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  color: var(--ink, #1A1D2E);
+  font-weight: 600;
+  margin: 18px 0 22px;
+}
+.kc-v2-hero-h1 em {
+  font-style: italic;
+  color: var(--brass, #B8943D);
+  font-weight: 600;
+}
+.kc-v2-hero-sub {
+  font-size: 20px;
+  line-height: 1.55;
+  color: var(--driftwood, #5A6470);
+  max-width: 560px;
+  margin-bottom: 32px;
+}
+.kc-v2-hero-ctas {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 38px;
+}
+.kc-v2-hero-ghost {
+  font-family: var(--sans, 'Source Sans 3', system-ui, sans-serif);
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--indigo, #1E2071);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding: 12px 0;
+  transition: border-color 0.2s;
+}
+.kc-v2-hero-ghost:hover { border-bottom-color: var(--brass, #B8943D); color: var(--brass, #B8943D); }
+.kc-v2-hero-ghost span { display: inline-block; transition: transform 0.2s; }
+.kc-v2-hero-ghost:hover span { transform: translateX(3px); }
+
+.kc-v2-hero-trust {
+  display: flex;
+  gap: 36px;
+  flex-wrap: wrap;
+  padding-top: 28px;
+  border-top: 1px solid rgba(26, 29, 46, 0.08);
+}
+.kc-v2-hero-trust-item { display: flex; flex-direction: column; }
+.kc-v2-hero-trust-num {
+  font-family: var(--serif, 'Lora', Georgia, serif);
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--indigo, #1E2071);
+  line-height: 1;
+}
+.kc-v2-hero-trust-lbl {
+  font-size: 13px;
+  color: var(--driftwood, #5A6470);
+  margin-top: 6px;
+  letter-spacing: 0.02em;
+}
+
+/* Hero image: warm placeholder. Will be replaced with a real
+   coastal-condo photograph during photo production. */
+.kc-v2-hero-img {
+  position: relative;
+  min-height: 460px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--shell, #F5EFE3) 0%, #EDE5D2 100%);
+  border: 1px solid rgba(184, 148, 61, 0.30);
+}
+.kc-v2-hero-img-fill {
+  position: absolute; inset: 0;
+  background-image: url('assets/hero/hoa-accounting-services.jpg');
+  background-size: cover;
+  background-position: center 40%;
+  opacity: 0.55;
+}
+.kc-v2-hero-img::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(245, 239, 227, 0.0) 50%, rgba(245, 239, 227, 0.45) 100%);
+  pointer-events: none;
+}
+
+@media (max-width: 900px) {
+  .kc-v2-hero-grid { grid-template-columns: 1fr; gap: 40px; }
+  .kc-v2-hero-img { min-height: 320px; }
+}
+
+/* ═══════════════════════════ WHY ═══════════════════════════ */
+.kc-v2-why {
+  background: var(--ink, #1A1D2E);
+  color: #fff;
+  padding: 88px 0;
+}
+.kc-v2-why-inner { max-width: 880px; }
+.kc-v2-why .kc-eyebrow { color: var(--brass, #B8943D); }
+.kc-v2-why-h {
+  font-family: var(--serif, 'Lora', Georgia, serif);
+  font-size: clamp(28px, 3.4vw, 40px);
+  line-height: 1.22;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: -0.005em;
+  margin: 12px 0 18px;
+}
+.kc-v2-why .kc-v2-anchor { color: var(--brass, #B8943D); margin-bottom: 28px; }
+.kc-v2-why-p {
+  font-size: 18px;
+  line-height: 1.65;
+  color: rgba(245, 239, 227, 0.82);
+  margin: 0 0 16px;
+  max-width: 780px;
+}
+.kc-v2-why-p:last-child { margin-bottom: 0; }
+
+/* ═══════════════════════════ BROCHURE ═══════════════════════════ */
+.kc-v2-broch { padding: 96px 0; background: #fff; }
+.kc-v2-broch-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+.kc-v2-broch-h {
+  font-family: var(--serif, 'Lora', Georgia, serif);
+  font-size: clamp(28px, 3.2vw, 40px);
+  line-height: 1.2;
+  letter-spacing: -0.005em;
+  font-weight: 600;
+  color: var(--ink, #1A1D2E);
+  margin: 12px 0 14px;
+}
+.kc-v2-broch-h em { font-style: italic; color: var(--brass, #B8943D); }
+.kc-v2-broch-p {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--driftwood, #5A6470);
+  margin-bottom: 28px;
+  max-width: 580px;
+}
+.kc-v2-deliv-list {
+  list-style: none; padding: 0; margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 28px;
+}
+.kc-v2-deliv-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(26, 29, 46, 0.06);
+  font-size: 15px;
+  color: var(--ink, #1A1D2E);
+  font-weight: 500;
+  line-height: 1.45;
+}
+.kc-v2-deliv-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--brass, #B8943D);
+  margin-top: 8px;
+  flex-shrink: 0;
+}
+
+/* Monthly packet preview */
+.kc-v2-packet {
+  background: #fff;
+  border: 1px solid rgba(26, 29, 46, 0.12);
+  border-radius: 10px;
+  padding: 32px 30px;
+  box-shadow: 0 12px 32px rgba(26, 29, 46, 0.08);
+  position: sticky;
+  top: 96px;
+}
+.kc-v2-packet-h {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  padding-bottom: 22px;
+  border-bottom: 2px solid var(--shell, #F5EFE3);
+}
+.kc-v2-packet-icon {
+  width: 44px; height: 44px;
+  border-radius: 8px;
+  background: var(--indigo, #1E2071);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--serif, 'Lora', Georgia, serif);
+  font-weight: 700;
+  font-size: 19px;
+}
+.kc-v2-packet-t {
+  font-family: var(--serif, 'Lora', Georgia, serif);
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--ink, #1A1D2E);
+  line-height: 1.2;
+}
+.kc-v2-packet-s {
+  font-size: 13px;
+  color: var(--driftwood, #5A6470);
+  margin-top: 3px;
+}
+.kc-v2-packet-list {
+  margin-top: 14px;
+  padding: 0;
+  list-style: none;
+  counter-reset: pkt;
+}
+.kc-v2-packet-row {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(26, 29, 46, 0.06);
+  align-items: start;
+  counter-increment: pkt;
+}
+.kc-v2-packet-row::before {
+  content: "0" counter(pkt);
+  font-family: var(--serif, 'Lora', Georgia, serif);
+  color: var(--brass, #B8943D);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  padding-top: 2px;
+}
+.kc-v2-packet-row:last-child { border-bottom: 0; }
+.kc-v2-packet-row-t {
+  display: block;
+  font-weight: 600;
+  color: var(--ink, #1A1D2E);
+  font-size: 15px;
+  margin-bottom: 2px;
+  grid-column: 2;
+}
+.kc-v2-packet-row-d {
+  display: block;
+  font-size: 13.5px;
+  color: var(--driftwood, #5A6470);
+  line-height: 1.5;
+  grid-column: 2;
+}
+
+@media (max-width: 900px) {
+  .kc-v2-broch-grid { grid-template-columns: 1fr; gap: 40px; }
+  .kc-v2-deliv-list { grid-template-columns: 1fr; }
+  .kc-v2-packet { position: static; }
+}
+
+/* ═══════════════════════════ PILLARS ═══════════════════════════ */
+.kc-v2-pillars {
+  background: var(--shell, #F5EFE3);
+  padding: 96px 0;
+}
+.kc-v2-pillars-head { max-width: 780px; margin-bottom: 42px; }
+.kc-v2-pillars-h {
+  font-family: var(--serif, 'Lora', Georgia, serif);
+  font-size: clamp(28px, 3.2vw, 40px);
+  line-height: 1.2;
+  letter-spacing: -0.005em;
+  font-weight: 600;
+  color: var(--ink, #1A1D2E);
+  margin: 12px 0 14px;
+}
+.kc-v2-pillars-h em { font-style: italic; color: var(--brass, #B8943D); }
+.kc-v2-pillars-intro {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--driftwood, #5A6470);
+  max-width: 720px;
+}
+.kc-v2-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.kc-v2-pillar {
+  background: #fff;
+  border-radius: 10px;
+  padding: 32px 30px 34px;
+  border-top: 4px solid var(--indigo, #1E2071);
+  box-shadow: 0 4px 16px rgba(26, 29, 46, 0.06);
+}
+.kc-v2-pillar:nth-child(2) { border-top-color: var(--brass, #B8943D); }
+.kc-v2-pillar:nth-child(3) { border-top-color: var(--driftwood, #5A6470); }
+.kc-v2-pillar-num {
+  font-family: var(--serif, 'Lora', Georgia, serif);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--brass, #B8943D);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.kc-v2-pillar-h {
+  font-family: var(--serif, 'Lora', Georgia, serif);
+  font-size: 21px;
+  line-height: 1.28;
+  font-weight: 600;
+  color: var(--ink, #1A1D2E);
+  margin: 0 0 12px;
+}
+.kc-v2-pillar-p {
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: var(--driftwood, #5A6470);
+  margin: 0;
+}
+
+@media (max-width: 900px) { .kc-v2-pillars-grid { grid-template-columns: 1fr; } }
+
+/* ═══════════════════════════ FLORIDA ═══════════════════════════ */
+.kc-v2-fl { background: #fff; padding: 96px 0; }
+.kc-v2-fl-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 60px;
+  align-items: start;
+}
+.kc-v2-fl-img {
+  position: relative;
+  min-height: 540px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #EDE5D2 0%, var(--shell, #F5EFE3) 100%);
+  border: 1px solid rgba(184, 148, 61, 0.25);
+  position: sticky;
+  top: 96px;
+}
+.kc-v2-fl-img-fill {
+  position: absolute; inset: 0;
+  background-image: url('assets/hero/coastal-condo-sirs.jpg'),
+                    url('assets/hero/hoa-accounting-services.jpg');
+  background-size: cover;
+  background-position: center 50%;
+  opacity: 0.65;
+}
+.kc-v2-fl-h {
+  font-family: var(--serif, 'Lora', Georgia, serif);
+  font-size: clamp(28px, 3.2vw, 40px);
+  line-height: 1.2;
+  letter-spacing: -0.005em;
+  font-weight: 600;
+  color: var(--ink, #1A1D2E);
+  margin: 12px 0 14px;
+}
+.kc-v2-fl-h em { font-style: italic; color: var(--brass, #B8943D); }
+.kc-v2-fl-h3 {
+  font-family: var(--serif, 'Lora', Georgia, serif);
+  font-size: 21px;
+  font-weight: 600;
+  color: var(--ink, #1A1D2E);
+  margin: 30px 0 8px;
+}
+.kc-v2-fl-h3:first-of-type { margin-top: 8px; }
+.kc-v2-fl-p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--driftwood, #5A6470);
+  margin: 0 0 14px;
+}
+.kc-v2-fl-p a { color: var(--indigo, #1E2071); text-decoration: underline; text-decoration-color: rgba(30, 32, 113, 0.3); text-underline-offset: 3px; }
+.kc-v2-fl-p a:hover { color: var(--brass, #B8943D); text-decoration-color: var(--brass, #B8943D); }
+
+/* Signature story */
+.kc-v2-story {
+  margin-top: 38px;
+  background: var(--shell, #F5EFE3);
+  border-radius: 10px;
+  padding: 28px 32px 30px;
+  border-left: 4px solid var(--brass, #B8943D);
+}
+.kc-v2-story-label {
+  display: inline-block;
+  font-family: var(--sans, 'Source Sans 3', system-ui, sans-serif);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brass, #B8943D);
+  margin-bottom: 10px;
+}
+.kc-v2-story-h {
+  font-family: var(--serif, 'Lora', Georgia, serif);
+  font-style: italic;
+  font-size: 21px;
+  font-weight: 600;
+  color: var(--ink, #1A1D2E);
+  line-height: 1.32;
+  margin: 0 0 14px;
+}
+.kc-v2-story-p {
+  font-size: 16px;
+  color: var(--ink, #1A1D2E);
+  line-height: 1.7;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .kc-v2-fl-grid { grid-template-columns: 1fr; gap: 40px; }
+  .kc-v2-fl-img { min-height: 320px; position: static; }
+}
+
+/* ═══════════════════════════ PROOF ═══════════════════════════ */
+.kc-v2-proof { background: var(--shell, #F5EFE3); padding: 88px 0; }
+.kc-v2-proof-head { text-align: center; max-width: 720px; margin: 0 auto 44px; }
+.kc-v2-proof-h {
+  font-family: var(--serif, 'Lora', Georgia, serif);
+  font-size: clamp(28px, 3.2vw, 40px);
+  line-height: 1.2;
+  letter-spacing: -0.005em;
+  font-weight: 600;
+  color: var(--ink, #1A1D2E);
+  margin: 12px 0 14px;
+}
+.kc-v2-proof-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.kc-v2-proof-card {
+  background: #fff;
+  padding: 24px 22px;
+  border-radius: 8px;
+  border-left: 3px solid var(--brass, #B8943D);
+}
+.kc-v2-proof-t {
+  font-family: var(--serif, 'Lora', Georgia, serif);
+  font-weight: 700;
+  color: var(--indigo, #1E2071);
+  font-size: 16px;
+  letter-spacing: 0.01em;
+  line-height: 1.3;
+  margin-bottom: 8px;
+}
+.kc-v2-proof-d {
+  font-size: 14px;
+  color: var(--driftwood, #5A6470);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.kc-v2-natl {
+  max-width: 880px;
+  margin: 60px auto 0;
+  padding-top: 36px;
+  border-top: 1px solid rgba(26, 29, 46, 0.10);
+  text-align: center;
+}
+.kc-v2-natl-p {
+  font-family: var(--serif, 'Lora', Georgia, serif);
+  font-style: italic;
+  font-size: 21px;
+  line-height: 1.55;
+  color: var(--ink, #1A1D2E);
+  max-width: 760px;
+  margin: 18px auto 0;
+}
+
+@media (max-width: 760px) { .kc-v2-proof-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 480px) { .kc-v2-proof-grid { grid-template-columns: 1fr; } }
+
+/* ═══════════════════════════ FINAL CTA ═══════════════════════════ */
+.kc-v2-final {
+  background: var(--ink, #1A1D2E);
+  color: #fff;
+  padding: 96px 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.kc-v2-final::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--indigo, #1E2071), var(--brass, #B8943D), var(--indigo, #1E2071));
+}
+.kc-v2-final-inner { max-width: 820px; margin: 0 auto; }
+.kc-v2-final-eyebrow { color: var(--brass, #B8943D) !important; }
+.kc-v2-final-h {
+  font-family: var(--serif, 'Lora', Georgia, serif);
+  font-size: clamp(30px, 3.6vw, 44px);
+  line-height: 1.2;
+  letter-spacing: -0.005em;
+  font-weight: 600;
+  color: #fff;
+  margin: 14px auto 18px;
+  max-width: 700px;
+}
+.kc-v2-final-empathy {
+  font-family: var(--serif, 'Lora', Georgia, serif);
+  font-style: italic;
+  font-size: 20px;
+  line-height: 1.55;
+  color: rgba(245, 239, 227, 0.78);
+  max-width: 660px;
+  margin: 0 auto 36px;
+}
+.kc-v2-final-ctas {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.kc-v2-final-primary {
+  background: var(--brass, #B8943D) !important;
+  color: var(--ink, #1A1D2E) !important;
+  border: 0 !important;
+}
+.kc-v2-final-primary:hover { background: #fff !important; color: var(--indigo, #1E2071) !important; }
+.kc-v2-final-secondary {
+  background: transparent !important;
+  color: #fff !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.42) !important;
+}
+.kc-v2-final-secondary:hover {
+  background: #fff !important;
+  color: var(--indigo, #1E2071) !important;
+  border-color: #fff !important;
+}
+.kc-v2-final-micro {
+  font-size: 13px;
+  color: rgba(245, 239, 227, 0.5);
+  margin-top: 30px;
+  letter-spacing: 0.04em;
+}
