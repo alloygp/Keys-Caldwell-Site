@@ -30,7 +30,15 @@ const KCPillarHero = ({ content: c }) => {
             tabIndex="-1"
           ></iframe>
         ) : (
-          <video src={v.src} autoPlay muted loop playsInline preload="metadata" poster={v.poster}></video>
+          <video
+            src={v.src}
+            autoPlay muted loop playsInline preload="metadata"
+            poster={v.poster}
+            // Slow ambient playback. Tune per-page via videoBg.rate
+            // (1.0 = normal, 0.5 = half speed, 0.25 = very slow drift).
+            // Default is 0.5 — feels meditative without obvious stutter.
+            onLoadedMetadata={(e) => { e.currentTarget.playbackRate = (typeof v.rate === 'number' ? v.rate : 0.5); }}
+          ></video>
         )}
         <div className="kc-pillar-hero-video-overlay"></div>
       </div>
