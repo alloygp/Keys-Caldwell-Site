@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<!-- ============================================================
+     Keys-Caldwell — Homepage  (template type: HOMEPAGE)
+     ============================================================
+     URL slot      :  /
+     Page archetype:  homepage  (one-of-a-kind)
+     Wraps         :  KCNav · KCHero · KCPillars · KCHeritage ·
+                      KCFourChamber · KCQuote · KCTestimonial ·
+                      KCDifferentiators · KCCtaBand · KCFooter
+     ----------------------------------------------------------------
+     COPYWRITER MANIFEST — every editable slot lives in the
+     `CONTENT` object inside <script id="page-content"> below.
+     The JSX never holds free-form copy. To change copy on this
+     page, edit only that one block.
+
+     Image slots on this page :
+       - hero.photo.src       (coastal Florida hero photograph;
+                                blank string = use Unsplash placeholder
+                                in styles.css)
+     ============================================================ -->
+<!-- Title + meta description are populated by KCSeo from CONTENT.meta below.
+     The values here are progressive-enhancement fallbacks for crawlers that
+     don't execute JS (rare in 2026 but cheap to keep). -->
+<title>Keys-Caldwell — Community Association Management · Venice & Sarasota County, FL</title>
+<meta name="description" content="Keys-Caldwell is an independently owned community association management firm serving Sarasota County since 1978. Condo and HOA management with CPA-supervised accounting, reserve study expertise, and four-chamber departmental accountability." />
+
+<!-- Performance: preconnect to font CDN before parser hits the stylesheet -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://unpkg.com">
+
+<link rel="stylesheet" href="styles.css">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<style>
+  html, body { margin: 0; padding: 0; height: 100%; }
+  body { font-family: 'Source Sans 3', system-ui, sans-serif; }
+  #root { min-height: 100vh; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<!-- ============================================================
+     Org data + SEO helper (loaded synchronously before the page
+     script so KCSeo.apply() and KC_ORG are available).
+     ============================================================ -->
+<script src="components/kc-org.js"></script>
+<script src="components/kc-seo.jsx"></script>
+
+<!-- ============================================================
+     Shared component library (prop-driven templating primitives).
+     ============================================================ -->
+<script type="text/babel" src="components/shared.jsx"></script>
+
+<!-- ============================================================
+     PAGE CONTENT  —  edit this block to change all copy on this page.
+     Every section below is fed entirely from this object.
+     ============================================================ -->
+<script type="text/babel" id="page-content">
+const CONTENT = {
+
+  // ─── META  (SEO — emitted by KCSeo helper) ────────────────
+  // Audit checklist (see _reference/COPYWRITING.md):
+  //   • title         50–60 chars, primary keyword early
+  //   • description   150–160 chars, includes primary keyword
+  //   • canonical     absolute path from web root
+  //   • schema        always include LocalBusiness on the homepage
+  meta: {
+    title:           "Keys-Caldwell — Condo & HOA Management · Venice & Sarasota, FL",
+    description:     "Independent community association management firm serving Venice, Sarasota, and the Sarasota County coast since 1978. Condo and HOA management with CPA-supervised accounting and reserve study expertise.",
+    canonical:       "/",
+    primaryKeyword:  "community association management sarasota",
+    secondaryKeywords: [
+      "hoa management sarasota",
+      "condo management venice fl",
+      "community association manager venice",
+    ],
+    ogTitle:         "Keys-Caldwell — Community Association Management in Venice & Sarasota, FL",
+    ogDescription:   "48 years of condo and HOA management on the Sarasota County coast. CPA-supervised accounting, reserve study expertise, and a single dedicated manager per association.",
+    ogImage:         "/assets/og/keys-caldwell-home.jpg",
+    schema:          ["LocalBusiness"],   // Organization is sitewide-default
+  },
+
+  // ─── NAV ──────────────────────────────────────────────────
+  nav: {
+    active: "home",  // sets which top-level link is highlighted
+  },
+
+  // ─── HERO ─────────────────────────────────────────────────
+  // Image-led editorial hero. Headline pairs the brand's italic
+  // Lora with a short eyebrow + lede. Right-side photo carries
+  // an overlay CTA card.
+  hero: {
+    numeral: "01",                         // small Nº marker (string or number)
+    eyebrow: "Community Association Management · Venice, Florida",
+    // Use plain string OR JSX. For italics, wrap a phrase in
+    // <em>...</em>. The italic phrase is the emotional payload —
+    // pick it deliberately.
+    titlePlain: "The community partner your board has been looking for since 1978.",
+    titleItalic: "looking for since 1978.",  // exact substring of titlePlain to italicize
+    lede: "For 48 years we've helped boards across Sarasota County run their condominium and homeowner associations with financial clarity, proactive leadership, and the kind of responsive support that doesn't end at five o'clock.",
+
+    primaryCta:   { label: "Request a proposal", href: "/request-proposal/index.html" },
+    secondaryCta: { label: "How we work",        href: "/about/index.html" },
+
+    photo: {
+      // src: ""  // leave blank to use Unsplash placeholder in styles.css
+      alt: "Coastal Florida neighborhood at golden hour",
+      caption: "Sarasota County · Florida",
+      overlayEye: "For HOA & condo boards",
+      overlayH: "Tell us about your community.",
+      overlayP: "Send us your governing documents and a few details about your association. We'll come back with a tailored management proposal — typically within five business days.",
+      overlayCta: { label: "Get a management proposal", href: "/request-proposal/index.html" },
+    },
+
+    // Three-stat trust strip beneath the hero. Keep numerals short
+    // (≤ 4 chars). suffix is rendered small ("+", "yrs", etc.).
+    trustStats: [
+      { num: "48",  label: "Years at the same Venice address" },
+      { num: "50",  suffix: "+", label: "Communities under active management" },
+      { num: "20",  suffix: "+", label: "Year average client tenure" },
+    ],
+    credentials: {
+      eyebrow: "Credentials",
+      items: ["BBB A+ accredited", "Florida CAM Licensed", "Independently owned"],
+    },
+  },
+
+  // ─── PILLARS  (Condo + HOA service split) ─────────────────
+  // Two cards side-by-side. Each links to its service-pillar page.
+  pillars: {
+    eyebrow: "Two paths · One firm",
+    titlePlain: "Condo association management. Or HOA management. Both run by the same Venice team.",
+    titleItalic: "Or HOA management.",
+    intro: "We manage low- and mid-rise coastal condos along with master-planned and small-lot HOAs across Sarasota County. The four-chamber model is the same — what changes is the building stock, the regulatory frame, and the issues that come back if you don't fix them right.",
+    pillars: [
+      {
+        eyebrow: "Primary practice · Coastal condos",
+        title:   "Condo association management for 12 – 80-unit coastal buildings.",
+        desc:    "Aging mid-rise structures need a manager who reads the SIRS report and a firm that has the bench to act on it. We run the building, handle the capital projects, and keep insurance carriers writing the policy.",
+        bullets: [
+          "Florida SIRS & milestone inspection coordination",
+          "Reserve studies via the AccuReserve continuum",
+          "Capital projects — roofs, balconies, seawalls, concrete",
+          "Insurance broker relationships through SuperKey",
+          "CPA-supervised accounting with monthly board packets",
+        ],
+        cta:    "Explore condo management",
+        places: "Venice · Longboat · Siesta · Englewood",
+        href:   "/condo-association-management-sarasota/index.html",
+      },
+      {
+        eyebrow: "Secondary practice · HOAs",
+        title:   "HOA management for single-family neighborhoods and small-lot communities.",
+        desc:    "Covenant enforcement, common-area maintenance, annual meetings, and budget planning — handled by a manager you can reach, with the same accounting infrastructure behind every report.",
+        bullets: [
+          "Covenant enforcement & documented violations process",
+          "Common-area maintenance & vendor management",
+          "Annual meeting facilitation & election support",
+          "Budget planning with reserve-fund discipline",
+          "Vantaca portal for owners — front-desk for boards",
+        ],
+        cta:    "Explore HOA management",
+        places: "Bradenton · Charlotte · North Port",
+        href:   "/hoa-management-company-sarasota/index.html",
+      },
+    ],
+  },
+
+  // ─── HERITAGE TIMELINE ────────────────────────────────────
+  heritage: {
+    eyebrow: "Three eras · One address",
+    lede:    "Keys-Caldwell has been at the same Venice address since 1978 — through three ownership eras, the same plain-spoken culture, and now national-level expertise behind every association manager.",
+    eras: [
+      { year: "1978", label: "Founding era", body: "Annette Caldwell opens Keys-Caldwell on Indian Hills Boulevard in Venice — a locally owned firm built on plain talk and reliable follow-through." },
+      { year: "2007", label: "Kraut era",    body: "Jim Kraut takes the helm. Keys-Caldwell becomes one of the region's most recognized association management firms, with contracts measured in decades, not years." },
+      { year: "2024", label: "Bradley era",  body: "James Bradley acquires the firm. Lauren Wilson leads operations. The relationship-driven culture stays — paired with modern systems, CPA-level accounting, and national capital-project expertise." },
+    ],
+  },
+
+  // ─── FOUR-CHAMBER GRID ────────────────────────────────────
+  fourChamber: {
+    eyebrow: "Our four-chamber service model",
+    titlePlain:  "Four departments. One point of accountability.",
+    titleItalic: "One point of accountability.",
+    intro: "Every Keys-Caldwell community has a single association manager — but behind them is the full firm. When boards need accounting, property, or after-hours support, those answers come from specialists, not a callback queue.",
+    items: [
+      { icon: "building-2",  n: "01", title: "Community management",   desc: "A dedicated association manager attends every meeting, enforces the documents, manages vendors, and answers when boards call." },
+      { icon: "dollar-sign", n: "02", title: "Accounting · CityBooks", desc: "CPA-supervised financials, daily reconciliation, transparent monthly reporting, and reserve oversight that flags shortfalls early." },
+      { icon: "wrench",      n: "03", title: "Property services",      desc: "In-house maintenance coordination for the day-to-day, plus capital project management for roofs, seawalls, and structural milestones." },
+      { icon: "phone",       n: "04", title: "Client services",        desc: "Owners reach a real person — front-desk, after hours, weekends. Boards hear about issues before they escalate." },
+    ],
+  },
+
+  // ─── SIGNATURE QUOTE ──────────────────────────────────────
+  // The brand's "personality in a sentence" line. Keep this rare —
+  // it's a moment, not a refrain. Use \n to force a line break.
+  quote: {
+    eyebrow: "Personality in a sentence",
+    quote:   "\"As small as they want us to be,\nbut as big as they need us to be.\"",
+    attribution: "— A Keys-Caldwell board president · Venice",
+  },
+
+  // ─── TESTIMONIAL ──────────────────────────────────────────
+  testimonial: {
+    eyebrow:  "From a board treasurer",
+    quote:    "Our previous manager learned about a $400,000 reserve gap when the SIRS report landed. Keys-Caldwell flagged it during budget planning — three years before the assessment would have come due. Owners saw a manageable annual increase instead of a six-figure surprise.",
+    name:     "Michael Cochran",
+    role:     "Board Treasurer · 32-unit coastal condo · Venice, FL",
+    initials: "MC",
+  },
+
+  // ─── DIFFERENTIATORS ──────────────────────────────────────
+  differentiators: {
+    eyebrow: "What sets us apart",
+    title:   "Six things we won't compromise on.",
+    items: [
+      { title: "Local expertise, 48 years deep",     desc: "Forty-eight years in Venice and Sarasota means we know which contractors show up, which vendors last, and which issues come back if you don't fix them right." },
+      { title: "CPA-level financial oversight",      desc: "CityBooks runs accounting for 500+ associations nationally. Daily reconciliation, stoplight risk grading, and Ande Duda CPA on staff — every association reviewed monthly." },
+      { title: "Reserve study expertise",            desc: "AccuReserve continuum — from a $150 self-assessment to a fully managed subscription study. Boards see capital risk five years out, not five months." },
+      { title: "Departmental accountability",        desc: "Four chambers. Every function has an owner. No \"let me transfer you\" loops between vague property-management departments." },
+      { title: "Scope-based pricing — no buffet",    desc: "Every contract is priced on a custom man-hour estimate, not a tier. Boards co-build the scope. The product is time and expertise." },
+      { title: "Institutional continuity",           desc: "Associations don't want a new manager every eighteen months. Many of our contracts run twenty years and longer. A board member can reasonably expect not to switch firms during their term." },
+    ],
+  },
+
+  // ─── FINAL CTA BAND ───────────────────────────────────────
+  ctaBand: {
+    eyebrow: "Considering a change?",
+    title:   "Send us your governing documents. We'll come back with a tailored proposal — typically within five business days.",
+    body:    "We'll review your current scope, your reserve position, and your building's capital horizon. The call is consultative, not a pitch — boards leave with a clearer picture of what they should expect from their management firm, whether that's us or someone else.",
+    primary:   { label: "Request a proposal", href: "/request-proposal/index.html" },
+    secondary: { label: "Meet the team",      href: "/about/index.html" },
+    phone: "(941) 485-0605",
+    hours: "Mon – Fri · 8:30am – 5:00pm ET",
+  },
+
+  // ─── FOOTER ───────────────────────────────────────────────
+  // Footer uses defaults from shared.jsx unless you override here.
+  footer: {},
+
+};
+
+// ─── HELPERS  (don't usually edit) ───────────────────────────
+// Splits a plain headline string into "before <em>italic</em> after"
+// using the chosen italic substring. Works in JSX.
+const italicize = (text, italicPart) => {
+  if (!italicPart || !text.includes(italicPart)) return text;
+  const [before, after] = text.split(italicPart);
+  return <>{before}<em>{italicPart}</em>{after}</>;
+};
+// Renders a quote string honoring \n as <br/>.
+const withBreaks = (str) => str.split('\n').flatMap((line, i, arr) =>
+  i === arr.length - 1 ? [line] : [line, <br key={i}/>]
+);
+
+// ─── PAGE COMPOSITION ────────────────────────────────────────
+const Page = () => {
+  const heroContent = {
+    numeral: <>N<sup>o</sup>{CONTENT.hero.numeral}</>,
+    eyebrow: CONTENT.hero.eyebrow,
+    title: italicize(CONTENT.hero.titlePlain, CONTENT.hero.titleItalic),
+    lede: CONTENT.hero.lede,
+    primaryCta: CONTENT.hero.primaryCta,
+    secondaryCta: CONTENT.hero.secondaryCta,
+    photo: CONTENT.hero.photo,
+    trustStats: CONTENT.hero.trustStats,
+    credentials: CONTENT.hero.credentials,
+  };
+  const pillarsContent = {
+    eyebrow: CONTENT.pillars.eyebrow,
+    title: italicize(CONTENT.pillars.titlePlain, CONTENT.pillars.titleItalic),
+    intro: CONTENT.pillars.intro,
+    pillars: CONTENT.pillars.pillars,
+  };
+  const fourChamberContent = {
+    eyebrow: CONTENT.fourChamber.eyebrow,
+    title: italicize(CONTENT.fourChamber.titlePlain, CONTENT.fourChamber.titleItalic),
+    intro: CONTENT.fourChamber.intro,
+    items: CONTENT.fourChamber.items,
+  };
+  const quoteContent = {
+    eyebrow: CONTENT.quote.eyebrow,
+    quote: withBreaks(CONTENT.quote.quote),
+    attribution: CONTENT.quote.attribution,
+  };
+
+  return (
+    <div className="kc-page">
+      <KCNav active={CONTENT.nav.active} />
+      <KCHero            content={heroContent} />
+      <KCPillars         content={pillarsContent} />
+      <KCHeritage        content={CONTENT.heritage} />
+      <KCFourChamber     content={fourChamberContent} />
+      <KCQuote           content={quoteContent} />
+      <KCTestimonial     content={CONTENT.testimonial} />
+      <KCDifferentiators content={CONTENT.differentiators} />
+      <KCCtaBand         content={CONTENT.ctaBand} />
+      <KCFooter          content={CONTENT.footer} />
+    </div>
+  );
+};
+
+// Apply SEO meta + JSON-LD (idempotent; safe to run before render).
+KCSeo.apply(CONTENT.meta, {
+  pageType:    "homepage",
+  pageUrl:     CONTENT.meta.canonical,
+  breadcrumbs: [{ label: "Home" }],   // single-item — no breadcrumb UI on homepage
+});
+
+ReactDOM.createRoot(document.getElementById('root')).render(<Page />);
+
+// Resolve Lucide icons after render.
+requestAnimationFrame(() => { if (window.lucide) window.lucide.createIcons(); });
+setTimeout(() => { if (window.lucide) window.lucide.createIcons(); }, 400);
+</script>
+
+</body>
+</html>

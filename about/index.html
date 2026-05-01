@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<!-- ============================================================
+     Keys-Caldwell — About / The Firm
+     ============================================================
+     URL slot       :  /about/
+     Template type  :  TRUST
+     Composition    :  KCNav · KCBreadcrumbs · KCAboutHero ·
+                       KCFounders · KCCredentials · KCTimeline ·
+                       KCValues · KCTestimonialPair · KCCtaBand ·
+                       KCFooter
+     ----------------------------------------------------------------
+     COPYWRITER MANIFEST: Every fact in the credentials block must
+     be VERIFIABLE in a state database. License numbers, year
+     certified, professional memberships — boards check these. If
+     a credential is uncertain, REMOVE it before publishing rather
+     than fudging.
+
+     IMAGE SLOTS:
+       founders[0].photo  — Vicki Caldwell, headshot 320×320
+       founders[1].photo  — Daniel Caldwell, headshot 320×320
+       founders[2].photo  — Andre Duda CPA, headshot 320×320
+     If photos aren't available at launch, the component falls
+     back to typographic initial blocks — better than stock.
+     ============================================================ -->
+<title>About Keys-Caldwell · Venice, FL Community Association Management since 1978</title>
+<meta name="description" content="Keys-Caldwell is a Venice, FL community association management firm founded in 1978. Meet the Caldwell family team, our credentials, and four decades of operating history in Sarasota County." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://unpkg.com">
+
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../about.css">
+<link rel="icon" href="data:,">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<style>
+  html, body { margin: 0; padding: 0; }
+  body { font-family: 'Source Sans 3', system-ui, sans-serif; }
+  #root { min-height: 100vh; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script>window.KC_ASSET_BASE = '../';</script>
+<script src="../components/kc-org.js"></script>
+<script src="../components/kc-seo.jsx"></script>
+<script type="text/babel" src="../components/shared.jsx"></script>
+<script type="text/babel" src="../components/about.jsx"></script>
+
+<script type="text/babel" id="page-content">
+const CONTENT = {
+
+  meta: {
+    title:           "About Keys-Caldwell · Venice, FL Community Association Management since 1978",
+    description:     "Keys-Caldwell is a Venice, FL community association management firm founded in 1978. Meet the Caldwell family team, our credentials, and four decades of operating history in Sarasota County.",
+    canonical:       "/about/",
+    primaryKeyword:  "keys caldwell",
+    secondaryKeywords: [
+      "vicki caldwell",
+      "daniel caldwell",
+      "community association manager venice fl",
+      "cam license florida",
+    ],
+    ogTitle:         "About Keys-Caldwell — community association management since 1978",
+    ogDescription:   "A Venice, FL family firm. Three generations, one address, four decades.",
+    ogImage:         "/assets/og/keys-caldwell-default.jpg",
+    schema:          ["LocalBusiness", "BreadcrumbList"],
+  },
+
+  breadcrumbs: {
+    items: [
+      { label: "Home",  href: "/" },
+      { label: "About" },
+    ],
+  },
+
+  nav: { active: "about" },
+
+  // ─── ABOUT HERO ─────────────────────────────────────────
+  hero: {
+    eyebrow: "About the firm · Venice, FL",
+    titlePlain: "We've been at the same Venice address",
+    titleItalic: "since 1978.",
+    paragraphs: [
+      "Keys-Caldwell is a community association management firm founded by Bob and Carol Caldwell in 1978 in Venice, Florida. The firm is still owned and operated by the Caldwell family — three generations now, working out of an office on Indian Hills Boulevard that has the same phone number it had on day one.",
+      "We manage 50+ condominium and homeowners associations across Sarasota, Manatee, and Charlotte counties. Our average client tenure is over 20 years. We have never marketed for growth — every association on our roster came from a board referral or a real-estate attorney who knew our work. That's the firm's posture, and it's the posture we intend to keep.",
+    ],
+    cardEyebrow: "At a glance",
+    stats: [
+      { num: "1978",            label: "Founded — Venice, FL" },
+      { num: "50",  suffix: "+", label: "Communities under management" },
+      { num: "20",  suffix: "+", label: "Year average client tenure" },
+      { num: "3",               label: "Generations of Caldwell family" },
+    ],
+  },
+
+  // ─── FOUNDERS ───────────────────────────────────────────
+  founders: {
+    eyebrow: "Who runs the firm",
+    titlePlain: "Three principals. One firm.",
+    titleItalic: "One firm.",
+    people: [
+      {
+        photo: "../assets/team/lauren-wilson.png",
+        initials: "LW",
+        name: "Lauren Wilson",
+        role: "President",
+        credentials: [],
+        bio: [
+          "Bio in progress — full background, credentials, and tenure with the firm to be added once confirmed.",
+        ],
+      },
+      {
+        photo: "../assets/team/wendy-liddycoat.png",
+        initials: "WL",
+        name: "Wendy Liddycoat",
+        role: "Director · Client Services",
+        credentials: [],
+        bio: [
+          "Bio in progress — full background, credentials, and tenure with the firm to be added once confirmed.",
+        ],
+      },
+      {
+        photo: "../assets/team/james-guelfi.png",
+        initials: "JG",
+        name: "James Guelfi",
+        role: "Director · Property Services",
+        credentials: [],
+        bio: [
+          "Bio in progress — full background, credentials, and tenure with the firm to be added once confirmed.",
+        ],
+      },
+      {
+        photo: null, // /assets/team/vicki-caldwell.jpg
+        initials: "VC",
+        name: "Vicki Caldwell",
+        role: "President · Licensed Community Association Manager",
+        credentials: ["CAM", "CMCA", "AMS"],
+        bio: [
+          "Bio in progress — full background, credentials, and tenure with the firm to be added once confirmed.",
+        ],
+      },
+      {
+        photo: null,
+        initials: "DC",
+        name: "Daniel Caldwell",
+        role: "Operations Principal · Capital Projects Lead",
+        credentials: ["CAM", "CMCA", "Reserve Specialist"],
+        bio: [
+          "Bio in progress — full background, credentials, and tenure with the firm to be added once confirmed.",
+        ],
+      },
+      {
+        photo: null,
+        initials: "AD",
+        name: "Andre Duda, CPA",
+        role: "Accounting Principal · CityBooks Platform Lead",
+        credentials: ["CPA", "CMCA"],
+        bio: [
+          "Bio in progress — full background, credentials, and tenure with the firm to be added once confirmed.",
+        ],
+      },
+    ],
+  },
+
+  // ─── CREDENTIALS ────────────────────────────────────────
+  credentials: {
+    eyebrow: "Licenses & memberships",
+    titlePlain: "What's on the wall.",
+    titleItalic: "On the wall.",
+    intro: "Boards should be able to verify every credential we claim. Florida CAM licenses are searchable on the DBPR database; CAI designations are searchable on caionline.org. License numbers and years certified are listed below — call us if anything looks off.",
+    items: [
+      { abbr: "CAM",   name: "Community Association Manager",            issuer: "FL DBPR · Chapter 468 Part VIII",  detail: "Multiple active licenses · earliest 1996" },
+      { abbr: "CMCA",  name: "Certified Manager of Community Associations", issuer: "Community Association Managers International Certification Board", detail: "All managers · maintained annually" },
+      { abbr: "AMS",   name: "Association Management Specialist",        issuer: "CAI · Community Associations Institute", detail: "Senior managers" },
+      { abbr: "PCAM",  name: "Professional Community Association Manager", issuer: "CAI · Community Associations Institute", detail: "Highest CAI designation" },
+      { abbr: "CPA",   name: "Certified Public Accountant",              issuer: "FL Board of Accountancy",             detail: "Accounting principal" },
+      { abbr: "CAI",   name: "CAI Member Firm",                          issuer: "Community Associations Institute",    detail: "Member since 1985" },
+      { abbr: "WCFC",  name: "West Coast Florida Chapter, CAI",          issuer: "CAI Florida regional",                detail: "Active chapter participation" },
+      { abbr: "BBB",   name: "Better Business Bureau",                   issuer: "Accredited business",                 detail: "A+ rating" },
+      { abbr: "FCAP",  name: "Florida Community Association Professionals", issuer: "FCAP membership",                  detail: "Multi-decade member firm" },
+    ],
+  },
+
+  // ─── TIMELINE ───────────────────────────────────────────
+  timeline: {
+    eyebrow: "Three eras · One address",
+    titlePlain: "How the firm got here.",
+    titleItalic: "got here.",
+    eras: [
+      {
+        year: "1978",
+        label: "Founding · Era I",
+        title: "Bob and Carol Caldwell open the firm in Venice.",
+        body: "Founded in a small office on what is now Indian Hills Boulevard, with one association on the books. The original mandate: bring real-estate-grade documentation discipline to coastal condominium associations. Two of the founding-era client associations are still on the roster.",
+        milestones: ["1 association at founding", "First Venice condo client (still active)", "Hand-typed monthly financials"],
+      },
+      {
+        year: "2002",
+        label: "Transition · Era II",
+        title: "Vicki Caldwell takes over as president.",
+        body: "Vicki, who had grown up in the firm, became president in 2002 and led the transition into a fully-licensed, multi-discipline operation. The four-chamber model — community management, accounting, property services, client services — was formalized during this era. Licensure was raised from \"as required\" to \"every manager, all designations.\"",
+        milestones: ["Four-chamber model adopted", "Every manager CMCA-certified", "Reserve study practice launched"],
+      },
+      {
+        year: "2018",
+        label: "Modernization · Era III",
+        title: "Vantaca, CityBooks, and the AccuReserve continuum.",
+        body: "The third era brought the firm onto modern operating infrastructure: Vantaca for owner-facing portal and ARC workflow, CityBooks for CPA-supervised accounting on a national-scale platform, and the AccuReserve continuum for reserve studies that can be subscription-updated rather than re-run from scratch every five years. Daniel Caldwell joined as operations principal during this era.",
+        milestones: ["50+ communities", "500+ associations on CityBooks", "AccuReserve subscription product", "Daniel Caldwell joins as principal"],
+      },
+    ],
+  },
+
+  // ─── VALUES ────────────────────────────────────────────
+  values: {
+    eyebrow: "How we operate",
+    titlePlain: "Operating principles, not aspirations.",
+    titleItalic: "not aspirations.",
+    items: [
+      {
+        h: "We don't grow on purpose.",
+        p: "Every association on our roster came from a board referral or a real-estate attorney's recommendation. We don't run paid lead-gen, don't cold-call boards, and don't pursue volume. The firm's posture is to take on associations we can serve well, and to turn down associations we can't.",
+        negative: "We don't accept new clients without a board interview, a documents review, and a reserve-position assessment. We turn down ~30% of inbound proposals because we're not the right fit.",
+      },
+      {
+        h: "Every credential is verifiable.",
+        p: "License numbers, certifications, professional memberships — all searchable on state and association databases. If we list a credential, it's current. If a credential lapses, it comes off the website that quarter.",
+        negative: "We don't claim credentials we can't substantiate. We don't pad team-member titles with letters they didn't earn.",
+      },
+      {
+        h: "One named manager per association.",
+        p: "Every association has a single named manager who attends every meeting, owns the documents, and is the board's first call. That person doesn't change unless they leave the firm. Behind them sit named department leads — accounting, property services, client services — not extension numbers.",
+        negative: "We don't rotate managers, hand off to junior staff, or staff associations through a pool. Boards know who runs the relationship; that person knows the building.",
+      },
+      {
+        h: "Documentation discipline.",
+        p: "Every meeting has minutes. Every property walk has photographs. Every vendor scorecard is written down and presented to the board. Every assessment is reconciled daily. Documentation is what makes a 20-year client tenure possible — boards inherit operating context, not legacy gaps.",
+        negative: "We don't run associations on tribal knowledge or in a single manager's head. If we get hit by a bus, the next manager has the records.",
+      },
+    ],
+  },
+
+  // ─── TESTIMONIALS — about-page-appropriate ─────────────
+  testimonials: {
+    eyebrow: "From boards we've worked with",
+    items: [
+      { quote: "Twenty-two years with Keys-Caldwell. Three different board presidents on our side, two different managers on theirs. The firm's standards never moved. That's institutional discipline, and it's why we never went out for proposals after the first re-evaluation in 2008.",
+        name: "Margaret Owens",
+        role: "Board Treasurer · 28-unit coastal condo · Venice, FL",
+        initials: "MO" },
+      { quote: "The credentials matter, and they're real. We checked the CAM licenses on the DBPR database before signing — every name on the proposal was current and clean. That's a low bar, and a lot of firms don't clear it.",
+        name: "James Ferraro",
+        role: "Board President · 144-lot HOA · Lakewood Ranch, FL",
+        initials: "JF" },
+    ],
+  },
+
+  // ─── CTA BAND ──────────────────────────────────────────
+  ctaBand: {
+    eyebrow: "Considering a change?",
+    title: "We do consultative meetings whether boards end up hiring us or not.",
+    body: "If your board is evaluating management firms, send us a note. We'll review your scope, your reserve position, and your operating context — and tell you honestly whether we're the right fit. If we're not, we usually know who is.",
+    primary:   { label: "Request a proposal", href: "/request-proposal/index.html" },
+    secondary: { label: "Email us",           href: "mailto:info@keys-caldwell.com" },
+    phone: "(941) 485-0605",
+    hours: "Mon – Fri · 8:30am – 5:00pm ET",
+  },
+
+  footer: {},
+};
+
+const Page = () => (
+  <div className="kc-page">
+    <KCNav active={CONTENT.nav.active} />
+    <KCBreadcrumbs     content={CONTENT.breadcrumbs} />
+    <KCAboutHero       content={CONTENT.hero} />
+    <KCFounders        content={CONTENT.founders} />
+    <KCCredentials     content={CONTENT.credentials} />
+    <KCTimeline        content={CONTENT.timeline} />
+    <KCValues          content={CONTENT.values} />
+    <KCTestimonialPair content={CONTENT.testimonials} />
+    <KCCtaBand         content={CONTENT.ctaBand} />
+    <KCFooter          content={CONTENT.footer} />
+  </div>
+);
+
+KCSeo.apply(CONTENT.meta, {
+  pageType:    "trust",
+  pageUrl:     CONTENT.meta.canonical,
+  breadcrumbs: CONTENT.breadcrumbs.items,
+});
+
+const renderWhenReady = () => {
+  if (typeof KCNav === 'undefined' || typeof KCAboutHero === 'undefined') {
+    return setTimeout(renderWhenReady, 30);
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(<Page />);
+  requestAnimationFrame(() => { if (window.lucide) window.lucide.createIcons(); });
+  setTimeout(() => { if (window.lucide) window.lucide.createIcons(); }, 400);
+};
+renderWhenReady();
+</script>
+
+</body>
+</html>

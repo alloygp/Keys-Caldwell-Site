@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<!-- ============================================================
+     Keys-Caldwell — Pricing & Scope
+     ============================================================
+     URL slot       :  /pricing/
+     Template type  :  CORE
+     Composition    :  KCNav · KCBreadcrumbs · KCHero (compact) ·
+                       KCPricingPhilosophy · KCPricingModel ·
+                       KCPricingIncluded · KCFAQ · KCCtaBand · KCFooter
+     ----------------------------------------------------------------
+     CONTENT NOTE: This is a deliberately VAGUE pricing page — by
+     design. We never publish dollar figures or per-door ranges
+     because every contract is built from a custom man-hour
+     estimate. The page's job is:
+       1. Explain the model so boards understand WHY they can't
+          shop us by sticker price.
+       2. Address the "hidden pricing = hidden costs" suspicion
+          head-on, by being transparent about how the scope is
+          built.
+       3. Push every visitor to /request-proposal/ so the actual
+          number can be quoted against a real scope.
+     If the firm later decides to publish ranges, this page is the
+     place to put them — replace the placeholder bullets in the
+     KCPricingModel section.
+     ============================================================ -->
+<title>Pricing & Scope · Keys-Caldwell Community Association Management</title>
+<meta name="description" content="How Keys-Caldwell prices community association management. Scope-based, man-hour estimates, no buffet tiers. See what's included in the base fee — and what isn't.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://unpkg.com">
+
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../pillar.css">
+<link rel="icon" href="data:,">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<style>
+  html, body { margin: 0; padding: 0; }
+  body { font-family: 'Source Sans 3', system-ui, sans-serif; }
+  #root { min-height: 100vh; }
+
+  /* ─── Pricing-page-only sections ─────────────────────────── */
+
+  /* Philosophy: large editorial pull-quote feel */
+  .kc-pricing-philo { background: var(--shell); padding: 96px 0; }
+  .kc-pricing-philo-grid {
+    display: grid; grid-template-columns: 1fr 1.4fr; gap: 80px; align-items: start;
+  }
+  .kc-pricing-philo-aside { position: sticky; top: 24px; }
+  .kc-pricing-philo-h {
+    font-family: var(--font-heading); font-style: italic; font-weight: 700;
+    font-size: 44px; line-height: 1.1; color: var(--deep-ink);
+    letter-spacing: -0.018em; margin: 12px 0 0; text-wrap: balance;
+  }
+  .kc-pricing-philo-h em { color: var(--kc-indigo); font-style: italic; }
+  .kc-pricing-philo-p {
+    font-size: 18px; line-height: 1.7; color: var(--driftwood);
+    margin: 0 0 22px; max-width: 640px;
+  }
+  .kc-pricing-philo-p:first-of-type { margin-top: 0; }
+  .kc-pricing-philo-pull {
+    border-left: 3px solid var(--aged-brass);
+    padding: 4px 0 4px 22px;
+    font-family: var(--font-heading); font-style: italic; font-weight: 600;
+    font-size: 22px; line-height: 1.45; color: var(--deep-ink);
+    letter-spacing: -0.005em;
+    margin: 8px 0 28px;
+  }
+
+  /* Model: three numbered "how it works" steps */
+  .kc-pricing-model { background: #fff; padding: 96px 0; border-top: 1px solid var(--shell-line); }
+  .kc-pricing-model-head { max-width: 720px; margin-bottom: 64px; }
+  .kc-pricing-model-h {
+    font-family: var(--font-heading); font-style: italic; font-weight: 700;
+    font-size: 40px; line-height: 1.12; color: var(--deep-ink);
+    letter-spacing: -0.016em; margin: 12px 0 18px; text-wrap: balance;
+  }
+  .kc-pricing-model-h em { color: var(--kc-indigo); font-style: italic; }
+  .kc-pricing-model-intro {
+    font-size: 17px; line-height: 1.65; color: var(--driftwood); margin: 0;
+  }
+  .kc-pricing-model-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
+    border-top: 1px solid var(--shell-line);
+  }
+  .kc-pricing-model-step {
+    padding: 36px 32px 32px 0;
+    border-right: 1px solid var(--shell-line);
+    border-bottom: 1px solid var(--shell-line);
+  }
+  .kc-pricing-model-step:nth-child(2) { padding-left: 32px; padding-right: 32px; }
+  .kc-pricing-model-step:last-child  { padding-left: 32px; padding-right: 0; border-right: 0; }
+  .kc-pricing-model-step-num {
+    font-family: var(--font-heading); font-style: italic; font-weight: 700;
+    font-size: 13px; color: var(--aged-brass); letter-spacing: 0.06em;
+    text-transform: uppercase; margin-bottom: 12px;
+  }
+  .kc-pricing-model-step-h {
+    font-family: var(--font-heading); font-style: italic; font-weight: 700;
+    font-size: 24px; line-height: 1.25; color: var(--deep-ink);
+    letter-spacing: -0.005em; margin: 0 0 14px; text-wrap: balance;
+  }
+  .kc-pricing-model-step-p {
+    font-size: 15px; line-height: 1.65; color: var(--driftwood); margin: 0 0 16px;
+  }
+  .kc-pricing-model-step-list {
+    margin: 0; padding: 0; list-style: none;
+    border-top: 1px dashed var(--shell-line); padding-top: 16px;
+  }
+  .kc-pricing-model-step-list li {
+    font-size: 14px; line-height: 1.55; color: var(--deep-ink);
+    padding: 6px 0 6px 18px; position: relative;
+  }
+  .kc-pricing-model-step-list li::before {
+    content: ''; position: absolute; left: 0; top: 14px;
+    width: 8px; height: 1.5px; background: var(--aged-brass);
+  }
+
+  /* Included / not included — two columns receipts */
+  .kc-pricing-included { background: var(--shell); padding: 96px 0; }
+  .kc-pricing-included-head { max-width: 720px; margin-bottom: 56px; }
+  .kc-pricing-included-h {
+    font-family: var(--font-heading); font-style: italic; font-weight: 700;
+    font-size: 40px; line-height: 1.12; color: var(--deep-ink);
+    letter-spacing: -0.016em; margin: 12px 0 18px; text-wrap: balance;
+  }
+  .kc-pricing-included-h em { color: var(--kc-indigo); font-style: italic; }
+  .kc-pricing-included-intro {
+    font-size: 17px; line-height: 1.65; color: var(--driftwood); margin: 0;
+  }
+  .kc-pricing-included-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+    background: #fff; border: 1px solid var(--shell-line);
+    border-top: 4px solid var(--aged-brass);
+    border-radius: var(--radius-lg); overflow: hidden;
+  }
+  .kc-pricing-col { padding: 36px 36px 32px; }
+  .kc-pricing-col + .kc-pricing-col { border-left: 1px solid var(--shell-line); }
+  .kc-pricing-col-eye {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--aged-brass);
+    display: inline-flex; align-items: center; gap: 12px; margin-bottom: 14px;
+  }
+  .kc-pricing-col-eye::before {
+    content: ''; display: inline-block;
+    width: 22px; height: 2px; background: var(--aged-brass);
+  }
+  .kc-pricing-col-h {
+    font-family: var(--font-heading); font-style: italic; font-weight: 700;
+    font-size: 22px; line-height: 1.25; color: var(--deep-ink);
+    letter-spacing: -0.005em; margin: 0 0 6px;
+  }
+  .kc-pricing-col-sub {
+    font-size: 14px; line-height: 1.55; color: var(--driftwood);
+    margin: 0 0 22px; padding-bottom: 18px;
+    border-bottom: 1px solid var(--shell-line);
+  }
+  .kc-pricing-col ul {
+    margin: 0; padding: 0; list-style: none;
+    display: grid; gap: 14px;
+  }
+  .kc-pricing-col li {
+    font-size: 15px; line-height: 1.55; color: var(--deep-ink);
+    padding-left: 28px; position: relative;
+  }
+  .kc-pricing-col li::before {
+    content: ''; position: absolute; left: 0; top: 8px;
+    width: 14px; height: 6px;
+    border-left: 2px solid var(--kc-indigo);
+    border-bottom: 2px solid var(--kc-indigo);
+    transform: rotate(-45deg);
+  }
+  .kc-pricing-col.is-extra li::before {
+    border-color: var(--driftwood);
+    background: none;
+    width: 14px; height: 0;
+    border-left: 0; border-bottom: 1.5px solid var(--driftwood);
+    top: 12px; transform: none;
+  }
+  .kc-pricing-col li strong {
+    display: block; color: var(--deep-ink); font-weight: 700;
+    margin-bottom: 2px; font-size: 15px;
+  }
+  .kc-pricing-col li span {
+    color: var(--driftwood); font-size: 14px; line-height: 1.5;
+  }
+
+  /* Reassurance strip */
+  .kc-pricing-reassure {
+    margin-top: 32px;
+    background: var(--deep-ink); color: var(--shell);
+    padding: 28px 36px; border-radius: var(--radius-lg);
+    display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: center;
+  }
+  .kc-pricing-reassure-mark {
+    font-family: var(--font-heading); font-style: italic; font-weight: 700;
+    font-size: 56px; line-height: 1; color: var(--aged-brass);
+  }
+  .kc-pricing-reassure-h {
+    font-family: var(--font-heading); font-style: italic; font-weight: 700;
+    font-size: 20px; line-height: 1.3; color: var(--shell);
+    letter-spacing: -0.005em; margin: 0 0 6px;
+  }
+  .kc-pricing-reassure-p {
+    font-size: 15px; line-height: 1.6; color: rgba(245,239,227,0.78); margin: 0;
+  }
+
+  /* Compact hero (no photo, no big trust strip) */
+  .kc-pricing-hero { background: var(--shell); padding: 64px 0 56px; }
+  .kc-pricing-hero-eye {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--aged-brass);
+    display: inline-flex; align-items: center; gap: 12px; margin-bottom: 20px;
+  }
+  .kc-pricing-hero-eye::before {
+    content: ''; display: inline-block;
+    width: 28px; height: 2px; background: var(--aged-brass);
+  }
+  .kc-pricing-hero-h {
+    font-family: var(--font-heading); font-style: italic; font-weight: 700;
+    font-size: 64px; line-height: 1.04; color: var(--deep-ink);
+    letter-spacing: -0.022em; margin: 0; text-wrap: balance; max-width: 1000px;
+  }
+  .kc-pricing-hero-h em { color: var(--kc-indigo); font-style: italic; }
+  .kc-pricing-hero-rule { width: 80px; height: 4px; background: var(--aged-brass); border: 0; margin: 32px 0 24px; }
+  .kc-pricing-hero-lede {
+    font-size: 19px; line-height: 1.65; color: var(--driftwood); max-width: 720px; margin: 0;
+  }
+
+  /* Responsive */
+  @media (max-width: 960px) {
+    .kc-pricing-philo-grid { grid-template-columns: 1fr; gap: 32px; }
+    .kc-pricing-philo-aside { position: static; }
+    .kc-pricing-philo-h { font-size: 34px; }
+    .kc-pricing-model-grid { grid-template-columns: 1fr; }
+    .kc-pricing-model-step,
+    .kc-pricing-model-step:nth-child(2),
+    .kc-pricing-model-step:last-child {
+      padding: 32px 0; border-right: 0; border-left: 0;
+    }
+    .kc-pricing-included-grid { grid-template-columns: 1fr; }
+    .kc-pricing-col + .kc-pricing-col { border-left: 0; border-top: 1px solid var(--shell-line); }
+    .kc-pricing-hero-h { font-size: 40px; }
+    .kc-pricing-reassure { grid-template-columns: 1fr; gap: 12px; padding: 24px; }
+  }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script>window.KC_ASSET_BASE = '../';</script>
+<script src="../components/kc-org.js"></script>
+<script src="../components/kc-seo.jsx"></script>
+<script type="text/babel" src="../components/shared.jsx"></script>
+<script type="text/babel" src="../components/pillar.jsx"></script>
+
+<script type="text/babel" id="page-content">
+const CONTENT = {
+
+  meta: {
+    title:           "Pricing & Scope · Keys-Caldwell Community Association Management",
+    description:     "How Keys-Caldwell prices community association management. Scope-based, man-hour estimates, no buffet tiers. See what's included in the base fee — and what isn't.",
+    canonical:       "/pricing/",
+    primaryKeyword:  "community association management pricing",
+    secondaryKeywords: [
+      "hoa management fees",
+      "condo management fees",
+      "scope-based pricing",
+      "florida cam pricing",
+    ],
+    ogTitle:         "Pricing & scope — Keys-Caldwell community association management",
+    ogDescription:   "Every contract is built on a custom man-hour estimate, not a tier. Here's how the model works and what's in the base fee.",
+    ogImage:         "/assets/og/keys-caldwell-default.jpg",
+    schema:          ["LocalBusiness", "BreadcrumbList", "FAQPage"],
+  },
+
+  breadcrumbs: {
+    items: [
+      { label: "Home",             href: "/" },
+      { label: "Pricing & Scope" },
+    ],
+  },
+
+  nav: { active: "pricing" },
+
+  // ─── HERO (compact) ─────────────────────────────────────
+  hero: {
+    eyebrow: "Pricing & scope · How proposals are built",
+    titlePlain: "Every contract is custom.",
+    titleItalic: "Every contract is custom.",
+    lede: "We don't publish a price sheet because we don't sell tiers. Each association is priced from a man-hour estimate built around its real scope — building stock, board cadence, financial complexity, and the work the board actually wants done. Below is how the model works, what's in the base fee, and what triggers a separate line.",
+  },
+
+  // ─── PHILOSOPHY ─────────────────────────────────────────
+  philosophy: {
+    eyebrow: "Pricing philosophy",
+    titlePlain: "The product is",
+    titleItalic: "time and expertise.",
+    pullQuote: "We don't sell a tier. We sell the hours of a licensed CAM, a CPA-supervised accounting team, and a property-services principal — applied to your specific scope.",
+    paragraphs: [
+      "A management contract is fundamentally a labor contract. Boards are buying the hours of a licensed CAM, the supervision of a CPA, and the responsiveness of a property-services principal who answers when the elevator goes out at 9pm. The way to price that honestly is to estimate the hours, agree on the scope, and put both on paper.",
+      "Tiered pricing — \"bronze, silver, gold\" — almost always works against the board. Either the tier is sized so the firm wins (most communities) or the tier is sized so the board loses (a few communities). A custom scope splits the difference: the price reflects the actual work, and the work is enumerated so nothing is ambiguous.",
+      "We'd rather lose a proposal to a cheaper tier than win a contract we have to under-deliver. Boards that have switched from a tiered firm to Keys-Caldwell almost universally describe the same thing — the new fee was higher on paper, but the receipts came down because the things they were paying extra for at the old firm were inside the base scope here.",
+    ],
+  },
+
+  // ─── MODEL (3 steps) ────────────────────────────────────
+  model: {
+    eyebrow: "How a proposal is built",
+    titlePlain: "Three steps. No surprises.",
+    titleItalic: "No surprises.",
+    intro: "When a board requests a proposal, we don't return a price within an hour. We do the homework first — read the documents, walk the property, model the scope — and the proposal is the result of that work. Most boards have a tailored scope and a fee in writing within five business days.",
+    steps: [
+      {
+        label: "01 · Discovery",
+        title: "Read the documents. Walk the property.",
+        body: "Before we quote, we ask for governing documents, the most recent reserve study, the last two budgets, and the current management contract. A principal walks the property — virtually if you're remote, in person if you're inside our service area. The point is to understand the work before we price it.",
+        bullets: [
+          "Declarations & bylaws review",
+          "Most recent reserve study read in full",
+          "Two prior budgets benchmarked",
+          "Property walk-through (in person or virtual)",
+        ],
+      },
+      {
+        label: "02 · Scope build",
+        title: "Estimate the hours, line by line.",
+        body: "We build a man-hour estimate across the four chambers — community management, accounting, property services, and administrative support — sized to your association. Boards see the estimate. If a line looks high, we explain why; if a line looks low, we adjust before you sign. The scope is the contract.",
+        bullets: [
+          "Manager hours by activity (board meetings, owner support, vendor management)",
+          "Accounting hours (financials, reconciliation, AR, audit support)",
+          "Property-services oversight (capital projects, maintenance scheduling)",
+          "Reimbursables enumerated separately — postage, lockbox, software",
+        ],
+      },
+      {
+        label: "03 · Proposal",
+        title: "One number. Three references. Five business days.",
+        body: "The proposal lands as a single contract with a clear monthly fee, a transparent reimbursables schedule, and three references from associations comparable to yours in size and complexity. We expect boards to call those references. The proposal is good for sixty days; pricing is held while you decide.",
+        bullets: [
+          "Monthly base fee for the agreed scope",
+          "Reimbursables schedule (no markup on pass-throughs)",
+          "Three references from comparable associations",
+          "Sixty-day price hold while the board decides",
+        ],
+      },
+    ],
+  },
+
+  // ─── INCLUDED / NOT INCLUDED ───────────────────────────
+  included: {
+    eyebrow: "What's in the base fee",
+    titlePlain: "What you're paying for —",
+    titleItalic: "and what's a separate line.",
+    intro: "The base fee covers the recurring operational work every association needs. A few categories sit outside the base because they're either project-driven, owner-driven, or volume-driven — and pricing them inside the base would penalize the boards that don't use them. Both columns are itemized in the contract.",
+    base: {
+      eyebrow: "Inside the base fee",
+      title: "Recurring operations",
+      sub: "The work that happens every month, regardless of what's on the agenda.",
+      items: [
+        { h: "Board meeting management",          p: "Agenda prep, packet distribution, attendance, minutes, and follow-up." },
+        { h: "Owner & resident support",          p: "Day-to-day owner inquiries, account questions, ARC routing, and rule clarifications." },
+        { h: "Monthly financial reporting",       p: "CPA-supervised financials with bank reconciliation, AR aging, and budget-to-actual variance." },
+        { h: "Vendor management",                 p: "Contract administration, COI tracking, performance review, and invoice approvals." },
+        { h: "Compliance monitoring",             p: "Insurance, license renewals, statutory filings, and document retention." },
+        { h: "Property-services oversight",       p: "Routine inspection cadence, maintenance scheduling, and minor work coordination." },
+        { h: "Owner portal & communications",     p: "Vantaca portal access, payment processing, and broadcast messaging." },
+        { h: "Annual budget development",         p: "Budget build, board workshop, owner notice, and adoption support." },
+      ],
+    },
+    extras: {
+      eyebrow: "Outside the base fee",
+      title: "Project & pass-through",
+      sub: "Itemized separately so boards see exactly what drove a given month's invoice.",
+      items: [
+        { h: "Capital project oversight",         p: "Roof, paint, concrete restoration, milestone inspections — priced as owner's-rep engagements." },
+        { h: "Reserve studies",                   p: "AccuReserve continuum — from self-assessment to fully managed subscription study." },
+        { h: "Special assessments",               p: "Owner notice cycles, payment-plan administration, and lender coordination." },
+        { h: "Litigation & collections support",  p: "Counsel coordination, lien filings, and court appearance support." },
+        { h: "Estoppels & document requests",     p: "Owner-driven, paid by the requesting party — never billed to the association." },
+        { h: "Reimbursables",                     p: "Postage, lockbox, bank fees, copies. Pass-through at cost — no markup." },
+        { h: "Special meetings",                  p: "Beyond the contracted board-meeting cadence; quoted in advance." },
+        { h: "After-hours emergency response",    p: "Inside our SLA at no charge; outside is hourly with prior board approval." },
+      ],
+    },
+    reassure: {
+      title: "We don't bill against ambiguity.",
+      body: "Every line outside the base fee is enumerated in the contract before it shows up on an invoice. If the contract doesn't list it, we don't bill for it without written board approval — and the approval is in the meeting minutes.",
+    },
+  },
+
+  // ─── FAQ ────────────────────────────────────────────────
+  faq: {
+    titlePlain: "Pricing questions",
+    titleItalic: "boards actually ask.",
+    side: "These are the questions Mr. Caldwell gets on intake calls. The answers are the same whether you're a 22-unit Venice condo or a 240-door HOA in Lakewood Ranch — the scope changes, the model doesn't.",
+    items: [
+      {
+        q: "Why won't you publish a price?",
+        a: [
+          "Because the price depends entirely on scope. A 22-unit beachfront condo with a $1.4M reserve study and a milestone inspection in flight is a fundamentally different engagement than a 180-door HOA with two amenity centers and an active capital plan. Publishing a per-door figure would either over-charge the simple cases or under-quote the complex ones — and we'd rather not do either.",
+          "Boards comparing proposals should ask every firm to itemize the scope. The fee is meaningless without the scope behind it.",
+        ],
+      },
+      {
+        q: "Are you more expensive than the cheapest firm we've talked to?",
+        a: [
+          "Sometimes — on the base fee, side by side. But the comparison is rarely apples-to-apples. Boards that switch to us from a lower-priced firm almost always describe the same realization: the lower fee was a base, and most of what they actually needed was billed extra. Our base scope is wider on purpose, so the all-in cost is usually competitive.",
+          "We're happy to walk a board through a side-by-side scope comparison with another firm's proposal — most of the time the gap closes once the scope is normalized.",
+        ],
+      },
+      {
+        q: "Can we negotiate the scope down to lower the fee?",
+        a: [
+          "Yes. The scope is the lever. If a board wants to handle owner support in-house, run their own ARC committee, or use their own bookkeeper for daily entries, we'll re-estimate the man-hours and the fee will come down accordingly. We'd rather have an accurate scope at a lower fee than a fictional scope at a higher one.",
+          "Boards should be aware that scope reductions are real reductions — work the board takes on doesn't disappear, it just moves. We'll be candid about what an in-house team can realistically absorb.",
+        ],
+      },
+      {
+        q: "How does the fee change over time?",
+        a: [
+          "Annually, on the contract anniversary, indexed to a measurable benchmark — typically labor inflation plus any agreed-upon scope changes. The mechanism is in the contract; there are no surprise increases mid-year. Boards see the proposed adjustment thirty days before the anniversary and approve it in writing.",
+          "If your association adds a building, takes on a major capital project, or significantly expands the scope, we'll quote those changes against the existing contract rather than re-priced the whole engagement.",
+        ],
+      },
+      {
+        q: "What's included in 'reimbursables'?",
+        a: [
+          "Postage, printing, lockbox processing, bank fees, courier charges, and similar pass-through costs that vary by month. We bill these at cost — no markup, no administrative fee on top. The contract lists every reimbursable category up front.",
+          "Software subscriptions (Vantaca portal, payment processing) are inside the base fee for our managed associations — boards aren't billed separately for the technology platform.",
+        ],
+      },
+      {
+        q: "Is there a transition or onboarding fee?",
+        a: [
+          "There can be, depending on the state of your records when you arrive. A clean transition from a competent prior firm is usually inside the base fee. A messy transition — missing documents, untracked vendor contracts, an unaudited bank reconciliation — gets quoted as a one-time onboarding engagement so the recurring fee isn't inflated by cleanup work that's behind us once it's done.",
+          "We'd rather price the cleanup honestly than absorb it into the monthly fee and resent it for the next ten years.",
+        ],
+      },
+      {
+        q: "What's the contract length?",
+        a: [
+          "Initial term is typically one year, with a sixty-day notice period for non-renewal on either side. After the first year, contracts roll month-to-month or annual at the board's preference. We don't lock boards into multi-year terms — if you don't want us anymore, sixty days is enough time to transition cleanly.",
+          "Most of our contracts have run for more than twenty years. The retention isn't from the contract; it's from the work.",
+        ],
+      },
+    ],
+  },
+
+  // ─── CTA ────────────────────────────────────────────────
+  ctaBand: {
+    eyebrow: "Ready for a real number?",
+    title: "Send us your governing documents. We'll come back with a tailored proposal.",
+    body: "Five business days, on average. The proposal includes a man-hour scope, a monthly fee, a reimbursables schedule, and three references from associations comparable to yours. Sixty-day price hold while the board decides.",
+    primary:   { label: "Request a proposal", href: "/request-proposal/index.html" },
+    secondary: { label: "How we work",        href: "/about/index.html" },
+    phone: "(941) 485-0605",
+    hours: "Mon – Fri · 8:30am – 5:00pm ET",
+  },
+
+  footer: {},
+};
+
+// ─── Custom inline sections (one-off; not in shared.jsx) ──
+
+const KCPricingHero = ({ content: c }) => (
+  <section className="kc-pricing-hero">
+    <div className="kc-container">
+      <div className="kc-pricing-hero-eye">{c.eyebrow}</div>
+      <h1 className="kc-pricing-hero-h">
+        {c.titlePlain}
+      </h1>
+      <hr className="kc-pricing-hero-rule" />
+      <p className="kc-pricing-hero-lede">{c.lede}</p>
+    </div>
+  </section>
+);
+
+const KCPricingPhilosophy = ({ content: c }) => (
+  <section className="kc-pricing-philo">
+    <div className="kc-container">
+      <div className="kc-pricing-philo-grid">
+        <aside className="kc-pricing-philo-aside">
+          <div className="kc-eyebrow">{c.eyebrow}</div>
+          <h2 className="kc-pricing-philo-h">
+            {c.titlePlain} <em>{c.titleItalic}</em>
+          </h2>
+        </aside>
+        <div>
+          <blockquote className="kc-pricing-philo-pull">{c.pullQuote}</blockquote>
+          {c.paragraphs.map((p, i) => (
+            <p key={i} className="kc-pricing-philo-p">{p}</p>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+const KCPricingModel = ({ content: c }) => (
+  <section className="kc-pricing-model">
+    <div className="kc-container">
+      <div className="kc-pricing-model-head">
+        <div className="kc-eyebrow">{c.eyebrow}</div>
+        <h2 className="kc-pricing-model-h">
+          {c.titlePlain} <em>{c.titleItalic}</em>
+        </h2>
+        <p className="kc-pricing-model-intro">{c.intro}</p>
+      </div>
+      <div className="kc-pricing-model-grid">
+        {c.steps.map((step, i) => (
+          <div key={i} className="kc-pricing-model-step">
+            <div className="kc-pricing-model-step-num">{step.label}</div>
+            <h3 className="kc-pricing-model-step-h">{step.title}</h3>
+            <p className="kc-pricing-model-step-p">{step.body}</p>
+            <ul className="kc-pricing-model-step-list">
+              {step.bullets.map((b, j) => <li key={j}>{b}</li>)}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
+const KCPricingIncluded = ({ content: c }) => (
+  <section className="kc-pricing-included">
+    <div className="kc-container">
+      <div className="kc-pricing-included-head">
+        <div className="kc-eyebrow">{c.eyebrow}</div>
+        <h2 className="kc-pricing-included-h">
+          {c.titlePlain} <em>{c.titleItalic}</em>
+        </h2>
+        <p className="kc-pricing-included-intro">{c.intro}</p>
+      </div>
+      <div className="kc-pricing-included-grid">
+        <div className="kc-pricing-col">
+          <div className="kc-pricing-col-eye">{c.base.eyebrow}</div>
+          <h3 className="kc-pricing-col-h">{c.base.title}</h3>
+          <p className="kc-pricing-col-sub">{c.base.sub}</p>
+          <ul>
+            {c.base.items.map((it, i) => (
+              <li key={i}><strong>{it.h}</strong><span>{it.p}</span></li>
+            ))}
+          </ul>
+        </div>
+        <div className="kc-pricing-col is-extra">
+          <div className="kc-pricing-col-eye">{c.extras.eyebrow}</div>
+          <h3 className="kc-pricing-col-h">{c.extras.title}</h3>
+          <p className="kc-pricing-col-sub">{c.extras.sub}</p>
+          <ul>
+            {c.extras.items.map((it, i) => (
+              <li key={i}><strong>{it.h}</strong><span>{it.p}</span></li>
+            ))}
+          </ul>
+        </div>
+      </div>
+      <div className="kc-pricing-reassure">
+        <div className="kc-pricing-reassure-mark">"</div>
+        <div>
+          <h4 className="kc-pricing-reassure-h">{c.reassure.title}</h4>
+          <p className="kc-pricing-reassure-p">{c.reassure.body}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+// ─── Page ────────────────────────────────────────────────
+
+const Page = () => (
+  <div className="kc-page">
+    <KCNav             active={CONTENT.nav.active} />
+    <KCBreadcrumbs     content={CONTENT.breadcrumbs} />
+    <KCPricingHero     content={CONTENT.hero} />
+    <KCPricingPhilosophy content={CONTENT.philosophy} />
+    <KCPricingModel    content={CONTENT.model} />
+    <KCPricingIncluded content={CONTENT.included} />
+    <KCFAQ             content={CONTENT.faq} />
+    <KCCtaBand         content={CONTENT.ctaBand} />
+    <KCFooter          content={CONTENT.footer} />
+  </div>
+);
+
+KCSeo.apply(CONTENT.meta, {
+  pageType:    "core",
+  pageUrl:     CONTENT.meta.canonical,
+  breadcrumbs: CONTENT.breadcrumbs.items,
+  faqs:        CONTENT.faq.items,
+});
+
+const renderWhenReady = () => {
+  if (typeof KCNav === 'undefined' || typeof KCFAQ === 'undefined') {
+    return setTimeout(renderWhenReady, 30);
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(<Page />);
+  requestAnimationFrame(() => { if (window.lucide) window.lucide.createIcons(); });
+  setTimeout(() => { if (window.lucide) window.lucide.createIcons(); }, 400);
+};
+renderWhenReady();
+</script>
+
+</body>
+</html>

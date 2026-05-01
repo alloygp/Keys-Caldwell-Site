@@ -1,0 +1,406 @@
+/* Keys-Caldwell — About page styles
+   Loaded on top of styles.css for /about/.
+   ============================================================= */
+
+/* ═══ ABOUT HERO ═══ */
+.kc-abouthero {
+  background: var(--shell);
+  padding: 64px 0 80px;
+  border-bottom: 1px solid var(--shell-line);
+}
+.kc-abouthero-grid {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 64px;
+  align-items: start;
+}
+.kc-abouthero-h1 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 56px;
+  line-height: 1.05;
+  color: var(--deep-ink);
+  letter-spacing: -0.02em;
+  margin: 18px 0 0;
+  text-wrap: balance;
+}
+.kc-abouthero-h1 em { font-style: italic; color: var(--kc-indigo); }
+.kc-abouthero-rule {
+  width: 80px;
+  height: 4px;
+  background: var(--aged-brass);
+  border: 0;
+  margin: 28px 0 24px;
+}
+.kc-abouthero-p {
+  font-size: 18px;
+  line-height: 1.65;
+  color: var(--driftwood);
+  margin: 0 0 18px;
+  max-width: 640px;
+}
+.kc-abouthero-card {
+  background: #fff;
+  border: 1px solid var(--shell-line);
+  border-top: 4px solid var(--aged-brass);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  box-shadow: var(--shadow-2);
+}
+.kc-abouthero-card-eye {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--aged-brass);
+  margin-bottom: 16px;
+}
+.kc-abouthero-stats {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 18px;
+}
+.kc-abouthero-stats li {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  border-bottom: 1px dotted var(--shell-line);
+  padding-bottom: 14px;
+}
+.kc-abouthero-stats li:last-child { border-bottom: 0; padding-bottom: 0; }
+.kc-abouthero-stats strong {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 32px;
+  color: var(--deep-ink);
+  letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
+}
+.kc-abouthero-stats strong span {
+  color: var(--aged-brass);
+  font-size: 22px;
+}
+.kc-abouthero-stats span {
+  font-size: 13px;
+  color: var(--driftwood);
+  font-weight: 500;
+}
+
+/* ═══ FOUNDERS ═══ */
+.kc-founders {
+  padding: 88px 0;
+  background: #fff;
+}
+.kc-founders-head { margin-bottom: 48px; max-width: 760px; }
+.kc-founders-h2 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 1.15;
+  color: var(--deep-ink);
+  letter-spacing: -0.015em;
+  margin: 12px 0 0;
+  text-wrap: balance;
+}
+.kc-founders-h2 em { font-style: italic; color: var(--kc-indigo); }
+.kc-founders-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 56px;
+}
+.kc-founder {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 28px;
+  align-items: start;
+}
+.kc-founder-portrait {
+  width: 220px;
+  height: 220px;
+  background: var(--shell);
+  border: 1px solid var(--shell-line);
+  border-radius: var(--radius-lg);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+.kc-founder-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.kc-founder-initials {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-weight: 700;
+  font-size: 72px;
+  color: var(--aged-brass);
+  letter-spacing: -0.02em;
+}
+.kc-founder-name {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--deep-ink);
+}
+.kc-founder-role {
+  font-size: 14px;
+  color: var(--driftwood);
+  font-weight: 500;
+  margin-top: 4px;
+}
+.kc-founder-creds {
+  list-style: none;
+  margin: 16px 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.kc-founder-creds li {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--aged-brass);
+  background: rgba(184, 134, 11, 0.08);
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+.kc-founder-bio p {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--driftwood);
+  margin: 0 0 12px;
+}
+.kc-founder-bio p:last-child { margin-bottom: 0; }
+
+/* ═══ CREDENTIALS ═══ */
+.kc-creds {
+  padding: 80px 0;
+  background: var(--shell);
+  border-top: 1px solid var(--shell-line);
+  border-bottom: 1px solid var(--shell-line);
+}
+.kc-creds-head {
+  margin-bottom: 40px;
+  max-width: 720px;
+}
+.kc-creds-h2 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.2;
+  color: var(--deep-ink);
+  letter-spacing: -0.015em;
+  margin: 12px 0 16px;
+  text-wrap: balance;
+}
+.kc-creds-h2 em { font-style: italic; color: var(--kc-indigo); }
+.kc-creds-intro {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--driftwood);
+  margin: 0;
+}
+.kc-creds-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.kc-cred {
+  background: #fff;
+  border: 1px solid var(--shell-line);
+  border-left: 3px solid var(--aged-brass);
+  border-radius: var(--radius-md);
+  padding: 22px 24px;
+}
+.kc-cred-abbr {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--deep-ink);
+  letter-spacing: 0.02em;
+}
+.kc-cred-name {
+  font-size: 14px;
+  color: var(--deep-ink);
+  font-weight: 600;
+  margin-top: 4px;
+}
+.kc-cred-issuer {
+  font-size: 12px;
+  color: var(--driftwood);
+  margin-top: 6px;
+}
+.kc-cred-detail {
+  font-size: 12px;
+  color: var(--aged-brass);
+  font-weight: 600;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px dotted var(--shell-line);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ═══ TIMELINE ═══ */
+.kc-timeline {
+  padding: 88px 0;
+  background: #fff;
+}
+.kc-timeline-head { margin-bottom: 48px; max-width: 720px; }
+.kc-timeline-h2 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.15;
+  color: var(--deep-ink);
+  letter-spacing: -0.015em;
+  margin: 12px 0 0;
+  text-wrap: balance;
+}
+.kc-timeline-h2 em { font-style: italic; color: var(--kc-indigo); }
+.kc-timeline-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 24px;
+}
+.kc-era {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 32px;
+  padding: 28px 0;
+  border-top: 1px solid var(--shell-line);
+}
+.kc-era:first-child { border-top: 0; padding-top: 0; }
+.kc-era-year {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-weight: 700;
+  font-size: 36px;
+  color: var(--aged-brass);
+  letter-spacing: -0.01em;
+}
+.kc-era-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--driftwood);
+  margin-top: 4px;
+}
+.kc-era-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--deep-ink);
+  margin-bottom: 10px;
+}
+.kc-era-p {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--driftwood);
+  margin: 0;
+}
+.kc-era-milestones {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.kc-era-milestones li {
+  font-size: 12px;
+  color: var(--deep-ink);
+  background: var(--shell);
+  border: 1px solid var(--shell-line);
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-weight: 500;
+}
+
+/* ═══ VALUES ═══ */
+.kc-values {
+  padding: 88px 0;
+  background: var(--shell);
+  border-top: 1px solid var(--shell-line);
+}
+.kc-values-head { margin-bottom: 48px; max-width: 720px; }
+.kc-values-h2 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.15;
+  color: var(--deep-ink);
+  letter-spacing: -0.015em;
+  margin: 12px 0 0;
+  text-wrap: balance;
+}
+.kc-values-h2 em { font-style: italic; color: var(--kc-indigo); }
+.kc-values-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+.kc-value {
+  background: #fff;
+  border: 1px solid var(--shell-line);
+  border-radius: var(--radius-lg);
+  padding: 28px 30px;
+}
+.kc-value-n {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-weight: 700;
+  color: var(--aged-brass);
+  font-size: 24px;
+  margin-bottom: 6px;
+}
+.kc-value-h {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--deep-ink);
+  margin-bottom: 10px;
+}
+.kc-value-p {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--driftwood);
+  margin: 0 0 14px;
+}
+.kc-value-neg {
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--deep-ink);
+  padding: 12px 14px;
+  background: var(--shell);
+  border-left: 3px solid var(--aged-brass);
+  border-radius: 4px;
+}
+.kc-value-neg span {
+  font-weight: 700;
+  color: var(--aged-brass);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 11px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* ═══ Responsive ═══ */
+@media (max-width: 960px) {
+  .kc-abouthero-grid,
+  .kc-founders-grid,
+  .kc-creds-grid,
+  .kc-values-grid { grid-template-columns: 1fr; }
+  .kc-founder { grid-template-columns: 1fr; }
+  .kc-founder-portrait { width: 160px; height: 160px; }
+  .kc-era { grid-template-columns: 1fr; gap: 12px; }
+  .kc-abouthero-h1 { font-size: 38px; }
+}

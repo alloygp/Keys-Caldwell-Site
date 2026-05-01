@@ -1,0 +1,25 @@
+# https://keys-caldwell.com/robots.txt
+# Allow all reputable crawlers, point them at the sitemap.
+
+User-agent: *
+Allow: /
+
+# Block legacy/duplicate URLs that Google still has indexed
+# (these are also 301 redirected — see _reference/REDIRECTS.md)
+Disallow: /home/
+Disallow: /services-v3/
+Disallow: /services3/
+Disallow: /services/
+Disallow: /contact/
+Disallow: /references/
+Disallow: /information/
+Disallow: /DPPSite/
+Disallow: /alternate-contact-information-example-form/
+Disallow: /login-transition/
+Disallow: /*?page_id=
+
+# Allow asset directories (Googlebot needs CSS/JS/images to render the page)
+Allow: /assets/
+Allow: /components/
+
+Sitemap: https://keys-caldwell.com/sitemap.xml

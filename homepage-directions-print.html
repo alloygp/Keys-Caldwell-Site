@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Keys-Caldwell — Homepage Directions (Print)</title>
+<link rel="stylesheet" href="styles.css">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<style>
+  html, body { margin: 0; padding: 0; background: #fff; }
+  body { font-family: 'Source Sans 3', system-ui, sans-serif; }
+  #root { min-height: 100vh; }
+
+  /* Print-mode layout: stack the three variants, each on its own page-set */
+  .kc-print-wrap { background: #fff; }
+  .kc-print-cover {
+    padding: 80px 60px;
+    background: var(--shell);
+    border-bottom: 4px solid var(--aged-brass);
+    page-break-after: always;
+    break-after: page;
+  }
+  .kc-print-cover-eye {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--aged-brass); margin-bottom: 14px;
+  }
+  .kc-print-cover-h {
+    font-family: 'Lora', serif; font-style: italic; font-weight: 700;
+    font-size: 56px; line-height: 1.1; color: var(--deep-ink);
+    letter-spacing: -0.02em; margin: 0 0 20px;
+    max-width: 900px;
+  }
+  .kc-print-cover-p {
+    font-size: 17px; line-height: 1.6; color: var(--driftwood);
+    max-width: 720px; margin: 0 0 36px;
+  }
+  .kc-print-toc {
+    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px;
+    max-width: 1100px;
+  }
+  .kc-print-toc-item {
+    background: #fff; border: 1px solid var(--shell-line);
+    border-left: 3px solid var(--aged-brass);
+    padding: 24px 22px;
+  }
+  .kc-print-toc-num {
+    font-family: 'Lora', serif; font-style: italic; font-weight: 700;
+    font-size: 22px; color: var(--aged-brass); margin-bottom: 6px;
+  }
+  .kc-print-toc-t {
+    font-family: 'Lora', serif; font-style: italic; font-weight: 700;
+    font-size: 20px; color: var(--deep-ink); margin: 0 0 8px;
+    letter-spacing: -0.005em;
+  }
+  .kc-print-toc-d {
+    font-size: 13px; color: var(--driftwood); line-height: 1.55; margin: 0;
+  }
+
+  .kc-print-section {
+    page-break-before: always;
+    break-before: page;
+  }
+  .kc-print-section-header {
+    background: var(--deep-ink); color: var(--shell);
+    padding: 32px 60px;
+    display: flex; align-items: baseline; justify-content: space-between;
+  }
+  .kc-print-section-header-eye {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--aged-brass);
+  }
+  .kc-print-section-header-t {
+    font-family: 'Lora', serif; font-style: italic; font-weight: 700;
+    font-size: 28px; color: var(--shell); letter-spacing: -0.012em;
+    margin: 0;
+  }
+  .kc-print-section-header-sub {
+    font-size: 13px; color: rgba(245,239,227,0.7); margin: 4px 0 0;
+  }
+
+  /* Force the .kc-page (sticky nav etc.) to render statically for print */
+  .kc-print-section .kc-nav { position: static !important; }
+
+  /* Screen-only: keep the print page readable while previewing on screen */
+  @media screen {
+    body { background: #f0eee9; }
+    .kc-print-wrap { max-width: 1280px; margin: 0 auto; box-shadow: 0 4px 32px rgba(0,0,0,.1); }
+  }
+
+  @media print {
+    @page { size: 1280px 1800px; margin: 0; }
+    html, body { background: #fff !important; }
+    .kc-print-wrap { box-shadow: none; max-width: none; }
+
+    /* Avoid splitting key blocks awkwardly */
+    .kc-pillar-card,
+    .kc-service-card,
+    .kc-fear-card,
+    .kc-compare-row,
+    .kc-era,
+    .kc-diff-row,
+    .kc-testimonial,
+    .kc-quote,
+    .kc-cta-band,
+    .kc-mission,
+    .kc-print-toc-item {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    /* Force background colors to render */
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+
+    /* Remove transitions, hover transforms */
+    * { transition: none !important; animation: none !important; }
+  }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script type="text/babel" src="components/shared.jsx"></script>
+<script type="text/babel" src="components/homepage-v1.jsx"></script>
+<script type="text/babel" src="components/homepage-v2.jsx"></script>
+<script type="text/babel" src="components/homepage-v3.jsx"></script>
+
+<script type="text/babel">
+const VARIANTS = [
+  { id: 'v1', n: '01', t: 'V1 · Editorial classic', sub: 'Italic Lora hero · Image-led · Service-pillar split + four-chamber grid', Cmp: HomepageV1 },
+  { id: 'v2', n: '02', t: 'V2 · Board-first / problem-led', sub: 'Dark hero · Lead with the relief · Fears + answer cards · Comparison rows', Cmp: HomepageV2 },
+  { id: 'v3', n: '03', t: 'V3 · Heritage-forward', sub: '1978 stamp protagonist · Type-led · Heritage timeline early · Places strip', Cmp: HomepageV3 },
+];
+
+const PrintApp = () => (
+  <div className="kc-print-wrap">
+    <section className="kc-print-cover">
+      <div className="kc-print-cover-eye">Keys-Caldwell · Homepage Directions · April 2026</div>
+      <h1 className="kc-print-cover-h">Three directions for keys-caldwell.com — each shown as a full long-scroll homepage.</h1>
+      <p className="kc-print-cover-p">
+        Each variant renders the complete page composition: nav, hero, services, heritage, social proof, differentiators, conversion CTA, and footer. Designed at 1280px width on the brand's Coastal Trust palette and Lora + Source Sans 3 type pair.
+      </p>
+      <div className="kc-print-toc">
+        {VARIANTS.map(v => (
+          <div key={v.id} className="kc-print-toc-item">
+            <div className="kc-print-toc-num">No.{v.n}</div>
+            <h3 className="kc-print-toc-t">{v.t}</h3>
+            <p className="kc-print-toc-d">{v.sub}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    {VARIANTS.map(v => (
+      <section key={v.id} className="kc-print-section">
+        <div className="kc-print-section-header">
+          <div>
+            <div className="kc-print-section-header-eye">Direction No.{v.n}</div>
+            <h2 className="kc-print-section-header-t">{v.t}</h2>
+            <p className="kc-print-section-header-sub">{v.sub}</p>
+          </div>
+        </div>
+        <v.Cmp />
+      </section>
+    ))}
+  </div>
+);
+
+ReactDOM.createRoot(document.getElementById('root')).render(<PrintApp />);
+
+// Wait for fonts + Babel + render, then print.
+const triggerPrint = async () => {
+  if (document.fonts && document.fonts.ready) {
+    try { await document.fonts.ready; } catch (e) {}
+  }
+  // Re-fire Lucide a couple times so all icons resolve before print
+  if (window.lucide) window.lucide.createIcons();
+  await new Promise(r => setTimeout(r, 600));
+  if (window.lucide) window.lucide.createIcons();
+  await new Promise(r => setTimeout(r, 400));
+  window.print();
+};
+window.addEventListener('load', () => { setTimeout(triggerPrint, 800); });
+</script>
+</body>
+</html>

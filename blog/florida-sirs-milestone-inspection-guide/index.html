@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<!-- ============================================================
+     Keys-Caldwell — Blog spoke: Florida SIRS & Milestone Inspections
+     ============================================================
+     URL slot       :  /blog/florida-sirs-milestone-inspection-guide/
+     Template type  :  BLOG_SPOKE
+     Target keyword :  "florida sirs"  +  "milestone inspection florida"
+                       +  "sb-4d condo law"
+     Composition    :  KCNav · KCBreadcrumbs · KCBlogHeader · KCBlogToc ·
+                       KCBlogBody · KCBlogAuthor · KCBlogRelated ·
+                       KCCtaBand · KCFooter
+     ----------------------------------------------------------------
+     This is the FIRST blog spoke shipped. It also serves as the
+     reference template for all future spokes — copywriters working
+     on the next post should mirror the structure of CONTENT below.
+
+     E-E-A-T NOTES:
+       - Author = Daniel Caldwell (operations principal, capital projects).
+         Real CAM + reserve-specialist credentials in the schema.
+       - Statute references are NUMBERED. Specific dates included.
+       - Pillar links: 2× to /condo-association-management-sarasota/
+       - This page IS legal-adjacent content; the closing callout
+         explicitly states it is not legal advice.
+     ============================================================ -->
+<title>Florida SIRS & Milestone Inspections — A Condo Board's Guide · Keys-Caldwell</title>
+<meta name="description" content="Plain-English guide to Florida's Structural Integrity Reserve Study (SIRS) and milestone inspection requirements under SB-4D. What boards must do, when, and what it costs — written by a Venice, FL community association manager." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://unpkg.com">
+
+<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../../blog.css">
+<link rel="icon" href="data:,">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<style>
+  html, body { margin: 0; padding: 0; }
+  body { font-family: 'Source Sans 3', system-ui, sans-serif; }
+  #root { min-height: 100vh; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script>window.KC_ASSET_BASE = '../../';</script>
+<script src="../../components/kc-org.js"></script>
+<script src="../../components/kc-seo.jsx"></script>
+<script type="text/babel" src="../../components/shared.jsx"></script>
+<script type="text/babel" src="../../components/blog.jsx"></script>
+
+<script type="text/babel" id="page-content">
+const CONTENT = {
+
+  meta: {
+    title:           "Florida SIRS & Milestone Inspections — A Condo Board's Guide · Keys-Caldwell",
+    description:     "Plain-English guide to Florida's Structural Integrity Reserve Study (SIRS) and milestone inspection requirements under SB-4D. What boards must do, when, and what it costs.",
+    canonical:       "/blog/florida-sirs-milestone-inspection-guide/",
+    primaryKeyword:  "florida sirs",
+    secondaryKeywords: [
+      "milestone inspection florida",
+      "sb-4d condo law",
+      "structural integrity reserve study",
+      "florida condo law sirs",
+      "what is a sirs report",
+    ],
+    ogTitle:         "Florida SIRS & Milestone Inspections — A Condo Board's Guide",
+    ogDescription:   "What SB-4D actually requires, when, and what it costs — by a Venice, FL community association manager who has run dozens of these.",
+    ogImage:         "/assets/og/keys-caldwell-default.jpg",
+    schema:          ["BreadcrumbList", "Article"],
+  },
+
+  breadcrumbs: {
+    items: [
+      { label: "Home",  href: "/" },
+      { label: "Blog",  href: "/blog/" },
+      { label: "Florida SIRS & Milestone Inspections" },
+    ],
+  },
+
+  nav: { active: "blog" },
+
+  // ─── BLOG HEADER ─────────────────────────────────────
+  // The TLDR card is what we're optimizing for the
+  // featured snippet. Keep it ≤55 words and answer-first.
+  header: {
+    eyebrow: "Capital projects · Compliance",
+    title: "Florida SIRS & Milestone Inspections — A Condo Board's Guide to SB-4D",
+    subtitle: "Plain-English answers to what every Florida condo board needs to know about Structural Integrity Reserve Studies, milestone inspections, and the post-Surfside compliance calendar.",
+    publishedDisplay: "April 22, 2026",
+    updatedDisplay:   "May 1, 2026",
+    readTime:         "11 min read",
+    author: {
+      initials: "DC",
+      name: "Daniel Caldwell",
+      role: "Operations Principal · Capital Projects Lead",
+    },
+    tldrLabel: "Answer-first",
+    tldr: "Florida's SB-4D requires every condominium three stories or higher to (1) have a milestone inspection by a licensed engineer at age 30 (or 25 within 3 miles of the coast), repeated every 10 years, and (2) maintain a Structural Integrity Reserve Study covering specific structural components, fully funded by year. Initial SIRS were due by Dec 31, 2024.",
+  },
+
+  // ─── TOC ─────────────────────────────────────────────
+  toc: {
+    items: [
+      { id: "what-changed",   label: "What changed in 2022 — and why" },
+      { id: "milestone",      label: "What a milestone inspection is" },
+      { id: "sirs",           label: "What a SIRS report is" },
+      { id: "deadlines",      label: "The compliance calendar" },
+      { id: "cost",           label: "Realistic costs and timelines" },
+      { id: "what-now",       label: "What boards should do now" },
+      { id: "common-mistakes", label: "Three common mistakes" },
+      { id: "faq",            label: "Quick-answer FAQ" },
+    ],
+  },
+
+  // ─── BODY ────────────────────────────────────────────
+  body: {
+    sections: [
+
+      { id: "what-changed", h2: "What changed in 2022 — and why", blocks: [
+        { type: "p", text: "On June 24, 2021, the Champlain Towers South in Surfside, Florida partially collapsed. Ninety-eight people died. In the year that followed, the Florida legislature passed SB-4D (signed May 26, 2022), which made two long-deferred reforms mandatory: structural milestone inspections for older buildings, and reserve studies that actually cover the structural components — concrete, roof, waterproofing, post-tension cables — that determine whether a building remains safe to occupy." },
+        { type: "p", text: "Before SB-4D, Florida condo boards could waive reserves by majority owner vote. Most did. The result, repeated across the coast, was a generation of mid-rise buildings whose reserve balance bore no relationship to their actual capital condition. The new law removes the waiver option for the SIRS-defined components — and adds a documentation requirement that the engineering inspection has actually happened." },
+        { type: "callout", kind: "note", title: "Statutes referenced",
+          text: "SB-4D was codified into Florida Statutes Chapter 718. The relevant sections are 718.112 (operations and reserves), 718.301 (transition of control), and the new 553.899 (milestone inspection program). When this article references \"the statute,\" we mean these provisions." },
+      ]},
+
+      { id: "milestone", h2: "What a milestone inspection is", blocks: [
+        { type: "p", text: "A milestone inspection is a structural engineering evaluation, performed by a Florida-licensed engineer or architect, on every condominium building three stories or higher. It is a TWO-PHASE process:" },
+        { type: "ol", items: [
+          "Phase One — visual inspection. The engineer walks the building, reviews historical records, and produces a report that either certifies the building's structural integrity or determines that Phase Two is required.",
+          "Phase Two — destructive or non-destructive testing. Triggered only if Phase One identifies substantial structural deterioration. Phase Two confirms the extent and develops a remediation plan.",
+        ]},
+        { type: "p", text: "The Phase One report is filed with the condominium association AND with the local building official. Owners get a summary. If Phase Two is required, the timeline for remediation is set in the engineer's report, with the local building official having jurisdiction to enforce it." },
+        { type: "h3", text: "When is a building's first milestone inspection due?" },
+        { type: "ul", items: [
+          "30 years from the certificate of occupancy (CO) date — for inland buildings.",
+          "25 years from the CO date — for buildings located within 3 miles of the coast.",
+          "Repeated every 10 years thereafter.",
+        ]},
+        { type: "p", text: "The 25-year coastal trigger affects most of Sarasota County's mid-rise condominium stock. Buildings constructed in the late 1990s are coming due now; buildings from the 2000s are on the runway." },
+      ]},
+
+      { id: "sirs", h2: "What a SIRS report is", blocks: [
+        { type: "p", text: "A Structural Integrity Reserve Study is the financial counterpart to the milestone inspection. Where the milestone inspection asks \"is the building structurally sound?\", the SIRS asks \"can the association financially fund the structural maintenance the building actually needs?\"" },
+        { type: "p", text: "SIRS-specific components, defined in statute:" },
+        { type: "ul", items: [
+          "Roof",
+          "Load-bearing walls and primary structural members",
+          "Floor (slabs)",
+          "Foundation",
+          "Fireproofing and fire protection systems",
+          "Plumbing",
+          "Electrical systems",
+          "Waterproofing and exterior painting",
+          "Windows and exterior doors",
+          "Any other item with a deferred maintenance expense or replacement cost exceeding $10,000",
+        ]},
+        { type: "p", text: "For each component the study must establish remaining useful life, estimated replacement cost, and the annual reserve allocation required to fully fund the component on schedule. The board must approve and adopt a funding plan. Owner waiver of these reserves is no longer permitted." },
+        { type: "callout", kind: "warning", title: "Common misconception",
+          text: "A SIRS is NOT a generic reserve study with a new name. The 10 SIRS-defined components are funding-mandatory and waiver-prohibited. Other building components (pool, amenity buildings, lobby refurbishment) can still be in a separate reserve schedule and are still board-discretion in funding policy." },
+      ]},
+
+      { id: "deadlines", h2: "The compliance calendar", blocks: [
+        { type: "h3", text: "Already past" },
+        { type: "ul", items: [
+          "Dec 31, 2024 — Initial SIRS reports were due for buildings three stories and higher. If your association does not have one on file, you are not in compliance, and the lender / insurance / sale-disclosure consequences are real.",
+          "Dec 31, 2024 — Initial milestone inspections were due for buildings whose CO is older than the 30-year (or 25-year coastal) threshold AS OF DEC 31, 2024.",
+        ]},
+        { type: "h3", text: "Coming up" },
+        { type: "ul", items: [
+          "Annually — SIRS reserve allocations must be funded in each year's budget. Underfunding the SIRS-defined components by board vote is no longer a permitted shortcut.",
+          "Every 10 years — Repeat milestone inspections are required indefinitely on a 10-year cycle.",
+          "Every 10 years — SIRS reports must be updated. (We strongly recommend our subscription model — see the AccuReserve continuum below — which keeps the schedule current as components are repaired or replaced.)",
+        ]},
+        { type: "pillar-link", href: "/condo-association-management-sarasota/", label: "Condo association management",
+          context: "How Keys-Caldwell coordinates milestone inspections and SIRS for Sarasota County boards." },
+      ]},
+
+      { id: "cost", h2: "Realistic costs and timelines", blocks: [
+        { type: "p", text: "Boards that haven't done a SIRS or milestone inspection often have unrealistic expectations on both cost and turnaround. Here are the numbers we see in practice across the Sarasota County coast in 2025-2026 dollars." },
+        { type: "h3", text: "Milestone inspection (Phase One)" },
+        { type: "ul", items: [
+          "Cost: $4,000 – $18,000+ depending on building size, complexity, and engineer.",
+          "Timeline: 6 – 10 weeks from engineer engagement to filed report.",
+          "Trigger for Phase Two: roughly 30% of Phase One inspections in our portfolio escalate.",
+        ]},
+        { type: "h3", text: "SIRS report" },
+        { type: "ul", items: [
+          "Cost: $2,400 – $6,500+ depending on building size and component count.",
+          "Timeline: 4 – 8 weeks for a site-walked, engineer-stamped report.",
+          "Annual update under a subscription model: typically $400 – $900/year, vs. re-running the full study from scratch.",
+        ]},
+        { type: "h3", text: "Capital response if findings are significant" },
+        { type: "p", text: "This is the harder number. A condo board that finds out about a $1.2M post-tension cable replacement during their first SIRS — without lead time — is looking at a special assessment, a financing arrangement, or both. A board that found out THREE years earlier through a proactively-managed reserve study is looking at a calmly-funded multi-year capital plan with no special assessment at all." },
+        { type: "callout", kind: "pivot", title: "Why this matters operationally",
+          text: "The financial difference between a discovered SIRS surprise and a managed SIRS surprise is, in practice, the difference between five-figure annual increases and six-figure special assessments. Read the report your engineer hands you. Plan the response. The work doesn't get cheaper by waiting." },
+      ]},
+
+      { id: "what-now", h2: "What boards should do now", blocks: [
+        { type: "p", text: "If your association is three stories or higher and you don't have a SIRS report on file, here is the order of operations we recommend." },
+        { type: "ol", items: [
+          "Confirm whether your building is past the milestone inspection threshold (30 years inland, 25 years within 3 miles of the coast). If yes and you don't have a current Phase One report, this is your priority-one item.",
+          "Engage an engineer for both the milestone inspection AND the SIRS in the same scope, where possible. The engineer is on-site, the documentation needs overlap substantially, and the bundled engagement is materially cheaper than two separate engagements.",
+          "Once the SIRS is in hand, build the response into your next annual budget. Do not wait until the budget cycle following the year you got the report — that's a year of compounded under-funding you can't get back.",
+          "Document everything for your insurance carrier. Carriers have begun requesting SIRS reports as part of master-policy underwriting. A current SIRS, a current milestone inspection, and a board-approved capital plan are renewal-positive signals.",
+          "Move to a subscription reserve study model after the initial SIRS. Conditions change; components get repaired ahead of or behind schedule; the funding plan should track reality, not a 5-year-stale snapshot.",
+        ]},
+        { type: "pillar-link", href: "/condo-association-management-sarasota/", label: "How Keys-Caldwell coordinates milestone inspections",
+          context: "We run the engineer engagement, the board reporting, and the capital response — start to finish." },
+      ]},
+
+      { id: "common-mistakes", h2: "Three common mistakes", blocks: [
+        { type: "h3", text: "1. Treating the SIRS as a 10-year obligation rather than a continuous one." },
+        { type: "p", text: "The 10-year update interval is a floor, not a target. Buildings are dynamic — components are repaired, replaced, or extended in service every year. A SIRS that's 6 years stale is, in operational terms, fiction. Boards that adopt the subscription model see far fewer assessment surprises." },
+        { type: "h3", text: "2. Funding the SIRS components but not the rest of the reserve schedule." },
+        { type: "p", text: "The SIRS is mandatory. The rest of the reserve schedule — pool resurfacing, amenity buildings, lobby refurbishment, mechanical equipment — is still board-discretion. Boards sometimes fund the SIRS components by statute and walk away from everything else, then discover three years later that they have a $300K pool deck problem with no reserve allocation. Don't run a two-track reserve plan." },
+        { type: "h3", text: "3. Treating the engineer as a one-and-done vendor." },
+        { type: "p", text: "The engineer who runs your milestone inspection should ideally be the engineer who interprets the SIRS findings and rides along on capital projects. Continuity matters: the second milestone inspection (10 years out) is materially better when the same firm has institutional context on what was repaired in between." },
+      ]},
+
+      { id: "faq", h2: "Quick-answer FAQ", blocks: [
+        { type: "h3", text: "Does this apply to HOAs?" },
+        { type: "p", text: "No — SB-4D is condominium-specific (Chapter 718). HOAs (Chapter 720) have their own reserve framework but are not subject to the milestone inspection or SIRS requirements. Different building types, different statute." },
+        { type: "h3", text: "Does this apply to two-story condominiums?" },
+        { type: "p", text: "No. The milestone inspection requirement applies to buildings three stories and higher. Two-story buildings have other reserve obligations under 718.112 but are exempt from the SIRS-specific component list and from milestone inspections." },
+        { type: "h3", text: "Can owners still vote to waive reserves?" },
+        { type: "p", text: "For SIRS-defined components: no. That waiver path was removed by SB-4D. For non-SIRS components in the broader reserve schedule, owner waiver is technically still permitted but operationally inadvisable — see common mistake #2 above." },
+        { type: "h3", text: "Who enforces this?" },
+        { type: "p", text: "The local building official enforces milestone inspection compliance. Florida's Department of Business and Professional Regulation oversees condominium association compliance generally. Insurance carriers and lenders are, increasingly, an enforcement layer of their own — non-compliant buildings face renewal denials and lender hesitation on unit transfers." },
+        { type: "callout", kind: "warning", title: "Not legal advice",
+          text: "This article is operational guidance from a community association management firm, not legal advice. Florida condominium law evolves — particularly post-SB-4D, where amendments and clarifications have been ongoing. Boards should consult their association's legal counsel for binding interpretation of statute as it applies to their specific building." },
+      ]},
+    ],
+  },
+
+  // ─── AUTHOR ──────────────────────────────────────────
+  author: {
+    initials: "DC",
+    name: "Daniel Caldwell",
+    role: "Operations Principal · Capital Projects Lead, Keys-Caldwell",
+    eyebrow: "About the author",
+    credentials: ["CAM", "CMCA", "Reserve Specialist"],
+    bio: [
+      "Daniel runs the firm's capital projects practice at Keys-Caldwell, a Venice, FL community association management firm in business since 1978. He has coordinated milestone inspections and Structural Integrity Reserve Studies for dozens of coastal condominium associations across Sarasota County.",
+      "Daniel reads engineering reports for a living. If a Keys-Caldwell association is doing a roof replacement, a concrete restoration, or a milestone inspection, he is the principal coordinating the engineer, vetting the bids, and walking the site with the contractor.",
+    ],
+  },
+
+  // ─── RELATED ─────────────────────────────────────────
+  related: {
+    eyebrow: "Boards reading this also read",
+    titlePlain: "More from the capital projects desk.",
+    titleItalic: "capital projects desk.",
+    items: [
+      { kind: "Pillar page",
+        href:  "/condo-association-management-sarasota/",
+        title: "Condo Association Management — Sarasota County",
+        desc:  "How Keys-Caldwell runs coastal condominium management end to end, including SIRS coordination and milestone inspections." },
+      { kind: "Spoke",
+        href:  "/blog/florida-hoa-reserve-study-special-assessment-guide/",
+        title: "Florida Reserve Studies & Special Assessments",
+        desc:  "How under-funded reserves become special assessments — and the management practices that prevent it." },
+      { kind: "Spoke",
+        href:  "/blog/florida-condo-hoa-association-insurance-guide/",
+        title: "Florida Association Insurance — A Board's Guide",
+        desc:  "Why carriers ask for SIRS reports, what they expect to see, and how to keep your master policy renewing." },
+    ],
+  },
+
+  // ─── CTA ─────────────────────────────────────────────
+  ctaBand: {
+    eyebrow: "Need help running a SIRS or milestone inspection?",
+    title: "We coordinate the engineer, the board reporting, and the capital response — start to finish.",
+    body: "If your board needs to plan a milestone inspection, run a Structural Integrity Reserve Study, or respond to findings from a report you already have, send us a note. We've done dozens of these for Sarasota County coastal condos. The first call is consultative, not a pitch.",
+    primary:   { label: "Request a proposal", href: "/request-proposal/index.html" },
+    secondary: { label: "Condo services overview", href: "/condo-association-management-sarasota/" },
+    phone: "(941) 485-0605",
+    hours: "Mon – Fri · 8:30am – 5:00pm ET",
+  },
+
+  footer: {},
+};
+
+const Page = () => (
+  <div className="kc-page">
+    <KCNav active={CONTENT.nav.active} />
+    <KCBreadcrumbs   content={CONTENT.breadcrumbs} />
+    <KCBlogHeader    content={CONTENT.header} />
+    <KCBlogToc       content={CONTENT.toc} />
+    <KCBlogBody      content={CONTENT.body} />
+    <KCBlogAuthor    content={CONTENT.author} />
+    <KCBlogRelated   content={CONTENT.related} />
+    <KCCtaBand       content={CONTENT.ctaBand} />
+    <KCFooter        content={CONTENT.footer} />
+  </div>
+);
+
+KCSeo.apply(CONTENT.meta, {
+  pageType:    "blog",
+  pageUrl:     CONTENT.meta.canonical,
+  breadcrumbs: CONTENT.breadcrumbs.items,
+  article: {
+    headline:      CONTENT.header.title,
+    description:   CONTENT.meta.description,
+    datePublished: "2026-04-22",
+    dateModified:  "2026-05-01",
+    author: {
+      name:        CONTENT.author.name,
+      jobTitle:    CONTENT.author.role,
+      credentials: CONTENT.author.credentials,
+    },
+  },
+});
+
+const renderWhenReady = () => {
+  if (typeof KCNav === 'undefined' || typeof KCBlogHeader === 'undefined') {
+    return setTimeout(renderWhenReady, 30);
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(<Page />);
+  requestAnimationFrame(() => { if (window.lucide) window.lucide.createIcons(); });
+  setTimeout(() => { if (window.lucide) window.lucide.createIcons(); }, 400);
+};
+renderWhenReady();
+</script>
+
+</body>
+</html>

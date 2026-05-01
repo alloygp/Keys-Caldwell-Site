@@ -1,0 +1,345 @@
+/* Keys-Caldwell — Pillar / service-page styles
+   Loaded on top of styles.css for service-pillar templates.
+   ============================================================= */
+
+/* ═══ PILLAR HERO — variant of kc-hero with operational stats ═══ */
+.kc-pillar-hero { background: var(--shell); padding: 56px 0 72px; position: relative; }
+.kc-pillar-hero .kc-container {
+  display: grid; grid-template-columns: 1fr 480px; gap: 64px; align-items: center;
+}
+.kc-pillar-hero-eye {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--aged-brass);
+  display: inline-flex; align-items: center; gap: 12px;
+  margin-bottom: 22px;
+}
+.kc-pillar-hero-eye::before {
+  content: ''; display: inline-block;
+  width: 28px; height: 2px; background: var(--aged-brass);
+}
+.kc-pillar-hero-numeral {
+  font-family: var(--font-heading); font-style: italic; font-weight: 700;
+  color: var(--aged-brass); letter-spacing: -0.01em;
+}
+.kc-pillar-hero-h {
+  font-family: var(--font-heading); font-style: italic; font-weight: 700;
+  font-size: 60px; line-height: 1.05; color: var(--deep-ink);
+  letter-spacing: -0.02em; margin: 0; text-wrap: balance;
+}
+.kc-pillar-hero-h em { color: var(--kc-indigo); font-style: italic; }
+.kc-pillar-hero-rule { width: 80px; height: 4px; background: var(--aged-brass); border: 0; margin: 36px 0 24px; }
+.kc-pillar-hero-lede {
+  font-size: 19px; line-height: 1.6; color: var(--driftwood); max-width: 560px;
+}
+.kc-pillar-hero-cta { display: flex; gap: 14px; margin-top: 32px; }
+.kc-pillar-hero-aside {
+  background: #fff; border: 1px solid var(--shell-line);
+  border-top: 4px solid var(--aged-brass);
+  padding: 32px 32px 28px; border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-3);
+}
+.kc-pillar-hero-aside-eye {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--aged-brass); margin-bottom: 12px;
+}
+.kc-pillar-hero-aside-h {
+  font-family: var(--font-heading); font-style: italic; font-weight: 700;
+  font-size: 24px; line-height: 1.2; color: var(--deep-ink);
+  letter-spacing: -0.005em; margin: 0 0 14px;
+}
+.kc-pillar-hero-aside-p {
+  font-size: 14px; line-height: 1.55; color: var(--driftwood); margin: 0 0 22px;
+}
+.kc-pillar-hero-stats {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px 24px;
+  border-top: 1px solid var(--shell-line); padding-top: 22px; margin-top: 4px;
+}
+.kc-pillar-hero-stat-num {
+  font-family: var(--font-heading); font-style: italic; font-weight: 700;
+  font-size: 32px; line-height: 1; color: var(--kc-indigo);
+}
+.kc-pillar-hero-stat-num small { font-size: 0.55em; color: var(--aged-brass); margin-left: 1px; }
+.kc-pillar-hero-stat-lbl {
+  font-size: 11px; line-height: 1.4; color: var(--driftwood);
+  letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600;
+  margin-top: 6px;
+}
+
+/* ═══ PROBLEM STATEMENT — three operational realities ═══ */
+.kc-problem { background: var(--deep-ink); color: var(--shell); padding: 96px 0; }
+.kc-problem .kc-eyebrow { color: var(--aged-brass); }
+.kc-problem-h {
+  font-family: var(--font-heading); font-style: italic; font-weight: 700;
+  font-size: 40px; line-height: 1.15; color: var(--shell);
+  letter-spacing: -0.012em; max-width: 780px; margin: 0; text-wrap: balance;
+}
+.kc-problem-h em { color: var(--aged-brass); font-style: italic; }
+.kc-problem-intro {
+  color: rgba(245,239,227,0.78); font-size: 18px; line-height: 1.65;
+  max-width: 700px; margin: 18px 0 56px;
+}
+.kc-problem-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;
+}
+.kc-problem-card {
+  background: rgba(245,239,227,0.04);
+  border: 1px solid rgba(245,239,227,0.14);
+  border-left: 3px solid var(--aged-brass);
+  padding: 30px 28px 32px;
+  border-radius: var(--radius-md);
+}
+.kc-problem-card-num {
+  font-family: var(--font-heading); font-style: italic; font-weight: 700;
+  font-size: 13px; color: var(--aged-brass); letter-spacing: 0.04em;
+  margin-bottom: 10px;
+}
+.kc-problem-card-h {
+  font-family: var(--font-heading); font-style: italic; font-weight: 700;
+  font-size: 22px; line-height: 1.25; color: var(--shell);
+  letter-spacing: -0.005em; margin: 0 0 14px;
+}
+.kc-problem-card-p {
+  font-size: 15px; line-height: 1.6; color: rgba(245,239,227,0.78); margin: 0;
+}
+
+/* ═══ SERVICES (anchored, scannable) — pillar variant of four-chamber ═══ */
+.kc-pillar-services {
+  background: #fff; padding: 96px 0;
+  border-bottom: 1px solid var(--shell-line);
+}
+.kc-pillar-services-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+  margin-top: 56px; border-top: 1px solid var(--shell-line);
+}
+.kc-pillar-service {
+  padding: 36px 32px 36px 0;
+  border-bottom: 1px solid var(--shell-line);
+}
+.kc-pillar-service:nth-child(2n) { padding-left: 32px; padding-right: 0; border-left: 1px solid var(--shell-line); }
+.kc-pillar-service-head {
+  display: flex; align-items: flex-start; gap: 16px; margin-bottom: 14px;
+}
+.kc-pillar-service-icon {
+  width: 40px; height: 40px; border-radius: var(--radius-md);
+  background: var(--kc-indigo-12); color: var(--kc-indigo);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.kc-pillar-service-icon svg { width: 20px; height: 20px; stroke-width: 1.7; }
+.kc-pillar-service-num {
+  font-family: var(--font-heading); font-style: italic; font-weight: 700;
+  font-size: 12px; color: var(--aged-brass); letter-spacing: 0.04em;
+  margin-bottom: 4px;
+}
+.kc-pillar-service-title {
+  font-family: var(--font-heading); font-style: italic; font-weight: 700;
+  font-size: 22px; line-height: 1.2; color: var(--deep-ink);
+  letter-spacing: -0.005em; margin: 0;
+}
+.kc-pillar-service-desc {
+  color: var(--driftwood); font-size: 15px; line-height: 1.6; margin: 0 0 16px;
+}
+.kc-pillar-service-list { list-style: none; margin: 0; padding: 0; }
+.kc-pillar-service-list li {
+  font-size: 13px; line-height: 1.5; color: var(--driftwood);
+  padding: 6px 0 6px 20px; position: relative;
+  border-top: 1px dashed var(--shell-line);
+}
+.kc-pillar-service-list li:first-child { border-top: 0; }
+.kc-pillar-service-list li::before {
+  content: '→'; position: absolute; left: 0; top: 6px;
+  color: var(--aged-brass); font-weight: 700; font-size: 11px;
+}
+
+/* ═══ CAPITAL PROJECTS STRIP — image-tile-ish ═══ */
+.kc-capital { background: var(--shell); padding: 96px 0; }
+.kc-capital-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px;
+  margin-top: 48px;
+}
+.kc-capital-tile {
+  background: var(--deep-ink); color: var(--shell);
+  border-radius: var(--radius-md);
+  padding: 28px 22px 24px;
+  min-height: 200px;
+  display: flex; flex-direction: column; justify-content: space-between;
+  position: relative; overflow: hidden;
+}
+.kc-capital-tile::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(30,32,113,0.0) 0%, rgba(30,32,113,0.45) 100%);
+  pointer-events: none;
+}
+.kc-capital-tile > * { position: relative; z-index: 1; }
+.kc-capital-tile-num {
+  font-family: var(--font-heading); font-style: italic; font-weight: 700;
+  font-size: 12px; color: var(--aged-brass); letter-spacing: 0.04em;
+}
+.kc-capital-tile-h {
+  font-family: var(--font-heading); font-style: italic; font-weight: 700;
+  font-size: 22px; line-height: 1.2; color: var(--shell);
+  letter-spacing: -0.005em; margin: 0 0 6px;
+}
+.kc-capital-tile-p {
+  font-size: 13px; line-height: 1.5; color: rgba(245,239,227,0.72); margin: 0;
+}
+
+/* ═══ FEATURE DEEP-DIVE BAND (Reserve studies / SIRS) ═══ */
+.kc-feature {
+  background: #fff;
+  border-top: 1px solid var(--shell-line);
+  border-bottom: 1px solid var(--shell-line);
+  padding: 96px 0;
+}
+.kc-feature-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+}
+.kc-feature-eye {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--aged-brass); margin-bottom: 18px;
+}
+.kc-feature-h {
+  font-family: var(--font-heading); font-style: italic; font-weight: 700;
+  font-size: 38px; line-height: 1.15; color: var(--deep-ink);
+  letter-spacing: -0.018em; margin: 0 0 24px; text-wrap: balance;
+}
+.kc-feature-h em { color: var(--kc-indigo); font-style: italic; }
+.kc-feature-p { color: var(--driftwood); font-size: 17px; line-height: 1.65; margin: 0 0 24px; }
+.kc-feature-list { list-style: none; margin: 24px 0 0; padding: 0; }
+.kc-feature-list li {
+  font-size: 15px; line-height: 1.55; color: var(--deep-ink);
+  padding: 14px 0 14px 28px; position: relative;
+  border-top: 1px solid var(--shell-line);
+}
+.kc-feature-list li:last-child { border-bottom: 1px solid var(--shell-line); }
+.kc-feature-list li::before {
+  content: '✓'; position: absolute; left: 0; top: 13px;
+  width: 18px; height: 18px; border-radius: 50%;
+  background: var(--aged-brass); color: var(--deep-ink);
+  font-size: 11px; font-weight: 700;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.kc-feature-card {
+  background: var(--shell);
+  border: 1px solid var(--shell-line);
+  border-left: 4px solid var(--aged-brass);
+  border-radius: var(--radius-md);
+  padding: 36px 36px 32px;
+}
+.kc-feature-card-eye {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--aged-brass); margin-bottom: 16px;
+}
+.kc-feature-card-h {
+  font-family: var(--font-heading); font-style: italic; font-weight: 700;
+  font-size: 24px; line-height: 1.2; color: var(--deep-ink);
+  letter-spacing: -0.005em; margin: 0 0 18px;
+}
+.kc-feature-card-tiers { display: grid; gap: 14px; }
+.kc-feature-tier {
+  display: grid; grid-template-columns: 110px 1fr; gap: 16px; align-items: baseline;
+  padding: 14px 0;
+  border-top: 1px solid var(--shell-line);
+}
+.kc-feature-tier:first-child { border-top: 0; padding-top: 4px; }
+.kc-feature-tier-price {
+  font-family: var(--font-heading); font-style: italic; font-weight: 700;
+  font-size: 22px; color: var(--kc-indigo); letter-spacing: -0.012em;
+}
+.kc-feature-tier-name {
+  font-size: 13px; font-weight: 700; color: var(--deep-ink);
+  text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px;
+}
+.kc-feature-tier-desc {
+  font-size: 13px; line-height: 1.5; color: var(--driftwood); margin: 0;
+}
+
+/* ═══ FAQ ACCORDION ═══ */
+.kc-faq { background: var(--shell); padding: 96px 0; }
+.kc-faq-grid {
+  display: grid; grid-template-columns: 360px 1fr; gap: 80px; align-items: start;
+}
+.kc-faq-h {
+  font-family: var(--font-heading); font-style: italic; font-weight: 700;
+  font-size: 36px; line-height: 1.15; color: var(--deep-ink);
+  letter-spacing: -0.018em; margin: 0 0 18px; text-wrap: balance;
+}
+.kc-faq-h em { color: var(--kc-indigo); font-style: italic; }
+.kc-faq-side-p { color: var(--driftwood); font-size: 16px; line-height: 1.65; margin: 0 0 24px; }
+.kc-faq-list { display: flex; flex-direction: column; }
+.kc-faq-item {
+  border-top: 1px solid var(--shell-line);
+}
+.kc-faq-item:last-child { border-bottom: 1px solid var(--shell-line); }
+.kc-faq-q {
+  appearance: none; background: transparent; border: 0;
+  width: 100%; text-align: left; cursor: pointer;
+  padding: 24px 0; display: flex; align-items: flex-start; gap: 16px; justify-content: space-between;
+  font-family: var(--font-body); font-size: 18px; font-weight: 600;
+  color: var(--deep-ink); line-height: 1.4;
+  letter-spacing: -0.005em;
+}
+.kc-faq-q:hover { color: var(--kc-indigo); }
+.kc-faq-q-icon {
+  width: 24px; height: 24px; border-radius: 50%;
+  background: var(--shell-line); color: var(--deep-ink);
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 18px; line-height: 1; font-weight: 600;
+  flex-shrink: 0; transition: transform 200ms, background 200ms;
+}
+.kc-faq-item.is-open .kc-faq-q-icon { transform: rotate(45deg); background: var(--aged-brass); }
+.kc-faq-a {
+  display: grid; grid-template-rows: 0fr;
+  transition: grid-template-rows 280ms var(--ease-standard);
+}
+.kc-faq-item.is-open .kc-faq-a { grid-template-rows: 1fr; }
+.kc-faq-a-inner {
+  overflow: hidden;
+  font-size: 16px; line-height: 1.65; color: var(--driftwood);
+}
+.kc-faq-a-inner > * { margin: 0 0 16px; }
+.kc-faq-a-inner > *:last-child { margin-bottom: 24px; }
+
+/* ═══ Coverage / places strip — pillar variant ═══ */
+.kc-coverage {
+  background: #fff;
+  border-top: 1px solid var(--shell-line);
+  border-bottom: 1px solid var(--shell-line);
+  padding: 64px 0;
+}
+.kc-coverage-grid {
+  display: grid; grid-template-columns: 280px 1fr; gap: 64px; align-items: center;
+}
+.kc-coverage-h {
+  font-family: var(--font-heading); font-style: italic; font-weight: 700;
+  font-size: 28px; line-height: 1.2; color: var(--deep-ink);
+  letter-spacing: -0.012em; margin: 0;
+}
+.kc-coverage-h em { color: var(--kc-indigo); }
+.kc-coverage-list {
+  display: flex; flex-wrap: wrap; gap: 10px 12px;
+}
+.kc-coverage-pill {
+  font-family: var(--font-heading); font-style: italic; font-weight: 600;
+  font-size: 16px; color: var(--deep-ink);
+  background: var(--shell);
+  border: 1px solid var(--shell-line);
+  padding: 8px 16px;
+  border-radius: 999px;
+  letter-spacing: -0.005em;
+}
+.kc-coverage-pill.is-primary {
+  background: var(--kc-indigo); color: var(--shell); border-color: var(--kc-indigo);
+}
+
+/* ═══ Responsive ═══ */
+@media (max-width: 980px) {
+  .kc-pillar-hero .kc-container,
+  .kc-feature-grid,
+  .kc-faq-grid,
+  .kc-coverage-grid { grid-template-columns: 1fr; gap: 48px; }
+  .kc-problem-grid,
+  .kc-pillar-services-grid,
+  .kc-capital-grid { grid-template-columns: 1fr; }
+  .kc-pillar-service:nth-child(2n) { padding-left: 0; border-left: 0; }
+  .kc-pillar-hero-h { font-size: 44px; }
+}

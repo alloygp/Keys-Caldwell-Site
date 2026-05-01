@@ -1,0 +1,215 @@
+/* =============================================================
+   Keys-Caldwell — Foundational tokens (color + type)
+   Brand: Coastal Trust palette · Lora + Source Sans 3
+   v1.0 · sourced from Brand Guide V1 (April 2026)
+   ============================================================= */
+
+/* --- Webfonts: Lora + Source Sans 3, served from Google Fonts (confirmed brand pair) --- */
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Source+Sans+3:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  /* ── BRAND COLORS — Coastal Trust ──────────────────────────── */
+  --kc-indigo:      #1E2071;   /* Primary — authority, navigation, links */
+  --aged-brass:     #B8943D;   /* Accent — labels, rules, emphasis */
+  --shell:          #F5EFE3;   /* Surface — page background, light mode */
+  --driftwood:      #5A6470;   /* Body text on light, secondary UI */
+  --deep-ink:       #1A1D2E;   /* Headings on light; surface for dark mode */
+
+  /* Tints / shades (derived; use sparingly) */
+  --kc-indigo-90:   #2A2C82;
+  --kc-indigo-50:   #8F90B8;
+  --kc-indigo-12:   #E5E5F0;
+  --aged-brass-90:  #C5A24E;
+  --aged-brass-12:  #F4EDDB;
+  --shell-deep:     #ECE5D4;   /* hover/pressed on Shell surfaces */
+  --shell-line:     #E0D8CC;   /* hairline divider on Shell */
+  --driftwood-30:   #BDC2C9;
+  --hairline:       rgba(26, 29, 46, 0.10);
+  --hairline-strong:rgba(26, 29, 46, 0.18);
+
+  /* ── SEMANTIC COLOR ROLES ──────────────────────────────────── */
+  --bg-page:        var(--shell);
+  --bg-surface:     #FFFFFF;
+  --bg-surface-alt: var(--shell-deep);
+  --bg-inverse:     var(--deep-ink);
+
+  --fg-1:           var(--deep-ink);   /* primary text / headings */
+  --fg-2:           var(--driftwood);  /* body / secondary */
+  --fg-3:           #8A93A0;           /* tertiary / captions */
+  --fg-on-dark:     var(--shell);
+  --fg-accent:      var(--aged-brass); /* eyebrow labels, rules */
+  --fg-link:        var(--kc-indigo);
+
+  --border-default: var(--shell-line);
+  --border-strong:  var(--hairline-strong);
+  --focus-ring:     var(--kc-indigo);
+
+  /* Status (derived to fit the palette — not in V1 brand guide) */
+  --status-success: #3F7A4E;
+  --status-warning: var(--aged-brass);
+  --status-danger:  #A33A2E;
+  --status-info:    var(--kc-indigo);
+
+  /* ── TYPE — Family ─────────────────────────────────────────── */
+  --font-heading: 'Lora', Georgia, 'Times New Roman', serif;
+  --font-body:    'Source Sans 3', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-mono:    'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+
+  /* ── TYPE — Scale (per Brand Guide) ────────────────────────── */
+  --fs-h1:    36px;   --lh-h1:    1.15;   --fw-h1:    800;
+  --fs-h2:    28px;   --lh-h2:    1.2;    --fw-h2:    700;
+  --fs-h3:    22px;   --lh-h3:    1.3;    --fw-h3:    700;
+  --fs-h4:    18px;   --lh-h4:    1.4;    --fw-h4:    600;
+  --fs-body:  16px;   --lh-body:  1.6;    --fw-body:  400;
+  --fs-small: 14px;   --lh-small: 1.55;   --fw-small: 400;
+  --fs-caption: 12px; --lh-caption: 1.4;  --fw-caption: 500;
+  --tracking-caption: 0.12em;
+  --tracking-eyebrow: 0.15em;
+
+  /* ── SPACING (4px base) ────────────────────────────────────── */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 44px;
+  --space-8: 56px;
+  --space-9: 72px;
+  --space-10: 96px;
+
+  /* ── RADII ─────────────────────────────────────────────────── */
+  --radius-xs: 3px;   /* badges, pills */
+  --radius-sm: 4px;   /* tone pills, small chips */
+  --radius-md: 6px;   /* value pills, inputs */
+  --radius-lg: 8px;   /* cards, primary surfaces */
+  --radius-xl: 12px;
+  --radius-pill: 999px;
+
+  /* ── ELEVATION ─────────────────────────────────────────────── */
+  --shadow-1: 0 1px 4px rgba(26, 29, 46, 0.07);
+  --shadow-2: 0 1px 6px rgba(26, 29, 46, 0.10);
+  --shadow-3: 0 4px 16px rgba(26, 29, 46, 0.10);
+  --shadow-4: 0 12px 32px rgba(26, 29, 46, 0.16);
+
+  /* ── MOTION ────────────────────────────────────────────────── */
+  --ease-standard: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --ease-out:      cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast:   120ms;
+  --dur-base:   200ms;
+  --dur-slow:   320ms;
+
+  /* ── LAYOUT ────────────────────────────────────────────────── */
+  --container-narrow: 720px;
+  --container:        960px;
+  --container-wide:   1200px;
+}
+
+/* ── BASE ─────────────────────────────────────────────────────── */
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--fg-2);
+  background: var(--bg-page);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ── SEMANTIC TYPE ROLES ──────────────────────────────────────── */
+h1, .h1 {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h1);
+  line-height: var(--lh-h1);
+  font-weight: var(--fw-h1);
+  font-style: italic;            /* H1 uses italic Lora per scale */
+  color: var(--fg-1);
+  letter-spacing: -0.005em;
+  margin: 0;
+}
+h2, .h2 {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
+  font-weight: var(--fw-h2);
+  font-style: italic;
+  color: var(--fg-1);
+  margin: 0;
+}
+h3, .h3 {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h3);
+  line-height: var(--lh-h3);
+  font-weight: var(--fw-h3);
+  font-style: italic;
+  color: var(--fg-1);
+  margin: 0;
+}
+h4, .h4 {
+  font-family: var(--font-body);
+  font-size: var(--fs-h4);
+  line-height: var(--lh-h4);
+  font-weight: var(--fw-h4);
+  color: var(--fg-1);
+  margin: 0;
+}
+p, .body {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--fg-2);
+  text-wrap: pretty;
+  margin: 0;
+}
+.small {
+  font-size: var(--fs-small);
+  line-height: var(--lh-small);
+  color: var(--fg-2);
+}
+.caption,
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--fs-caption);
+  font-weight: 700;
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--fg-accent);
+}
+.caption {
+  font-weight: var(--fw-caption);
+  color: var(--fg-2);
+  letter-spacing: var(--tracking-caption);
+}
+blockquote, .pull-quote {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: 20px;
+  line-height: 1.6;
+  color: var(--fg-1);
+  margin: 0;
+}
+code, kbd, samp, .mono {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
+
+a {
+  color: var(--fg-link);
+  text-decoration-color: rgba(30, 32, 113, 0.35);
+  text-underline-offset: 3px;
+  transition: color var(--dur-fast) var(--ease-standard);
+}
+a:hover { color: var(--kc-indigo-90); text-decoration-color: currentColor; }
+
+/* Decorative brass rule used throughout the brand */
+.brand-rule {
+  display: block;
+  width: 56px; height: 3px;
+  background: var(--aged-brass);
+  border: 0;
+}
+
+/* Selection */
+::selection { background: var(--kc-indigo); color: var(--shell); }

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<!-- ============================================================
+     Keys-Caldwell — Request a Proposal
+     ============================================================
+     URL slot       :  /request-proposal/
+     Template type  :  CONVERSION  (one-of-a-kind endpoint page)
+     Composition    :  KCNav · KCBreadcrumbs · KCProposalForm · KCCtaBand · KCFooter
+     ----------------------------------------------------------------
+     This page is the conversion endpoint every CTA across the
+     site funnels to. It MUST be live before any traffic-driving
+     content goes live (sitemap build-order #3).
+
+     Hosting team todo before launch:
+       • Replace `proposalForm.action` with the real CRM endpoint
+         (HubSpot form, Formspree, Zapier webhook, etc.)
+       • Set up an inbox / Slack notifier on submissions
+       • Add a /request-proposal/thank-you/ page and redirect there
+         on submit (this also lets you fire a conversion pixel)
+     ============================================================ -->
+<title>Request a Proposal · Keys-Caldwell Community Association Management</title>
+<meta name="description" content="Request a tailored community association management proposal from Keys-Caldwell. Tell us about your condo or HOA — we'll respond within five business days with a custom scope and pricing." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://unpkg.com">
+
+<link rel="stylesheet" href="../styles.css">
+<link rel="icon" href="data:,">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<style>
+  html, body { margin: 0; padding: 0; }
+  body { font-family: 'Source Sans 3', system-ui, sans-serif; }
+  #root { min-height: 100vh; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script>window.KC_ASSET_BASE = '../';</script>
+<script src="../components/kc-org.js"></script>
+<script src="../components/kc-seo.jsx"></script>
+<script type="text/babel" src="../components/shared.jsx"></script>
+
+<script type="text/babel" id="page-content">
+const CONTENT = {
+
+  meta: {
+    title:           "Request a Proposal · Keys-Caldwell Community Association Management",
+    description:     "Tell us about your condo or HOA and we'll respond with a tailored management proposal — typically within five business days.",
+    canonical:       "/request-proposal/",
+    primaryKeyword:  "request a proposal",
+    secondaryKeywords: [],
+    ogTitle:         "Request a community association management proposal",
+    ogDescription:   "We'll review your governing documents and reserve study, then send back a custom man-hour scope. Five business day turnaround.",
+    ogImage:         "/assets/og/keys-caldwell-default.jpg",
+    schema:          ["LocalBusiness", "BreadcrumbList"],
+  },
+
+  breadcrumbs: {
+    items: [
+      { label: "Home",                href: "/" },
+      { label: "Request a Proposal" },
+    ],
+  },
+
+  nav: { active: "" },
+
+  proposalForm: {
+    eyebrow: "Step 1 of 1 · Tell us about your association",
+    titlePlain: "Send us a few details. We'll do the homework.",
+    titleItalic: "We'll do the homework.",
+    intro: "Every community we manage is one-of-one. Tell us about your building stock, your board's priorities, and where you are in the management evaluation. We'll come back within five business days with a tailored scope, a custom man-hour estimate, and three references from associations comparable to yours.",
+    action: "mailto:info@keys-caldwell.com",  // TODO: replace with CRM endpoint
+  },
+
+  ctaBand: {
+    eyebrow: "Prefer to talk first?",
+    title: "Boards are welcome to call before submitting anything in writing.",
+    body: "We do consultative calls regardless of whether the board ends up hiring us. Ask the questions you don't yet know how to put on a form.",
+    primary:   { label: "Email us",  href: "mailto:info@keys-caldwell.com" },
+    secondary: { label: "How we work", href: "/about/index.html" },
+    phone: "(941) 485-0605",
+    hours: "Mon – Fri · 8:30am – 5:00pm ET",
+  },
+
+  footer: {},
+};
+
+const Page = () => (
+  <div className="kc-page">
+    <KCNav active={CONTENT.nav.active} />
+    <KCBreadcrumbs  content={CONTENT.breadcrumbs} />
+    <KCProposalForm content={CONTENT.proposalForm} />
+    <KCCtaBand      content={CONTENT.ctaBand} />
+    <KCFooter       content={CONTENT.footer} />
+  </div>
+);
+
+KCSeo.apply(CONTENT.meta, {
+  pageType:    "core",
+  pageUrl:     CONTENT.meta.canonical,
+  breadcrumbs: CONTENT.breadcrumbs.items,
+});
+
+const renderWhenReady = () => {
+  if (typeof KCNav === 'undefined' || typeof KCProposalForm === 'undefined') {
+    return setTimeout(renderWhenReady, 30);
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(<Page />);
+  requestAnimationFrame(() => { if (window.lucide) window.lucide.createIcons(); });
+  setTimeout(() => { if (window.lucide) window.lucide.createIcons(); }, 400);
+};
+renderWhenReady();
+</script>
+
+</body>
+</html>

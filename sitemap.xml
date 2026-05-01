@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Keys-Caldwell — XML Sitemap
+  ==============================================================
+  Listed in priority/build order from the SEO sitemap document
+  (see _reference/kc-sitemap.html). As pages go live, set their
+  <lastmod> date and uncomment the entry. Google reads the sitemap
+  for INDEXING — only list pages that actually exist. Listing a
+  404 in the sitemap hurts crawl budget.
+  ==============================================================
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- ─── Live: shipped pages ─────────────────────────────── -->
+  <url>
+    <loc>https://keys-caldwell.com/</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://keys-caldwell.com/condo-association-management-sarasota/</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://keys-caldwell.com/hoa-management-company-sarasota/</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://keys-caldwell.com/condo-association-management-sarasota/venice/</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://keys-caldwell.com/about/</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://keys-caldwell.com/blog/florida-sirs-milestone-inspection-guide/</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://keys-caldwell.com/blog/</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://keys-caldwell.com/request-proposal/</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ─── Pending: uncomment as pages ship ───────────────── -->
+  <!--
+  <url>
+    <loc>https://keys-caldwell.com/hoa-management-company-sarasota/</loc>
+    <changefreq>monthly</changefreq><priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://keys-caldwell.com/about/</loc>
+    <changefreq>monthly</changefreq><priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://keys-caldwell.com/pricing/</loc>
+    <changefreq>monthly</changefreq><priority>0.7</priority>
+  </url>
+
+  GEO PAGES — children of /condo-association-management-sarasota/
+  <url><loc>https://keys-caldwell.com/condo-association-management-sarasota/venice/</loc>       <priority>0.7</priority></url>
+  <url><loc>https://keys-caldwell.com/condo-association-management-sarasota/sarasota/</loc>     <priority>0.7</priority></url>
+  <url><loc>https://keys-caldwell.com/condo-association-management-sarasota/longboat-key/</loc> <priority>0.7</priority></url>
+  <url><loc>https://keys-caldwell.com/condo-association-management-sarasota/nokomis/</loc>      <priority>0.7</priority></url>
+  <url><loc>https://keys-caldwell.com/condo-association-management-sarasota/englewood/</loc>    <priority>0.7</priority></url>
+
+  GEO PAGES — children of /hoa-management-company-sarasota/
+  <url><loc>https://keys-caldwell.com/hoa-management-company-sarasota/bradenton/</loc>        <priority>0.7</priority></url>
+  <url><loc>https://keys-caldwell.com/hoa-management-company-sarasota/charlotte-county/</loc> <priority>0.7</priority></url>
+
+  BLOG SPOKES
+  <url><loc>https://keys-caldwell.com/blog/florida-sirs-milestone-inspection-guide/</loc>           <priority>0.6</priority></url>
+  <url><loc>https://keys-caldwell.com/blog/how-to-change-hoa-management-company/</loc>              <priority>0.6</priority></url>
+  <url><loc>https://keys-caldwell.com/blog/hoa-accounting-best-practices/</loc>                     <priority>0.6</priority></url>
+  <url><loc>https://keys-caldwell.com/blog/florida-hoa-reserve-study-special-assessment-guide/</loc><priority>0.6</priority></url>
+  <url><loc>https://keys-caldwell.com/blog/hoa-condo-management-fees-guide/</loc>                   <priority>0.6</priority></url>
+  <url><loc>https://keys-caldwell.com/blog/florida-condo-hoa-association-insurance-guide/</loc>     <priority>0.6</priority></url>
+  <url><loc>https://keys-caldwell.com/blog/what-does-hoa-management-company-do/</loc>               <priority>0.5</priority></url>
+  <url><loc>https://keys-caldwell.com/blog/florida-condo-hoa-law-changes/</loc>                     <priority>0.5</priority></url>
+
+  TRUST PAGES
+  <url><loc>https://keys-caldwell.com/testimonials/</loc>  <priority>0.6</priority></url>
+  <url><loc>https://keys-caldwell.com/case-studies/</loc>  <priority>0.6</priority></url>
+  <url><loc>https://keys-caldwell.com/faq/</loc>           <priority>0.5</priority></url>
+  -->
+
+</urlset>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<!-- ============================================================
+     Keys-Caldwell — Resource Hub  (/blog/index.html)
+     ============================================================
+     URL slot       :  /blog/
+     Template type  :  RESOURCE_HUB
+     Composition    :  KCNav · KCResHeroLibrary · KCResSearch ·
+                       KCResEditorPicks · KCResEvents ·
+                       KCResCategoryRail × N · KCResDownloads ·
+                       KCResNewsletter · KCFooter
+
+     ARCHITECTURE NOTES
+     ──────────────────
+     - This is NOT a chronological blog index. It's an EDITORIAL
+       LIBRARY that grows over time: guides, glossary, templates,
+       events, and the annual State of the Association report.
+     - Editor's picks: ALWAYS three. Hand-curated.
+     - Cadence target: monthly post + quarterly downloadable.
+     - Empty categories should still appear with a placeholder
+       card — the IA must signal what's planned, not just what
+       has been published.
+
+     SEO
+     ───
+     - This page targets "florida condo board resources",
+       "hoa board education florida", and acts as a hub for
+       internal linking from every spoke article.
+     ============================================================ -->
+<title>Resources & Education for Florida Boards · Keys-Caldwell</title>
+<meta name="description" content="Plain-English guides, downloadable templates, board education events, and an annual State of the Association report — for condo and HOA boards across the Suncoast." />
+<link rel="canonical" href="https://www.keys-caldwell.com/blog/" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://unpkg.com">
+
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../resource-hub.css">
+<link rel="icon" href="data:,">
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<style>
+  html, body { margin: 0; padding: 0; }
+  body { font-family: 'Source Sans 3', system-ui, sans-serif; }
+  #root { min-height: 100vh; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<!-- ============================================================
+     CONTENT — edit copy here without touching components
+     ============================================================ -->
+<script>
+  // KC_ASSET_BASE: every page sets this so kcHref()  resolves
+  // root-relative links from any folder depth.
+  window.KC_ASSET_BASE = '../';
+
+  window.RESOURCE_HUB_CONTENT = {
+
+    seo: {
+      pageType: 'CollectionPage',
+      title: 'Resources & Education for Florida Boards',
+      description: 'Plain-English guides, downloadable templates, board education events, and an annual State of the Association report.',
+      url: 'https://www.keys-caldwell.com/blog/',
+    },
+
+    hero: {
+      eyebrow: 'The Keys-Caldwell library',
+      // <em> for the indigo accent
+      // statN are placeholders that should be updated quarterly
+      statN1: '47',  statL1: 'guides & deep-dives',
+      statN2: '12',  statL2: 'downloadable templates',
+      statN3: '4',   statL3: 'live events / yr',
+    },
+
+    search: {
+      placeholder: 'Search 47 guides, 84 glossary terms, 12 templates…',
+      audience: ['All', 'Board members', 'Owners', 'Self-managed'],
+      format:   ['All formats', 'Guide', 'Template', 'Video', 'Event', 'Glossary'],
+    },
+
+    editorPicks: {
+      eyebrow: "Editor's picks · April 2026",
+      aside: '"What we\'re sending board treasurers this month — the three pieces most likely to change a meeting agenda."',
+      items: [
+        {
+          topic: 'STATUTE',
+          format: 'Guide',
+          read: '12 min',
+          author: 'Daniel Caldwell · CAM, RS',
+          title: 'Florida SIRS & Milestone Inspections — a board\'s 2026 guide',
+          dek: 'Plain-English walkthrough of SB-4D and the December 31, 2026 deadline. What to budget, who to hire, what to tell owners.',
+          href: '/blog/florida-sirs-milestone-inspection-guide/index.html',
+          img: 'assets/Hero - Coastal Condo (Sarasota Bay).jpg',
+        },
+        {
+          topic: 'INSURANCE',
+          format: 'Deep-dive',
+          read: '9 min',
+          author: 'Lauren Keys · CAM',
+          title: 'Why your association\'s insurance carrier just asked for a SIRS report',
+          dek: 'The 2024–26 Florida hard market, in context. How carriers are using milestone reports to underwrite — and what to do if yours is already filed.',
+          href: '/blog/index.html',
+          img: 'assets/Hero - HOA Streetscape (Bradenton).jpg',
+        },
+        {
+          topic: 'GOVERNANCE',
+          format: 'Template',
+          read: 'Download',
+          author: 'Editorial team',
+          title: 'A board meeting agenda template that actually keeps you under 90 minutes',
+          dek: 'The agenda we hand to first-time board presidents. Time-boxed, motion-ready, with a finance section your treasurer will thank you for.',
+          href: '/blog/index.html',
+          img: 'assets/Hero - Coastal Condo (Sarasota Bay).jpg',
+        },
+      ],
+    },
+
+    events: {
+      eyebrow: 'Upcoming events',
+      // Items use month/day cards. Mix of in-person and webinar.
+      items: [
+        {
+          month: 'May',  day: '14',
+          kind: 'In-person · Venice',
+          title: 'SIRS deadline: a board treasurer\'s working session',
+          dek: 'Bring your last reserve study and your last insurance renewal. We\'ll work through the numbers together.',
+          time: '6:30 – 8:00 PM',
+          host: 'Daniel Caldwell',
+          href: '/blog/events/sirs-deadline-working-session/index.html',
+        },
+        {
+          month: 'Jun',  day: '03',
+          kind: 'Webinar · Live',
+          title: 'Reading a reserve study like a CPA',
+          dek: 'A 60-minute walk-through of what every line in a Florida-compliant reserve study means — and where boards typically get it wrong.',
+          time: '12:00 – 1:00 PM',
+          host: 'Lauren Keys, CAM',
+          href: '/blog/events/reading-reserve-study/index.html',
+        },
+        {
+          month: 'Jun',  day: '24',
+          kind: 'In-person · Sarasota',
+          title: 'Annual State of the Association — board roundtable',
+          dek: 'Closed-format roundtable for board presidents. Twelve seats. Off-the-record discussion of what changed in the last year.',
+          time: '5:30 – 7:30 PM',
+          host: 'Keys-Caldwell partners',
+          href: '/blog/events/sota-roundtable-2026/index.html',
+        },
+      ],
+    },
+
+    // Category rails — one section per topic. Order matters: Statute, Money,
+    // Operations, Education. Each rail is 4 cards. Empty slots ok — the IA
+    // signals scope, not just inventory.
+    categories: [
+      {
+        eyebrow: 'Florida statute',
+        title: 'SIRS, Milestone & HB 1021',
+        dek: 'The 2022–25 statutory wave changed everything for Florida associations. We track the cases, the deadlines, and the practical implications.',
+        allHref: '/blog/index.html?topic=statute',
+        items: [
+          { format: 'Guide',     read: '12 min', img: 'assets/Hero - Coastal Condo (Sarasota Bay).jpg', title: 'Florida SIRS & Milestone Inspections — a board\'s guide', dek: 'SB-4D and the December 31, 2026 deadline.', href: '/blog/florida-sirs-milestone-inspection-guide/index.html' },
+          { format: 'Deep-dive', read: '8 min',  img: 'assets/Hero - HOA Streetscape (Bradenton).jpg',     title: 'HB 1021 — what HOA boards must change in 2025', dek: 'Records access, transparency, fines.', href: '/blog/index.html' },
+          { format: 'Explainer', read: '5 min',  img: 'assets/Hero - Coastal Condo (Sarasota Bay).jpg',  title: 'When a milestone inspection becomes a Phase 2', dek: 'The triggers, the timeline, the costs.', href: '/blog/index.html' },
+          { format: 'Q&A',       read: '6 min',  img: 'assets/Hero - HOA Streetscape (Bradenton).jpg',     title: 'Owners are voting against the SIRS — now what?', dek: 'The legal floor, the practical ceiling.', href: '/blog/index.html' },
+        ],
+      },
+      {
+        eyebrow: 'Money & capital',
+        title: 'Reserves, special assessments & insurance',
+        dek: 'How under-funding becomes a crisis, how to talk to owners about it, and how to read what your CPA and your insurer are actually telling you.',
+        allHref: '/blog/index.html?topic=money',
+        items: [
+          { format: 'Guide',    read: '11 min', img: 'assets/Hero - Coastal Condo (Sarasota Bay).jpg', title: 'Reserve studies for boards who\'ve never read one', dek: 'Component lists, useful life, funding models.', href: '/blog/index.html' },
+          { format: 'Template', read: 'Download', img: 'assets/Hero - HOA Streetscape (Bradenton).jpg', title: 'Reserve-funding scenario worksheet (XLSX)', dek: 'Three columns: baseline, threshold, full-funded.', href: '/blog/index.html' },
+          { format: 'Deep-dive', read: '9 min',  img: 'assets/Hero - HOA Streetscape (Bradenton).jpg', title: 'Why your association\'s insurance carrier just asked for a SIRS report', dek: 'Florida\'s hard market in context.', href: '/blog/index.html' },
+          { format: 'Case study', read: '7 min', img: 'assets/Hero - Coastal Condo (Sarasota Bay).jpg', title: '$2.4M assessment, voted in 14 days — anonymized', dek: 'How one Venice association got there.', href: '/blog/index.html' },
+        ],
+      },
+      {
+        eyebrow: 'Operations',
+        title: 'Vendors, maintenance & capital projects',
+        dek: 'The unglamorous middle. Roof contracts, paint cycles, RFP language, and the difference between a maintenance plan and a maintenance log.',
+        allHref: '/blog/index.html?topic=operations',
+        items: [
+          { format: 'Template', read: 'Download', img: 'assets/Hero - Coastal Condo (Sarasota Bay).jpg', title: 'Capital project RFP template — the one we use', dek: 'For roof, paint, paving, and elevator work.', href: '/blog/index.html' },
+          { format: 'Guide',    read: '8 min',  img: 'assets/Hero - HOA Streetscape (Bradenton).jpg',     title: 'How to evaluate a roofing bid (and three red flags)', dek: 'Underlayment, ventilation, warranty terms.', href: '/blog/index.html' },
+          { format: 'Checklist', read: '4 min',  img: 'assets/Hero - HOA Streetscape (Bradenton).jpg',     title: 'Annual maintenance walk-through — board-level', dek: 'What to look at, season by season.', href: '/blog/index.html' },
+          { format: 'How-to',   read: '6 min',  img: 'assets/Hero - Coastal Condo (Sarasota Bay).jpg',  title: 'When (and how) to fire a vendor without burning the relationship', dek: 'Notice periods, transition plans, paper trail.', href: '/blog/index.html' },
+        ],
+      },
+      {
+        eyebrow: 'Board education',
+        title: 'Governance, fiduciary duty & glossary',
+        dek: 'For first-time board members and treasurers. The law, the language, and the unwritten rules of running a Florida association well.',
+        allHref: '/blog/index.html?topic=governance',
+        items: [
+          { format: 'Glossary', read: '84 terms', img: 'assets/Hero - HOA Streetscape (Bradenton).jpg', title: 'The Florida CAM glossary', dek: 'Every term a Florida board member is going to hear.', href: '/blog/glossary/index.html' },
+          { format: 'Guide',    read: '10 min', img: 'assets/Hero - Coastal Condo (Sarasota Bay).jpg', title: 'Fiduciary duty for board members — what it really means', dek: 'Care, loyalty, obedience, and conflicts.', href: '/blog/index.html' },
+          { format: 'Template', read: 'Download', img: 'assets/Hero - HOA Streetscape (Bradenton).jpg', title: '90-minute board meeting agenda', dek: 'Time-boxed, motion-ready.', href: '/blog/index.html' },
+          { format: 'Onboarding', read: '15 min', img: 'assets/Hero - Coastal Condo (Sarasota Bay).jpg', title: 'New board member orientation packet', dek: 'What to read in your first 30 days.', href: '/blog/index.html' },
+        ],
+      },
+    ],
+
+    downloads: {
+      eyebrow: 'Tools & templates',
+      items: [
+        { title: 'Annual operating budget template (XLSX)',         kind: 'Spreadsheet', size: '64 KB',  href: '/blog/index.html', icon: '↧' },
+        { title: 'Reserve-funding scenario worksheet (XLSX)',       kind: 'Spreadsheet', size: '88 KB',  href: '/blog/index.html', icon: '↧' },
+        { title: 'Capital project RFP template (DOCX)',             kind: 'Document',    size: '142 KB', href: '/blog/index.html', icon: '↧' },
+        { title: '90-minute board meeting agenda (PDF)',            kind: 'PDF',         size: '38 KB',  href: '/blog/index.html', icon: '↧' },
+        { title: 'New board member orientation packet (PDF)',       kind: 'PDF',         size: '210 KB', href: '/blog/index.html', icon: '↧' },
+        { title: 'SIRS conversation script for owner meetings',     kind: 'PDF',         size: '52 KB',  href: '/blog/index.html', icon: '↧' },
+      ],
+    },
+
+    newsletter: {
+      newsletterEyebrow: 'Quarterly digest · since 2014',
+      newsletterTitle: 'The Common Element',
+      newsletterBody: 'Four issues a year. New statutes, what changed in insurance, what we\'re seeing in capital projects across the Suncoast. Read by 1,400+ Florida board members. No selling, no sponsors.',
+    },
+  };
+</script>
+
+<!-- ============================================================
+     COMPONENTS — pure UI, no copy
+     ============================================================ -->
+<script type="text/babel" src="../components/shared.jsx"></script>
+<script type="text/babel" src="../components/resource-hub.jsx"></script>
+
+<script type="text/babel">
+  const C = window.RESOURCE_HUB_CONTENT;
+
+  function ResourceHubPage() {
+    return (
+      <div className="kc-page">
+        <KCNav active="blog" />
+
+        <KCResHeroLibrary content={C.hero} />
+
+        <KCResSearch content={C.search} />
+
+        <KCResEditorPicks content={C.editorPicks} />
+
+        <KCResEvents content={C.events} />
+
+        {C.categories.map((cat, i) => (
+          <KCResCategoryRail key={i} content={cat} />
+        ))}
+
+        <KCResDownloads content={C.downloads} />
+
+        <KCResNewsletter content={C.newsletter} />
+
+        <KCFooter />
+      </div>
+    );
+  }
+
+  ReactDOM.createRoot(document.getElementById('root')).render(<ResourceHubPage />);
+</script>
+</body>
+</html>

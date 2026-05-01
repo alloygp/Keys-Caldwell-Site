@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<!-- ============================================================
+     Keys-Caldwell — FAQ
+     ============================================================
+     URL slot       :  /faq/
+     Template type  :  TRUST · Featured-snippet capture
+     Composition    :  KCNav · KCBreadcrumbs · KCFAQHero ·
+                       KCFAQDirectory (sticky cat nav + content) ·
+                       KCCtaBand · KCFooter
+     ----------------------------------------------------------------
+     Strategy:
+       42 questions across 7 categories. Every Q/A is rendered in
+       the DOM (no accordion hiding) so Google can index. FAQPage
+       schema is generated from the flat list. Sticky left rail is
+       a category jump-list — boards skim by category.
+
+       The page is intentionally LONG. That's fine for trust pages
+       — they're not designed to be read top to bottom; they're
+       designed to land a board on the exact answer they Googled.
+     ============================================================ -->
+<title>Frequently Asked Questions · Keys-Caldwell Community Association Management</title>
+<meta name="description" content="Board questions about community association management — pricing, financial reporting, property services, technology, and transitioning from another firm. Direct answers, no marketing copy.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://unpkg.com">
+
+<link rel="stylesheet" href="../styles.css">
+<link rel="icon" href="data:,">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<style>
+  html, body { margin: 0; padding: 0; }
+  body { font-family: 'Source Sans 3', system-ui, sans-serif; }
+  #root { min-height: 100vh; }
+  html { scroll-behavior: smooth; }
+
+  /* ─── HERO ──────────────────────────────────────────────── */
+  .kc-faq-hero { background: var(--shell); padding: 64px 0 56px; border-bottom: 1px solid var(--shell-line); }
+  .kc-faq-hero-inner { max-width: 920px; }
+  .kc-faq-hero-eye {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--aged-brass);
+    display: inline-flex; align-items: center; gap: 12px; margin-bottom: 20px;
+  }
+  .kc-faq-hero-eye::before {
+    content: ''; display: inline-block;
+    width: 28px; height: 2px; background: var(--aged-brass);
+  }
+  .kc-faq-hero-h {
+    font-family: var(--font-heading); font-style: italic; font-weight: 700;
+    font-size: 60px; line-height: 1.05; color: var(--deep-ink);
+    letter-spacing: -0.022em; margin: 0; text-wrap: balance;
+  }
+  .kc-faq-hero-h em { color: var(--kc-indigo); font-style: italic; }
+  .kc-faq-hero-rule { width: 80px; height: 4px; background: var(--aged-brass); border: 0; margin: 32px 0 24px; }
+  .kc-faq-hero-lede { font-size: 19px; line-height: 1.65; color: var(--driftwood); max-width: 760px; margin: 0; }
+  .kc-faq-hero-meta {
+    margin-top: 32px; padding-top: 24px;
+    border-top: 1px solid var(--shell-line);
+    display: flex; gap: 32px; flex-wrap: wrap;
+    font-size: 13px; color: var(--driftwood);
+  }
+  .kc-faq-hero-meta strong { color: var(--deep-ink); font-weight: 700; }
+
+  /* ─── DIRECTORY (sticky cat nav + content) ──────────────── */
+  .kc-faq-directory { background: #fff; padding: 80px 0 96px; }
+  .kc-faq-directory-grid {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  /* Sticky category nav — offset for sticky main nav (~76px) */
+  .kc-faq-nav { position: sticky; top: 100px; align-self: start; }
+  .kc-faq-nav-eye {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--aged-brass);
+    margin-bottom: 16px;
+    padding-bottom: 14px; border-bottom: 1px solid var(--shell-line);
+  }
+  .kc-faq-nav-list { margin: 0; padding: 0; list-style: none; display: grid; gap: 2px; }
+  .kc-faq-nav-list a {
+    display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: baseline;
+    padding: 12px 14px;
+    text-decoration: none;
+    border-radius: var(--radius-md);
+    color: var(--deep-ink);
+    font-size: 15px; font-weight: 600; line-height: 1.35;
+    transition: background-color 160ms ease, color 160ms ease;
+  }
+  .kc-faq-nav-list a:hover {
+    background: var(--shell);
+    color: var(--kc-indigo);
+  }
+  .kc-faq-nav-list a span {
+    font-family: var(--font-heading); font-style: italic; font-weight: 700;
+    font-size: 13px; color: var(--aged-brass);
+  }
+
+  /* Category sections */
+  .kc-faq-cat { margin-bottom: 72px; scroll-margin-top: 16px; }
+  .kc-faq-cat:last-child { margin-bottom: 0; }
+  .kc-faq-cat-head {
+    padding-bottom: 18px;
+    border-bottom: 2px solid var(--deep-ink);
+    margin-bottom: 32px;
+  }
+  .kc-faq-cat-num {
+    font-family: var(--font-heading); font-style: italic; font-weight: 700;
+    font-size: 13px; color: var(--aged-brass); letter-spacing: 0.06em;
+    text-transform: uppercase;
+    display: block; margin-bottom: 10px;
+  }
+  .kc-faq-cat-h {
+    font-family: var(--font-heading); font-style: italic; font-weight: 700;
+    font-size: 36px; line-height: 1.1; color: var(--deep-ink);
+    letter-spacing: -0.018em; margin: 0; text-wrap: balance;
+  }
+  .kc-faq-cat-h em { color: var(--kc-indigo); font-style: italic; }
+  .kc-faq-cat-intro {
+    font-size: 15px; line-height: 1.6; color: var(--driftwood);
+    margin: 14px 0 0; max-width: 640px;
+  }
+
+  /* Q/A items */
+  .kc-faq-q {
+    border-top: 1px solid var(--shell-line);
+    padding: 28px 0;
+  }
+  .kc-faq-q:first-of-type { border-top: 0; padding-top: 0; }
+  .kc-faq-q-h {
+    font-family: var(--font-heading); font-style: italic; font-weight: 700;
+    font-size: 22px; line-height: 1.3; color: var(--deep-ink);
+    letter-spacing: -0.005em; margin: 0 0 14px; text-wrap: balance;
+  }
+  .kc-faq-a p {
+    font-size: 16px; line-height: 1.7; color: var(--deep-ink);
+    margin: 0 0 12px;
+  }
+  .kc-faq-a p:last-child { margin-bottom: 0; }
+  .kc-faq-a a {
+    color: var(--kc-indigo);
+    border-bottom: 1px solid currentColor;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .kc-faq-a a:hover { color: var(--kc-indigo-90); }
+
+  /* Per-question deep-link */
+  .kc-faq-q-anchor {
+    display: inline-block;
+    margin-top: 6px;
+    font-size: 12px; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--aged-brass);
+    text-decoration: none; opacity: 0; transition: opacity 160ms ease;
+  }
+  .kc-faq-q:hover .kc-faq-q-anchor { opacity: 1; }
+  .kc-faq-q-anchor:hover { color: var(--deep-ink); }
+
+  /* Closing card — "still have questions?" */
+  .kc-faq-closing {
+    margin-top: 64px; padding: 36px 36px 32px;
+    background: var(--shell);
+    border-top: 4px solid var(--aged-brass);
+    border-radius: var(--radius-lg);
+  }
+  .kc-faq-closing-eye {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--aged-brass);
+    margin-bottom: 10px;
+  }
+  .kc-faq-closing-h {
+    font-family: var(--font-heading); font-style: italic; font-weight: 700;
+    font-size: 26px; line-height: 1.25; color: var(--deep-ink);
+    letter-spacing: -0.005em; margin: 0 0 12px; text-wrap: balance;
+  }
+  .kc-faq-closing-p {
+    font-size: 15px; line-height: 1.65; color: var(--driftwood); margin: 0 0 22px;
+  }
+  .kc-faq-closing-row { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .kc-faq-directory-grid { grid-template-columns: 240px 1fr; gap: 48px; }
+  }
+  @media (max-width: 860px) {
+    .kc-faq-directory-grid { grid-template-columns: 1fr; gap: 40px; }
+    .kc-faq-nav { position: static; }
+    .kc-faq-nav-list {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 4px;
+    }
+    .kc-faq-hero-h { font-size: 40px; }
+    .kc-faq-cat-h { font-size: 28px; }
+  }
+  @media (max-width: 540px) {
+    .kc-faq-nav-list { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script>window.KC_ASSET_BASE = '../';</script>
+<script src="../components/kc-org.js"></script>
+<script src="../components/kc-seo.jsx"></script>
+<script type="text/babel" src="../components/shared.jsx"></script>
+
+<script type="text/babel" id="page-content">
+const CONTENT = {
+
+  meta: {
+    title:           "Frequently Asked Questions · Keys-Caldwell Community Association Management",
+    description:     "Board questions about community association management — pricing, financial reporting, property services, technology, and transitioning from another firm. Direct answers, no marketing copy.",
+    canonical:       "/faq/",
+    primaryKeyword:  "community association management faq",
+    secondaryKeywords: [
+      "hoa management questions",
+      "condo management questions",
+      "how to switch hoa management",
+      "what does hoa management include",
+    ],
+    ogTitle:         "FAQ — Keys-Caldwell Community Association Management",
+    ogDescription:   "Direct answers to the questions boards actually ask on intake calls. No marketing copy.",
+    ogImage:         "/assets/og/keys-caldwell-default.jpg",
+    schema:          ["LocalBusiness", "BreadcrumbList", "FAQPage"],
+  },
+
+  breadcrumbs: {
+    items: [
+      { label: "Home",                         href: "/" },
+      { label: "FAQ" },
+    ],
+  },
+
+  nav: { active: "" },
+
+  // ─── HERO ─────────────────────────────────────────────────
+  hero: {
+    eyebrow: "Frequently asked",
+    titlePlain: "The questions boards",
+    titleItalic: "actually ask us.",
+    lede: "Forty-eight years of intake calls turn into a fairly stable list of questions. Below are the ones that come up on almost every call, organized by category. The answers are short and specific — if you want to go deeper on a topic, the linked guides are written for boards, not for search engines.",
+    meta: [
+      { label: "Last updated",     value: "April 2026" },
+      { label: "Questions",        value: "40 across 7 categories" },
+      { label: "Reading time",     value: "~18 minutes end to end" },
+    ],
+  },
+
+  // ─── DIRECTORY ────────────────────────────────────────────
+  directory: {
+    categories: [
+      // ─── 1. Getting Started ────────────────────────────
+      {
+        id: "getting-started",
+        num: "01",
+        title: "Getting started.",
+        intro: "If your board is at the very beginning of evaluating a management firm — or evaluating whether to hire one at all — start here.",
+        items: [
+          {
+            q: "What does a community association management company actually do?",
+            a: [
+              "We run the operational and financial back-office for the board. That includes: monthly financials with bank reconciliation and budget-to-actual variance; vendor management and invoice approval; board meeting prep, attendance, and minutes; owner support and ARC routing; insurance and license renewals; capital project oversight; and the technology stack (owner portal, payment processing, document repository).",
+              "What we don't do: we don't replace the board. The board sets policy and approves spending. We execute, document, and advise.",
+            ],
+          },
+          {
+            q: "Do small associations actually need a management company?",
+            a: [
+              "Not always. Communities under twenty units with no shared structures and a competent volunteer treasurer can often self-manage. The break-even point typically arrives when the board can no longer absorb the time required for compliance — Florida statutes, insurance renewals, reserve study cycles, and the like — without burning out the volunteers.",
+              "If you're weighing self-management against hiring a firm, we'll do an honest read on whether your community is at that point. Sometimes the answer is \"not yet.\"",
+            ],
+          },
+          {
+            q: "What sizes of communities do you manage?",
+            a: [
+              "Our book ranges from 18-unit boutique condos to 280-door HOAs. The smallest building we currently manage has eight owners; the largest aggregated portfolio is just under three hundred. We don't have a minimum-size threshold — the scope just gets sized differently.",
+            ],
+          },
+          {
+            q: "What areas of Florida do you serve?",
+            a: [
+              "Sarasota, Manatee, and Charlotte counties — primarily Venice, Sarasota, Bradenton, Lakewood Ranch, Nokomis, Osprey, Englewood, North Port, Port Charlotte, and Punta Gorda. We also manage select communities on Longboat Key and Casey Key. We're a regional firm by choice, not a national one.",
+            ],
+          },
+          {
+            q: "How is Keys-Caldwell different from a national franchise?",
+            a: [
+              "Three things matter most. First, every association is supervised by a principal — not a regional manager you'll never meet. Second, our accounting is CPA-supervised in-house on the CityBooks platform, not outsourced. Third, our average client tenure is over twenty years; national firms churn through associations on three-to-five year cycles by design.",
+              "We're not necessarily the cheapest. We're built to be the firm a board doesn't have to switch from.",
+            ],
+          },
+        ],
+      },
+      // ─── 2. Pricing & Scope ────────────────────────────
+      {
+        id: "pricing-scope",
+        num: "02",
+        title: "Pricing & scope.",
+        intro: "We don't publish a price sheet because every contract is built from a custom man-hour estimate. Here's how the model works.",
+        items: [
+          {
+            q: "How do you price a contract, and why don't you publish a per-door fee?",
+            a: [
+              "We build a man-hour estimate across four chambers — community management, accounting, property services, and administrative support — sized to your association. Boards see the estimate. If a line looks high, we explain why; if a line looks low, we adjust before you sign. The scope is the contract.",
+              "A per-door figure would either over-charge a simple 22-unit boutique condo or under-quote a 180-door HOA with two amenity centers and a milestone inspection in flight. Our pricing philosophy is documented in full at /pricing/ — that's the right place to start before requesting a proposal.",
+            ],
+          },
+          {
+            q: "What's included in the base fee, and what's billed separately?",
+            a: [
+              "The base covers recurring operations: board meetings, owner support, monthly financials, vendor management, compliance monitoring, property-services oversight, the owner portal, and annual budget development.",
+              "Separate-line items include capital project oversight (priced as owner's-rep engagements), reserve studies, special assessments, litigation/collections support, estoppels (paid by the requesting party), reimbursables (postage, lockbox, bank fees — at cost, no markup), and special meetings beyond the contracted cadence.",
+            ],
+          },
+          {
+            q: "Are reimbursables marked up?",
+            a: [
+              "No. Pass-through at cost. Postage, printing, lockbox processing, bank fees, and courier charges show up on your invoice at the actual amount we paid — not a marked-up internal rate. The contract enumerates every reimbursable category up front so there are no surprises.",
+            ],
+          },
+          {
+            q: "Is there a transition or onboarding fee?",
+            a: [
+              "Sometimes. A clean transition from a competent prior firm is usually inside the base fee. A messy transition — missing documents, untracked vendor contracts, an unaudited bank reconciliation — gets quoted as a one-time onboarding engagement so the recurring fee isn't inflated by cleanup work.",
+              "We'd rather price the cleanup honestly than absorb it into the monthly fee and resent it for the next ten years.",
+            ],
+          },
+          {
+            q: "How does the fee change over time?",
+            a: [
+              "Annually, on the contract anniversary, indexed to a measurable benchmark — typically labor inflation plus any agreed-upon scope changes. The mechanism is in the contract; there are no surprise mid-year increases. Boards see the proposed adjustment thirty days before the anniversary and approve it in writing.",
+            ],
+          },
+        ],
+      },
+      // ─── 3. Financial Reporting & Accounting ──────────
+      {
+        id: "financial-reporting",
+        num: "03",
+        title: "Financial reporting.",
+        intro: "Accounting is the chamber where management firms most often fall short. Here's how ours is structured.",
+        items: [
+          {
+            q: "Who handles the accounting?",
+            a: [
+              "Our in-house accounting team, supervised by a CPA on staff (Andre Duda). We run accounting on the CityBooks platform, which serves over 500 associations nationally. Daily bank reconciliation, stoplight risk grading, and a CPA review on every financial packet before it goes to the board.",
+            ],
+          },
+          {
+            q: "What financial reports do boards receive each month?",
+            a: [
+              "A monthly financial packet that includes: balance sheet, income statement, budget-to-actual variance, AR aging, bank reconciliation summary, reserve fund summary, and a stoplight risk grade flagging anything that needs board attention.",
+              "Treasurers can pull additional detail — vendor history, individual owner ledgers, GL detail — from the owner portal at any time.",
+            ],
+          },
+          {
+            q: "How often are bank accounts reconciled?",
+            a: [
+              "Daily. Every association's operating and reserve accounts are reconciled against the bank feed every business day, not at month-end. That's how we catch fraud, double-pays, and routing errors within twenty-four hours instead of thirty.",
+            ],
+          },
+          {
+            q: "Do you support our annual audit or review?",
+            a: [
+              "Yes. We provide the auditor with full GL exports, bank confirmations, vendor ledgers, and supporting documentation. Florida statute thresholds for compilation, review, and audit are listed in the contract; we'll flag when your association moves between tiers.",
+            ],
+          },
+          {
+            q: "Who owns the financial data — us or you?",
+            a: [
+              "The association owns its data. Always. If the board ever decides to leave Keys-Caldwell, we'll provide a complete export of the GL, all subsidiary ledgers, vendor records, and document repository in industry-standard formats. There is no extraction fee in the contract.",
+            ],
+          },
+          {
+            q: "Can owners pay assessments online?",
+            a: [
+              "Yes — through the owner portal. ACH is free to the owner; credit card incurs a processor fee paid by the cardholder, not the association. Auto-pay is supported. Lockbox is available for owners who prefer to mail checks.",
+            ],
+          },
+        ],
+      },
+      // ─── 4. Property Services & Capital Projects ──────
+      {
+        id: "property-services",
+        num: "04",
+        title: "Property services.",
+        intro: "Routine maintenance, vendor management, and capital projects — the operational chamber that determines whether the building actually holds up.",
+        items: [
+          {
+            q: "Who manages routine maintenance and vendor performance?",
+            a: [
+              "Our property-services team. They maintain a vendor roster vetted on insurance, licensure, COI compliance, and historical performance; schedule routine inspections; coordinate work orders; and review invoices against scope before they hit the board for approval.",
+            ],
+          },
+          {
+            q: "Do you handle capital projects — roofs, paint, concrete restoration?",
+            a: [
+              "Yes, as owner's-rep engagements. Daniel Caldwell, our capital projects principal, coordinates the engineer, vets bidders, manages the bid process, walks the site with the contractor, and signs off on milestone payments. This work is priced separately from the base fee — boards pay for project oversight only when there's a project.",
+            ],
+          },
+          {
+            q: "What's a milestone inspection, and do we need one?",
+            a: [
+              "Milestone inspections are required by Florida SB-4D for buildings three stories or higher. The first inspection is at twenty-five years if the building is within three miles of the coastline, or thirty years otherwise; subsequent inspections are every ten years. Phase 1 is visual; Phase 2 (if Phase 1 finds substantial structural deterioration) is invasive testing.",
+              "The milestone inspection answers \"is the structure safe?\" — it's a separate document from the SIRS, which answers \"can the association afford to maintain it?\" Both are required for the same buildings. Our /blog/florida-sirs-milestone-inspection-guide/ walks through the requirements in detail.",
+            ],
+          },
+          {
+            q: "What's the difference between a SIRS and a regular reserve study?",
+            a: [
+              "A SIRS — Structural Integrity Reserve Study — is a reserve study with stricter rules, mandated by Florida SB-4D for buildings three stories or higher. It must specifically address the structural components (roof, load-bearing walls, foundation, fireproofing, plumbing, electrical, waterproofing, windows, and any other item costing $10,000+ to replace) and project funding out at least ten years. The SIRS deadline for existing buildings was December 31, 2024; going forward they update every ten years.",
+              "A regular reserve study covers the same general purpose for buildings that don't trigger SIRS — typically HOAs and low-rise condos. It's not a state-mandated document for those properties, but most boards still commission one because lenders, insurers, and prospective buyers ask for it.",
+            ],
+          },
+          {
+            q: "Do you do reserve studies and SIRS?",
+            a: [
+              "Yes — through our AccuReserve continuum. It runs from a $150 self-assessment template (boards use it themselves) to a fully-managed reserve study subscription where we update the study annually as part of the ongoing engagement. Most boards land in the middle: a full study every five years, with annual updates in between. AccuReserve covers both standard reserve studies and SIRS deliverables.",
+            ],
+          },
+          {
+            q: "What insurance does the association need to carry?",
+            a: [
+              "At minimum: master property (the building shell, common elements, and replacement-cost coverage at current Florida rebuild figures); general liability; umbrella; directors-and-officers (D&O) for the board; fidelity / crime; and flood if any structure or amenity sits in a Special Flood Hazard Area. Coastal communities almost always need windstorm as a separate policy or rider — Citizens or surplus-lines markets are often the only options.",
+              "We don't sell insurance. We do coordinate the renewal process with your broker: gathering values, running the appraisal cycle, comparing quotes, and walking the board through coverage gaps. Florida insurance has been the single hardest line item to manage for the last three years; expect the renewal to take eight to twelve weeks.",
+            ],
+          },
+          {
+            q: "What happens during a hurricane — before, during, and after?",
+            a: [
+              "Before: when the National Hurricane Center issues a watch for our region, our property-services team activates the storm protocol — pool covers, shutter coordination, vendor pre-positioning, owner communications, and document/data backups confirmed offsite. We've run this drill many times.",
+              "During: our office closes only when conditions become unsafe. Owner portal stays online. The principal supervising your association is reachable; we maintain a generator at the office for continuity.",
+              "After: damage assessment within forty-eight hours of safe re-entry, photography for insurance, debris-removal coordination, vendor mobilization, and a board update within seventy-two hours. Insurance claim documentation is our responsibility, not the board's. We've been through Charley, Irma, Ian, Helene, and Milton — every one of them taught us something we now do better.",
+            ],
+          },
+        ],
+      },
+      // ─── 5. Technology & Owner Portal ─────────────────
+      {
+        id: "technology",
+        num: "05",
+        title: "Technology & portal.",
+        intro: "What boards and owners actually see, day-to-day, when they log in.",
+        items: [
+          {
+            q: "What technology platform do you use?",
+            a: [
+              "Vantaca for the owner-facing portal, work orders, and ARC workflow. CityBooks for accounting. Both are integrated, so a board treasurer pulling reports, an owner submitting an ARC application, and a manager approving an invoice all work from the same dataset.",
+            ],
+          },
+          {
+            q: "What can owners do in the portal?",
+            a: [
+              "Pay assessments (one-time or auto-pay), view their account ledger, submit ARC applications, file work orders, read board meeting minutes and agendas, access the document library (governing documents, financials, insurance certificates), and update contact preferences.",
+            ],
+          },
+          {
+            q: "What can board members do that owners can't?",
+            a: [
+              "Board members get a separate login with full financial detail, vendor records, owner-level ledger access, work-order queues, ARC approval workflow, and meeting management tools (agenda builder, packet distribution, minutes drafting). The board portal is the same Vantaca platform with elevated permissions.",
+            ],
+          },
+          {
+            q: "Is there a mobile app?",
+            a: [
+              "Yes. The Vantaca portal has a native mobile app for both owners and board members, available on iOS and Android. Owners typically use it for payments and work orders; board members for ARC review and reading agenda packets on the go.",
+            ],
+          },
+          {
+            q: "How is data security handled?",
+            a: [
+              "Vantaca and CityBooks both run on SOC 2 Type II certified infrastructure with encryption at rest and in transit, role-based access control, and audit logging. We carry cyber-liability insurance on the firm. Bank data is never stored in our systems — we connect to bank feeds via authenticated API, not by holding credentials.",
+            ],
+          },
+        ],
+      },
+      // ─── 6. (inserted) Working Cadence ────────────────
+      {
+        id: "working-cadence",
+        num: "06",
+        title: "What a year looks like.",
+        intro: "The annual cadence of running an association — what happens each month, who does what, and where the predictable pressure points fall.",
+        items: [
+          {
+            q: "What does a typical year of community management look like?",
+            a: [
+              "Roughly: budget development runs August through October, with board adoption in November. Year-end financials, audit/review, and tax filing run January through April. Insurance renewal cycle is usually April through August (Florida; varies by carrier). Hurricane preparation peaks in June. Reserve study updates and capital project planning fold in wherever the calendar allows.",
+              "Board meetings typically run monthly or quarterly depending on the association's bylaws. The annual meeting — owner-attended, with election if applicable — is fixed by the governing documents and usually falls in winter or early spring for snowbird-heavy communities.",
+            ],
+          },
+          {
+            q: "How are board meetings actually run?",
+            a: [
+              "We prep the agenda packet (typically a week before the meeting), distribute it to board members through the portal, attend the meeting in person or virtually, take minutes, and publish approved minutes within ten business days. Florida statute requires owner notice for most board meetings, and we manage that posting requirement.",
+              "Quorum, voting procedures, and which decisions need full-membership approval versus board-only approval are all set by your governing documents. We track that and flag when something needs an owner vote.",
+            ],
+          },
+          {
+            q: "How do you handle covenant violations and enforcement?",
+            a: [
+              "Through a documented progression: friendly courtesy notice, formal violation letter (with photo and citation to the specific governing-document section), fine notice with right to a hearing, and — if unresolved — referral to association counsel for legal action. Each step is logged in the owner's file with timestamps, evidence, and board approval where required.",
+              "Enforcement is a board policy decision. Some boards want strict enforcement; others want maximum lenience for first offenders. We follow your policy. If there isn't one written down, we'll help you write one.",
+            ],
+          },
+          {
+            q: "How are delinquencies and collections handled?",
+            a: [
+              "Standard cadence: late notice at fifteen days past due, formal demand at thirty days, intent-to-lien at sixty days, lien filing at ninety days, and referral to association counsel beyond that. Each step has a fee structure defined in the governing documents. Owners in payment plans are tracked separately.",
+              "Collections legal work is handled by association counsel, not by us — we coordinate, track status, and report to the board monthly. Estoppel certificates for closings are turned around within five business days; the requesting party pays the statutory fee.",
+            ],
+          },
+          {
+            q: "What if I'm unhappy with our community manager?",
+            a: [
+              "Tell us. Direct line to the principal supervising your association is in your contract. Most concerns are about communication speed or follow-through — both fixable, often within a week. If the fit genuinely isn't right, we'll reassign without drama or contract penalty. Manager continuity matters, but not at the cost of a board's confidence.",
+            ],
+          },
+        ],
+      },
+      // ─── 7. Transition Process ────────────────────────
+      {
+        id: "transition",
+        num: "07",
+        title: "Transitioning from another firm.",
+        intro: "If your board is currently with another management firm and considering a switch, here's what the transition actually looks like.",
+        items: [
+          {
+            q: "How long does it take to transition from another management firm?",
+            a: [
+              "Sixty to ninety days, typically. Most management contracts require a sixty-day notice period; we use that window to receive records, set up bank accounts, configure the portal, communicate with owners, and run parallel for one billing cycle.",
+              "Boards switching firms should not expect zero friction in month one — there's almost always residual cleanup from the prior firm's records. We quote that cleanup separately so the recurring fee is honest.",
+            ],
+          },
+          {
+            q: "When is the best time of year to switch management firms?",
+            a: [
+              "January through April is ideal — you start fresh on a calendar year, the prior firm closes the prior year's books, and the new firm picks up Q1 with a clean slate. Mid-summer also works.",
+              "The worst time to switch is August through November: that's budget-development season, and a new firm walking into a half-built budget owns problems they didn't create. If your renewal date forces a fall switch, plan for the prior firm to deliver the draft budget as part of records hand-off.",
+            ],
+          },
+          {
+            q: "What records does the prior firm have to hand over?",
+            a: [
+              "Florida statute requires the prior manager to deliver all association records within a reasonable period after termination — typically thirty days. That includes governing documents, financial records, vendor contracts, insurance policies, and meeting minutes. If your prior firm stalls, the board has statutory remedies; we've helped boards navigate that process.",
+            ],
+          },
+          {
+            q: "Will owner payment information transfer cleanly?",
+            a: [
+              "Owner contact information and account balances transfer cleanly; payment methods (auto-pay, ACH authorizations) usually do not — owners have to re-enroll in the new portal. We coordinate the communication so owners aren't confused, and we offer a grace period on late fees during the transition month.",
+            ],
+          },
+          {
+            q: "Can we run parallel with both firms during the transition?",
+            a: [
+              "We don't recommend it. Parallel operation creates ambiguity about who's responsible for what, and owners get communications from two sources. The cleaner pattern is a defined cutover date — typically the first of a month — with the prior firm running through the last day of the prior month and Keys-Caldwell starting on day one.",
+            ],
+          },
+          {
+            q: "What's the most common reason boards switch to Keys-Caldwell?",
+            a: [
+              "Three reasons, in roughly equal proportions: financial reporting that the board doesn't trust (variances unexplained, reconciliations late, no CPA review); manager turnover (a new face every eighteen months); and a capital project that the prior firm wasn't equipped to oversee. Our scope is sized to address all three.",
+            ],
+          },
+          {
+            q: "What happens at the very end — the last day with our current firm?",
+            a: [
+              "On cutover day we take possession of records, take operational control of bank accounts (with new signature authority), publish the new owner portal, and send a transition communication to every owner. Your old portal is decommissioned. Your first board meeting under our management is typically scheduled within thirty days of cutover.",
+              "Boards should expect a few weeks of residual questions — \"why is this charge here, why was this not paid\" — as the books fully settle. That's normal. By month three, the noise is gone.",
+            ],
+          },
+        ],
+      },
+    ],
+  },
+
+  // ─── CTA ──────────────────────────────────────────────────
+  ctaBand: {
+    eyebrow: "Didn't find your question?",
+    title: "Email us — or pick up the phone.",
+    body: "Boards are welcome to call before submitting anything in writing. Most intake calls take twenty minutes; you'll leave with a clearer picture of what to expect from a management firm, whether or not it's us.",
+    primary:   { label: "Request a proposal", href: "/request-proposal/index.html" },
+    secondary: { label: "Email us",            href: "mailto:info@keys-caldwell.com" },
+    phone: "(941) 485-0605",
+    hours: "Mon – Fri · 8:30am – 5:00pm ET",
+  },
+
+  footer: {},
+};
+
+// ─── Custom inline sections ─────────────────────────────
+
+const KCFAQHero = ({ content: c }) => (
+  <section className="kc-faq-hero">
+    <div className="kc-container">
+      <div className="kc-faq-hero-inner">
+        <div className="kc-faq-hero-eye">{c.eyebrow}</div>
+        <h1 className="kc-faq-hero-h">
+          {c.titlePlain} <em>{c.titleItalic}</em>
+        </h1>
+        <hr className="kc-faq-hero-rule" />
+        <p className="kc-faq-hero-lede">{c.lede}</p>
+        <div className="kc-faq-hero-meta">
+          {c.meta.map(m => (
+            <div key={m.label}>
+              <strong>{m.label}:</strong> {m.value}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+// Slugify a question for per-Q anchors
+const qSlug = (q) => q.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 60);
+
+// Render <a> tags inside answer text where strings contain "/path/" or "https://"
+const linkify = (text) => {
+  if (typeof text !== 'string') return text;
+  // Detect /path/ links and wrap them as anchor tags
+  const parts = text.split(/(\s\/[a-z0-9\-\/]+\/)/g);
+  if (parts.length === 1) return text;
+  return parts.map((part, i) => {
+    if (part.match(/^\s\/[a-z0-9\-\/]+\/$/)) {
+      const path = part.trim();
+      return <React.Fragment key={i}> <a href={kcHref(path + 'index.html')}>{path}</a></React.Fragment>;
+    }
+    return <React.Fragment key={i}>{part}</React.Fragment>;
+  });
+};
+
+const KCFAQDirectory = ({ content: c }) => (
+  <section className="kc-faq-directory">
+    <div className="kc-container">
+      <div className="kc-faq-directory-grid">
+        <nav className="kc-faq-nav" aria-label="FAQ categories">
+          <div className="kc-faq-nav-eye">Categories</div>
+          <ul className="kc-faq-nav-list">
+            {c.categories.map(cat => (
+              <li key={cat.id}>
+                <a href={`#${cat.id}`}>
+                  {cat.title.replace(/\.$/, '')}
+                  <span>{cat.num}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+        <div>
+          {c.categories.map(cat => (
+            <section key={cat.id} id={cat.id} className="kc-faq-cat">
+              <header className="kc-faq-cat-head">
+                <span className="kc-faq-cat-num">Category {cat.num}</span>
+                <h2 className="kc-faq-cat-h">{cat.title}</h2>
+                {cat.intro && <p className="kc-faq-cat-intro">{cat.intro}</p>}
+              </header>
+              {cat.items.map((it, i) => {
+                const slug = qSlug(it.q);
+                const paragraphs = Array.isArray(it.a) ? it.a : [it.a];
+                return (
+                  <article key={slug} className="kc-faq-q" id={slug}>
+                    <h3 className="kc-faq-q-h">{it.q}</h3>
+                    <div className="kc-faq-a">
+                      {paragraphs.map((p, j) => <p key={j}>{linkify(p)}</p>)}
+                    </div>
+                    <a className="kc-faq-q-anchor" href={`#${slug}`}>↳ Link to this question</a>
+                  </article>
+                );
+              })}
+            </section>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+// ─── Page ───────────────────────────────────────────────
+
+const Page = () => (
+  <div className="kc-page">
+    <KCNav             active={CONTENT.nav.active} />
+    <KCBreadcrumbs     content={CONTENT.breadcrumbs} />
+    <KCFAQHero         content={CONTENT.hero} />
+    <KCFAQDirectory    content={CONTENT.directory} />
+    <KCCtaBand         content={CONTENT.ctaBand} />
+    <KCFooter          content={CONTENT.footer} />
+  </div>
+);
+
+// Flatten categorized Q/As for FAQPage schema
+const allFaqs = CONTENT.directory.categories.flatMap(cat =>
+  cat.items.map(it => ({
+    q: it.q,
+    a: Array.isArray(it.a) ? it.a.join(' ') : it.a,
+  }))
+);
+
+KCSeo.apply(CONTENT.meta, {
+  pageType:    "core",
+  pageUrl:     CONTENT.meta.canonical,
+  breadcrumbs: CONTENT.breadcrumbs.items,
+  faqs:        allFaqs,
+});
+
+const renderWhenReady = () => {
+  if (typeof KCNav === 'undefined') {
+    return setTimeout(renderWhenReady, 30);
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(<Page />);
+  requestAnimationFrame(() => { if (window.lucide) window.lucide.createIcons(); });
+  setTimeout(() => { if (window.lucide) window.lucide.createIcons(); }, 400);
+};
+renderWhenReady();
+</script>
+
+</body>
+</html>

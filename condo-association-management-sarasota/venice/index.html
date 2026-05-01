@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<!-- ============================================================
+     Keys-Caldwell — Condo Management · Venice, FL
+     ============================================================
+     URL slot       :  /condo-association-management-sarasota/venice/
+     Template type  :  GEO  (mirror this for all city children)
+     Composition    :  KCNav · KCBreadcrumbs · KCGeoHero · KCGeoIntro
+                       KCGeoCommunities · KCGeoDirections ·
+                       KCTestimonial · KCCtaBand · KCFooter
+     ----------------------------------------------------------------
+     Length target: 400-600 words. Local-pack landing page.
+     The local detail in KCGeoIntro is what makes the page real.
+     Every fact in the intro should be true of THIS city — generic
+     copy here gets thrown out by Google's local model.
+     ============================================================ -->
+<title>Condo Association Management · Venice, FL · Keys-Caldwell</title>
+<meta name="description" content="Keys-Caldwell manages coastal condominium associations in Venice, FL — mid-century mid-rises, gulf-front buildings, and barrier-island towers. Local since 1978; office at the Venice waterfront." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://unpkg.com">
+
+<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../../geo.css">
+<link rel="icon" href="data:,">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<style>
+  html, body { margin: 0; padding: 0; }
+  body { font-family: 'Source Sans 3', system-ui, sans-serif; }
+  #root { min-height: 100vh; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script>window.KC_ASSET_BASE = '../../';</script>
+<script src="../../components/kc-org.js"></script>
+<script src="../../components/kc-seo.jsx"></script>
+<script type="text/babel" src="../../components/shared.jsx"></script>
+<script type="text/babel" src="../../components/geo.jsx"></script>
+
+<script type="text/babel" id="page-content">
+const CONTENT = {
+
+  meta: {
+    title:           "Condo Association Management · Venice, FL · Keys-Caldwell",
+    description:     "Keys-Caldwell manages coastal condominium associations in Venice, FL — mid-century mid-rises, gulf-front buildings, barrier-island towers. Local since 1978.",
+    canonical:       "/condo-association-management-sarasota/venice/",
+    primaryKeyword:  "condo management venice fl",
+    secondaryKeywords: [
+      "condo association management venice",
+      "condominium management venice florida",
+      "condo manager venice fl",
+    ],
+    ogTitle:         "Condo Association Management in Venice, FL",
+    ogDescription:   "We manage Venice's mid-century mid-rises, gulf-front buildings, and barrier-island towers. Office on the Venice waterfront.",
+    ogImage:         "/assets/og/keys-caldwell-default.jpg",
+    schema:          ["LocalBusiness", "BreadcrumbList"],
+  },
+
+  breadcrumbs: {
+    items: [
+      { label: "Home",                       href: "/" },
+      { label: "Condo Management",           href: "/condo-association-management-sarasota/" },
+      { label: "Venice, FL" },
+    ],
+  },
+
+  nav: { active: "condo" },
+
+  hero: {
+    eyebrow: "Condo association management · Venice, FL",
+    titlePlain: "Condo management in Venice from a firm whose office is",
+    titleItalic: "in Venice.",
+    lede: "We've been at the same Venice address since 1978. The buildings we manage here are the mid-century mid-rises along the Esplanade, the gulf-front towers on Casey Key, and a handful of barrier-island condominiums that boards on the mainland never see.",
+    primaryCta:   { label: "Request a proposal", href: "/request-proposal/index.html" },
+    secondaryCta: { label: "Condo services overview", href: "/condo-association-management-sarasota/" },
+    distance:        "0 mi (HQ)",
+    communitiesCount: "11 condos",
+    visitCadence:    "Bi-weekly",
+    responseSla:     "24 hours",
+  },
+
+  intro: {
+    eyebrow: "Why Venice is a different management job",
+    titlePlain: "Venice's coastal mid-rises have a specific capital profile.",
+    titleItalic: "a specific capital profile.",
+    paragraphs: [
+      "A lot of Venice's condominium stock was built between 1968 and 1985. That's prime SIRS territory: buildings now in their fourth or fifth decade, post-tension cable systems aging out, original concrete restoration coming due, and roof systems on a 22-year clock. SB-4D milestone inspections are a present-tense calendar item, not a future-tense plan.",
+      "The other thing about Venice condos is owner geography. A meaningful share of unit owners are seasonal — Midwest, New England, Canada — which means board communications, ARC processes, and assessment notices have to work for owners who aren't on-island most of the year. Operationally, this means a portal that actually works (Vantaca), a client-services line that's answered, and meeting minutes that arrive when promised.",
+      "Local matters here in a way it doesn't in every market. Engineers, restoration contractors, marine vendors, county building officials — these are people we've worked with for 30+ years. When a Venice condo board needs an emergency meeting with the county on a permitting question, we make a phone call instead of filing a form.",
+    ],
+  },
+
+  communities: {
+    eyebrow: "Coverage in Venice",
+    titlePlain: "A representative sample of Venice condominiums under management.",
+    titleItalic: "under management.",
+    items: [
+      { type: "Gulf-front mid-rise",           units: "32 units · 7 stories",  area: "Venice Beach" },
+      { type: "Bay-front low-rise",            units: "24 units · 3 stories",  area: "Venice Island" },
+      { type: "Barrier-island tower",          units: "48 units · 9 stories",  area: "Casey Key" },
+      { type: "Mid-century courtyard condo",   units: "18 units · 2 stories",  area: "Historic Venice" },
+      { type: "Coastal mid-rise",              units: "44 units · 6 stories",  area: "South Venice" },
+      { type: "Inland conversion",             units: "28 units · 3 stories",  area: "Venice Gardens" },
+    ],
+  },
+
+  directions: {
+    eyebrow: "Find us",
+    titlePlain: "Our office is in Venice, on the same block since 1978.",
+    titleItalic: "since 1978.",
+    paragraphs: [
+      "The Keys-Caldwell office is on West Venice Avenue, a few minutes from the historic district and direct-drive distance to every condominium we manage on the island. Most board meetings we attend are inside a 20-minute window — including barrier-island buildings via the Circus Bridge.",
+      "From I-75, take exit 193 (Jacaranda Boulevard) west to US-41, then south to Venice Avenue. We're between the bridge and the historic district, in a low-rise office building with on-site parking. Boards visiting the office for proposal meetings: we're easy to find and there's no front-desk gauntlet.",
+    ],
+    address: {
+      street: "1162 Indian Hills Blvd",
+      city:   "Venice",
+      region: "FL",
+      zip:    "34293",
+      phone:  "(941) 485-0605",
+    },
+  },
+
+  testimonial: {
+    quote: "We're a 32-unit gulf-front building from 1979. The 2024 SIRS report had landmines all through it — post-tension cables, balcony rebuilds, a roof on borrowed time. Keys-Caldwell had a multi-year capital response in front of the board within 30 days, and the funding plan got approved without a special assessment. That's what local fluency buys you.",
+    name: "Thomas Ridley",
+    role: "Board President · 32-unit gulf-front condo · Venice, FL",
+    initials: "TR",
+  },
+
+  ctaBand: {
+    eyebrow: "Boards in Venice",
+    title: "If your board is evaluating management firms, we'd be happy to come walk the building.",
+    body: "We do consultative meetings on-site for Venice associations — easier than asking a board to commute across the county. Bring your governing documents, your most recent reserve study, and an honest description of where the building is. We'll respond with a tailored proposal within five business days.",
+    primary:   { label: "Request a proposal", href: "/request-proposal/index.html" },
+    secondary: { label: "Condo services overview", href: "/condo-association-management-sarasota/" },
+    phone: "(941) 485-0605",
+    hours: "Mon – Fri · 8:30am – 5:00pm ET",
+  },
+
+  footer: {},
+};
+
+const Page = () => (
+  <div className="kc-page">
+    <KCNav active={CONTENT.nav.active} />
+    <KCBreadcrumbs    content={CONTENT.breadcrumbs} />
+    <KCGeoHero        content={CONTENT.hero} />
+    <KCGeoIntro       content={CONTENT.intro} />
+    <KCGeoCommunities content={CONTENT.communities} />
+    <KCGeoDirections  content={CONTENT.directions} />
+    <KCTestimonial    content={CONTENT.testimonial} />
+    <KCCtaBand        content={CONTENT.ctaBand} />
+    <KCFooter         content={CONTENT.footer} />
+  </div>
+);
+
+KCSeo.apply(CONTENT.meta, {
+  pageType:    "geo",
+  pageUrl:     CONTENT.meta.canonical,
+  breadcrumbs: CONTENT.breadcrumbs.items,
+});
+
+const renderWhenReady = () => {
+  if (typeof KCNav === 'undefined' || typeof KCGeoHero === 'undefined') {
+    return setTimeout(renderWhenReady, 30);
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(<Page />);
+  requestAnimationFrame(() => { if (window.lucide) window.lucide.createIcons(); });
+  setTimeout(() => { if (window.lucide) window.lucide.createIcons(); }, 400);
+};
+renderWhenReady();
+</script>
+
+</body>
+</html>

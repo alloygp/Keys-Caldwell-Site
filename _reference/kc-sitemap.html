@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Keys-Caldwell, Inc. — Full SEO Sitemap</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0e1a;color:#e2e8f0;min-height:100vh;padding:32px 16px}
+.wrap{max-width:1260px;margin:0 auto}
+h1{text-align:center;font-size:24px;font-weight:800;color:#fff;margin-bottom:4px}
+.sub{text-align:center;font-size:12px;color:#64748b;margin-bottom:28px}
+.sub span{color:#94a3b8}
+
+/* Stats */
+.stats{display:flex;justify-content:center;gap:28px;margin-bottom:32px;flex-wrap:wrap}
+.st{text-align:center}.st-v{font-size:24px;font-weight:800}.st-l{font-size:9px;color:#64748b;text-transform:uppercase;letter-spacing:.8px}
+.g{color:#6ee7b7}.b{color:#7dd3fc}.p{color:#c4b5fd}.y{color:#fcd34d}.r{color:#fca5a5}
+
+/* Root */
+.root{display:flex;flex-direction:column;align-items:center}
+.root-box{background:linear-gradient(135deg,#3b82f6,#1d4ed8);padding:14px 28px;border-radius:10px;text-align:center;box-shadow:0 4px 20px rgba(59,130,246,.35)}
+.root-box h2{font-size:16px;color:#fff}.root-box small{font-size:10px;color:#bfdbfe}
+.vl{width:2px;background:#1e293b;margin:0 auto}
+.vl-s{height:20px}.vl-m{height:28px}.vl-l{height:36px}
+.vl-accent{background:#334155}
+
+/* Section headers */
+.sec-h{text-align:center;margin-bottom:14px}
+.sec-tag{display:inline-block;font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:1.2px;padding:4px 14px;border-radius:5px}
+.sec-tag.green{background:#065f46;color:#6ee7b7}
+.sec-tag.blue{background:#172554;color:#7dd3fc}
+.sec-tag.amber{background:#713f12;color:#fcd34d}
+.sec-tag.red{background:#7f1d1d;color:#fca5a5}
+.sec-tag.slate{background:#1e293b;color:#94a3b8;border:1px solid #334155}
+.sec-tag.purple{background:#3b1f6e;color:#c4b5fd}
+.sec-tag.teal{background:#134e4a;color:#5eead4}
+.sec-sub{font-size:10px;color:#475569;margin-top:4px}
+
+/* Grid layouts */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+.g4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:12px}
+@media(max-width:900px){.g3,.g4{grid-template-columns:1fr 1fr}.g2{grid-template-columns:1fr}}
+@media(max-width:600px){.g3,.g4,.g2{grid-template-columns:1fr}}
+
+/* Cards */
+.card{background:#1e293b;border:1px solid #334155;border-radius:10px;padding:14px;transition:transform .15s,box-shadow .15s}
+.card:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.3)}
+.card-h{display:flex;align-items:flex-start;gap:8px;margin-bottom:8px}
+.card-ico{width:32px;height:32px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.card-t{font-size:13px;font-weight:700;color:#f1f5f9;line-height:1.3}
+.card-url{font-size:9px;font-family:'SF Mono',Monaco,monospace;color:#475569;margin-top:2px}
+.card-meta{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:6px}
+.tg{font-size:9px;padding:2px 6px;border-radius:3px;font-weight:600}
+.t-svc{background:#065f46;color:#6ee7b7}
+.t-guide{background:#172554;color:#7dd3fc}
+.t-list{background:#3b1f6e;color:#c4b5fd}
+.t-geo{background:#713f12;color:#fcd34d}
+.t-trust{background:#4a1d2e;color:#fda4af}
+.t-conv{background:#7f1d1d;color:#fca5a5}
+.t-core{background:#1e293b;color:#94a3b8;border:1px solid #334155}
+.sv{background:#0c1e3a;color:#7dd3fc}
+.kd-e{background:#052e1f;color:#6ee7b7}
+.kd-m{background:#3d1f00;color:#fcd34d}
+.kd-h{background:#3d0c0c;color:#fca5a5}
+.cpc{background:#2a1252;color:#c4b5fd}
+
+/* Keywords */
+.kws{display:flex;flex-wrap:wrap;gap:3px;margin-top:6px}
+.kw{font-size:9px;padding:2px 5px;border-radius:3px;background:#0a0e1a;border:1px solid #1e293b;color:#64748b}
+.kw.p{border-color:#1d4ed8;color:#7dd3fc;background:#0c1e3a;font-weight:600}
+
+/* Pillar cards */
+.pillar{border-color:#10b981;border-width:2px;background:#0f2922}
+.pillar .card-t{color:#ecfdf5}
+
+/* Arrow hints */
+.arrow-hint{font-size:9px;color:#475569;margin-top:6px;display:flex;align-items:center;gap:3px}
+.arrow-hint span{color:#3b82f6}
+
+/* Notes */
+.note{background:#0f172a;border:1px solid;border-radius:8px;padding:10px 12px;margin-top:8px;font-size:10px;color:#94a3b8;line-height:1.5}
+.note-green{border-color:#10b981}.note-blue{border-color:#3b82f6}.note-amber{border-color:#f59e0b}
+.note-red{border-color:#ef4444}.note-purple{border-color:#8b5cf6}.note-teal{border-color:#14b8a6}
+.note strong{color:#e2e8f0}
+.note-label{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:3px;display:block}
+.note-label.g{color:#6ee7b7}.note-label.b{color:#7dd3fc}.note-label.y{color:#fcd34d}
+.note-label.r{color:#fca5a5}.note-label.p{color:#c4b5fd}.note-label.t{color:#5eead4}
+
+/* Linking section */
+.link-sec{margin-top:32px;background:#1e293b;border:1px solid #334155;border-radius:12px;padding:20px}
+.link-sec h3{font-size:14px;font-weight:700;color:#f1f5f9;text-align:center;margin-bottom:4px}
+.link-sec .sub2{font-size:10px;color:#64748b;text-align:center;margin-bottom:16px}
+.lg{display:grid;grid-template-columns:1fr auto 1fr;gap:5px 10px;align-items:center;max-width:700px;margin:0 auto}
+.lf,.lt{font-size:10px;padding:4px 8px;border-radius:4px;background:#0f172a;border:1px solid #1e293b}
+.lf{text-align:right;color:#93c5fd}.lt{text-align:left;color:#6ee7b7}
+.la{color:#475569;font-size:12px;text-align:center}
+.link-label{font-size:8px;color:#475569;text-transform:uppercase;letter-spacing:.5px;grid-column:1/-1;text-align:center;padding:6px 0 2px;border-top:1px solid #1e293b;margin-top:4px}
+
+/* Spacer / divider */
+.spacer{height:32px}
+.hdiv{width:60%;margin:0 auto;height:1px;background:#1e293b}
+
+/* Legend */
+.legend{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:32px;padding:10px;background:#1e293b;border-radius:8px;border:1px solid #334155}
+.leg{display:flex;align-items:center;gap:4px;font-size:10px;color:#94a3b8}
+.ld{width:10px;height:10px;border-radius:3px}
+
+/* Competitor table */
+.comp-tbl{width:100%;border-collapse:collapse;font-size:10px;margin-top:12px}
+.comp-tbl th{text-align:left;color:#94a3b8;font-weight:700;padding:6px 8px;border-bottom:1px solid #334155;font-size:9px;text-transform:uppercase;letter-spacing:.5px}
+.comp-tbl td{padding:6px 8px;border-bottom:1px solid #1e293b;color:#cbd5e1}
+.comp-tbl tr:hover td{background:#0f172a}
+.comp-hi{color:#6ee7b7;font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>keys-caldwell.com — Full Site Architecture</h1>
+<p class="sub">Hub &amp; Spoke Model &nbsp;·&nbsp; <span>Community Association Management — Southwest Florida</span></p>
+
+<div class="stats">
+  <div class="st"><div class="st-v g">24</div><div class="st-l">Total Pages</div></div>
+  <div class="st"><div class="st-v b">~4,800</div><div class="st-l">Monthly SV Target</div></div>
+  <div class="st"><div class="st-v p">10</div><div class="st-l">Content Clusters</div></div>
+  <div class="st"><div class="st-v y">7</div><div class="st-l">Geo Pages</div></div>
+  <div class="st"><div class="st-v r">3</div><div class="st-l">Trust Pages</div></div>
+</div>
+
+<!-- ═══════════ ROOT ═══════════ -->
+<div class="root">
+  <div class="root-box">
+    <h2>keys-caldwell.com</h2>
+    <small>DR 21 &nbsp;·&nbsp; 5 organic keywords &nbsp;·&nbsp; ~31 monthly traffic &nbsp;·&nbsp; 100% branded</small>
+  </div>
+</div>
+
+<div class="vl vl-m vl-accent"></div>
+
+<!-- ═══════════ COMPETITIVE BASELINE ═══════════ -->
+<div class="sec-h">
+  <div class="sec-tag teal">Competitive SEO Baseline</div>
+  <div class="sec-sub">Ahrefs data pulled April 2, 2026 — every local competitor has near-zero organic presence</div>
+</div>
+
+<div style="max-width:800px;margin:0 auto">
+  <table class="comp-tbl">
+    <tr><th>Domain</th><th>DR</th><th>Organic KW</th><th>Organic Traffic</th><th>Org. Cost ($/mo)</th><th>Opportunity</th></tr>
+    <tr><td class="comp-hi">keys-caldwell.com</td><td>21</td><td>5</td><td>31</td><td>$461</td><td style="color:#6ee7b7">First-mover advantage — build content now</td></tr>
+    <tr><td>sunstatemanagement.com</td><td>65</td><td>15</td><td>12</td><td>$1,887</td><td>High DR but barely ranking — paper tiger</td></tr>
+    <tr><td>pinnaclecam.com</td><td>12</td><td>—</td><td>—</td><td>—</td><td>Lowest DR, no organic presence</td></tr>
+    <tr><td>pcmfla.com</td><td>—</td><td>3</td><td>25</td><td>$2,375</td><td>Minimal content, no threat</td></tr>
+    <tr><td>amiwra.com (AMI)</td><td>31</td><td>120</td><td>439</td><td>$70,573</td><td>Strongest competitor — but content is old/thin</td></tr>
+  </table>
+</div>
+
+<div class="note note-teal" style="max-width:800px;margin:12px auto 0">
+  <span class="note-label t">Strategic insight</span>
+  <strong>AMI is the only competitor with meaningful organic traffic (439/mo)</strong> and the highest organic cost value at $70K — but they're doing it at DR 31 with dated content. Every other competitor including Sunstate (DR 65!) is getting almost nothing from organic search. This is a wide-open market. Keys-Caldwell at DR 21 can realistically capture significant share by publishing high-quality, keyword-targeted content first. <strong>KD target range: 0–15, stretch to 20 for high-value terms.</strong>
+</div>
+
+<div class="spacer"></div><div class="hdiv"></div><div class="spacer"></div>
+
+<!-- ═══════════ CORE PAGES ═══════════ -->
+<div class="sec-h">
+  <div class="sec-tag slate">Core Pages</div>
+  <div class="sec-sub">Foundation pages every visitor expects</div>
+</div>
+
+<div class="g4">
+  <div class="card">
+    <div class="card-h">
+      <div class="card-ico" style="background:#1e293b;border:1px solid #334155">🏠</div>
+      <div><div class="card-t">Homepage</div><div class="card-url">/</div></div>
+    </div>
+    <div class="card-meta"><span class="tg t-core">Core</span></div>
+    <div style="font-size:10px;color:#94a3b8;line-height:1.4">Hero with "Personal attention with professional results" value prop. 48-year badge. Service pillar cards linking to both pillars. Testimonial snippet. Trust badges (BBB A+, LCAM, MBA). Primary CTA: Request a Proposal. Schema: LocalBusiness + Organization.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-h">
+      <div class="card-ico" style="background:#1e293b;border:1px solid #334155">👥</div>
+      <div><div class="card-t">About Us</div><div class="card-url">/about/</div></div>
+    </div>
+    <div class="card-meta"><span class="tg t-core">Core</span></div>
+    <div style="font-size:10px;color:#94a3b8;line-height:1.4">Company history (1978→2024 acquisition). Leadership bios — Bradley's national credentials, Wilson's local relationships. Four-chamber model overview. "National expertise, local presence" framing. Team photos. Schema: Organization.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-h">
+      <div class="card-ico" style="background:#1e293b;border:1px solid #334155">💲</div>
+      <div><div class="card-t">Pricing & Scope</div><div class="card-url">/pricing/</div></div>
+    </div>
+    <div class="card-meta"><span class="tg t-core">Core</span></div>
+    <div style="font-size:10px;color:#94a3b8;line-height:1.4">Scope-based pricing philosophy. Man-hour estimate model explanation. "The product is time and expertise." FAQ schema for pricing questions. CTA: Request a Proposal to build your custom scope.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-h">
+      <div class="card-ico" style="background:#7f1d1d">📋</div>
+      <div><div class="card-t">Request a Proposal</div><div class="card-url">/request-proposal/</div></div>
+    </div>
+    <div class="card-meta"><span class="tg t-conv">Conversion</span></div>
+    <div style="font-size:10px;color:#94a3b8;line-height:1.4">Proposal request form: community name, unit count, current management company, services needed, contact info. Phone number. Office address. Embedded Google Map. All page CTAs point here. Schema: LocalBusiness.</div>
+  </div>
+</div>
+
+<div class="spacer"></div><div class="hdiv"></div><div class="spacer"></div>
+
+<!-- ═══════════ SERVICE PILLARS ═══════════ -->
+<div class="sec-h">
+  <div class="sec-tag green">Service Pillar Pages</div>
+  <div class="sec-sub">The money pages — where board members convert into proposal requests</div>
+</div>
+
+<div class="g2">
+  <!-- PILLAR 1: Condo Association Management -->
+  <div class="card pillar">
+    <div class="card-h">
+      <div class="card-ico" style="background:#065f46">🏢</div>
+      <div>
+        <div class="card-t">Condo Association Management — Venice & Sarasota, FL</div>
+        <div class="card-url">/condo-association-management-sarasota/</div>
+      </div>
+    </div>
+    <div class="card-meta">
+      <span class="tg t-svc">Primary Pillar</span>
+      <span class="tg sv">~380 SV/mo</span>
+      <span class="tg kd-e">KD 3–14</span>
+      <span class="tg cpc">$2–5</span>
+    </div>
+    <div class="kws">
+      <span class="kw p">condo association property management</span>
+      <span class="kw p">condominium management company</span>
+      <span class="kw p">condo management sarasota</span>
+      <span class="kw">condo association manager</span>
+      <span class="kw">condominium management sarasota</span>
+      <span class="kw">condo management companies sarasota fl</span>
+      <span class="kw">what does a management company do for a condo association</span>
+    </div>
+    <div style="font-size:10px;color:#94a3b8;margin-top:8px;line-height:1.4"><strong>ICP-aligned pillar.</strong> Targets coastal condo boards directly. Content covers: four-chamber model, CPA-level accounting via CityBooks, Property Services division with construction manager, SIRS compliance expertise, reserve study continuum via AccuReserve, insurance coordination via SuperKey, Vantaca portal, AI-powered client services. Testimonial blocks from condo boards. Embedded proposal form. 1500+ words. Schema: LocalBusiness + Service + FAQPage.</div>
+  </div>
+
+  <!-- PILLAR 2: HOA Management -->
+  <div class="card pillar">
+    <div class="card-h">
+      <div class="card-ico" style="background:#065f46">🏡</div>
+      <div>
+        <div class="card-t">HOA Management Company — Venice & Sarasota, FL</div>
+        <div class="card-url">/hoa-management-company-sarasota/</div>
+      </div>
+    </div>
+    <div class="card-meta">
+      <span class="tg t-svc">Secondary Pillar</span>
+      <span class="tg sv">~290 SV/mo</span>
+      <span class="tg kd-e">KD 0–14</span>
+      <span class="tg cpc">$2.50</span>
+    </div>
+    <div class="kws">
+      <span class="kw p">hoa management company near me</span>
+      <span class="kw p">best hoa management companies near me</span>
+      <span class="kw p">hoa management companies sarasota</span>
+      <span class="kw">hoa management sarasota</span>
+      <span class="kw">hoa management companies florida</span>
+      <span class="kw">what does an hoa management company do</span>
+    </div>
+    <div style="font-size:10px;color:#94a3b8;margin-top:8px;line-height:1.4">Secondary pillar for HOA boards. Same four-chamber model, CityBooks, technology stack — but framed for HOA-specific needs: covenant enforcement, common area maintenance, annual meetings, budget planning, vendor management. Testimonial blocks from HOA boards. Embedded proposal form. 1500+ words. Schema: LocalBusiness + Service + FAQPage.</div>
+  </div>
+</div>
+
+<div class="note note-green" style="max-width:700px;margin:12px auto 0">
+  <span class="note-label g">Why two pillars</span>
+  "Condominium management company" (80 SV, KD 3) and "condo association property management" (100 SV, KD 14) are <strong>separate keyword clusters</strong> from the HOA equivalents. The ICP is coastal condos — so the condo pillar gets priority, unique content about building inspections, SIRS, capital projects, and insurance. The HOA pillar captures a distinct search audience. Both pages need 1500+ words, FAQ schema, testimonial blocks, and embedded proposal forms.
+</div>
+
+<div class="spacer"></div><div class="hdiv"></div><div class="spacer"></div>
+
+<!-- ═══════════ GEO PAGES ═══════════ -->
+<div class="sec-h">
+  <div class="sec-tag amber">Geo / Location Pages</div>
+  <div class="sec-sub">Children of service pillars — capture area-specific searches radiating from Venice HQ</div>
+</div>
+
+<div class="g4">
+  <!-- GEO 1: Venice (HOME TURF) -->
+  <div class="card" style="border-color:#92400e55">
+    <div class="card-h">
+      <div class="card-ico" style="background:#713f12">📍</div>
+      <div>
+        <div class="card-t">Community Management in Venice, FL</div>
+        <div class="card-url">/condo-association-management-sarasota/venice/</div>
+      </div>
+    </div>
+    <div class="card-meta">
+      <span class="tg t-geo">Home Turf</span>
+      <span class="tg sv">~130 SV/mo</span>
+      <span class="tg kd-e">KD 13–17</span>
+    </div>
+    <div class="kws">
+      <span class="kw p">property management venice fl</span>
+      <span class="kw p">property management companies venice fl</span>
+      <span class="kw">community association management venice fl</span>
+    </div>
+    <div style="font-size:10px;color:#94a3b8;line-height:1.4">HQ location — deepest local content. Name barrier island communities (Casey Key, Venice Island, Nokomis Beach). 48 years at same Venice address. Local vendor relationships. Google Map embed. Testimonials from Venice-area condo boards.</div>
+    <div class="arrow-hint"><span>↑</span> child of /condo-association-management-sarasota/</div>
+  </div>
+
+  <!-- GEO 2: Sarasota -->
+  <div class="card" style="border-color:#92400e55">
+    <div class="card-h">
+      <div class="card-ico" style="background:#713f12">📍</div>
+      <div>
+        <div class="card-t">Community Management in Sarasota, FL</div>
+        <div class="card-url">/condo-association-management-sarasota/sarasota/</div>
+      </div>
+    </div>
+    <div class="card-meta">
+      <span class="tg t-geo">Geo Page</span>
+      <span class="tg sv">~120 SV/mo</span>
+      <span class="tg kd-e">KD ~0</span>
+    </div>
+    <div class="kws">
+      <span class="kw p">hoa management companies sarasota</span>
+      <span class="kw p">condo management sarasota</span>
+      <span class="kw">sarasota hoa management company</span>
+      <span class="kw">condominium management sarasota</span>
+    </div>
+    <div style="font-size:10px;color:#94a3b8;line-height:1.4">Name Sarasota-area communities: Siesta Key, Lido Key, Bird Key, downtown Sarasota condos, Longboat Key (south). Sarasota County-specific regulatory context. Google Map embed. Area-specific testimonials.</div>
+    <div class="arrow-hint"><span>↑</span> child of /condo-association-management-sarasota/</div>
+  </div>
+
+  <!-- GEO 3: Bradenton / Manatee County -->
+  <div class="card" style="border-color:#92400e55">
+    <div class="card-h">
+      <div class="card-ico" style="background:#713f12">📍</div>
+      <div>
+        <div class="card-t">Community Management in Bradenton, FL</div>
+        <div class="card-url">/hoa-management-company-sarasota/bradenton/</div>
+      </div>
+    </div>
+    <div class="card-meta">
+      <span class="tg t-geo">Geo Page</span>
+      <span class="tg kd-e">Low KD</span>
+    </div>
+    <div style="font-size:10px;color:#94a3b8;line-height:1.4">Manatee County expansion. Name communities: Lakewood Ranch, Palma Sola, Cortez, Anna Maria Island condos. HOA-heavy market. Google Map embed.</div>
+    <div class="arrow-hint"><span>↑</span> child of /hoa-management-company-sarasota/</div>
+  </div>
+
+  <!-- GEO 4: Englewood / North Port -->
+  <div class="card" style="border-color:#92400e55">
+    <div class="card-h">
+      <div class="card-ico" style="background:#713f12">📍</div>
+      <div>
+        <div class="card-t">Community Management in Englewood & North Port</div>
+        <div class="card-url">/condo-association-management-sarasota/englewood/</div>
+      </div>
+    </div>
+    <div class="card-meta">
+      <span class="tg t-geo">Geo Page</span>
+      <span class="tg kd-e">Low KD</span>
+    </div>
+    <div style="font-size:10px;color:#94a3b8;line-height:1.4">South Sarasota County. Name communities: Englewood Beach, Manasota Key, North Port. Mix of condos (coastal) and HOAs (inland). Google Map embed.</div>
+    <div class="arrow-hint"><span>↑</span> child of /condo-association-management-sarasota/</div>
+  </div>
+
+  <!-- GEO 5: Nokomis / Laurel / Osprey -->
+  <div class="card" style="border-color:#92400e55">
+    <div class="card-h">
+      <div class="card-ico" style="background:#713f12">📍</div>
+      <div>
+        <div class="card-t">Community Management in Nokomis & Osprey</div>
+        <div class="card-url">/condo-association-management-sarasota/nokomis/</div>
+      </div>
+    </div>
+    <div class="card-meta">
+      <span class="tg t-geo">Geo Page</span>
+      <span class="tg kd-e">Low KD</span>
+    </div>
+    <div style="font-size:10px;color:#94a3b8;line-height:1.4">Between Venice and Sarasota. Nokomis, Laurel, Osprey. Mix of older coastal condos and newer HOAs. Google Map embed. Close proximity to HQ.</div>
+    <div class="arrow-hint"><span>↑</span> child of /condo-association-management-sarasota/</div>
+  </div>
+
+  <!-- GEO 6: Port Charlotte / Punta Gorda -->
+  <div class="card" style="border-color:#92400e55">
+    <div class="card-h">
+      <div class="card-ico" style="background:#713f12">📍</div>
+      <div>
+        <div class="card-t">Community Management in Port Charlotte & Punta Gorda</div>
+        <div class="card-url">/hoa-management-company-sarasota/charlotte-county/</div>
+      </div>
+    </div>
+    <div class="card-meta">
+      <span class="tg t-geo">Geo Page</span>
+      <span class="tg kd-e">Low KD</span>
+    </div>
+    <div style="font-size:10px;color:#94a3b8;line-height:1.4">Charlotte County expansion. Port Charlotte, Punta Gorda, Burnt Store. Growth market. Google Map embed. Frame as service area extension from Venice HQ (25 min drive).</div>
+    <div class="arrow-hint"><span>↑</span> child of /hoa-management-company-sarasota/</div>
+  </div>
+
+  <!-- GEO 7: Longboat Key -->
+  <div class="card" style="border-color:#92400e55">
+    <div class="card-h">
+      <div class="card-ico" style="background:#713f12">📍</div>
+      <div>
+        <div class="card-t">Condo Management on Longboat Key</div>
+        <div class="card-url">/condo-association-management-sarasota/longboat-key/</div>
+      </div>
+    </div>
+    <div class="card-meta">
+      <span class="tg t-geo">Geo Page</span>
+      <span class="tg kd-e">Low KD</span>
+    </div>
+    <div style="font-size:10px;color:#94a3b8;line-height:1.4">ICP goldmine — barrier island dense with aging mid-rise condos, high-value units, seasonal residents. SIRS-relevant buildings, capital project needs, insurance complexity. Premium market positioning. Google Map embed.</div>
+    <div class="arrow-hint"><span>↑</span> child of /condo-association-management-sarasota/</div>
+  </div>
+</div>
+
+<div class="note note-amber" style="max-width:700px;margin:12px auto 0">
+  <span class="note-label y">Geo page rules</span>
+  Each page must have <strong>unique content</strong> — not find-and-replace city names. Include named communities, area-specific building stock context (coastal condos vs. inland HOAs), Google Map embed, and testimonials from clients in that specific area. Geo pages are children of the pillar that best matches the area's community type — condo-heavy areas child under the condo pillar, HOA-heavy areas child under the HOA pillar.
+</div>
+
+<div class="spacer"></div><div class="hdiv"></div><div class="spacer"></div>
+
+<!-- ═══════════ BLOG / CONTENT SPOKES ═══════════ -->
+<div class="sec-h">
+  <div class="sec-tag blue">Blog / Resource Content</div>
+  <div class="sec-sub">Buyer-intent content that captures high-value searches and funnels to service pillars</div>
+</div>
+
+<div class="g3">
+  <!-- SPOKE 1: SIRS / Milestone Inspection Guide -->
+  <div class="card">
+    <div class="card-h">
+      <div class="card-ico" style="background:#172554">🏗️</div>
+      <div>
+        <div class="card-t">Florida SIRS & Milestone Inspection Requirements: What Condo Boards Need to Know</div>
+        <div class="card-url">/blog/florida-sirs-milestone-inspection-guide/</div>
+      </div>
+    </div>
+    <div class="card-meta">
+      <span class="tg t-guide">Guide</span>
+      <span class="tg sv">~840 SV/mo</span>
+      <span class="tg kd-e">KD 2–5</span>
+      <span class="tg cpc">$2.50–3.00</span>
+    </div>
+    <div class="kws">
+      <span class="kw p">structural integrity reserve study florida</span>
+      <span class="kw p">florida sirs requirements</span>
+      <span class="kw p">milestone inspection florida condo</span>
+      <span class="kw">florida condo structural integrity reserve study</span>
+      <span class="kw">florida condo inspection law</span>
+      <span class="kw">structural integrity reserve study florida statute</span>
+    </div>
+    <div class="arrow-hint"><span>→</span> CTAs to Condo Association Management pillar + Request a Proposal</div>
+  </div>
+
+  <!-- SPOKE 2: HOA/Condo Management Fees -->
+  <div class="card">
+    <div class="card-h">
+      <div class="card-ico" style="background:#172554">💰</div>
+      <div>
+        <div class="card-t">HOA & Condo Management Fees: What Should You Expect to Pay?</div>
+        <div class="card-url">/blog/hoa-condo-management-fees-guide/</div>
+      </div>
+    </div>
+    <div class="card-meta">
+      <span class="tg t-guide">Guide</span>
+      <span class="tg sv">~360 SV/mo</span>
+      <span class="tg kd-e">KD 0–5</span>
+      <span class="tg cpc">$0.50–2.00</span>
+    </div>
+    <div class="kws">
+      <span class="kw p">hoa management fees</span>
+      <span class="kw p">condo management fees</span>
+      <span class="kw p">condo property management fees</span>
+      <span class="kw">hoa property management fees</span>
+      <span class="kw">typical hoa management fees</span>
+    </div>
+    <div class="arrow-hint"><span>→</span> CTAs to both pillars + Pricing page + Request a Proposal</div>
+  </div>
+
+  <!-- SPOKE 3: How to Change/Fire Management Company -->
+  <div class="card">
+    <div class="card-h">
+      <div class="card-ico" style="background:#172554">🔄</div>
+      <div>
+        <div class="card-t">How to Change Your HOA Management Company (Step-by-Step)</div>
+        <div class="card-url">/blog/how-to-change-hoa-management-company/</div>
+      </div>
+    </div>
+    <div class="card-meta">
+      <span class="tg t-guide">Guide</span>
+      <span class="tg sv">~90 SV/mo</span>
+      <span class="tg kd-e">KD 0</span>
+      <span class="tg cpc">$2.50–4.00</span>
+    </div>
+    <div class="kws">
+      <span class="kw p">how to change hoa management company</span>
+      <span class="kw p">how to fire hoa management company</span>
+    </div>
+    <div style="font-size:10px;color:#94a3b8;margin-top:8px;line-height:1.4"><strong>Highest CPC cluster — $4.00.</strong> These searchers are ready to switch. Content covers: board vote process, contract review, notice requirements, RFP process, transition timeline. Naturally positions Keys-Caldwell's Asana-managed onboarding as the answer to transition anxiety.</div>
+    <div class="arrow-hint"><span>→</span> CTAs to both pillars + Request a Proposal</div>
+  </div>
+
+  <!-- SPOKE 4: Florida Condo Association Insurance -->
+  <div class="card">
+    <div class="card-h">
+      <div class="card-ico" style="background:#172554">🛡️</div>
+      <div>
+        <div class="card-t">Florida Condo & HOA Association Insurance: Board Requirements Guide</div>
+        <div class="card-url">/blog/florida-condo-hoa-association-insurance-guide/</div>
+      </div>
+    </div>
+    <div class="card-meta">
+      <span class="tg t-guide">Guide</span>
+      <span class="tg sv">~350 SV/mo</span>
+      <span class="tg kd-e">KD 0–1</span>
+      <span class="tg cpc">$1.20–3.00</span>
+    </div>
+    <div class="kws">
+      <span class="kw p">florida condo association insurance requirements</span>
+      <span class="kw p">hoa insurance florida</span>
+      <span class="kw p">florida hoa insurance requirements</span>
+      <span class="kw">condo association insurance florida</span>
+      <span class="kw">average condo insurance cost in florida</span>
+    </div>
+    <div style="font-size:10px;color:#94a3b8;margin-top:8px;line-height:1.4"><strong>Scoped for boards, not unit owners.</strong> Covers: master policy requirements, D&O coverage, fidelity bonding, wind mitigation, relationship between building age and premiums. Positions SuperKey and proactive roof replacement story. Filters out individual unit owner searches through board-specific framing.</div>
+    <div class="arrow-hint"><span>→</span> CTAs to Condo Association Management pillar + Request a Proposal</div>
+  </div>
+
+  <!-- SPOKE 5: Reserve Study & Special Assessment Guide -->
+  <div class="card">
+    <div class="card-h">
+      <div class="card-ico" style="background:#172554">📊</div>
+      <div>
+        <div class="card-t">Florida HOA Reserve Study Requirements & How to Avoid Special Assessments</div>
+        <div class="card-url">/blog/florida-hoa-reserve-study-special-assessment-guide/</div>
+      </div>
+    </div>
+    <div class="card-meta">
+      <span class="tg t-guide">Guide</span>
+      <span class="tg sv">~390 SV/mo</span>
+      <span class="tg kd-e">KD 0–2</span>
+      <span class="tg cpc">$1.30–3.50</span>
+    </div>
+    <div class="kws">
+      <span class="kw p">florida hoa reserve study requirements</span>
+      <span class="kw p">florida hoa special assessment rules</span>
+      <span class="kw p">hoa special assessment limit florida</span>
+      <span class="kw">florida condo association reserve fund guidelines</span>
+      <span class="kw">hoa capital improvement</span>
+      <span class="kw">hoa reserve fund accounting</span>
+    </div>
+    <div style="font-size:10px;color:#94a3b8;margin-top:8px;line-height:1.4">Naturally features AccuReserve continuum ($150 self-assessment → subscription model). Includes Signature Story #1 (averting six-figure special assessment). CPA-level reserve accounting via CityBooks. SIRS cross-link to Spoke 1.</div>
+    <div class="arrow-hint"><span>→</span> CTAs to Condo pillar + Request a Proposal</div>
+  </div>
+
+  <!-- SPOKE 6: HOA Accounting Best Practices -->
+  <div class="card">
+    <div class="card-h">
+      <div class="card-ico" style="background:#172554">📒</div>
+      <div>
+        <div class="card-t">HOA Accounting Best Practices: What Every Board Should Expect</div>
+        <div class="card-url">/blog/hoa-accounting-best-practices/</div>
+      </div>
+    </div>
+    <div class="card-meta">
+      <span class="tg t-guide">Guide</span>
+      <span class="tg sv">~600 SV/mo</span>
+      <span class="tg kd-e">KD 0–5</span>
+      <span class="tg cpc">$1.20–5.00</span>
+    </div>
+    <div class="kws">
+      <span class="kw p">hoa accounting best practices</span>
+      <span class="kw p">hoa accounting</span>
+      <span class="kw p">condo association accounting</span>
+      <span class="kw">hoa reserve fund accounting</span>
+      <span class="kw">hoa accounting methods</span>
+      <span class="kw">hoa management accounting</span>
+    </div>
+    <div style="font-size:10px;color:#94a3b8;margin-top:8px;line-height:1.4">CityBooks showcase piece. Covers: daily reconciliation, stoplight risk grading, CPA review, reserve fund accounting, GAAP for associations. Positions KC's financial infrastructure as a differentiator. NOT a software review — framed for boards evaluating their management company's financial capabilities.</div>
+    <div class="arrow-hint"><span>→</span> CTAs to both pillars + Request a Proposal</div>
+  </div>
+
+  <!-- SPOKE 7: What Does a Management Company Do -->
+  <div class="card">
+    <div class="card-h">
+      <div class="card-ico" style="background:#172554">❓</div>
+      <div>
+        <div class="card-t">What Does an HOA Management Company Actually Do?</div>
+        <div class="card-url">/blog/what-does-hoa-management-company-do/</div>
+      </div>
+    </div>
+    <div class="card-meta">
+      <span class="tg t-guide">Guide</span>
+      <span class="tg sv">~150 SV/mo</span>
+      <span class="tg kd-e">KD 0–1</span>
+      <span class="tg cpc">$1.20–1.60</span>
+    </div>
+    <div class="kws">
+      <span class="kw p">what does an hoa management company do</span>
+      <span class="kw p">what does a management company do for a condo association</span>
+      <span class="kw">what does a property management company do for hoa</span>
+      <span class="kw">rfp for hoa management services</span>
+    </div>
+    <div style="font-size:10px;color:#94a3b8;margin-top:8px;line-height:1.4">Top-of-funnel educational content. Walks through services, sets expectations (scope vs. fee), contrasts a single-manager model with KC's four-chamber approach. Perfect for boards considering hiring management for the first time or re-evaluating their current company.</div>
+    <div class="arrow-hint"><span>→</span> CTAs to both pillars + Pricing page</div>
+  </div>
+
+  <!-- SPOKE 8: Florida Condo Law Changes -->
+  <div class="card">
+    <div class="card-h">
+      <div class="card-ico" style="background:#172554">⚖️</div>
+      <div>
+        <div class="card-t">Florida Condo & HOA Law Changes: What Boards Need to Know</div>
+        <div class="card-url">/blog/florida-condo-hoa-law-changes/</div>
+      </div>
+    </div>
+    <div class="card-meta">
+      <span class="tg t-guide">Guide</span>
+      <span class="tg sv">~30 SV/mo</span>
+      <span class="tg kd-e">KD 2</span>
+      <span class="tg cpc">—</span>
+    </div>
+    <div class="kws">
+      <span class="kw p">florida condo law changes</span>
+      <span class="kw">florida hoa law changes</span>
+    </div>
+    <div style="font-size:10px;color:#94a3b8;margin-top:8px;line-height:1.4"><strong>Evergreen + seasonal refresh.</strong> Lower volume but high authority-building value. Update annually with legislative session changes. Post-Champlain reforms, SIRS, milestone inspections, financial reporting requirements. Positions KC as a compliance-aware partner. Cross-links to SIRS guide and reserve study guide.</div>
+    <div class="arrow-hint"><span>→</span> CTAs to Condo pillar + Request a Proposal</div>
+  </div>
+</div>
+
+<div class="note note-blue" style="max-width:700px;margin:12px auto 0">
+  <span class="note-label b">Content spoke strategy</span>
+  All posts under <strong>/blog/</strong>. Each must include: in-content CTA to relevant pillar (above the fold + mid-content), sticky/bottom CTA for proposal request, links to related blog posts, FAQ schema for featured snippet capture, author byline (James Bradley or Lauren Wilson for E-E-A-T), last-updated date. <strong>Scrap existing blog posts</strong> — the two "problems & issues" posts have zero ranking value and don't align with the keyword architecture.
+</div>
+
+<div class="note note-blue" style="max-width:700px;margin:12px auto 0">
+  <span class="note-label b">AI search / GEO optimization note</span>
+  Every blog spoke and pillar page should be written to answer specific questions comprehensively in a single, well-structured section — this is the content pattern that AI search engines (ChatGPT, Perplexity, Gemini) cite most frequently. Use clear H2/H3 question-answer structure, include specific numbers and data points (costs, timelines, requirements), and attribute expertise to named people (James Bradley, Lauren Wilson, Ande Duda CPA). AI models heavily weight content with named expert attribution, specific credentials, and direct answers to common questions.
+</div>
+
+<div class="spacer"></div><div class="hdiv"></div><div class="spacer"></div>
+
+<!-- ═══════════ TRUST PAGES ═══════════ -->
+<div class="sec-h">
+  <div class="sec-tag purple">Trust & Social Proof Pages</div>
+  <div class="sec-sub">Visitors check these before filling out the proposal form</div>
+</div>
+
+<div class="g3">
+  <div class="card" style="border-color:#7c3aed44">
+    <div class="card-h">
+      <div class="card-ico" style="background:#3b1f6e">⭐</div>
+      <div><div class="card-t">Testimonials & Reviews</div><div class="card-url">/testimonials/</div></div>
+    </div>
+    <div class="card-meta"><span class="tg t-trust">Trust Page</span></div>
+    <div style="font-size:10px;color:#94a3b8;line-height:1.4">Video + written testimonials organized by community type (condo vs. HOA). Prioritize quotes from board presidents and treasurers. Star rating schema for rich snippets. AggregateRating + Review structured data. Links to relevant pillar pages. <strong>Critical for overcoming the legacy review profile (Google 2.1 stars).</strong></div>
+  </div>
+
+  <div class="card" style="border-color:#7c3aed44">
+    <div class="card-h">
+      <div class="card-ico" style="background:#3b1f6e">📊</div>
+      <div><div class="card-t">Case Studies</div><div class="card-url">/case-studies/</div></div>
+    </div>
+    <div class="card-meta"><span class="tg t-trust">Trust Page</span></div>
+    <div style="font-size:10px;color:#94a3b8;line-height:1.4">Problem → Solution → Results format. Launch with two stories from the brief: (1) Averting six-figure special assessment for 32-unit condo, (2) Proactive roof replacement reducing insurance costs for 24-unit condo. Each case study is also a standalone child page for deeper indexing. Links to relevant pillar and blog spoke pages.</div>
+  </div>
+
+  <div class="card" style="border-color:#7c3aed44">
+    <div class="card-h">
+      <div class="card-ico" style="background:#3b1f6e">❓</div>
+      <div><div class="card-t">FAQ</div><div class="card-url">/faq/</div></div>
+    </div>
+    <div class="card-meta"><span class="tg t-trust">Trust Page</span><span class="tg sv">Snippets</span></div>
+    <div style="font-size:10px;color:#94a3b8;line-height:1.4">30+ questions organized by category: Getting Started, Pricing & Scope, Financial Reporting, Property Services, Technology & Portal, Transition Process. FAQPage schema for featured snippets. Addresses common objections from Section 10 of the brief. Links to blog spokes for deeper answers.</div>
+  </div>
+</div>
+
+<div class="spacer"></div><div class="hdiv"></div><div class="spacer"></div>
+
+<!-- ═══════════ INTERNAL LINKING ═══════════ -->
+<div class="link-sec">
+  <h3>Internal Linking Architecture</h3>
+  <div class="sub2">Every page has a job: attract traffic, build trust, or capture leads</div>
+
+  <div class="lg">
+    <div class="link-label">Blog Spokes → Service Pillars (every spoke links to at least one pillar)</div>
+    <div class="lf">SIRS & Milestone Guide</div><div class="la">→</div><div class="lt">Condo Association Mgmt 🏢</div>
+    <div class="lf">Management Fees Guide</div><div class="la">→</div><div class="lt">Both Pillars 🏢🏡</div>
+    <div class="lf">How to Change Mgmt Co</div><div class="la">→</div><div class="lt">Both Pillars 🏢🏡</div>
+    <div class="lf">Insurance Guide</div><div class="la">→</div><div class="lt">Condo Association Mgmt 🏢</div>
+    <div class="lf">Reserve Study Guide</div><div class="la">→</div><div class="lt">Condo Association Mgmt 🏢</div>
+    <div class="lf">HOA Accounting Guide</div><div class="la">→</div><div class="lt">Both Pillars 🏢🏡</div>
+    <div class="lf">What Does Mgmt Co Do</div><div class="la">→</div><div class="lt">Both Pillars 🏢🏡</div>
+    <div class="lf">FL Law Changes</div><div class="la">→</div><div class="lt">Condo Association Mgmt 🏢</div>
+
+    <div class="link-label">Service Pillars → Geo Pages</div>
+    <div class="lf">Condo Assn Mgmt Pillar 🏢</div><div class="la">→</div><div class="lt">Venice · Sarasota · Longboat Key · Nokomis · Englewood</div>
+    <div class="lf">HOA Mgmt Pillar 🏡</div><div class="la">→</div><div class="lt">Bradenton · Charlotte County</div>
+
+    <div class="link-label">Blog Spokes ↔ Blog Spokes (cross-link related content)</div>
+    <div class="lf">SIRS Guide</div><div class="la">↔</div><div class="lt">Reserve Study Guide</div>
+    <div class="lf">Insurance Guide</div><div class="la">↔</div><div class="lt">SIRS Guide</div>
+    <div class="lf">Management Fees</div><div class="la">↔</div><div class="lt">What Does Mgmt Co Do</div>
+    <div class="lf">How to Change Mgmt Co</div><div class="la">↔</div><div class="lt">Management Fees</div>
+
+    <div class="link-label">Service Pillars ↔ Trust Pages</div>
+    <div class="lf">Both Pillars</div><div class="la">↔</div><div class="lt">Testimonials ⭐</div>
+    <div class="lf">Both Pillars</div><div class="la">↔</div><div class="lt">Case Studies 📊</div>
+
+    <div class="link-label">Everything → Conversion</div>
+    <div class="lf" style="color:#fcd34d">All Pages (CTA)</div><div class="la">→</div><div class="lt" style="color:#fca5a5;font-weight:700">Request a Proposal 📋</div>
+  </div>
+</div>
+
+<div class="spacer"></div>
+
+<!-- ═══════════ BUILD ORDER ═══════════ -->
+<div class="link-sec" style="border-color:#10b981">
+  <h3 style="color:#6ee7b7">Build Order (Priority Rollout)</h3>
+  <div class="sub2">Ship in this order to start ranking fastest — data-driven prioritization</div>
+  <div style="display:grid;grid-template-columns:40px 1fr;gap:8px 12px;max-width:700px;margin:0 auto;font-size:12px">
+    <div style="color:#6ee7b7;font-weight:800;text-align:right">1</div>
+    <div><strong style="color:#f1f5f9">Condo Association Management Pillar</strong> <span style="color:#64748b">— ICP money page, ~380 SV/mo, conversion destination</span></div>
+    <div style="color:#6ee7b7;font-weight:800;text-align:right">2</div>
+    <div><strong style="color:#f1f5f9">HOA Management Company Pillar</strong> <span style="color:#64748b">— secondary money page, ~290 SV/mo</span></div>
+    <div style="color:#6ee7b7;font-weight:800;text-align:right">3</div>
+    <div><strong style="color:#f1f5f9">Request a Proposal page</strong> <span style="color:#64748b">— conversion endpoint must be live before driving traffic</span></div>
+    <div style="color:#6ee7b7;font-weight:800;text-align:right">4</div>
+    <div><strong style="color:#f1f5f9">SIRS & Milestone Inspection Guide</strong> <span style="color:#64748b">— highest volume spoke (~840 SV), KD 2–5, perfect ICP fit</span></div>
+    <div style="color:#6ee7b7;font-weight:800;text-align:right">5</div>
+    <div><strong style="color:#f1f5f9">How to Change Management Company Guide</strong> <span style="color:#64748b">— highest CPC ($4.00), KD 0, ready-to-switch searchers</span></div>
+    <div style="color:#6ee7b7;font-weight:800;text-align:right">6</div>
+    <div><strong style="color:#f1f5f9">Venice Geo Page (Home Turf)</strong> <span style="color:#64748b">— HQ location, ~130 SV/mo, KD 13–17</span></div>
+    <div style="color:#6ee7b7;font-weight:800;text-align:right">7</div>
+    <div><strong style="color:#f1f5f9">HOA Accounting Best Practices Guide</strong> <span style="color:#64748b">— ~600 SV/mo, KD 0–5, CityBooks showcase</span></div>
+    <div style="color:#6ee7b7;font-weight:800;text-align:right">8</div>
+    <div><strong style="color:#f1f5f9">Reserve Study & Special Assessment Guide</strong> <span style="color:#64748b">— ~390 SV/mo, KD 0–2, AccuReserve + Story #1</span></div>
+    <div style="color:#6ee7b7;font-weight:800;text-align:right">9</div>
+    <div><strong style="color:#f1f5f9">Management Fees Guide</strong> <span style="color:#64748b">— ~360 SV/mo, KD 0–5, pricing philosophy showcase</span></div>
+    <div style="color:#6ee7b7;font-weight:800;text-align:right">10</div>
+    <div><strong style="color:#f1f5f9">Insurance Guide</strong> <span style="color:#64748b">— ~350 SV/mo, KD 0–1, SuperKey + Story #2</span></div>
+    <div style="color:#6ee7b7;font-weight:800;text-align:right">11</div>
+    <div><strong style="color:#f1f5f9">Sarasota Geo Page</strong> <span style="color:#64748b">— ~120 SV/mo, second-largest service area</span></div>
+    <div style="color:#6ee7b7;font-weight:800;text-align:right">12</div>
+    <div><strong style="color:#f1f5f9">Testimonials + Case Studies</strong> <span style="color:#64748b">— social proof for conversions, counteract legacy reviews</span></div>
+    <div style="color:#6ee7b7;font-weight:800;text-align:right">13</div>
+    <div><strong style="color:#f1f5f9">What Does a Management Company Do Guide</strong> <span style="color:#64748b">— ~150 SV/mo, top-of-funnel education</span></div>
+    <div style="color:#6ee7b7;font-weight:800;text-align:right">14</div>
+    <div><strong style="color:#f1f5f9">Longboat Key Geo Page</strong> <span style="color:#64748b">— ICP goldmine, barrier island condos</span></div>
+    <div style="color:#6ee7b7;font-weight:800;text-align:right">15</div>
+    <div><strong style="color:#f1f5f9">Florida Law Changes Guide</strong> <span style="color:#64748b">— authority builder, annual refresh</span></div>
+    <div style="color:#6ee7b7;font-weight:800;text-align:right">16</div>
+    <div><strong style="color:#f1f5f9">Remaining Geo Pages</strong> <span style="color:#64748b">— Nokomis → Englewood → Bradenton → Charlotte County</span></div>
+    <div style="color:#6ee7b7;font-weight:800;text-align:right">17</div>
+    <div><strong style="color:#f1f5f9">FAQ Page</strong> <span style="color:#64748b">— featured snippet capture, objection handling</span></div>
+  </div>
+</div>
+
+<div class="spacer"></div>
+
+<!-- ═══════════ SCHEMA MARKUP CHECKLIST ═══════════ -->
+<div class="link-sec" style="border-color:#8b5cf6">
+  <h3 style="color:#c4b5fd">Schema Markup Checklist</h3>
+  <div class="sub2">Structured data for every page type</div>
+  <div style="max-width:600px;margin:0 auto;font-size:11px;line-height:1.8;color:#94a3b8">
+    <div>☐ <strong style="color:#e2e8f0">LocalBusiness</strong> — Homepage, both pillar pages, all geo pages, Request a Proposal page</div>
+    <div>☐ <strong style="color:#e2e8f0">Service</strong> — Both pillar pages (Condo Association Management + HOA Management)</div>
+    <div>☐ <strong style="color:#e2e8f0">FAQPage</strong> — FAQ page, within both pillar pages, within all blog spokes</div>
+    <div>☐ <strong style="color:#e2e8f0">AggregateRating + Review</strong> — Testimonials page</div>
+    <div>☐ <strong style="color:#e2e8f0">BreadcrumbList</strong> — All pages (supports pillar → geo parent/child relationships)</div>
+    <div>☐ <strong style="color:#e2e8f0">Article</strong> — All blog spoke posts</div>
+    <div>☐ <strong style="color:#e2e8f0">Organization</strong> — Sitewide (name, logo, address, phone, social profiles)</div>
+    <div>☐ <strong style="color:#e2e8f0">Person</strong> — Author schema for blog posts (James Bradley, Lauren Wilson) — supports E-E-A-T</div>
+  </div>
+</div>
+
+<div class="spacer"></div><div class="hdiv"></div><div class="spacer"></div>
+
+<!-- ═══════════ SITE CLEANUP AUDIT ═══════════ -->
+<div class="sec-h">
+  <div class="sec-tag red">Current Site Cleanup — Pre-Launch Audit</div>
+  <div class="sec-sub">Pages that must be removed, redirected, or consolidated before the new architecture goes live</div>
+</div>
+
+<div class="note note-red" style="max-width:900px;margin:0 auto 20px">
+  <span class="note-label r">Why this matters</span>
+  Your current site has <strong>~20 indexed URLs</strong> and roughly two-thirds of them are duplicates, legacy static HTML pages from 2011, orphaned WordPress drafts, or completely off-topic content. These pages split crawl budget, dilute topical authority, confuse search engines about which page is canonical, and make the site look abandoned. <strong>Cleaning this up before launching new pages is critical</strong> — Google needs to see a tight, focused site when the new content goes live, not a graveyard of duplicate services pages and evacuation zone PDFs.
+</div>
+
+<!-- DELETE / NOINDEX TABLE -->
+<div style="max-width:900px;margin:0 auto 24px">
+  <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+    <div style="width:12px;height:12px;border-radius:3px;background:#ef4444;flex-shrink:0"></div>
+    <div style="font-size:12px;font-weight:800;color:#fca5a5;text-transform:uppercase;letter-spacing:.8px">Delete / Noindex — 13 Pages</div>
+  </div>
+
+  <table class="comp-tbl">
+    <tr>
+      <th style="width:30%">Current URL</th>
+      <th style="width:12%">Org. Traffic</th>
+      <th style="width:12%">Issue</th>
+      <th style="width:46%">Action & Redirect Target</th>
+    </tr>
+    <tr>
+      <td style="font-family:monospace;font-size:9px;color:#fca5a5">/home/</td>
+      <td>1</td>
+      <td><span class="tg" style="background:#7f1d1d;color:#fca5a5">Duplicate</span></td>
+      <td>Exact duplicate of homepage (<code>/</code>). Splits branded keyword authority. <strong>301 → /</strong></td>
+    </tr>
+    <tr>
+      <td style="font-family:monospace;font-size:9px;color:#fca5a5">/owners/</td>
+      <td>1</td>
+      <td><span class="tg" style="background:#7f1d1d;color:#fca5a5">Redirect shell</span></td>
+      <td>Empty redirect page still indexed. <strong>301 → /login-transition/</strong></td>
+    </tr>
+    <tr>
+      <td style="font-family:monospace;font-size:9px;color:#fca5a5">/services-v3/</td>
+      <td>1</td>
+      <td><span class="tg" style="background:#7f1d1d;color:#fca5a5">Duplicate</span></td>
+      <td>Old services page iteration. Same generic content as homepage. <strong>301 → /</strong> (then → new pillar once live)</td>
+    </tr>
+    <tr>
+      <td style="font-family:monospace;font-size:9px;color:#fca5a5">/services3/</td>
+      <td>0</td>
+      <td><span class="tg" style="background:#7f1d1d;color:#fca5a5">Duplicate</span></td>
+      <td>Another old services page version. Duplicate of /services-v3/. <strong>301 → /</strong></td>
+    </tr>
+    <tr>
+      <td style="font-family:monospace;font-size:9px;color:#fca5a5">/?page_id=34</td>
+      <td>0</td>
+      <td><span class="tg" style="background:#7f1d1d;color:#fca5a5">Param URL</span></td>
+      <td>WordPress parameter URL exposing "Services" page via query string. <strong>Canonical tag → / or noindex</strong></td>
+    </tr>
+    <tr>
+      <td style="font-family:monospace;font-size:9px;color:#fca5a5">/services/services.html</td>
+      <td>0</td>
+      <td><span class="tg" style="background:#7f1d1d;color:#fca5a5">Legacy (2011)</span></td>
+      <td>Static HTML from old site. Copyright 2011. <strong>301 → /</strong></td>
+    </tr>
+    <tr>
+      <td style="font-family:monospace;font-size:9px;color:#fca5a5">/contact/contact.html</td>
+      <td>0</td>
+      <td><span class="tg" style="background:#7f1d1d;color:#fca5a5">Legacy (2011)</span></td>
+      <td>Old static contact page. Duplicates /contactkc/. <strong>301 → /request-proposal/</strong></td>
+    </tr>
+    <tr>
+      <td style="font-family:monospace;font-size:9px;color:#fca5a5">/references/references.html</td>
+      <td>0</td>
+      <td><span class="tg" style="background:#7f1d1d;color:#fca5a5">Legacy (2011)</span></td>
+      <td>Outdated client list from 2011. <strong>301 → /testimonials/</strong> (once built)</td>
+    </tr>
+    <tr>
+      <td style="font-family:monospace;font-size:9px;color:#fca5a5">/information/information.html</td>
+      <td>0</td>
+      <td><span class="tg" style="background:#7f1d1d;color:#fca5a5">Legacy (2011)</span></td>
+      <td>Empty legacy page. No visible content. <strong>301 → /</strong></td>
+    </tr>
+    <tr>
+      <td style="font-family:monospace;font-size:9px;color:#fca5a5">/DPPSite/home.html</td>
+      <td>0</td>
+      <td><span class="tg" style="background:#7f1d1d;color:#fca5a5">Legacy</span></td>
+      <td>Old static site root. Copyright notice only. <strong>301 → /</strong></td>
+    </tr>
+    <tr>
+      <td style="font-family:monospace;font-size:9px;color:#fca5a5">/DPPSite/DPPInfo/Charlotte_Map_English.pdf</td>
+      <td>0</td>
+      <td><span class="tg" style="background:#7f1d1d;color:#fca5a5">Off-topic</span></td>
+      <td>Charlotte County evacuation zone PDF. Ranks #7 for "charlotte county evacuation zones" — completely irrelevant to the business. <strong>Noindex via X-Robots-Tag header. Do not 301.</strong></td>
+    </tr>
+    <tr>
+      <td style="font-family:monospace;font-size:9px;color:#fca5a5">/alternate-contact-information-example-form/</td>
+      <td>0</td>
+      <td><span class="tg" style="background:#7f1d1d;color:#fca5a5">Internal form</span></td>
+      <td>Internal test form accidentally indexed. No content. <strong>Noindex + remove from sitemap.xml</strong></td>
+    </tr>
+    <tr>
+      <td style="font-family:monospace;font-size:9px;color:#fca5a5">/1/ and /7821/</td>
+      <td>0</td>
+      <td><span class="tg" style="background:#7f1d1d;color:#fca5a5">Zero-value blog</span></td>
+      <td>"How can technology failures disrupt HOA operations?" and "What happens when HOA managers lack local market knowledge?" — zero traffic, zero rankings, not keyword-targeted. <strong>Delete → 301 → /blog/</strong></td>
+    </tr>
+  </table>
+</div>
+
+<!-- CONSOLIDATE TABLE -->
+<div style="max-width:900px;margin:0 auto 24px">
+  <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+    <div style="width:12px;height:12px;border-radius:3px;background:#f59e0b;flex-shrink:0"></div>
+    <div style="font-size:12px;font-weight:800;color:#fcd34d;text-transform:uppercase;letter-spacing:.8px">Consolidate / Redirect — 5 Pages</div>
+  </div>
+
+  <table class="comp-tbl">
+    <tr>
+      <th style="width:30%">Current URL</th>
+      <th style="width:12%">Org. Traffic</th>
+      <th style="width:12%">Issue</th>
+      <th style="width:46%">Action & Redirect Target</th>
+    </tr>
+    <tr>
+      <td style="font-family:monospace;font-size:9px;color:#fcd34d">/contactkc/</td>
+      <td>1</td>
+      <td><span class="tg" style="background:#713f12;color:#fcd34d">Consolidate</span></td>
+      <td>Current contact page. Merge with /proposal-request/ into one conversion endpoint. <strong>301 → /request-proposal/</strong></td>
+    </tr>
+    <tr>
+      <td style="font-family:monospace;font-size:9px;color:#fcd34d">/proposal-request/</td>
+      <td>0</td>
+      <td><span class="tg" style="background:#713f12;color:#fcd34d">Consolidate</span></td>
+      <td>Current proposal form. Combine with /contactkc/ into a single <strong>/request-proposal/</strong> page. Pick one URL, 301 the other.</td>
+    </tr>
+    <tr>
+      <td style="font-family:monospace;font-size:9px;color:#fcd34d">/frequently-asked-questions/</td>
+      <td>0</td>
+      <td><span class="tg" style="background:#713f12;color:#fcd34d">Replace</span></td>
+      <td>Existing FAQ is all portal/login support — not board-facing or SEO-relevant. <strong>301 → /faq/</strong> when new keyword-targeted FAQ is built.</td>
+    </tr>
+    <tr>
+      <td style="font-family:monospace;font-size:9px;color:#fcd34d">/resources-for-realtors-buyers/</td>
+      <td>0</td>
+      <td><span class="tg" style="background:#713f12;color:#fcd34d">Outdated</span></td>
+      <td>References HomeWiseDocs (old system). CondoCerts is the current tool. <strong>301 → /condocerts/</strong></td>
+    </tr>
+    <tr>
+      <td style="font-family:monospace;font-size:9px;color:#fcd34d">/login-transition/</td>
+      <td>1</td>
+      <td><span class="tg" style="background:#713f12;color:#fcd34d">Noindex</span></td>
+      <td>Vantaca portal transition page. Functional for homeowners but shouldn't consume crawl budget or compete in the index. <strong>Add noindex, keep accessible.</strong></td>
+    </tr>
+  </table>
+</div>
+
+<!-- KEEP TABLE -->
+<div style="max-width:900px;margin:0 auto 24px">
+  <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+    <div style="width:12px;height:12px;border-radius:3px;background:#10b981;flex-shrink:0"></div>
+    <div style="font-size:12px;font-weight:800;color:#6ee7b7;text-transform:uppercase;letter-spacing:.8px">Keep — 6 Pages</div>
+  </div>
+
+  <table class="comp-tbl">
+    <tr>
+      <th style="width:30%">Current URL</th>
+      <th style="width:12%">Org. Traffic</th>
+      <th style="width:12%">Status</th>
+      <th style="width:46%">Notes</th>
+    </tr>
+    <tr>
+      <td style="font-family:monospace;font-size:9px;color:#6ee7b7">/</td>
+      <td>28</td>
+      <td><span class="tg" style="background:#065f46;color:#6ee7b7">Keep</span></td>
+      <td>Homepage. Only page with meaningful traffic (branded). Rebuild with new architecture, service pillar links, trust badges, and proposal CTA.</td>
+    </tr>
+    <tr>
+      <td style="font-family:monospace;font-size:9px;color:#6ee7b7">/about/</td>
+      <td>0</td>
+      <td><span class="tg" style="background:#065f46;color:#6ee7b7">Keep</span></td>
+      <td>About page. Good foundation. Refresh copy to lead with four-chamber model, ownership credentials, and E-E-A-T signals.</td>
+    </tr>
+    <tr>
+      <td style="font-family:monospace;font-size:9px;color:#6ee7b7">/pricing/</td>
+      <td>0</td>
+      <td><span class="tg" style="background:#065f46;color:#6ee7b7">Keep</span></td>
+      <td>Strong existing content on scope-based pricing philosophy. Add FAQ schema and CTA to /request-proposal/.</td>
+    </tr>
+    <tr>
+      <td style="font-family:monospace;font-size:9px;color:#6ee7b7">/condocerts/</td>
+      <td>0</td>
+      <td><span class="tg" style="background:#065f46;color:#6ee7b7">Keep</span></td>
+      <td>Functional page for realtors/lenders. Currently ranking #42 for "condocerts login" (400 SV) — could improve with title tag optimization.</td>
+    </tr>
+    <tr>
+      <td style="font-family:monospace;font-size:9px;color:#6ee7b7">/vendors/</td>
+      <td>0</td>
+      <td><span class="tg" style="background:#065f46;color:#6ee7b7">Keep</span></td>
+      <td>Functional vendor registration page via VIVE. No SEO value but serves a business purpose.</td>
+    </tr>
+    <tr>
+      <td style="font-family:monospace;font-size:9px;color:#6ee7b7">/blog-2/</td>
+      <td>0</td>
+      <td><span class="tg" style="background:#065f46;color:#6ee7b7">Keep</span></td>
+      <td>Blog index page. Rename URL to <strong>/blog/</strong> if possible (301 old URL). Will become the hub for all new content spokes.</td>
+    </tr>
+  </table>
+</div>
+
+<!-- CLEANUP SUMMARY -->
+<div class="note note-red" style="max-width:900px;margin:0 auto">
+  <span class="note-label r">Cleanup execution order</span>
+  <strong>Step 1 (before any new pages go live):</strong> Implement all 301 redirects for legacy static HTML pages (/services/services.html, /contact/contact.html, /references/references.html, /information/information.html, /DPPSite/home.html). These are dead weight from 2011.<br><br>
+  <strong>Step 2:</strong> 301 redirect the duplicate WordPress pages (/home/, /owners/, /services-v3/, /services3/, /?page_id=34). Consolidate /contactkc/ and /proposal-request/ into one /request-proposal/ endpoint.<br><br>
+  <strong>Step 3:</strong> Noindex the Charlotte County evacuation PDF, /login-transition/, and /alternate-contact-information-example-form/.<br><br>
+  <strong>Step 4:</strong> Delete the two zero-value blog posts and 301 → /blog/.<br><br>
+  <strong>Step 5:</strong> 301 /resources-for-realtors-buyers/ → /condocerts/.<br><br>
+  <strong>Result:</strong> From ~20 indexed URLs down to <strong>6 clean, focused pages</strong> — then begin launching the new 24-page architecture on top of a healthy foundation.
+</div>
+
+<div class="spacer"></div>
+
+<!-- Legend -->
+<div class="legend">
+  <div class="leg"><div class="ld" style="background:#10b981"></div> Service Pillar</div>
+  <div class="leg"><div class="ld" style="background:#3b82f6"></div> Blog Spoke</div>
+  <div class="leg"><div class="ld" style="background:#f59e0b"></div> Geo Page</div>
+  <div class="leg"><div class="ld" style="background:#8b5cf6"></div> Trust Page</div>
+  <div class="leg"><div class="ld" style="background:#ef4444"></div> Conversion</div>
+  <div class="leg"><div class="ld" style="background:#475569"></div> Core</div>
+</div>
+
+<div class="spacer"></div>
+
+<div style="text-align:center;font-size:9px;color:#334155;padding:20px 0">
+  Built by Alloy Growth Partners &nbsp;·&nbsp; April 2026 &nbsp;·&nbsp; Data: Ahrefs API, April 2, 2026
+</div>
+
+</div>
+</body>
+</html>
