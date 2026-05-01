@@ -27,7 +27,15 @@ function kcHref(href) {
   if (href[0] !== '/')                                                 return href;
   if (href.startsWith('//') || /^https?:\/\//i.test(href))              return href;
   const base = (typeof window !== 'undefined' && window.KC_ASSET_BASE) || '';
-  return base + href.replace(/^\/+/, '');
+  // Split off any query/hash so we can safely append index.html when the
+  // path ends in a trailing slash (some hosts/dev servers don't auto-resolve
+  // directory URLs to index.html).
+  let path = href;
+  let suffix = '';
+  const qIdx = path.search(/[?#]/);
+  if (qIdx >= 0) { suffix = path.slice(qIdx); path = path.slice(0, qIdx); }
+  if (path.endsWith('/')) path = path + 'index.html';
+  return base + path.replace(/^\/+/, '') + suffix;
 }
 // Expose globally so other component files (geo / about / blog / pillar) can use it.
 if (typeof window !== 'undefined') window.kcHref = kcHref;
@@ -59,7 +67,7 @@ const KCNav = ({ active = 'home', variant = 'shell', content }) => {
         { title: 'Departments', items: [
           { label: 'Accounting · CityBooks',  href: '/accounting/index.html', desc: 'CPA-supervised reporting.' },
           { label: 'Reserve studies · AccuReserve', href: '/reserve-studies/index.html', desc: 'SIRS, HOA, subscription tiers.' },
-          { label: 'Property services',       href: '#', desc: 'Capital projects & maintenance.' },
+          { label: 'Property services',       href: '/property-services/index.html', desc: 'Capital projects & maintenance.' },
           { label: 'Pricing & scope',         href: '/pricing/index.html', desc: 'How proposals are built.' },
         ]},
       ],
@@ -96,17 +104,16 @@ const KCNav = ({ active = 'home', variant = 'shell', content }) => {
     { key: 'blog',    label: 'Resources',        href: '/blog/index.html', submenu: {
       eyebrow: 'Education for Florida boards',
       columns: [
-        { title: 'The library', items: [
-          { label: 'Resource hub — overview',    href: '/blog/index.html', desc: 'All guides, templates, events, glossary.', badge: 'Start here' },
-          { label: 'Florida SIRS & Milestone Inspections', href: '/blog/florida-sirs-milestone-inspection-guide/index.html', desc: 'The 2025 statute, in plain English.' },
-          { label: 'Reserve studies & special assessments', href: '/blog/index.html', desc: 'How under-funding becomes a crisis.' },
-          { label: 'Association insurance — board\'s guide', href: '/blog/index.html', desc: 'Why carriers ask for SIRS reports.' },
+        { title: 'Most-read guides', items: [
+          { label: 'Florida SIRS & Milestone Inspections', href: '/blog/florida-sirs-milestone-inspection-guide/index.html', desc: 'The 2025 statute, in plain English.', badge: 'Most read' },
+          { label: 'Florida law changes — 2024–26 wave',   href: '/blog/florida-law-changes/index.html',                    desc: 'SB-4D, HB 1021, HB 913.' },
+          { label: 'Reserve studies & special assessments', href: '/blog/reserve-study-special-assessment/index.html',      desc: 'How under-funding becomes a crisis.' },
+          { label: 'How to change management companies',   href: '/blog/how-to-change-management-company/index.html',       desc: 'The board\'s practical playbook.' },
         ]},
-        { title: 'Browse by format', items: [
-          { label: 'Guides & deep-dives', href: '/blog/index.html?format=guide',     desc: 'Long-form education.' },
-          { label: 'Templates & tools',   href: '/blog/index.html?format=template',  desc: 'Budgets, RFPs, agendas.' },
-          { label: 'Glossary',            href: '/blog/glossary/index.html',         desc: 'Florida CAM terminology.' },
-          { label: 'Events & webinars',   href: '/blog/events/index.html',           desc: 'Board education nights.' },
+        { title: 'Browse', items: [
+          { label: 'All guides & resources', href: '/blog/index.html',           desc: 'The full library.' },
+          { label: 'Glossary',               href: '/blog/glossary/index.html',  desc: 'Florida CAM terminology.' },
+          { label: 'Events & webinars',      href: '/blog/events/index.html',    desc: 'Board education nights.' },
         ]},
       ],
       feature: {
@@ -147,22 +154,37 @@ const KCNav = ({ active = 'home', variant = 'shell', content }) => {
   const open  = (k) => { if (closeTimer.current) { clearTimeout(closeTimer.current); closeTimer.current = null; } setOpenKey(k); };
   const close = ()  => { if (closeTimer.current) clearTimeout(closeTimer.current); closeTimer.current = setTimeout(() => setOpenKey(null), 120); };
 
-  // Close on Escape
+  // Mobile drawer state — separate from desktop hover state.
+  // mobileOpen = whether the slide-in panel is shown.
+  // mobileExpanded = which submenu accordion is open inside the drawer (single, like desktop).
+  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [mobileExpanded, setMobileExpanded] = React.useState(null);
+  const toggleMobile = () => setMobileOpen(v => !v);
+  const closeMobile  = () => { setMobileOpen(false); setMobileExpanded(null); };
+
+  // Close on Escape — covers both desktop submenu and mobile drawer
   React.useEffect(() => {
-    const onKey = (e) => { if (e.key === 'Escape') setOpenKey(null); };
+    const onKey = (e) => { if (e.key === 'Escape') { setOpenKey(null); closeMobile(); } };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
   }, []);
+
+  // Lock body scroll when mobile drawer is open
+  React.useEffect(() => {
+    if (typeof document === 'undefined') return;
+    document.body.style.overflow = mobileOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [mobileOpen]);
 
   return (
     <header className="kc-nav" data-variant={variant} onMouseLeave={close}>
       <div className="kc-nav-utility">
         <div className="kc-nav-utility-inner">
-          <a className="kc-nav-utility-link" href="https://keys-caldwell.cincwebaxis.com/" target="_blank" rel="noopener noreferrer">
+          <a className="kc-nav-utility-link" href={kcHref('/owners/index.html')}>
             <svg width="11" height="11" viewBox="0 0 12 12" fill="none" aria-hidden="true">
               <path d="M5 7.5V8.5M3.5 5.5V4.25C3.5 2.875 4.62 1.75 6 1.75C7.38 1.75 8.5 2.875 8.5 4.25V5.5M3 5.5H9C9.27 5.5 9.5 5.73 9.5 6V9.75C9.5 10.02 9.27 10.25 9 10.25H3C2.73 10.25 2.5 10.02 2.5 9.75V6C2.5 5.73 2.73 5.5 3 5.5Z" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-            Homeowner login
+            For owners
           </a>
         </div>
       </div>
@@ -204,6 +226,19 @@ const KCNav = ({ active = 'home', variant = 'shell', content }) => {
           <a className="kc-nav-phone" href={phoneHref}>{phone}</a>
           <a className="kc-btn kc-btn-primary kc-btn-sm" href={kcHref(cta.href)}>{cta.label}</a>
         </div>
+        {/* Mobile-only hamburger trigger */}
+        <button
+          className={'kc-nav-burger' + (mobileOpen ? ' is-open' : '')}
+          onClick={toggleMobile}
+          aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={mobileOpen}
+          aria-controls="kc-mobile-drawer"
+          type="button"
+        >
+          <span className="kc-nav-burger-bar"></span>
+          <span className="kc-nav-burger-bar"></span>
+          <span className="kc-nav-burger-bar"></span>
+        </button>
       </div>
       {/* Single full-width submenu panel — content swaps based on openKey */}
       <div
@@ -262,6 +297,127 @@ const KCNav = ({ active = 'home', variant = 'shell', content }) => {
           );
         })}
       </div>
+
+      {/* ── MOBILE DRAWER ─────────────────────────────────────────
+          Slide-in panel, full height, accordion submenus.
+          Hidden on desktop via CSS. ───────────────────────────── */}
+      <div
+        className={'kc-nav-mobile-scrim' + (mobileOpen ? ' is-open' : '')}
+        onClick={closeMobile}
+        aria-hidden="true"
+      />
+      <div
+        id="kc-mobile-drawer"
+        className={'kc-nav-mobile' + (mobileOpen ? ' is-open' : '')}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Site navigation"
+      >
+        <div className="kc-nav-mobile-head">
+          <a className="kc-nav-mobile-logo" href={kcHref('/index.html')} onClick={closeMobile}>
+            <img src={assetBase + 'assets/KC_Logo_Navy.svg'} alt="Keys-Caldwell" />
+          </a>
+          <button
+            className="kc-nav-mobile-close"
+            onClick={closeMobile}
+            aria-label="Close menu"
+            type="button"
+          >
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M5 5 L15 15 M15 5 L5 15" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+            </svg>
+          </button>
+        </div>
+
+        <div className="kc-nav-mobile-cta">
+          <a className="kc-btn kc-btn-primary" href={kcHref(cta.href)} onClick={closeMobile}>
+            {cta.label}
+          </a>
+          <a className="kc-nav-mobile-phone" href={phoneHref}>
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+              <path d="M3.5 1.5h2L6.7 4l-1.5 1c.7 1.5 2 2.8 3.5 3.5l1-1.5L12 8.5v2c0 .55-.45 1-1 1A8.5 8.5 0 0 1 2.5 3c0-.55.45-1 1-1Z" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round" />
+            </svg>
+            {phone}
+          </a>
+        </div>
+
+        <nav className="kc-nav-mobile-list">
+          {links.map(l => {
+            const hasMenu = !!l.submenu;
+            const isExpanded = mobileExpanded === l.key;
+            if (!hasMenu) {
+              return (
+                <a
+                  key={l.key}
+                  href={kcHref(l.href)}
+                  className={'kc-nav-mobile-row kc-nav-mobile-leaf' + (active === l.key ? ' is-active' : '')}
+                  onClick={closeMobile}
+                >
+                  {l.label}
+                </a>
+              );
+            }
+            return (
+              <div key={l.key} className={'kc-nav-mobile-section' + (isExpanded ? ' is-expanded' : '')}>
+                <button
+                  className="kc-nav-mobile-row kc-nav-mobile-trigger"
+                  onClick={() => setMobileExpanded(isExpanded ? null : l.key)}
+                  aria-expanded={isExpanded}
+                  type="button"
+                >
+                  <span>{l.label}</span>
+                  <svg className="kc-nav-mobile-chev" width="14" height="14" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                    <path d="M2.5 4.5 L6 8 L9.5 4.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </button>
+                {hasMenu && (
+                  <div
+                    className={'kc-nav-mobile-sub' + (isExpanded ? ' is-expanded' : '')}
+                    aria-hidden={!isExpanded}
+                  >
+                    <div className="kc-nav-mobile-sub-inner">
+                      <a
+                        href={kcHref(l.href)}
+                        className="kc-nav-mobile-sublink kc-nav-mobile-sublink-overview"
+                        onClick={closeMobile}
+                        tabIndex={isExpanded ? 0 : -1}
+                      >
+                        {l.label} — overview <span className="kc-arrow">→</span>
+                      </a>
+                      {l.submenu.columns.map((col, ci) => (
+                        <div key={ci} className="kc-nav-mobile-subgroup">
+                          {col.title && <div className="kc-nav-mobile-subgroup-title">{col.title}</div>}
+                          {col.items.map((it, ii) => (
+                            <a
+                              key={ii}
+                              href={kcHref(it.href)}
+                              className="kc-nav-mobile-sublink"
+                              onClick={closeMobile}
+                              tabIndex={isExpanded ? 0 : -1}
+                            >
+                              {it.label}
+                            </a>
+                          ))}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            );
+          })}
+          <a
+            href={kcHref('/owners/index.html')}
+            className="kc-nav-mobile-row kc-nav-mobile-leaf kc-nav-mobile-owners"
+            onClick={closeMobile}
+          >
+            <svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true" style={{marginRight: 8}}>
+              <path d="M5 7.5V8.5M3.5 5.5V4.25C3.5 2.875 4.62 1.75 6 1.75C7.38 1.75 8.5 2.875 8.5 4.25V5.5M3 5.5H9C9.27 5.5 9.5 5.73 9.5 6V9.75C9.5 10.02 9.27 10.25 9 10.25H3C2.73 10.25 2.5 10.02 2.5 9.75V6C2.5 5.73 2.73 5.5 3 5.5Z" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            For owners
+          </a>
+        </nav>
+      </div>
     </header>
   );
 };
@@ -283,7 +439,7 @@ const KCFooter = ({ content }) => {
       { label: 'HOA management',                href: '/hoa-management-company-sarasota/index.html' },
       { label: 'Accounting & CityBooks',        href: '/accounting/index.html' },
       { label: 'Reserve studies · AccuReserve', href: '/reserve-studies/index.html' },
-      { label: 'Property services',             href: '#' },
+      { label: 'Property services',             href: '/property-services/index.html' },
       { label: 'Service areas',                  href: '/service-areas/index.html' },
       { label: 'Pricing & scope',               href: '/pricing/index.html' },
     ]},
@@ -297,9 +453,9 @@ const KCFooter = ({ content }) => {
     { title: 'Firm', links: [
       { label: 'About Keys-Caldwell', href: '/about/index.html' },
       { label: 'Service areas',       href: '/service-areas/index.html' },
-      { label: 'Careers',             href: '#' },
-      { label: 'Board login',         href: '#' },
-      { label: 'Owner login',         href: '#' },
+      { label: 'Careers',             href: '/careers/index.html' },
+      { label: 'For owners',          href: '/owners/index.html' },
+      { label: 'Owner portal login',  href: 'https://keys-caldwell.cincwebaxis.com/' },
     ]},
   ];
   const fineLeft  = c.fineLeft  || 'Keys-Caldwell, Inc. · Independently owned · In Venice since 1978';

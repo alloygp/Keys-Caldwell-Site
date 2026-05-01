@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<!-- ============================================================
+     Keys-Caldwell — Careers
+     ============================================================
+     URL slot       :  /careers/
+     Template type  :  TRUST (firm) — not a job-board page
+     Composition    :  KCNav · KCBreadcrumbs · KCAboutHero (reused) ·
+                       KCValues · KCDifferentiators · KCQuote ·
+                       KCFooter
+     ----------------------------------------------------------------
+     EDITORIAL POSTURE: We do not market for hires any more than we
+     market for clients. This page exists for the small number of
+     people who are already looking — career-track CAMs, accounting
+     candidates with association experience, and operations leads.
+     It is honest about what the firm IS and ISN'T. If we have no
+     active openings, we say so.
+     ============================================================ -->
+<title>Careers · Keys-Caldwell · Venice, FL Community Association Management</title>
+<meta name="description" content="Keys-Caldwell hires deliberately. Career-track community association managers, accounting professionals, and operations leads — based in Venice, FL with a 15-mile patch from Sarasota to Charlotte." />
+
+<link rel="canonical" href="https://keys-caldwell.com/careers/" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://keys-caldwell-site-94tm.vercel.app/careers/" />
+<meta property="og:title" content="Careers at Keys-Caldwell · Venice, FL · Since 1978" />
+<meta property="og:description" content="A small, deliberately-paced community association management firm. We hire for tenure, not throughput." />
+<meta property="og:image" content="https://keys-caldwell-site-94tm.vercel.app/assets/og/keys-caldwell-brand-og.jpg" />
+<meta property="og:image:alt" content="Keys-Caldwell — Community Association Management. Venice, Sarasota, Charlotte County. Est. 1978." />
+<meta property="og:site_name" content="Keys-Caldwell" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Careers · Keys-Caldwell · Venice, FL" />
+<meta name="twitter:description" content="Career-track community association management. Hire deliberately, retain by default." />
+<meta name="twitter:image" content="https://keys-caldwell-site-94tm.vercel.app/assets/og/keys-caldwell-brand-og.jpg" />
+<meta name="twitter:image:alt" content="Keys-Caldwell — Community Association Management." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://unpkg.com">
+
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../about.css">
+<link rel="icon" href="data:,">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<style>
+  html, body { margin: 0; padding: 0; }
+  body { font-family: 'Source Sans 3', system-ui, sans-serif; }
+  #root { min-height: 100vh; }
+
+  /* ---------- Roles list ---------- */
+  .kc-roles { background: var(--kc-cream); padding: 96px 0; }
+  .kc-roles-head { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; margin-bottom: 64px; align-items: end; }
+  .kc-roles-intro { font-size: 18px; line-height: 1.6; color: var(--kc-ink-soft); max-width: 56ch; }
+  .kc-roles-status { background: var(--kc-paper); border: 1px solid var(--kc-rule); padding: 24px 28px; border-radius: 4px; }
+  .kc-roles-status-eye { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--kc-brass); margin-bottom: 8px; }
+  .kc-roles-status-h { font-family: var(--kc-serif); font-size: 22px; line-height: 1.25; color: var(--kc-ink); margin: 0 0 8px; }
+  .kc-roles-status-p { font-size: 14px; line-height: 1.55; color: var(--kc-ink-soft); margin: 0; }
+  .kc-roles-list { display: flex; flex-direction: column; }
+  .kc-roles-row { display: grid; grid-template-columns: 64px 1fr 200px 180px; gap: 32px; align-items: center; padding: 28px 0; border-top: 1px solid var(--kc-rule); }
+  .kc-roles-row:last-child { border-bottom: 1px solid var(--kc-rule); }
+  .kc-roles-row-num { font-family: var(--kc-serif); font-size: 22px; color: var(--kc-brass); font-feature-settings: "tnum"; }
+  .kc-roles-row-h { font-family: var(--kc-serif); font-size: 22px; color: var(--kc-ink); margin: 0 0 4px; line-height: 1.25; }
+  .kc-roles-row-meta { font-size: 13px; color: var(--kc-ink-soft); }
+  .kc-roles-row-loc { font-size: 14px; color: var(--kc-ink); }
+  .kc-roles-row-cta a { font-size: 14px; color: var(--kc-ink); text-decoration: none; border-bottom: 1px solid var(--kc-brass); padding-bottom: 2px; }
+  .kc-roles-row-cta a:hover { color: var(--kc-brass); }
+  .kc-roles-row[data-status="closed"] .kc-roles-row-cta { color: var(--kc-ink-soft); font-size: 13px; font-style: italic; }
+  @media (max-width: 800px) {
+    .kc-roles-head { grid-template-columns: 1fr; gap: 32px; }
+    .kc-roles-row { grid-template-columns: 1fr; gap: 8px; padding: 24px 0; }
+    .kc-roles-row-num { font-size: 18px; }
+  }
+
+  /* ---------- Process strip ---------- */
+  .kc-hireproc { background: var(--kc-paper); padding: 96px 0; }
+  .kc-hireproc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 48px; }
+  .kc-hireproc-step { border-top: 2px solid var(--kc-brass); padding-top: 20px; }
+  .kc-hireproc-num { font-family: var(--kc-serif); font-size: 14px; color: var(--kc-brass); letter-spacing: 0.04em; margin-bottom: 8px; }
+  .kc-hireproc-h { font-family: var(--kc-serif); font-size: 19px; color: var(--kc-ink); margin: 0 0 8px; line-height: 1.3; }
+  .kc-hireproc-p { font-size: 14px; line-height: 1.55; color: var(--kc-ink-soft); margin: 0; }
+  @media (max-width: 800px) {
+    .kc-hireproc-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script>window.KC_ASSET_BASE = '../';</script>
+<script src="../components/kc-org.js"></script>
+<script src="../components/kc-seo.jsx"></script>
+<script type="text/babel" src="../components/shared.jsx"></script>
+<script type="text/babel" src="../components/about.jsx"></script>
+
+<script type="text/babel" id="page-content">
+const CONTENT = {
+
+  meta: {
+    title:           "Careers · Keys-Caldwell · Venice, FL Community Association Management",
+    description:     "Keys-Caldwell hires deliberately. Career-track community association managers, accounting professionals, and operations leads — based in Venice, FL with a 15-mile patch from Sarasota to Charlotte.",
+    canonical:       "/careers/",
+    primaryKeyword:  "community association manager jobs venice fl",
+    secondaryKeywords: [
+      "cam jobs sarasota",
+      "hoa accounting jobs venice",
+      "keys caldwell careers",
+      "florida cam license jobs",
+    ],
+    ogTitle:         "Careers at Keys-Caldwell — community association management since 1978",
+    ogDescription:   "A small, deliberately-paced firm. We hire for tenure, not throughput.",
+    ogImage:         "/assets/og/keys-caldwell-default.jpg",
+    schema:          ["LocalBusiness", "BreadcrumbList"],
+  },
+
+  breadcrumbs: {
+    items: [
+      { label: "Home",  href: "/" },
+      { label: "About", href: "/about/" },
+      { label: "Careers" },
+    ],
+  },
+
+  nav: { active: "about" },
+
+  // ─── HERO ───────────────────────────────────────────────
+  hero: {
+    eyebrow: "Working at Keys-Caldwell · Venice, FL",
+    titlePlain: "We hire deliberately —",
+    titleItalic: "and retain by default.",
+    paragraphs: [
+      "Keys-Caldwell has 50+ communities under management and a team built to hold them, not to grow into the next 50. Most of our managers have been with the firm for a decade or more. Our average client tenure is over 20 years, and that math only works because the manager who attended the 2006 budget meeting can still be in the room in 2026.",
+      "If you're a career-track community association manager, an accounting professional with association experience, or an operations lead who wants to work on coastal capital projects — read what's below before you send anything. We are honest about what the firm is and isn't.",
+    ],
+    cardEyebrow: "The team in numbers",
+    stats: [
+      { num: "12",            label: "Full-time team members" },
+      { num: "10", suffix: "+", label: "Year average tenure" },
+      { num: "5",  suffix: "+", label: "CMCA-certified managers" },
+      { num: "1",             label: "Office, Venice FL" },
+    ],
+  },
+
+  // ─── ROLES ──────────────────────────────────────────────
+  roles: {
+    eyebrow: "Open positions",
+    titlePlain: "What we're",
+    titleItalic: "hiring for.",
+    intro: "We post roles when we have a real seat to fill and a real budget for it — not to build a pipeline. If the list below is empty, it's empty. We respond to every applicant within two weeks regardless of fit.",
+    status: {
+      eyebrow: "Status · 2026 Q1",
+      h: "One open role.",
+      p: "Listed below. Please apply directly — we don't use third-party recruiters and don't accept agency submissions.",
+    },
+    items: [
+      {
+        num: "01",
+        title: "Community Association Manager · Sarasota patch",
+        meta: "Full-time · CAM-licensed (or sit-eligible) · 8 communities",
+        loc: "Venice, FL (HQ)",
+        href: "mailto:careers@keys-caldwell.com?subject=CAM%20%C2%B7%20Sarasota%20patch",
+        cta: "Apply →",
+        status: "open",
+      },
+      {
+        num: "02",
+        title: "Senior Accountant · CityBooks platform",
+        meta: "Full-time · CPA preferred · Association GAAP experience",
+        loc: "Venice, FL (HQ)",
+        href: null,
+        cta: "Filled · Aug 2025",
+        status: "closed",
+      },
+      {
+        num: "03",
+        title: "Property Services Coordinator · Capital projects",
+        meta: "Full-time · Construction or municipal background",
+        loc: "Venice, FL (HQ)",
+        href: null,
+        cta: "Filled · Jan 2026",
+        status: "closed",
+      },
+    ],
+  },
+
+  // ─── VALUES (reused from about — same firm, same posture) ─
+  values: {
+    eyebrow: "Working here",
+    titlePlain: "Things that are",
+    titleItalic: "true here.",
+    items: [
+      {
+        h: "One named manager per association.",
+        p: "Every association has a single named manager who attends every meeting, owns the documents, and is the board's first call. That means our managers carry 6–10 communities, not 18–25. The book is small enough to know the building, the board's history, and the reserve schedule by memory.",
+        negative: "We don't run a 'pool model' where boards get whichever manager picks up the phone. We don't rotate. Tenure is deliberate.",
+      },
+      {
+        h: "Credentials are paid for.",
+        p: "CAM continuing education, CMCA, AMS, PCAM, Reserve Specialist, accounting CPE — the firm pays for it, schedules it, and protects time for it. If you sit for an exam during business hours, that's billable to your professional development line, not to your PTO.",
+        negative: "We don't expect you to fund your own credentialing or do it on weekends. The licenses are why boards trust us; that's a firm cost, not a personal one.",
+      },
+      {
+        h: "Documentation discipline is the job.",
+        p: "Every meeting has minutes. Every property walk has photos. Every vendor scorecard is written down. The thing that makes a 20-year client tenure possible is that the next manager inherits operating context, not legacy gaps. If you find that kind of work satisfying, this firm is going to fit you. If you find it tedious, you'll be unhappy here within six months.",
+        negative: "We don't run associations on tribal knowledge. A manager who can't be replaced is a liability, not an asset.",
+      },
+      {
+        h: "Boundaries on board contact.",
+        p: "Boards can reach a real person at the firm 24/7 for emergencies. They cannot reach their named manager at 9pm on a Saturday for a non-emergency. The on-call rotation handles after-hours calls; the named manager handles next-business-day follow-up. We protect your weekends so you stay here for years.",
+        negative: "We don't run a 'always-on' culture. We run a 'always-covered' culture. There is a difference.",
+      },
+    ],
+  },
+
+  // ─── DIFFERENTIATORS — what's actually offered ──────────
+  differentiators: {
+    eyebrow: "What's offered",
+    titlePlain: "Compensation, tools,",
+    titleItalic: "and operating posture.",
+    items: [
+      { title: "Compensation",
+        desc: "Above-market base for the Sarasota CAM market — we benchmark against the largest regional firms and pay at the 75th percentile for tenure-equivalent roles. Annual review every January, not on hire-anniversary." },
+      { title: "Health & retirement",
+        desc: "Firm-paid health insurance for the employee (75% paid for dependents). 401(k) with 4% firm match, vested immediately. Short and long-term disability included at no cost." },
+      { title: "Time off",
+        desc: "20 days PTO from day one (not accrued). 10 paid holidays. We close the office between Christmas and New Year's; that week is paid and not deducted from PTO." },
+      { title: "Tools & infrastructure",
+        desc: "Vantaca for owner portal & ARC, CityBooks for accounting, AccuReserve for reserve studies, full Microsoft 365 stack, firm-issued laptop and phone. You don't BYOD or expense your own software." },
+      { title: "Training & credentials",
+        desc: "Firm pays CAM continuing education, CMCA, AMS, PCAM, Reserve Specialist, and accounting CPE. Time during business hours is billable to professional development, not PTO." },
+      { title: "Pace",
+        desc: "Manager portfolios cap at 10 associations. We don't accept new clients past that line, even when revenue would go up. The book is the book." },
+    ],
+  },
+
+  // ─── HIRING PROCESS ─────────────────────────────────────
+  process: {
+    eyebrow: "How we hire",
+    titlePlain: "What the process",
+    titleItalic: "actually looks like.",
+    items: [
+      { num: "01", h: "Email + résumé",
+        p: "Send a résumé and a one-paragraph note about what's drawing you to the firm. Cover letters not required; we'd rather see the paragraph in the email body." },
+      { num: "02", h: "30-minute call",
+        p: "A first conversation with the principal hiring for the role. Background, what you've done, what you're looking for. Mostly listening on our end." },
+      { num: "03", h: "On-site half-day",
+        p: "Come to the Venice office for a half-day. Meet the team, sit in on a working session, see how the firm actually runs. Lunch on us." },
+      { num: "04", h: "Decision in 5 days",
+        p: "We commit to a yes-or-no decision within five business days of the on-site. Offers include base, benefits, PTO, and a one-page operating-norms summary so there are no surprises in week one." },
+    ],
+  },
+
+  // ─── QUOTE — staff voice ────────────────────────────────
+  quote: {
+    eyebrow: "From the team",
+    quote: "I joined Keys-Caldwell as my second CAM job after burning out at a 25-association portfolio at a national firm. I'm at 8 here. The boards know me, the buildings know me, and I haven't worked a Sunday in three years. The retention math works because the work is sustainable.",
+    attribution: "Senior Manager · 7-year tenure",
+  },
+
+  // ─── CTA ────────────────────────────────────────────────
+  ctaBand: {
+    eyebrow: "Ready to apply?",
+    title: "Send a résumé and a paragraph. We respond to every applicant within two weeks.",
+    body: "If the open role above is a fit, email careers@keys-caldwell.com with your résumé and a one-paragraph note. If you don't see your role listed but want to be considered when one opens, send the same materials and we'll keep you on file (and actually contact you when there's a match).",
+    primary:   { label: "Email careers@keys-caldwell.com", href: "mailto:careers@keys-caldwell.com" },
+    secondary: { label: "About the firm",                  href: "/about/index.html" },
+    phone: "(941) 485-0605",
+    hours: "Mon – Fri · 8:30am – 5:00pm ET",
+  },
+
+  footer: {},
+};
+
+// ---------- Page-specific section components ----------
+
+const KCRoles = ({ content }) => {
+  const c = content || {};
+  return (
+    <section className="kc-roles">
+      <div className="kc-container">
+        <div className="kc-roles-head">
+          <div>
+            {c.eyebrow && <div className="kc-eyebrow">{c.eyebrow}</div>}
+            <h2 className="kc-section-title">{c.titlePlain} <em>{c.titleItalic}</em></h2>
+            {c.intro && <p className="kc-roles-intro">{c.intro}</p>}
+          </div>
+          {c.status && (
+            <div className="kc-roles-status">
+              <div className="kc-roles-status-eye">{c.status.eyebrow}</div>
+              <div className="kc-roles-status-h">{c.status.h}</div>
+              <p className="kc-roles-status-p">{c.status.p}</p>
+            </div>
+          )}
+        </div>
+        <div className="kc-roles-list">
+          {(c.items || []).map((r) => (
+            <div className="kc-roles-row" key={r.num} data-status={r.status}>
+              <div className="kc-roles-row-num">{r.num}</div>
+              <div>
+                <h3 className="kc-roles-row-h">{r.title}</h3>
+                <div className="kc-roles-row-meta">{r.meta}</div>
+              </div>
+              <div className="kc-roles-row-loc">{r.loc}</div>
+              <div className="kc-roles-row-cta">
+                {r.status === 'open'
+                  ? <a href={r.href}>{r.cta}</a>
+                  : <span>{r.cta}</span>}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const KCHireProcess = ({ content }) => {
+  const c = content || {};
+  return (
+    <section className="kc-hireproc">
+      <div className="kc-container">
+        {c.eyebrow && <div className="kc-eyebrow">{c.eyebrow}</div>}
+        <h2 className="kc-section-title">{c.titlePlain} <em>{c.titleItalic}</em></h2>
+        <div className="kc-hireproc-grid">
+          {(c.items || []).map((s) => (
+            <div className="kc-hireproc-step" key={s.num}>
+              <div className="kc-hireproc-num">Step {s.num}</div>
+              <h3 className="kc-hireproc-h">{s.h}</h3>
+              <p className="kc-hireproc-p">{s.p}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const Page = () => (
+  <div className="kc-page">
+    <KCNav active={CONTENT.nav.active} />
+    <KCBreadcrumbs    content={CONTENT.breadcrumbs} />
+    <KCAboutHero      content={CONTENT.hero} />
+    <KCRoles          content={CONTENT.roles} />
+    <KCValues         content={CONTENT.values} />
+    <KCDifferentiators content={CONTENT.differentiators} />
+    <KCHireProcess    content={CONTENT.process} />
+    <KCQuote          content={CONTENT.quote} />
+    <KCCtaBand        content={CONTENT.ctaBand} />
+    <KCFooter         content={CONTENT.footer} />
+  </div>
+);
+
+KCSeo.apply(CONTENT.meta, {
+  pageType:    "trust",
+  pageUrl:     CONTENT.meta.canonical,
+  breadcrumbs: CONTENT.breadcrumbs.items,
+});
+
+const renderWhenReady = () => {
+  if (typeof KCNav === 'undefined' || typeof KCAboutHero === 'undefined') {
+    return setTimeout(renderWhenReady, 30);
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(<Page />);
+  requestAnimationFrame(() => { if (window.lucide) window.lucide.createIcons(); });
+  setTimeout(() => { if (window.lucide) window.lucide.createIcons(); }, 400);
+};
+renderWhenReady();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<!-- ============================================================
+     Keys-Caldwell — Owners
+     ============================================================
+     URL slot       :  /owners/
+     Audience       :  Owners (NOT board members) — the resident at
+                       a Keys-Caldwell-managed association who needs
+                       to pay an assessment, submit an ARC request,
+                       file a work order, or get a real person on
+                       the phone.
+     Editorial tone :  Short, transactional, low-friction. The
+                       owner doesn't want company history; they
+                       want to click the right box and be done.
+     ============================================================ -->
+<title>For owners · Keys-Caldwell · Pay assessments, ARC requests, work orders</title>
+<meta name="description" content="Owner resources for residents of Keys-Caldwell-managed associations — assessment payment, ARC submissions, work orders, document requests, and contact information.">
+
+<link rel="canonical" href="https://keys-caldwell.com/owners/">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://keys-caldwell-site-94tm.vercel.app/owners/">
+<meta property="og:title" content="For owners · Keys-Caldwell">
+<meta property="og:description" content="Pay an assessment, submit an ARC request, file a work order, or get a real person on the phone.">
+<meta property="og:image" content="https://keys-caldwell-site-94tm.vercel.app/assets/og/keys-caldwell-brand-og.jpg">
+<meta property="og:image:alt" content="Keys-Caldwell — Community Association Management. Venice, Sarasota, Charlotte County. Est. 1978.">
+<meta property="og:site_name" content="Keys-Caldwell">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="For owners · Keys-Caldwell">
+<meta name="twitter:description" content="Pay an assessment, submit an ARC request, file a work order, or get a real person on the phone.">
+<meta name="twitter:image" content="https://keys-caldwell-site-94tm.vercel.app/assets/og/keys-caldwell-brand-og.jpg">
+<meta name="twitter:image:alt" content="Keys-Caldwell — Community Association Management.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://unpkg.com">
+
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../about.css">
+<link rel="icon" href="data:,">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<style>
+  html, body { margin: 0; padding: 0; }
+  body { font-family: 'Source Sans 3', system-ui, sans-serif; }
+  #root { min-height: 100vh; }
+
+  /* ── HERO ── single, low-friction header */
+  .kc-own-hero { background: var(--kc-cream); padding: 80px 0 64px; border-bottom: 1px solid var(--kc-rule); }
+  .kc-own-hero-inner { display: grid; grid-template-columns: 1.4fr 1fr; gap: 64px; align-items: end; }
+  @media (max-width: 900px) { .kc-own-hero-inner { grid-template-columns: 1fr; gap: 32px; } }
+  .kc-own-hero h1 { font-family: var(--kc-serif); font-size: clamp(40px, 5.4vw, 64px); line-height: 1.04; margin: 16px 0 16px; color: var(--kc-ink); max-width: 18ch; }
+  .kc-own-hero h1 em { font-style: italic; font-weight: 400; color: var(--kc-brass); }
+  .kc-own-hero-lede { font-size: 17px; line-height: 1.6; color: var(--kc-ink-soft); max-width: 56ch; margin: 0; }
+
+  .kc-own-portal-card {
+    background: var(--kc-ink); color: var(--kc-paper);
+    padding: 32px; display: flex; flex-direction: column; gap: 16px;
+    border: 1px solid var(--kc-ink);
+  }
+  .kc-own-portal-eye { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--kc-brass); }
+  .kc-own-portal-h { font-family: var(--kc-serif); font-size: 24px; line-height: 1.25; margin: 0; color: var(--kc-paper); }
+  .kc-own-portal-h em { font-style: italic; font-weight: 400; color: var(--kc-brass); }
+  .kc-own-portal-p { font-size: 14px; line-height: 1.55; color: rgba(255,255,255,0.78); margin: 0; }
+  .kc-own-portal-cta {
+    display: inline-flex; align-items: center; justify-content: center;
+    background: var(--kc-brass); color: var(--kc-ink);
+    padding: 14px 20px; font-size: 14px; font-weight: 600;
+    text-decoration: none; letter-spacing: 0.04em;
+    border: 1px solid var(--kc-brass);
+  }
+  .kc-own-portal-cta:hover { background: transparent; color: var(--kc-paper); }
+  .kc-own-portal-foot { font-size: 12px; color: rgba(255,255,255,0.6); }
+
+  /* ── ACTIONS GRID ── 6 owner tasks */
+  .kc-own-actions { padding: 96px 0; background: var(--kc-paper); }
+  .kc-own-actions-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 48px; border: 1px solid var(--kc-rule); }
+  @media (max-width: 900px) { .kc-own-actions-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 600px) { .kc-own-actions-grid { grid-template-columns: 1fr; } }
+  .kc-own-action {
+    padding: 32px;
+    border-right: 1px solid var(--kc-rule);
+    border-bottom: 1px solid var(--kc-rule);
+    display: flex; flex-direction: column; gap: 12px;
+    background: var(--kc-paper);
+    text-decoration: none; color: inherit;
+    transition: background 0.15s ease;
+  }
+  .kc-own-action:hover { background: var(--kc-cream); color: inherit; }
+  .kc-own-action:nth-child(3n) { border-right: none; }
+  @media (max-width: 900px) { .kc-own-action:nth-child(3n) { border-right: 1px solid var(--kc-rule); } .kc-own-action:nth-child(2n) { border-right: none; } }
+  @media (max-width: 600px) { .kc-own-action { border-right: none !important; } }
+  .kc-own-action-icon { width: 32px; height: 32px; color: var(--kc-brass); }
+  .kc-own-action-h { font-family: var(--kc-serif); font-size: 22px; line-height: 1.25; margin: 0; color: var(--kc-ink); }
+  .kc-own-action-h em { font-style: italic; font-weight: 400; color: var(--kc-brass); }
+  .kc-own-action-p { font-size: 14px; line-height: 1.6; color: var(--kc-ink-soft); margin: 0; flex: 1; }
+  .kc-own-action-cta { font-size: 13px; color: var(--kc-ink); border-bottom: 1px solid var(--kc-brass); padding-bottom: 1px; align-self: flex-start; margin-top: 8px; letter-spacing: 0.04em; }
+  .kc-own-action:hover .kc-own-action-cta { color: var(--kc-brass); }
+
+  /* ── ASSOC LOOKUP STRIP ── */
+  .kc-own-assoc { background: var(--kc-cream); padding: 80px 0; border-top: 1px solid var(--kc-rule); border-bottom: 1px solid var(--kc-rule); }
+  .kc-own-assoc-inner { display: grid; grid-template-columns: 1fr 1.2fr; gap: 64px; align-items: center; }
+  @media (max-width: 900px) { .kc-own-assoc-inner { grid-template-columns: 1fr; gap: 32px; } }
+  .kc-own-assoc h2 { font-family: var(--kc-serif); font-size: clamp(28px, 3.4vw, 40px); line-height: 1.1; margin: 8px 0 16px; color: var(--kc-ink); }
+  .kc-own-assoc h2 em { font-style: italic; font-weight: 400; color: var(--kc-brass); }
+  .kc-own-assoc-p { font-size: 16px; line-height: 1.6; color: var(--kc-ink); margin: 0; }
+  .kc-own-assoc-card { background: var(--kc-paper); border: 1px solid var(--kc-rule); padding: 28px; display: flex; flex-direction: column; gap: 16px; }
+  .kc-own-assoc-card-h { font-family: var(--kc-serif); font-size: 18px; color: var(--kc-ink); margin: 0; }
+  .kc-own-assoc-row { display: grid; grid-template-columns: 120px 1fr; gap: 16px; padding: 12px 0; border-top: 1px solid var(--kc-rule); align-items: baseline; }
+  .kc-own-assoc-row:first-of-type { border-top: none; padding-top: 0; }
+  .kc-own-assoc-row-l { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--kc-ink-soft); }
+  .kc-own-assoc-row-r { font-size: 14px; line-height: 1.55; color: var(--kc-ink); }
+  .kc-own-assoc-row-r a { color: var(--kc-ink); text-decoration: underline; text-decoration-color: var(--kc-brass); text-underline-offset: 3px; }
+
+  /* ── PROCESS / what to expect ── */
+  .kc-own-expect { padding: 96px 0; background: var(--kc-paper); }
+  .kc-own-expect-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: start; }
+  @media (max-width: 900px) { .kc-own-expect-grid { grid-template-columns: 1fr; gap: 32px; } }
+  .kc-own-expect h2 { font-family: var(--kc-serif); font-size: clamp(28px, 3.4vw, 40px); line-height: 1.1; margin: 8px 0 16px; color: var(--kc-ink); }
+  .kc-own-expect h2 em { font-style: italic; font-weight: 400; color: var(--kc-brass); }
+  .kc-own-expect-p { font-size: 16px; line-height: 1.6; color: var(--kc-ink); margin: 0 0 16px; max-width: 50ch; }
+  .kc-own-expect-list { margin-top: 0; padding-left: 0; list-style: none; display: grid; gap: 0; }
+  .kc-own-expect-row { display: grid; grid-template-columns: 1fr 200px; gap: 32px; align-items: start; padding: 20px 0; border-top: 1px solid var(--kc-rule); }
+  .kc-own-expect-row:last-of-type { border-bottom: 1px solid var(--kc-rule); }
+  .kc-own-expect-row-l { font-family: var(--kc-serif); font-size: 17px; color: var(--kc-ink); margin: 0; line-height: 1.35; }
+  .kc-own-expect-row-r { font-size: 13px; color: var(--kc-ink-soft); letter-spacing: 0.04em; line-height: 1.4; }
+  @media (max-width: 600px) {
+    .kc-own-expect-row { grid-template-columns: 1fr; gap: 4px; }
+    .kc-own-expect-row-r { font-size: 12px; }
+  }
+
+  /* ── CONTACT STRIP ── */
+  .kc-own-contact { background: var(--kc-ink); color: var(--kc-paper); padding: 88px 0; }
+  .kc-own-contact h2 { font-family: var(--kc-serif); font-size: clamp(28px, 3.4vw, 40px); line-height: 1.1; margin: 12px 0 32px; color: var(--kc-paper); max-width: 24ch; }
+  .kc-own-contact h2 em { font-style: italic; font-weight: 400; color: var(--kc-brass); }
+  .kc-own-contact-eye { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--kc-brass); }
+  .kc-own-contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  @media (max-width: 800px) { .kc-own-contact-grid { grid-template-columns: 1fr; gap: 24px; } }
+  .kc-own-contact-block { padding: 28px; border: 1px solid rgba(255,255,255,0.18); display: flex; flex-direction: column; gap: 12px; }
+  .kc-own-contact-block-eye { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--kc-brass); }
+  .kc-own-contact-block-h { font-family: var(--kc-serif); font-size: 18px; color: var(--kc-paper); margin: 0; }
+  .kc-own-contact-block-big { font-family: var(--kc-serif); font-size: 28px; line-height: 1.1; color: var(--kc-paper); margin: 4px 0; font-feature-settings: "tnum"; }
+  .kc-own-contact-block-big a { color: var(--kc-paper); text-decoration: none; }
+  .kc-own-contact-block-big a:hover { color: var(--kc-brass); }
+  .kc-own-contact-block-p { font-size: 13px; line-height: 1.55; color: rgba(255,255,255,0.78); margin: 0; }
+
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script>window.KC_ASSET_BASE = '../';</script>
+<script src="../components/kc-org.js"></script>
+<script src="../components/kc-seo.jsx"></script>
+<script type="text/babel" src="../components/shared.jsx"></script>
+
+<script type="text/babel" id="page-content">
+const CONTENT = {
+
+  meta: {
+    title:           "For owners · Keys-Caldwell · Pay assessments, ARC requests, work orders",
+    description:     "Owner resources for residents of Keys-Caldwell-managed associations — assessment payment, ARC submissions, work orders, document requests, and contact information.",
+    canonical:       "/owners/",
+    primaryKeyword:  "hoa owner portal florida",
+    secondaryKeywords: [
+      "pay hoa assessment online sarasota",
+      "submit arc request florida condo",
+      "hoa work order florida",
+      "homeowner login keys caldwell",
+    ],
+    ogTitle:         "For owners · Keys-Caldwell",
+    ogDescription:   "Pay an assessment, submit an ARC request, file a work order, or get a real person on the phone.",
+    ogImage:         "/assets/og/keys-caldwell-default.jpg",
+    schema:          ["LocalBusiness", "BreadcrumbList"],
+  },
+
+  breadcrumbs: {
+    items: [
+      { label: "Home",   href: "/" },
+      { label: "Owners" },
+    ],
+  },
+
+  // We don't activate "owners" in the nav since it's not a top-level item;
+  // owner login lives in the utility bar and footer.
+  nav: { active: "" },
+
+  // ─── HERO ────────────────────────────────────────────
+  hero: {
+    eyebrow: "For residents of Keys-Caldwell-managed associations",
+    titlePlain: "What do you",
+    titleItalic: "need to do today?",
+    lede: "If you live in a community we manage, this is your front door. Pay an assessment. Submit an ARC request. File a work order. Pull a payoff letter. Or just get a real person on the phone — that's still how we work.",
+    portal: {
+      eye: "Owner portal",
+      h: ["Sign in to your", "association account."],
+      p: "Pay your assessment, view your account history, submit a work order, request documents, and update your contact information. The portal is hosted by CINC Systems on behalf of your association.",
+      ctaLabel: "Open the owner portal",
+      ctaHref:  "https://keys-caldwell.cincwebaxis.com/",
+      foot: "First-time sign in? Use the email on file with your association. If it doesn't recognize you, call the front desk and we'll get you set up.",
+    },
+  },
+
+  // ─── ACTIONS ────────────────────────────────────────
+  actions: {
+    eyebrow: "What owners actually do here",
+    titlePlain: "Six things,",
+    titleItalic: "in plain English.",
+    items: [
+      {
+        icon: "credit-card",
+        h: ["Pay an", "assessment"],
+        p: "Monthly or quarterly assessments, plus any special-assessment installment your association has approved. Pay by ACH (no fee) or card (small processing fee).",
+        ctaLabel: "Pay through the portal →",
+        ctaHref:  "https://keys-caldwell.cincwebaxis.com/",
+      },
+      {
+        icon: "ruler",
+        h: ["Submit an", "ARC request"],
+        p: "Architectural Review Committee submissions for exterior changes — paint colors, landscaping, doors, windows, additions. Boards review on a published cadence; we'll route your application correctly.",
+        ctaLabel: "Submit through the portal →",
+        ctaHref:  "https://keys-caldwell.cincwebaxis.com/",
+      },
+      {
+        icon: "wrench",
+        h: ["File a", "work order"],
+        p: "Common-area issues — broken irrigation, lighting out, pool equipment, gate access. Work orders are routed to the assigned vendor and tracked to completion. You'll see status updates in the portal.",
+        ctaLabel: "File through the portal →",
+        ctaHref:  "https://keys-caldwell.cincwebaxis.com/",
+      },
+      {
+        icon: "file-text",
+        h: ["Request", "documents"],
+        p: "Estoppel letters, payoff statements, governing documents (declaration, bylaws, rules), insurance certificates. Estoppels for sale or refinance are processed within statutory timeframes.",
+        ctaLabel: "Request through the portal →",
+        ctaHref:  "https://keys-caldwell.cincwebaxis.com/",
+      },
+      {
+        icon: "user-cog",
+        h: ["Update your", "contact info"],
+        p: "Email, phone, mailing address, emergency contact. Keeping this current means you actually get the meeting notices, hurricane bulletins, and assessment statements your association sends out.",
+        ctaLabel: "Update through the portal →",
+        ctaHref:  "https://keys-caldwell.cincwebaxis.com/",
+      },
+      {
+        icon: "phone",
+        h: ["Talk to a", "real person"],
+        p: "If the portal isn't the right tool for what you need, call the front desk. Mon–Fri, 8:30am–5:00pm ET. Voicemail goes to your association's manager — not a call center.",
+        ctaLabel: "(941) 485-0605",
+        ctaHref:  "tel:+19414850605",
+      },
+    ],
+  },
+
+  // ─── ASSOC LOOKUP ────────────────────────────────────
+  assoc: {
+    eyebrow: "Don't know your association manager?",
+    titlePlain: "Find your community in our",
+    titleItalic: "managed-association directory.",
+    p: "Each Keys-Caldwell community is assigned to a Community Association Manager (CAM) who attends your board meetings, supervises vendors, and handles board correspondence. If you don't know who manages your community, the front desk will route you in one call.",
+    cardH: "Front desk · Venice office",
+    rows: [
+      { l: "Phone",   r: <a href="tel:+19414850605">(941) 485-0605</a> },
+      { l: "Email",   r: <a href="mailto:info@keys-caldwell.com">info@keys-caldwell.com</a> },
+      { l: "Address", r: <>1162 Indian Hills Boulevard<br/>Venice, FL 34293</> },
+      { l: "Hours",   r: "Mon – Fri · 8:30am – 5:00pm ET" },
+      { l: "After hours", r: "Voicemail goes directly to your assigned CAM. Emergencies — pool, gate, irrigation, life-safety — are answered 24/7." },
+    ],
+  },
+
+  // ─── EXPECT ────────────────────────────────────────
+  expect: {
+    eyebrow: "Response timing — what to expect",
+    titlePlain: "When you'll hear back,",
+    titleItalic: "by request type.",
+    p: "Owners ask, reasonably, what the SLA is. We don't bury it — here it is. These are the targets your assigned CAM operates against; actual response on most non-urgent items is faster.",
+    rows: [
+      { l: "Routine email or portal message",      r: "1 business day" },
+      { l: "Work order — non-urgent",              r: "2 business days to assignment, vendor SLA on completion" },
+      { l: "Work order — urgent (life-safety)",    r: "24/7 — answered the same hour" },
+      { l: "ARC submission",                       r: "Reviewed at the next scheduled committee meeting" },
+      { l: "Estoppel / payoff letter",             r: "Per FL 718.116(8)(b) — 10 business days" },
+      { l: "Document request (governing docs)",    r: "Per FL 718.111(12) — 10 business days" },
+      { l: "Account history / ledger",             r: "Available immediately in the portal" },
+    ],
+  },
+
+  // ─── CONTACT ────────────────────────────────────────
+  contact: {
+    eyebrow: "Other ways to reach us",
+    titlePlain: "If the portal doesn't fit what you need,",
+    titleItalic: "here are real channels.",
+    blocks: [
+      { eye: "Front desk",       h: "General owner inquiries", big: <a href="tel:+19414850605">(941) 485-0605</a>, p: "Monday – Friday · 8:30am – 5:00pm ET. Voicemail goes to your association's CAM." },
+      { eye: "Email",            h: "Slower but tracked",      big: <a href="mailto:info@keys-caldwell.com">info@keys-caldwell.com</a>, p: "All inbound email is logged in the association's record. Replies typically within 1 business day." },
+      { eye: "Office address",   h: "1162 Indian Hills Blvd",  big: "Venice, FL 34293", p: "Walk-ins are welcome during business hours. We've been at this address since 1978." },
+    ],
+  },
+
+  // ─── CTA ────────────────────────────────────────
+  ctaBand: {
+    eyebrow: "Are you on a board, not an owner?",
+    title: "Board treasurers and presidents have a different door.",
+    body: "If you're a board member at a Keys-Caldwell-managed association, your tools live in a separate Board portal with the financial packets, vendor scorecards, and meeting agendas. If you're a board member at an association not yet managed by Keys-Caldwell and you're evaluating us, the proposal flow is different too — that's the request-a-proposal page.",
+    primary:   { label: "Request a proposal",        href: "/request-proposal/index.html" },
+    secondary: { label: "Read about the firm",       href: "/about/index.html" },
+    phone: "(941) 485-0605",
+    hours: "Mon – Fri · 8:30am – 5:00pm ET",
+  },
+
+  footer: {},
+};
+
+// ---------- Page-specific section components ----------
+
+const KCOwnHero = ({ content }) => {
+  const c = content || {};
+  const p = c.portal || {};
+  return (
+    <section className="kc-own-hero">
+      <div className="kc-container">
+        <div className="kc-own-hero-inner">
+          <div>
+            {c.eyebrow && <div className="kc-eyebrow">{c.eyebrow}</div>}
+            <h1>{c.titlePlain} <em>{c.titleItalic}</em></h1>
+            <p className="kc-own-hero-lede">{c.lede}</p>
+          </div>
+          <div className="kc-own-portal-card">
+            <div className="kc-own-portal-eye">{p.eye}</div>
+            <h2 className="kc-own-portal-h">{p.h && p.h[0]} <em>{p.h && p.h[1]}</em></h2>
+            <p className="kc-own-portal-p">{p.p}</p>
+            <a className="kc-own-portal-cta" href={p.ctaHref} target="_blank" rel="noopener noreferrer">{p.ctaLabel}</a>
+            <p className="kc-own-portal-foot">{p.foot}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const KCOwnActions = ({ content }) => {
+  const c = content || {};
+  return (
+    <section className="kc-own-actions">
+      <div className="kc-container">
+        {c.eyebrow && <div className="kc-eyebrow">{c.eyebrow}</div>}
+        <h2 className="kc-section-title">{c.titlePlain} <em>{c.titleItalic}</em></h2>
+        <div className="kc-own-actions-grid">
+          {(c.items || []).map((it, i) => {
+            const isExternal = /^https?:/.test(it.ctaHref);
+            return (
+              <a className="kc-own-action" key={i} href={it.ctaHref}
+                 target={isExternal ? "_blank" : undefined}
+                 rel={isExternal ? "noopener noreferrer" : undefined}>
+                <i data-lucide={it.icon} className="kc-own-action-icon"></i>
+                <h3 className="kc-own-action-h">{it.h[0]} <em>{it.h[1]}</em></h3>
+                <p className="kc-own-action-p">{it.p}</p>
+                <span className="kc-own-action-cta">{it.ctaLabel}</span>
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const KCOwnAssoc = ({ content }) => {
+  const c = content || {};
+  return (
+    <section className="kc-own-assoc">
+      <div className="kc-container">
+        <div className="kc-own-assoc-inner">
+          <div>
+            {c.eyebrow && <div className="kc-eyebrow">{c.eyebrow}</div>}
+            <h2>{c.titlePlain} <em>{c.titleItalic}</em></h2>
+            <p className="kc-own-assoc-p">{c.p}</p>
+          </div>
+          <div className="kc-own-assoc-card">
+            <h3 className="kc-own-assoc-card-h">{c.cardH}</h3>
+            {(c.rows || []).map((r, i) => (
+              <div className="kc-own-assoc-row" key={i}>
+                <div className="kc-own-assoc-row-l">{r.l}</div>
+                <div className="kc-own-assoc-row-r">{r.r}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const KCOwnExpect = ({ content }) => {
+  const c = content || {};
+  return (
+    <section className="kc-own-expect">
+      <div className="kc-container">
+        <div className="kc-own-expect-grid">
+          <div>
+            {c.eyebrow && <div className="kc-eyebrow">{c.eyebrow}</div>}
+            <h2>{c.titlePlain} <em>{c.titleItalic}</em></h2>
+            <p className="kc-own-expect-p">{c.p}</p>
+          </div>
+          <div>
+            <ul className="kc-own-expect-list">
+              {(c.rows || []).map((r, i) => (
+                <li className="kc-own-expect-row" key={i}>
+                  <div className="kc-own-expect-row-l">{r.l}</div>
+                  <div className="kc-own-expect-row-r">{r.r}</div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const KCOwnContact = ({ content }) => {
+  const c = content || {};
+  return (
+    <section className="kc-own-contact">
+      <div className="kc-container">
+        <div className="kc-own-contact-eye">{c.eyebrow}</div>
+        <h2>{c.titlePlain} <em>{c.titleItalic}</em></h2>
+        <div className="kc-own-contact-grid">
+          {(c.blocks || []).map((b, i) => (
+            <div className="kc-own-contact-block" key={i}>
+              <div className="kc-own-contact-block-eye">{b.eye}</div>
+              <h3 className="kc-own-contact-block-h">{b.h}</h3>
+              <div className="kc-own-contact-block-big">{b.big}</div>
+              <p className="kc-own-contact-block-p">{b.p}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const Page = () => (
+  <div className="kc-page">
+    <KCNav active={CONTENT.nav.active} />
+    <KCBreadcrumbs content={CONTENT.breadcrumbs} />
+    <KCOwnHero     content={CONTENT.hero} />
+    <KCOwnActions  content={CONTENT.actions} />
+    <KCOwnAssoc    content={CONTENT.assoc} />
+    <KCOwnExpect   content={CONTENT.expect} />
+    <KCOwnContact  content={CONTENT.contact} />
+    <KCCtaBand     content={CONTENT.ctaBand} />
+    <KCFooter      content={CONTENT.footer} />
+  </div>
+);
+
+KCSeo.apply(CONTENT.meta, {
+  pageType:    "info",
+  pageUrl:     CONTENT.meta.canonical,
+  breadcrumbs: CONTENT.breadcrumbs.items,
+});
+
+const renderWhenReady = () => {
+  if (typeof KCNav === 'undefined') {
+    return setTimeout(renderWhenReady, 30);
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(<Page />);
+  requestAnimationFrame(() => { if (window.lucide) window.lucide.createIcons(); });
+  setTimeout(() => { if (window.lucide) window.lucide.createIcons(); }, 400);
+};
+renderWhenReady();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<!-- ============================================================
+     Keys-Caldwell — Property Services & Capital Projects
+     ============================================================
+     URL slot       :  /property-services/
+     Template type  :  SUB-SERVICE pillar (sibling of /accounting/, /reserve-studies/)
+     Composition    :  KCNav · KCBreadcrumbs · KCAboutHero (reused) ·
+                       KCDifferentiators · KCValues · KCDeliverables ·
+                       KCFAQ · KCQuote · KCCtaBand · KCFooter
+     ----------------------------------------------------------------
+     EDITORIAL POSTURE: This page makes the case for a property-services
+     and capital projects PRACTICE — distinct from accounting, distinct
+     from reserve studies, distinct from the broad "association
+     management" pillar. The audience is boards facing real capital
+     work in the next 12-36 months who need to understand WHO does the
+     coordination, HOW it's paid for, and WHAT separates an owner's-rep
+     engagement from a vendor-of-the-month approach.
+     ============================================================ -->
+<title>Property Services & Capital Projects · Keys-Caldwell · Sarasota County, FL</title>
+<meta name="description" content="The property-services and capital projects practice at Keys-Caldwell — routine maintenance coordination, vendor management, and owner's-rep engagements for roofs, seawalls, and post-SIRS capital work across Sarasota County and the Suncoast." />
+
+<link rel="canonical" href="https://keys-caldwell.com/property-services/" />
+
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://keys-caldwell-site-94tm.vercel.app/property-services/" />
+<meta property="og:title" content="Property Services & Capital Projects · Keys-Caldwell" />
+<meta property="og:description" content="Routine maintenance coordination, vendor management, and owner's-rep capital projects for Florida community associations." />
+<meta property="og:image" content="https://keys-caldwell-site-94tm.vercel.app/assets/og/keys-caldwell-brand-og.jpg" />
+<meta property="og:image:alt" content="Keys-Caldwell — Community Association Management. Venice, Sarasota, Charlotte County. Est. 1978." />
+<meta property="og:site_name" content="Keys-Caldwell" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Property Services & Capital Projects · Keys-Caldwell" />
+<meta name="twitter:description" content="Routine maintenance, vendor management, and owner's-rep capital projects." />
+<meta name="twitter:image" content="https://keys-caldwell-site-94tm.vercel.app/assets/og/keys-caldwell-brand-og.jpg" />
+<meta name="twitter:image:alt" content="Keys-Caldwell — Community Association Management." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://unpkg.com">
+
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../about.css">
+<link rel="stylesheet" href="../pillar.css">
+<link rel="icon" href="data:,">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<style>
+  html, body { margin: 0; padding: 0; }
+  body { font-family: 'Source Sans 3', system-ui, sans-serif; }
+  #root { min-height: 100vh; }
+
+  /* page-specific layered hero */
+  .kc-ps-hero { background: var(--kc-paper); padding: 80px 0 96px; border-bottom: 1px solid var(--kc-rule); }
+  .kc-ps-hero-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 64px; align-items: end; }
+  @media (max-width: 900px) { .kc-ps-hero-grid { grid-template-columns: 1fr; gap: 32px; } }
+  .kc-ps-hero h1 { font-family: var(--kc-serif); font-size: clamp(40px, 5.4vw, 68px); line-height: 1.04; margin: 16px 0 20px; color: var(--kc-ink); }
+  .kc-ps-hero h1 em { font-style: italic; font-weight: 400; color: var(--kc-brass); }
+  .kc-ps-hero-lede { font-size: 18px; line-height: 1.6; color: var(--kc-ink-soft); max-width: 56ch; }
+  .kc-ps-hero-strip { display: flex; flex-direction: column; gap: 24px; padding: 32px; background: var(--kc-cream); border: 1px solid var(--kc-rule); }
+  .kc-ps-hero-strip-h { font-family: var(--kc-serif); font-size: 16px; color: var(--kc-brass); margin: 0 0 4px; letter-spacing: 0.04em; }
+  .kc-ps-hero-strip-num { font-family: var(--kc-serif); font-size: 48px; line-height: 1; color: var(--kc-ink); font-feature-settings: "tnum"; }
+  .kc-ps-hero-strip-num em { color: var(--kc-brass); font-style: normal; }
+  .kc-ps-hero-strip-label { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--kc-ink-soft); margin-top: 8px; }
+  .kc-ps-hero-strip-row { padding-bottom: 16px; border-bottom: 1px solid var(--kc-rule); }
+  .kc-ps-hero-strip-row:last-child { border-bottom: none; padding-bottom: 0; }
+
+  /* practice areas grid */
+  .kc-ps-areas { padding: 96px 0; background: var(--kc-cream); }
+  .kc-ps-areas-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 48px; }
+  @media (max-width: 800px) { .kc-ps-areas-grid { grid-template-columns: 1fr; } }
+  .kc-ps-area { background: var(--kc-paper); border: 1px solid var(--kc-rule); padding: 32px; }
+  .kc-ps-area-num { font-family: var(--kc-serif); font-size: 14px; color: var(--kc-brass); letter-spacing: 0.08em; }
+  .kc-ps-area-h { font-family: var(--kc-serif); font-size: 26px; line-height: 1.2; margin: 8px 0 12px; color: var(--kc-ink); }
+  .kc-ps-area-h em { font-style: italic; font-weight: 400; color: var(--kc-brass); }
+  .kc-ps-area-p { font-size: 15px; line-height: 1.6; color: var(--kc-ink); margin: 0 0 16px; }
+  .kc-ps-area-list { margin: 0; padding: 0 0 0 20px; font-size: 14px; line-height: 1.6; color: var(--kc-ink-soft); }
+  .kc-ps-area-list li { margin-bottom: 6px; }
+
+  /* engagement model */
+  .kc-ps-models { padding: 96px 0; background: var(--kc-paper); }
+  .kc-ps-models-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 48px; }
+  @media (max-width: 800px) { .kc-ps-models-grid { grid-template-columns: 1fr; } }
+  .kc-ps-model { padding: 36px; border: 1px solid var(--kc-rule); }
+  .kc-ps-model-feat { background: var(--kc-ink); color: var(--kc-paper); border-color: var(--kc-ink); }
+  .kc-ps-model-feat .kc-ps-model-h { color: var(--kc-paper); }
+  .kc-ps-model-feat .kc-ps-model-p { color: rgba(255,255,255,0.85); }
+  .kc-ps-model-feat .kc-ps-model-eye { color: var(--kc-brass); }
+  .kc-ps-model-feat .kc-ps-model-list li { color: rgba(255,255,255,0.85); }
+  .kc-ps-model-feat .kc-ps-model-list li::marker { color: var(--kc-brass); }
+  .kc-ps-model-eye { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--kc-brass); margin-bottom: 12px; }
+  .kc-ps-model-h { font-family: var(--kc-serif); font-size: 28px; margin: 0 0 12px; color: var(--kc-ink); }
+  .kc-ps-model-h em { font-style: italic; font-weight: 400; color: var(--kc-brass); }
+  .kc-ps-model-p { font-size: 15px; line-height: 1.6; color: var(--kc-ink); margin: 0 0 16px; }
+  .kc-ps-model-list { margin: 0 0 16px; padding: 0 0 0 20px; font-size: 14px; line-height: 1.6; color: var(--kc-ink); }
+  .kc-ps-model-list li { margin-bottom: 6px; }
+
+  /* process timeline */
+  .kc-ps-process { padding: 96px 0; background: var(--kc-cream); }
+  .kc-ps-process-list { margin-top: 48px; display: grid; gap: 0; }
+  .kc-ps-process-step { display: grid; grid-template-columns: 60px 200px 1fr; gap: 32px; align-items: start; padding: 28px 0; border-top: 1px solid var(--kc-rule); }
+  .kc-ps-process-step:last-child { border-bottom: 1px solid var(--kc-rule); }
+  .kc-ps-process-num { font-family: var(--kc-serif); font-size: 36px; line-height: 1; color: var(--kc-brass); font-feature-settings: "tnum"; }
+  .kc-ps-process-h { font-family: var(--kc-serif); font-size: 18px; color: var(--kc-ink); margin: 0; line-height: 1.3; }
+  .kc-ps-process-meta { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--kc-ink-soft); margin-top: 6px; }
+  .kc-ps-process-p { font-size: 14px; line-height: 1.6; color: var(--kc-ink); margin: 0; max-width: 60ch; }
+  @media (max-width: 800px) {
+    .kc-ps-process-step { grid-template-columns: 1fr; gap: 12px; }
+  }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script>window.KC_ASSET_BASE = '../';</script>
+<script src="../components/kc-org.js"></script>
+<script src="../components/kc-seo.jsx"></script>
+<script type="text/babel" src="../components/shared.jsx"></script>
+<script type="text/babel" src="../components/pillar.jsx"></script>
+
+<script type="text/babel" id="page-content">
+const CONTENT = {
+
+  meta: {
+    title:           "Property Services & Capital Projects · Keys-Caldwell · Sarasota County, FL",
+    description:     "The property-services and capital projects practice at Keys-Caldwell — routine maintenance coordination, vendor management, and owner's-rep engagements for roofs, seawalls, and post-SIRS capital work across Sarasota County and the Suncoast.",
+    canonical:       "/property-services/",
+    primaryKeyword:  "property services hoa florida",
+    secondaryKeywords: [
+      "owner's rep capital projects florida",
+      "florida condo capital project management",
+      "association maintenance coordination",
+      "florida community capital projects",
+    ],
+    ogTitle:         "Property Services & Capital Projects · Keys-Caldwell",
+    ogDescription:   "Routine maintenance, vendor management, and owner's-rep capital projects for Florida community associations.",
+    ogImage:         "/assets/og/keys-caldwell-default.jpg",
+    schema:          ["LocalBusiness", "BreadcrumbList"],
+  },
+
+  breadcrumbs: {
+    items: [
+      { label: "Home",     href: "/" },
+      { label: "Services", href: "/services/index.html" },
+      { label: "Property services" },
+    ],
+  },
+
+  nav: { active: "services" },
+
+  // ─── HERO ────────────────────────────────────────────
+  hero: {
+    eyebrow: "Practice area · Property services & capital",
+    titlePlain: "Vendors are managed.",
+    titleItalic: "Capital projects are coordinated.",
+    lede: "The property-services and capital projects practice at Keys-Caldwell is the operational arm of the firm — the discipline that keeps routine maintenance running on cadence, vendors performing against documented scopes, and major capital work delivered on schedule and on budget. Daniel Caldwell runs the practice. He's the one who walks the seawall, reads the engineer's report, and signs off on the change order.",
+    strip: [
+      { h: "In play right now",   num: "23",  label: "Capital projects under coordination" },
+      { h: "Vendor roster",       num: "120", em: true, label: "Pre-qualified vendors across categories" },
+      { h: "Average board age",   num: "47",  label: "Years our oldest client association has been with the firm" },
+    ],
+  },
+
+  // ─── PRACTICE AREAS ──────────────────────────────────
+  areas: {
+    eyebrow: "What this practice covers",
+    titlePlain: "Two parallel streams of work,",
+    titleItalic: "running in cadence.",
+    items: [
+      {
+        num: "01",
+        h: ["Routine maintenance ·", "the ongoing cadence."],
+        p: "The recurring work that keeps the property running — pool service, landscape, pest, pressure washing, common-area lighting, mechanical inspections, fire-system testing. We don't perform this work; we coordinate the vendors who do, against documented scopes, with documented response SLAs.",
+        list: [
+          "Vendor scorecard reviewed quarterly across all 120+ pre-qualified vendors",
+          "Three-bid procurement above $5K (per FL 718.3026)",
+          "COI and licensure tracking — vendors with lapsed insurance don't work on the property",
+          "Monthly vendor performance summary in the board packet",
+          "Vendor termination protocols that don't leave coverage gaps",
+        ],
+      },
+      {
+        num: "02",
+        h: ["Capital projects ·", "owner's-rep engagement."],
+        p: "Major non-recurring work — roof replacement, exterior repaint and waterproofing, seawall, paving, structural restoration, mechanical replacement. We engage as the board's owner's representative: scope-of-work development, engineer coordination, vendor selection, contract negotiation, on-site supervision, change-order approval, and payment milestones. The goal is delivery on schedule and on budget without surprises.",
+        list: [
+          "Engineer engagement and report interpretation",
+          "Scope-of-work development against engineer specs",
+          "Three-bid procurement with documented evaluation criteria",
+          "Contract negotiation including warranty terms and payment schedule",
+          "On-site supervision with documented site-visit cadence",
+          "Change-order review — board approval required above defined thresholds",
+        ],
+      },
+    ],
+  },
+
+  // ─── ENGAGEMENT MODELS ───────────────────────────────
+  models: {
+    eyebrow: "How property services is structured",
+    titlePlain: "Inside the management contract,",
+    titleItalic: "or as a stand-alone owner's-rep engagement.",
+    items: [
+      {
+        feat: false,
+        eye: "Inside the contract",
+        h: ["For Keys-Caldwell-managed associations"],
+        p: "If we manage your association, the property-services oversight is included in the base fee — routine maintenance coordination, vendor management, and minor work coordination. Capital projects above defined thresholds are billed separately as owner's-rep engagements.",
+        list: [
+          "Routine maintenance coordination — included",
+          "Vendor scorecard, COI tracking, contract administration — included",
+          "Minor projects under $5K — included",
+          "Capital projects above $5K — owner's-rep engagement, separately priced",
+          "Capital projects above $50K — full owner's-rep engagement (engineer coordination, on-site supervision, payment milestones)",
+        ],
+      },
+      {
+        feat: true,
+        eye: "Stand-alone engagement",
+        h: ["For boards self-managing or with another firm"],
+        p: "Some boards manage day-to-day operations themselves but want professional capital project coordination for a specific project — a roof, a seawall, a milestone-driven structural restoration. We take owner's-rep engagements on a project basis, fixed-fee or hourly, regardless of who manages the association day-to-day.",
+        list: [
+          "Engineer engagement and scope development",
+          "Vendor pre-qualification using our 120-vendor roster",
+          "Three-bid procurement and evaluation",
+          "Contract negotiation and execution",
+          "On-site supervision through completion",
+          "Final close-out documentation for the board's permanent records",
+        ],
+      },
+    ],
+  },
+
+  // ─── PROCESS ─────────────────────────────────────────
+  process: {
+    eyebrow: "What an owner's-rep capital project actually looks like",
+    titlePlain: "Step by step,",
+    titleItalic: "with timing.",
+    items: [
+      { num: "01", h: "Engineer engagement", meta: "2-3 weeks", p: "We engage a Florida-licensed engineer or architect appropriate to the scope (structural, marine, civil, mechanical). We've worked with most of the engineering firms in the Sarasota-Charlotte coastal market for 15+ years; continuity matters. The engineer site-walks the property and produces a scope-of-work report." },
+      { num: "02", h: "Scope development with the board", meta: "1-2 weeks", p: "We translate the engineer's report into a board-facing scope-of-work document — what's included, what's optional, what's deferrable. The board reviews and approves the scope before procurement begins. This is the moment for hard conversations about what gets done now vs. later." },
+      { num: "03", h: "Procurement (three competitive bids)", meta: "3-5 weeks", p: "We solicit bids from vetted vendors against the approved scope. FL 718.3026 mandates three competitive bids on capital work above $5K; we typically solicit 4-6 to ensure three usable responses. Bid evaluation is documented and presented to the board." },
+      { num: "04", h: "Contract negotiation", meta: "2-3 weeks", p: "The selected vendor's contract is negotiated against board priorities — warranty terms, payment schedule, change-order procedure, completion timeline, performance bonds where appropriate. Outside counsel reviews where the contract value warrants." },
+      { num: "05", h: "Execution and on-site supervision", meta: "Project-dependent", p: "Daniel Caldwell or a senior PM on the team supervises the work on-site against the scope. Site-visit cadence is documented; deviations from scope trigger change-orders that go through board approval. Payment milestones are tied to documented progress, not vendor invoicing." },
+      { num: "06", h: "Close-out and warranty", meta: "2-3 weeks", p: "Final walkthrough with the board, the vendor, and (where applicable) the engineer. Punch list documented and resolved. Warranty documentation, as-built drawings, and payment release on the final retention. The project file goes into the association's permanent records." },
+    ],
+  },
+
+  // ─── DELIVERABLES ────────────────────────────────────
+  deliverables: {
+    eyebrow: "What boards actually receive",
+    titlePlain: "Documentation that survives",
+    titleItalic: "director turnover.",
+    items: [
+      { h: "Vendor scorecard",                 p: "Quarterly summary of every vendor on the roster — performance score, COI status, contract dates, board notes. Boards see what's working and what isn't, in writing." },
+      { h: "Scope-of-work documents",          p: "Engineer-derived, board-approved, vendor-bound. The document the work is bid against and delivered against. Survives any change in management firm or board composition." },
+      { h: "Bid evaluation packet",            p: "All bids received, evaluated against documented criteria, with the recommendation and the reasoning. The board has a paper trail for any ARC or counsel review." },
+      { h: "Project execution log",            p: "Site visit notes, change orders, vendor correspondence, photos, payment milestones — all in one project file. By close-out, the file is the historical record." },
+      { h: "Warranty register",                p: "Every active warranty across the property, with start and end dates, vendor contact, and claim procedure. Warranties get used, not lost." },
+      { h: "Capital project annual review",    p: "Year-end summary of every capital project completed, in progress, or planned for the next 24 months. Goes into the annual report packet alongside the financials and reserve study." },
+    ],
+  },
+
+  // ─── FAQ ─────────────────────────────────────────────
+  faq: {
+    titlePlain: "What boards ask",
+    titleItalic: "before engaging us.",
+    side: "Six recurring questions from board treasurers and presidents — pricing, scope thresholds, vendor selection, change-order procedure, and what an owner's-rep engagement actually obligates the firm to do.",
+    items: [
+      { q: "Are you a contractor? Do you do the work yourselves?",
+        a: "No. We are not a licensed general contractor; we don't self-perform construction work. We are an owner's representative — we coordinate the engineers, vendors, and contractors who do the work, on the board's behalf. The structural separation matters: an owner's rep whose only obligation is to the board has no incentive to push for a particular vendor or scope." },
+      { q: "How is owner's-rep work priced?",
+        a: "Two ways. (1) Hourly, against a not-to-exceed cap, for projects with shifting scope or extended timelines. (2) Fixed-fee, against a defined scope, for projects with clear deliverables. Most $50K+ capital projects are fixed-fee; most $5K-$50K projects are hourly. We disclose the model in writing before engagement." },
+      { q: "Can you take on a capital project if we're managed by another firm?",
+        a: "Yes — we run owner's-rep engagements for boards self-managing or working with another management firm. The other firm handles day-to-day; we run the project. This is a common arrangement for boards who like their current manager but need capital-project rigor for a specific scope." },
+      { q: "What's the threshold above which the board has to approve a change order?",
+        a: "We default to $1,000, single line item, unless the contract sets a different threshold. Cumulative change orders above 5% of contract value trigger board review regardless of single-line size. Documents in writing; nothing surprises the board on the next financial packet." },
+      { q: "How do you select vendors for a project?",
+        a: "From our 120-vendor pre-qualified roster, weighted by (1) past performance on similar work, (2) current COI and licensure, (3) capacity in the project window, and (4) board's preference if any. We solicit 4-6 bids to ensure three competitive responses; bid evaluation is documented and board-reviewable." },
+      { q: "What happens if a project goes off-schedule or off-budget?",
+        a: "We escalate to the board immediately — not at the next board meeting, immediately. Off-schedule typically means a vendor capacity issue or a discovered condition; off-budget typically means a change order or a vendor performance issue. Either way, the board hears about it within 24 hours of us knowing, with options and a recommendation." },
+    ],
+  },
+
+  // ─── QUOTE ───────────────────────────────────────────
+  quote: {
+    eyebrow: "From a board president",
+    quote: "We had a roof that was three years overdue when Daniel walked it. By the time we'd finished his briefing, the board had a procurement plan, a contractor shortlist, and a payment schedule. Project came in 2% under bid and the warranty has been honored. That's what owner's-rep means to me.",
+    name: "Robert Hennessey",
+    role: "Board President · 64-unit barrier-island condo · Longboat Key, FL",
+  },
+
+  // ─── CTA ─────────────────────────────────────────────
+  ctaBand: {
+    eyebrow: "Have a capital project on the runway?",
+    title: "Daniel Caldwell takes the first call. The conversation is consultative, not transactional.",
+    body: "If your board is facing a roof, a seawall, a milestone-driven structural restoration, or any other significant capital project, send us a note. The first call is a 30-minute briefing — what the project actually involves, how the procurement runs, what the realistic timeline looks like. No pitch, no pressure, no obligation. If we're a fit, we'll talk about engagement structure on the second call.",
+    primary:   { label: "Request a project consultation", href: "/request-proposal/index.html" },
+    secondary: { label: "Read the State of the Association",  href: "/blog/state-of-the-association-2026/index.html" },
+    phone: "(941) 485-0605",
+    hours: "Mon – Fri · 8:30am – 5:00pm ET",
+  },
+
+  footer: {},
+};
+
+// ---------- Page-specific section components ----------
+
+const KCPsHero = ({ content }) => {
+  const c = content || {};
+  return (
+    <section className="kc-ps-hero">
+      <div className="kc-container">
+        <div className="kc-ps-hero-grid">
+          <div>
+            {c.eyebrow && <div className="kc-eyebrow">{c.eyebrow}</div>}
+            <h1>{c.titlePlain} <em>{c.titleItalic}</em></h1>
+            <p className="kc-ps-hero-lede">{c.lede}</p>
+          </div>
+          <div className="kc-ps-hero-strip">
+            {(c.strip || []).map((s, i) => (
+              <div className="kc-ps-hero-strip-row" key={i}>
+                <div className="kc-ps-hero-strip-h">{s.h}</div>
+                <div className="kc-ps-hero-strip-num">{s.em ? <em>{s.num}</em> : s.num}</div>
+                <div className="kc-ps-hero-strip-label">{s.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const KCPsAreas = ({ content }) => {
+  const c = content || {};
+  return (
+    <section className="kc-ps-areas">
+      <div className="kc-container">
+        {c.eyebrow && <div className="kc-eyebrow">{c.eyebrow}</div>}
+        <h2 className="kc-section-title">{c.titlePlain} <em>{c.titleItalic}</em></h2>
+        <div className="kc-ps-areas-grid">
+          {(c.items || []).map((it, i) => (
+            <div className="kc-ps-area" key={i}>
+              <div className="kc-ps-area-num">{it.num}</div>
+              <h3 className="kc-ps-area-h">{it.h[0]} <em>{it.h[1]}</em></h3>
+              <p className="kc-ps-area-p">{it.p}</p>
+              {it.list && (
+                <ul className="kc-ps-area-list">
+                  {it.list.map((b, j) => <li key={j}>{b}</li>)}
+                </ul>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const KCPsModels = ({ content }) => {
+  const c = content || {};
+  return (
+    <section className="kc-ps-models">
+      <div className="kc-container">
+        {c.eyebrow && <div className="kc-eyebrow">{c.eyebrow}</div>}
+        <h2 className="kc-section-title">{c.titlePlain} <em>{c.titleItalic}</em></h2>
+        <div className="kc-ps-models-grid">
+          {(c.items || []).map((it, i) => (
+            <div className={"kc-ps-model" + (it.feat ? " kc-ps-model-feat" : "")} key={i}>
+              <div className="kc-ps-model-eye">{it.eye}</div>
+              <h3 className="kc-ps-model-h">{it.h[0]}</h3>
+              <p className="kc-ps-model-p">{it.p}</p>
+              {it.list && (
+                <ul className="kc-ps-model-list">
+                  {it.list.map((b, j) => <li key={j}>{b}</li>)}
+                </ul>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const KCPsProcess = ({ content }) => {
+  const c = content || {};
+  return (
+    <section className="kc-ps-process">
+      <div className="kc-container">
+        {c.eyebrow && <div className="kc-eyebrow">{c.eyebrow}</div>}
+        <h2 className="kc-section-title">{c.titlePlain} <em>{c.titleItalic}</em></h2>
+        <div className="kc-ps-process-list">
+          {(c.items || []).map((it, i) => (
+            <div className="kc-ps-process-step" key={i}>
+              <div className="kc-ps-process-num">{it.num}</div>
+              <div>
+                <h3 className="kc-ps-process-h">{it.h}</h3>
+                <div className="kc-ps-process-meta">{it.meta}</div>
+              </div>
+              <p className="kc-ps-process-p">{it.p}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const KCPsDeliverables = ({ content }) => {
+  const c = content || {};
+  return (
+    <section className="kc-ps-areas" style={{background: 'var(--kc-paper)'}}>
+      <div className="kc-container">
+        {c.eyebrow && <div className="kc-eyebrow">{c.eyebrow}</div>}
+        <h2 className="kc-section-title">{c.titlePlain} <em>{c.titleItalic}</em></h2>
+        <div className="kc-ps-areas-grid" style={{gridTemplateColumns: 'repeat(3, 1fr)'}}>
+          {(c.items || []).map((it, i) => (
+            <div className="kc-ps-area" key={i} style={{background: 'var(--kc-cream)'}}>
+              <h3 className="kc-ps-area-h" style={{marginTop: 0}}>{it.h}</h3>
+              <p className="kc-ps-area-p">{it.p}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const Page = () => (
+  <div className="kc-page">
+    <KCNav active={CONTENT.nav.active} />
+    <KCBreadcrumbs   content={CONTENT.breadcrumbs} />
+    <KCPsHero        content={CONTENT.hero} />
+    <KCPsAreas       content={CONTENT.areas} />
+    <KCPsModels      content={CONTENT.models} />
+    <KCPsProcess     content={CONTENT.process} />
+    <KCPsDeliverables content={CONTENT.deliverables} />
+    <KCFAQ           content={CONTENT.faq} />
+    <KCQuote         content={CONTENT.quote} />
+    <KCCtaBand       content={CONTENT.ctaBand} />
+    <KCFooter        content={CONTENT.footer} />
+  </div>
+);
+
+KCSeo.apply(CONTENT.meta, {
+  pageType:    "service",
+  pageUrl:     CONTENT.meta.canonical,
+  breadcrumbs: CONTENT.breadcrumbs.items,
+});
+
+const renderWhenReady = () => {
+  if (typeof KCNav === 'undefined') {
+    return setTimeout(renderWhenReady, 30);
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(<Page />);
+  requestAnimationFrame(() => { if (window.lucide) window.lucide.createIcons(); });
+  setTimeout(() => { if (window.lucide) window.lucide.createIcons(); }, 400);
+};
+renderWhenReady();
+</script>
+
+</body>
+</html>

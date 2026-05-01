@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<!-- ============================================================
+     Keys-Caldwell — Case Studies index
+     ============================================================
+     URL slot       :  /case-studies/
+     Template type  :  PROOF (anonymized board outcomes)
+     Composition    :  KCNav · KCBreadcrumbs · KCAboutHero ·
+                       KCCaseFilter · KCCaseList · KCQuote ·
+                       KCCtaBand · KCFooter
+     ----------------------------------------------------------------
+     EDITORIAL POSTURE: Anonymized. We do NOT name associations or
+     individuals. Numbers are real (rounded only to the nearest
+     thousand for assessment dollars). Each case shows the SITUATION,
+     the OBSTACLE, the WORK, and the OUTCOME — and is dated with
+     the era of the engagement so boards can place it in context.
+     ============================================================ -->
+<title>Case studies · Keys-Caldwell · Anonymized board outcomes from Sarasota County</title>
+<meta name="description" content="Six anonymized case studies from Sarasota County condo and HOA boards Keys-Caldwell has worked with — milestone inspections, special assessment recoveries, reserve-funding pivots, and operational turnarounds." />
+
+<link rel="canonical" href="https://keys-caldwell.com/case-studies/" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://keys-caldwell-site-94tm.vercel.app/case-studies/" />
+<meta property="og:title" content="Case studies · Keys-Caldwell" />
+<meta property="og:description" content="Six anonymized board outcomes from Sarasota County condo and HOA associations." />
+<meta property="og:image" content="https://keys-caldwell-site-94tm.vercel.app/assets/og/keys-caldwell-brand-og.jpg" />
+<meta property="og:image:alt" content="Keys-Caldwell — Community Association Management. Venice, Sarasota, Charlotte County. Est. 1978." />
+<meta property="og:site_name" content="Keys-Caldwell" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Case studies · Keys-Caldwell" />
+<meta name="twitter:description" content="Six anonymized board outcomes — milestone inspections, reserve recoveries, operational turnarounds." />
+<meta name="twitter:image" content="https://keys-caldwell-site-94tm.vercel.app/assets/og/keys-caldwell-brand-og.jpg" />
+<meta name="twitter:image:alt" content="Keys-Caldwell — Community Association Management." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://unpkg.com">
+
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../about.css">
+<link rel="icon" href="data:,">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<style>
+  html, body { margin: 0; padding: 0; }
+  body { font-family: 'Source Sans 3', system-ui, sans-serif; }
+  #root { min-height: 100vh; }
+
+  /* ---------- Filter bar ---------- */
+  .kc-casefilter { background: var(--kc-paper); border-bottom: 1px solid var(--kc-rule); padding: 28px 0; }
+  .kc-casefilter-inner { display: flex; align-items: center; gap: 32px; flex-wrap: wrap; }
+  .kc-casefilter-label { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--kc-ink-soft); font-family: var(--kc-serif); }
+  .kc-casefilter-chips { display: flex; gap: 8px; flex-wrap: wrap; }
+  .kc-casefilter-chip { font-size: 13px; padding: 7px 14px; border: 1px solid var(--kc-rule); border-radius: 100px; background: var(--kc-paper); color: var(--kc-ink); cursor: pointer; font-family: inherit; transition: all .15s ease; }
+  .kc-casefilter-chip:hover { border-color: var(--kc-ink); }
+  .kc-casefilter-chip[aria-pressed="true"] { background: var(--kc-ink); color: var(--kc-paper); border-color: var(--kc-ink); }
+
+  /* ---------- Case list ---------- */
+  .kc-caselist { background: var(--kc-cream); padding: 80px 0 96px; }
+  .kc-caselist-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  @media (max-width: 900px) { .kc-caselist-grid { grid-template-columns: 1fr; } }
+  .kc-casecard { background: var(--kc-paper); border: 1px solid var(--kc-rule); padding: 36px 36px 32px; display: flex; flex-direction: column; gap: 20px; }
+  .kc-casecard-meta { display: flex; gap: 16px; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--kc-ink-soft); align-items: center; }
+  .kc-casecard-meta-pillar { color: var(--kc-brass); font-weight: 600; }
+  .kc-casecard-meta-sep { opacity: .4; }
+  .kc-casecard-h { font-family: var(--kc-serif); font-size: 26px; line-height: 1.2; color: var(--kc-ink); margin: 0; }
+  .kc-casecard-h em { font-style: italic; font-weight: 400; color: var(--kc-brass); }
+  .kc-casecard-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; padding: 16px 0; border-top: 1px solid var(--kc-rule); border-bottom: 1px solid var(--kc-rule); }
+  .kc-casecard-stat-num { font-family: var(--kc-serif); font-size: 22px; color: var(--kc-ink); line-height: 1; font-feature-settings: "tnum"; }
+  .kc-casecard-stat-num em { color: var(--kc-brass); font-style: normal; }
+  .kc-casecard-stat-label { font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--kc-ink-soft); margin-top: 6px; line-height: 1.3; }
+  .kc-casecard-body { display: grid; gap: 14px; }
+  .kc-casecard-row { display: grid; grid-template-columns: 90px 1fr; gap: 16px; }
+  .kc-casecard-row-eye { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--kc-brass); padding-top: 3px; font-family: var(--kc-serif); }
+  .kc-casecard-row-text { font-size: 14px; line-height: 1.55; color: var(--kc-ink); }
+  .kc-casecard-fine { font-size: 12px; color: var(--kc-ink-soft); margin-top: auto; padding-top: 16px; border-top: 1px solid var(--kc-rule); font-style: italic; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script>window.KC_ASSET_BASE = '../';</script>
+<script src="../components/kc-org.js"></script>
+<script src="../components/kc-seo.jsx"></script>
+<script type="text/babel" src="../components/shared.jsx"></script>
+<script type="text/babel" src="../components/about.jsx"></script>
+
+<script type="text/babel" id="page-content">
+const CONTENT = {
+
+  meta: {
+    title:           "Case studies · Keys-Caldwell · Anonymized board outcomes from Sarasota County",
+    description:     "Six anonymized case studies from Sarasota County condo and HOA boards Keys-Caldwell has worked with — milestone inspections, special assessment recoveries, reserve-funding pivots, and operational turnarounds.",
+    canonical:       "/case-studies/",
+    primaryKeyword:  "condo association case studies sarasota",
+    secondaryKeywords: [
+      "hoa management case study florida",
+      "milestone inspection case study",
+      "special assessment recovery",
+      "reserve study florida case",
+    ],
+    ogTitle:         "Case studies · Keys-Caldwell",
+    ogDescription:   "Six anonymized board outcomes — milestone inspections, reserve recoveries, operational turnarounds.",
+    ogImage:         "/assets/og/keys-caldwell-default.jpg",
+    schema:          ["LocalBusiness", "BreadcrumbList"],
+  },
+
+  breadcrumbs: {
+    items: [
+      { label: "Home",  href: "/" },
+      { label: "About", href: "/about/" },
+      { label: "Case studies" },
+    ],
+  },
+
+  nav: { active: "about" },
+
+  hero: {
+    eyebrow: "Anonymized board outcomes · 2018 – 2025",
+    titlePlain: "Six engagements,",
+    titleItalic: "in plain numbers.",
+    paragraphs: [
+      "We don't name associations and we don't name board members. We do disclose the building type, the unit count, the year the engagement began, the dollar magnitude of the work, and what the outcome was. The cases below are real — assessment dollars are rounded to the nearest thousand and dates are accurate to the calendar quarter. If your board wants more detail than is on this page, ask in your proposal interview; we'll walk through the unredacted version under NDA.",
+      "Two notes on selection. First, these are not the firm's six best engagements — they're the six most representative. We omitted both the largest (where dollar figures would identify the building) and the smallest (where the lessons don't generalize). Second, every case here ended with the association still on the firm's roster — these are operating-discipline outcomes, not turnaround-and-leave engagements.",
+    ],
+    cardEyebrow: "Across the six cases",
+    stats: [
+      { num: "$3.4", suffix: "M", label: "Capital deployed" },
+      { num: "418",            label: "Total units served" },
+      { num: "6",              label: "Sarasota County cities" },
+      { num: "0",              label: "Engagements ended adversely" },
+    ],
+  },
+
+  filter: {
+    label: "Filter by",
+    chips: [
+      { id: "all",   label: "All cases" },
+      { id: "condo", label: "Condo · SIRS / milestone" },
+      { id: "hoa",   label: "HOA · governance & capital" },
+      { id: "reserves", label: "Reserve recovery" },
+      { id: "transition", label: "Mid-stream transitions" },
+    ],
+  },
+
+  cases: {
+    items: [
+      {
+        id: "C-2024-04",
+        category: "condo",
+        secondary: ["reserves"],
+        pillar: "Condo · SIRS",
+        date: "Engagement: 2022 Q4 → present",
+        loc: "Casey Key, FL",
+        h: ["The 1986 mid-rise that needed", "a capital plan, fast."],
+        stats: [
+          { num: "48",      label: "Units" },
+          { num: "$890K",   em: true, label: "Special assessment, original proposal" },
+          { num: "$340K",   em: true, label: "Special assessment, revised plan" },
+        ],
+        body: [
+          { eye: "Situation", t: "Inherited at 36 years of age with a structural integrity reserve study (SIRS) due, no current reserve study on file, and a board that had been told by a prior firm to plan for ~$890K in special assessments — concrete spalling on the seawall, roof at end-of-life, and exterior coatings 8 years overdue. The prior firm had already drafted owner letters." },
+          { eye: "Work", t: "Engaged AccuReserve for a full SIRS with a 30-year capital schedule. Re-bid the seawall and roof work; original proposals were single-source and 22% over market. Re-staged the schedule across three fiscal years and combined the seawall work with a capital loan rather than a single-event assessment." },
+          { eye: "Outcome", t: "Special assessment reduced from $890K to $340K, spread over two years. Capital loan covered seawall (15-year amortization, well under reserve replacement timeline). Building passed milestone inspection on first attempt. Board still seated, association still on roster." },
+        ],
+        fine: "Engagement ongoing · capital schedule on track through 2027.",
+      },
+      {
+        id: "C-2023-07",
+        category: "condo",
+        secondary: ["transition"],
+        pillar: "Condo · transition",
+        date: "Engagement: 2023 Q1 → present",
+        loc: "Longboat Key, FL",
+        h: ["Mid-stream transition,", "five days before the audit."],
+        stats: [
+          { num: "62",     label: "Units" },
+          { num: "5",  em: true, label: "Days from prior firm to first packet" },
+          { num: "0",  em: true, label: "Owner statements sent late" },
+        ],
+        body: [
+          { eye: "Situation", t: "Board terminated their existing management firm with five business days' notice after a financial dispute. The annual audit was scheduled in three weeks; the prior firm refused to release working files until a payment dispute was resolved. Owners were already past the assessment due date." },
+          { eye: "Work", t: "Reconstructed the trial balance from owner-side statements and prior bank reconciliations within four days. Re-issued owner statements on day five. Filed a records request under FL Ch. 718 to compel the prior firm to release the underlying ledger; received it within ten days. Coordinated with the auditor to slip the audit window by two weeks (a common-sense ask, granted)." },
+          { eye: "Outcome", t: "Audit completed clean and on the revised schedule. Zero late owner statements. Board adopted a documented mid-stream-transition checklist that we now publish in our resource hub. Association on the firm's roster since." },
+        ],
+        fine: "Engagement ongoing · still in original three-year contract.",
+      },
+      {
+        id: "C-2022-12",
+        category: "hoa",
+        secondary: [],
+        pillar: "HOA · governance",
+        date: "Engagement: 2020 Q3 → present",
+        loc: "Lakewood Ranch, FL",
+        h: ["Master-and-sub HOA where the documents", "had been out of alignment for nine years."],
+        stats: [
+          { num: "182",  label: "Lots (sub-association)" },
+          { num: "1,400", label: "Lots (master-association)" },
+          { num: "9",    em: true, label: "Years of mis-aligned amendments" },
+        ],
+        body: [
+          { eye: "Situation", t: "Sub-association inside a master-planned community had been amending governing documents independently of the master HOA for nearly a decade. Result: ARC standards were inconsistent, fining authority was duplicated and unenforceable, and the master was on notice for a 2021 lawsuit alleging the sub had no standing to fine." },
+          { eye: "Work", t: "Engaged association counsel for a documents alignment review. Identified 11 amendments that needed to be either ratified by the master or rescinded by the sub. Coordinated three joint board meetings (sub + master) to walk owners through what would change. Drafted clean amendments that consolidated ARC authority at the master level and clarified fining at the sub level." },
+          { eye: "Outcome", t: "All 11 amendments ratified or rescinded within 18 months. Master-level lawsuit dismissed without prejudice. Sub-association's collections rate moved from 89% to 97% in the 24 months following alignment. Association still on roster." },
+        ],
+        fine: "Engagement ongoing · serves as our reference governance case for master-planned communities.",
+      },
+      {
+        id: "C-2021-09",
+        category: "condo",
+        secondary: ["reserves"],
+        pillar: "Condo · reserves",
+        date: "Engagement: 2019 Q4 → present",
+        loc: "Venice, FL",
+        h: ["The reserve fund that was", "61% under the recommended balance."],
+        stats: [
+          { num: "32",     label: "Units" },
+          { num: "$1.2M",  em: true, label: "Recommended reserve" },
+          { num: "$470K", em: true, label: "Actual reserve at engagement" },
+        ],
+        body: [
+          { eye: "Situation", t: "1980s mid-rise condo with a reserve fund 61% under the AccuReserve-recommended balance. Prior firm had been billing reserves at 30% of recommended for over a decade. Roof, elevator, and exterior coatings all due within five years. Owner appetite for a special assessment: zero." },
+          { eye: "Work", t: "Built a six-year reserve recovery plan: 4% annual fee increases plus a structured supplemental contribution from the operating budget surplus. No special assessment. Re-staged the roof and elevator work over years 4–6 to allow reserve catch-up. Owner letters explained the math, the schedule, and the alternative (which would have been a $290K special assessment)." },
+          { eye: "Outcome", t: "Reserve fund reached 91% of recommended by year five. All three capital projects completed on schedule. Board didn't lose a single seat in the recovery period. Association still on roster — now in its sixth year on the firm." },
+        ],
+        fine: "Engagement ongoing · model recovery case for under-funded reserves.",
+      },
+      {
+        id: "C-2020-03",
+        category: "hoa",
+        secondary: [],
+        pillar: "HOA · capital",
+        date: "Engagement: 2018 Q2 → 2024 Q3",
+        loc: "Englewood, FL",
+        h: ["Stormwater-pond rebuild after", "Hurricane Ian."],
+        stats: [
+          { num: "94",     label: "Lots" },
+          { num: "$340K",  em: true, label: "Insurance recovery" },
+          { num: "$95K",  em: true, label: "Out-of-pocket assessment" },
+        ],
+        body: [
+          { eye: "Situation", t: "South Sarasota County HOA with three retention ponds, two of which failed during Hurricane Ian (2022). One pond breached an adjacent county easement. Insurance carrier initially proposed $128K coverage on a $340K rebuild. Board considered a $250K special assessment." },
+          { eye: "Work", t: "Engaged a public adjuster within 48 hours. Filed a supplemental claim with full engineer documentation, pond-bottom topography, and pre-storm aerial imagery. Coordinated with Sarasota County stormwater for permit modifications that allowed a phased rebuild (saving roughly $70K in mobilization costs)." },
+          { eye: "Outcome", t: "Insurance settled at $340K — full requested amount. Out-of-pocket reduced from a contemplated $250K to $95K. Both ponds rebuilt with improved overflow capacity within 14 months. Engagement ended in 2024 Q3 when the board chose to bring management in-house — amicably, with full records transition." },
+        ],
+        fine: "Closed engagement · cited as a positive reference by board treasurer.",
+      },
+      {
+        id: "C-2019-11",
+        category: "condo",
+        secondary: ["transition"],
+        pillar: "Condo · operations",
+        date: "Engagement: 2017 Q1 → present",
+        loc: "Siesta Key, FL",
+        h: ["The collections crisis that was", "actually a banking-vendor issue."],
+        stats: [
+          { num: "144",   label: "Units" },
+          { num: "23%",   em: true, label: "Delinquency at engagement" },
+          { num: "4%",    em: true, label: "Delinquency at year three" },
+        ],
+        body: [
+          { eye: "Situation", t: "Inherited a 144-unit Siesta Key condo with a 23% delinquency rate. Board had been told by the prior firm that the issue was 'owner culture' and that legal collections needed to be the next step. Two months into the engagement we identified that the prior firm's bank lockbox had been mis-routing 18% of payments back to owners as 'unidentified.'" },
+          { eye: "Work", t: "Migrated the lockbox to CityBooks within 60 days. Reconciled 14 months of mis-routed payments back to owner accounts (no legal action required for any of them). Built a new collections policy that distinguished true delinquency from administrative error and required a 60-day reconciliation window before legal escalation." },
+          { eye: "Outcome", t: "Delinquency moved from 23% at month one to 4% at year three. Of the 'delinquent' owners at engagement, 76% turned out to have been current — they were owed apology letters, not lien notices. Association on roster since 2017, still under original named manager." },
+        ],
+        fine: "Engagement ongoing · most-cited operational-discipline reference.",
+      },
+    ],
+  },
+
+  quote: {
+    eyebrow: "From a board that was a case here",
+    quote: "We came to Keys-Caldwell after a special assessment proposal we'd been told was 'just the math.' The math was wrong. Their first move was to re-bid the work, and their second was to tell us not to assess at all. Five years later we're sitting on a clean reserve, a passed inspection, and the same board.",
+    attribution: "Board Treasurer · 48-unit Casey Key condo · case C-2024-04",
+  },
+
+  ctaBand: {
+    eyebrow: "Have a board challenge of your own?",
+    title: "We do consultative meetings whether boards end up hiring us or not.",
+    body: "If your board is mid-crisis, send us a note. We'll review the documents, the reserves, and the operating context, and tell you honestly whether we're the right fit. If we're not, we usually know who is. The case studies above are not unusual — most engagements at the firm started in some version of these situations.",
+    primary:   { label: "Request a proposal", href: "/request-proposal/index.html" },
+    secondary: { label: "About the firm",     href: "/about/index.html" },
+    phone: "(941) 485-0605",
+    hours: "Mon – Fri · 8:30am – 5:00pm ET",
+  },
+
+  footer: {},
+};
+
+// ---------- Page-specific section components ----------
+
+const KCCaseFilter = ({ content, active, setActive }) => {
+  const c = content || {};
+  return (
+    <section className="kc-casefilter">
+      <div className="kc-container">
+        <div className="kc-casefilter-inner">
+          <div className="kc-casefilter-label">{c.label}</div>
+          <div className="kc-casefilter-chips">
+            {(c.chips || []).map((chip) => (
+              <button key={chip.id}
+                className="kc-casefilter-chip"
+                aria-pressed={active === chip.id}
+                onClick={() => setActive(chip.id)}>
+                {chip.label}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const KCCaseList = ({ content, active }) => {
+  const c = content || {};
+  const items = (c.items || []).filter((it) =>
+    active === 'all' || it.category === active || (it.secondary || []).includes(active)
+  );
+  return (
+    <section className="kc-caselist">
+      <div className="kc-container">
+        <div className="kc-caselist-grid">
+          {items.map((it) => (
+            <article className="kc-casecard" key={it.id}>
+              <div className="kc-casecard-meta">
+                <span className="kc-casecard-meta-pillar">{it.pillar}</span>
+                <span className="kc-casecard-meta-sep">·</span>
+                <span>{it.loc}</span>
+                <span className="kc-casecard-meta-sep">·</span>
+                <span>{it.date}</span>
+              </div>
+              <h3 className="kc-casecard-h">{it.h[0]} <em>{it.h[1]}</em></h3>
+              <div className="kc-casecard-stats">
+                {it.stats.map((s, i) => (
+                  <div key={i}>
+                    <div className="kc-casecard-stat-num">{s.em ? <em>{s.num}</em> : s.num}</div>
+                    <div className="kc-casecard-stat-label">{s.label}</div>
+                  </div>
+                ))}
+              </div>
+              <div className="kc-casecard-body">
+                {it.body.map((row, i) => (
+                  <div className="kc-casecard-row" key={i}>
+                    <div className="kc-casecard-row-eye">{row.eye}</div>
+                    <div className="kc-casecard-row-text">{row.t}</div>
+                  </div>
+                ))}
+              </div>
+              <div className="kc-casecard-fine">{it.fine}</div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const Page = () => {
+  const [active, setActive] = React.useState('all');
+  return (
+    <div className="kc-page">
+      <KCNav active={CONTENT.nav.active} />
+      <KCBreadcrumbs content={CONTENT.breadcrumbs} />
+      <KCAboutHero   content={CONTENT.hero} />
+      <KCCaseFilter  content={CONTENT.filter} active={active} setActive={setActive} />
+      <KCCaseList    content={CONTENT.cases}  active={active} />
+      <KCQuote       content={CONTENT.quote} />
+      <KCCtaBand     content={CONTENT.ctaBand} />
+      <KCFooter      content={CONTENT.footer} />
+    </div>
+  );
+};
+
+KCSeo.apply(CONTENT.meta, {
+  pageType:    "trust",
+  pageUrl:     CONTENT.meta.canonical,
+  breadcrumbs: CONTENT.breadcrumbs.items,
+});
+
+const renderWhenReady = () => {
+  if (typeof KCNav === 'undefined' || typeof KCAboutHero === 'undefined') {
+    return setTimeout(renderWhenReady, 30);
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(<Page />);
+  requestAnimationFrame(() => { if (window.lucide) window.lucide.createIcons(); });
+  setTimeout(() => { if (window.lucide) window.lucide.createIcons(); }, 400);
+};
+renderWhenReady();
+</script>
+
+</body>
+</html>

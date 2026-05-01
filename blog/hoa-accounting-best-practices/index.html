@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>HOA & Condo Accounting Best Practices — A Florida Board's Guide · Keys-Caldwell</title>
+<meta name="description" content="What good community association accounting looks like in practice — chart of accounts, reconciliation cadence, audit readiness, fund accounting, and the monthly packet a board should expect to receive." />
+<link rel="canonical" href="https://keys-caldwell.com/blog/hoa-accounting-best-practices/" />
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://keys-caldwell.com/blog/hoa-accounting-best-practices/" />
+<meta property="og:title" content="HOA & Condo Accounting Best Practices — A Florida Board's Guide" />
+<meta property="og:description" content="What good community association accounting looks like in practice — chart of accounts, reconciliation cadence, audit readiness, fund accounting, monthly packets." />
+<meta property="og:image" content="https://keys-caldwell.com/assets/og/keys-caldwell-brand-og.jpg" />
+<meta property="og:site_name" content="Keys-Caldwell" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="HOA & Condo Accounting Best Practices" />
+<meta name="twitter:description" content="What good community association accounting looks like in practice." />
+<meta name="twitter:image" content="https://keys-caldwell.com/assets/og/keys-caldwell-brand-og.jpg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://unpkg.com">
+
+<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../../blog.css">
+<link rel="icon" href="data:,">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<style>
+  html, body { margin: 0; padding: 0; }
+  body { font-family: 'Source Sans 3', system-ui, sans-serif; }
+  #root { min-height: 100vh; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script>window.KC_ASSET_BASE = '../../';</script>
+<script src="../../components/kc-org.js"></script>
+<script src="../../components/kc-seo.jsx"></script>
+<script type="text/babel" src="../../components/shared.jsx"></script>
+<script type="text/babel" src="../../components/blog.jsx"></script>
+
+<script type="text/babel" id="page-content">
+const CONTENT = {
+  meta: {
+    title: "HOA & Condo Accounting Best Practices — A Florida Board's Guide · Keys-Caldwell",
+    description: "What good community association accounting looks like in practice — chart of accounts, reconciliation cadence, audit readiness, fund accounting, and the monthly packet.",
+    canonical: "/blog/hoa-accounting-best-practices/",
+    primaryKeyword: "hoa accounting best practices",
+    schema: ["BreadcrumbList", "Article"],
+  },
+  breadcrumbs: { items: [
+    { label: "Home", href: "/" },
+    { label: "Blog", href: "/blog/" },
+    { label: "HOA & Condo Accounting Best Practices" },
+  ]},
+  nav: { active: "blog" },
+
+  header: {
+    eyebrow: "Accounting · Financial controls",
+    title: "HOA & Condo Accounting Best Practices — What Boards Should Expect From Their Books",
+    subtitle: "A working guide to community association accounting — what a clean monthly packet looks like, how reserves should be tracked, and the controls that separate audit-ready books from a year-end fire drill.",
+    publishedDisplay: "April 2, 2026",
+    updatedDisplay: "April 30, 2026",
+    readTime: "10 min read",
+    author: { initials: "AD", name: "Ande Duda, CPA", role: "Director of Accounting · CityBooks Division" },
+    tldrLabel: "Answer-first",
+    tldr: "Strong community association accounting requires four practices: (1) accrual-basis fund accounting separating operating from reserves, (2) monthly bank reconciliation completed within 15 days of close, (3) a board-readable monthly packet with budget-to-actual variance commentary, and (4) annual independent audit or review based on association size. Cash-basis books and 60-day-late reconciliations are warning signs.",
+  },
+
+  toc: { items: [
+    { id: "framework",   label: "The accounting framework" },
+    { id: "fund",        label: "Fund accounting and segregation" },
+    { id: "monthly",     label: "What a monthly packet should contain" },
+    { id: "reconcile",   label: "Reconciliation cadence and controls" },
+    { id: "audit",       label: "Audit, review, or compilation" },
+    { id: "warning",     label: "Warning signs in your books" },
+    { id: "faq",         label: "Quick-answer FAQ" },
+  ]},
+
+  body: { sections: [
+    { id: "framework", h2: "The accounting framework", blocks: [
+      { type: "p", text: "Florida community associations are not-for-profit corporations operating under specialized accounting rules. Three frameworks are in play:" },
+      { type: "ul", items: [
+        "GAAP (Generally Accepted Accounting Principles) — the baseline. Almost every association of meaningful size operates on accrual-basis GAAP.",
+        "AICPA Audit Guide for Common Interest Realty Associations (CIRA) — the industry-specific guidance for HOAs and condos. Defines fund accounting expectations.",
+        "Florida Statute 718.111 (condos) and 720.303 (HOAs) — statutory financial reporting and audit thresholds.",
+      ]},
+      { type: "p", text: "In practice, this means: accrual-basis books, fund accounting separating operating from reserves, and an annual financial statement obligation that escalates by association size." },
+      { type: "callout", kind: "note", title: "Cash-basis is rarely appropriate.",
+        text: "Some smaller associations operate on cash-basis to save money, but the moment you have any meaningful prepaid assessments, accrued expenses, or reserve activity, cash-basis stops giving the board an accurate picture of financial position. The cost difference between cash and accrual books at a competent firm is typically modest." },
+    ]},
+    { id: "fund", h2: "Fund accounting and segregation", blocks: [
+      { type: "p", text: "Fund accounting means the association's books are organized into distinct funds, each with its own balance sheet and revenue/expense activity. The standard CIRA structure:" },
+      { type: "ol", items: [
+        "Operating Fund — day-to-day operations. Assessment income, vendor payments, utilities, manager fees, insurance.",
+        "Reserve Fund — long-term capital. Reserve assessments and interest income on the reserve balance, capital project disbursements.",
+        "Other restricted funds (where applicable) — special assessment funds, capital project funds, insurance proceeds funds. These exist temporarily and close out when their purpose is complete.",
+      ]},
+      { type: "p", text: "Segregation matters because reserve dollars and operating dollars are not interchangeable. Florida statute and most declarations prohibit using reserve funds for operating purposes without owner vote. Clear fund accounting makes that boundary visible — and any inadvertent crossing of it gets caught." },
+      { type: "h3", text: "Bank account structure" },
+      { type: "p", text: "Fund segregation should be reflected at the bank level: at minimum, a separate bank account for reserves. Larger associations often run three or four accounts — operating checking, operating money market, reserves, and special-purpose escrows. Account titling should match the fund." },
+    ]},
+    { id: "monthly", h2: "What a monthly packet should contain", blocks: [
+      { type: "p", text: "The monthly financial packet is the board's primary tool for fiduciary oversight. A complete packet includes:" },
+      { type: "ul", items: [
+        "Balance sheet — assets, liabilities, fund balances, comparative to prior month and prior year.",
+        "Statement of revenues and expenses — current month, year-to-date, full-year budget, variance with commentary on items materially over or under budget.",
+        "Reserve fund schedule — beginning balance, contributions, expenditures, ending balance, by reserve component.",
+        "Cash and investment summary — every account listed by name, balance, type, and FDIC/SIPC coverage status.",
+        "Bank reconciliation — for every account, completed and signed, with outstanding items listed.",
+        "Aged receivables — owners by aging bucket (current, 30, 60, 90, 90+), with collection status notes.",
+        "Aged payables — vendor invoices by aging bucket, with explanations for anything over 30 days.",
+        "Check register or disbursement log — every payment made during the month with vendor, amount, and coding.",
+      ]},
+      { type: "callout", kind: "pivot", title: "Variance commentary is the hardest line item to fake.",
+        text: "Numbers can be presented; explanations require understanding. A monthly packet that lists 'Insurance — $48,000 over budget YTD' without a paragraph explaining why is reporting, not analysis. The variance commentary is what tells the board whether the books are actually being managed." },
+    ]},
+    { id: "reconcile", h2: "Reconciliation cadence and controls", blocks: [
+      { type: "p", text: "Bank reconciliation is the single most important control in association accounting. Every bank account should be reconciled monthly, within 15 calendar days of month-end. The reconciliation should be:" },
+      { type: "ul", items: [
+        "Performed by someone OTHER than the person who handles disbursements (segregation of duties).",
+        "Reviewed and signed by a second person — typically the accounting director or a board treasurer.",
+        "Documented with the bank statement, the GL ending balance, the reconciling items list, and explanations for any reconciling item over 30 days old.",
+      ]},
+      { type: "h3", text: "Other monthly controls" },
+      { type: "ul", items: [
+        "Two signatures required on disbursements over a board-set threshold (commonly $5,000 or $10,000).",
+        "Vendor invoices coded by a manager, reviewed by accounting before disbursement.",
+        "Owner ledger reconciled to GL receivables monthly.",
+        "Investment statements reconciled monthly; FDIC/SIPC coverage confirmed.",
+      ]},
+    ]},
+    { id: "audit", h2: "Audit, review, or compilation", blocks: [
+      { type: "p", text: "Florida statute requires every association to have an annual financial statement, with the level of CPA assurance scaled to revenue:" },
+      { type: "ul", items: [
+        "Under $150,000 in revenue — Compilation (CPA presents the statements without testing).",
+        "$150,000 – $300,000 — Review (limited assurance, analytical testing).",
+        "$300,000 – $500,000 — Review (limited assurance).",
+        "Over $500,000 — Audit (full assurance, substantive testing).",
+      ]},
+      { type: "p", text: "Owners can vote (by majority) to waive up to two consecutive years of the higher requirement, but the threshold itself is statutory. Audit-ready books — meaning books that the CPA can audit without three weeks of cleanup — save the association real money on the audit fee and put the board in a substantively better position with insurers, lenders, and prospective buyers." },
+      { type: "h3", text: "What 'audit-ready' actually means" },
+      { type: "ul", items: [
+        "Year-end accruals booked correctly — prepaid insurance amortized, deposits received but unearned, accrued expenses for known year-end liabilities.",
+        "Reserve roll-forward documented and tying to the reserve study.",
+        "Fixed asset schedule current with depreciation calculated.",
+        "Tax filings (Form 1120-H or 1120) prepared on schedule.",
+      ]},
+      { type: "pillar-link", href: "/accounting/", label: "How CityBooks runs association accounting",
+        context: "CPA-led, audit-ready books — and what makes our monthly packet different." },
+    ]},
+    { id: "warning", h2: "Warning signs in your books", blocks: [
+      { type: "h3", text: "Bank reconciliations are months behind" },
+      { type: "p", text: "If your most recent reconciliation is for a month more than 45 days ago, that's an operational red flag. Behind reconciliations mean errors compound undetected." },
+      { type: "h3", text: "Old reconciling items" },
+      { type: "p", text: "Outstanding checks more than 90 days old, or deposits in transit more than 5 days old, indicate either lost transactions or sloppy documentation. Both warrant immediate cleanup." },
+      { type: "h3", text: "Reserve balance not reconciling to schedule" },
+      { type: "p", text: "If the reserve fund balance on the balance sheet doesn't match the cumulative reserve schedule, something is wrong. Common causes: reserve interest not allocated by component, reserve disbursements not reflected, transfers between operating and reserves not documented." },
+      { type: "h3", text: "Vendor invoices missing backup" },
+      { type: "p", text: "Every vendor disbursement should have a corresponding invoice in the file. \"Trust me, that's right\" is not a control." },
+      { type: "h3", text: "Variance with no explanation" },
+      { type: "p", text: "If your monthly packet shows budget variances of more than 10% on any line with no explanation, ask. The answer is either informative or alarming — both are worth knowing." },
+    ]},
+    { id: "faq", h2: "Quick-answer FAQ", blocks: [
+      { type: "h3", text: "Can our manager also do the books?" },
+      { type: "p", text: "Yes, but only with proper internal controls. The same person should not be coding invoices, signing checks, AND reconciling the bank account. At minimum, separate the reconciliation from disbursement authority." },
+      { type: "h3", text: "Do small associations need a CPA?" },
+      { type: "p", text: "Yes. Even at the compilation level, the statute requires CPA involvement annually. The cost is modest and the documentation is essential for board fiduciary protection." },
+      { type: "h3", text: "What's the difference between an audit and a review?" },
+      { type: "p", text: "An audit involves substantive testing — the CPA confirms balances directly with banks, vendors, and owners; tests transactions; and issues an opinion. A review uses analytical procedures only and provides limited assurance. An audit costs roughly 2–3× a review for the same association." },
+      { type: "h3", text: "How long should we keep financial records?" },
+      { type: "p", text: "Florida statute requires associations to maintain financial records for 7 years. Most well-run associations keep them indefinitely, since reserve study histories and capital project documentation are useful long after the 7-year minimum." },
+      { type: "callout", kind: "warning", title: "Not legal or tax advice",
+        text: "This article is operational guidance from a community association management firm. For tax, audit, or legal questions specific to your association, consult your CPA and association counsel." },
+    ]},
+  ]},
+
+  author: {
+    initials: "AD", name: "Ande Duda, CPA",
+    role: "Director of Accounting · CityBooks Division, Keys-Caldwell",
+    eyebrow: "About the author",
+    credentials: ["CPA"],
+    bio: [
+      "Ande leads CityBooks, the in-house accounting division of Keys-Caldwell. She is a licensed CPA and oversees the firm's monthly close, audit support, and tax filings for every association under management.",
+      "Ande's background is in audit — she spent years on the other side of the desk, auditing community associations as an external CPA. That experience shapes how CityBooks runs the books: every month is closed as if the auditor were arriving the next day.",
+    ],
+  },
+
+  related: {
+    eyebrow: "Boards reading this also read",
+    titlePlain: "More from the",
+    titleItalic: "accounting desk.",
+    items: [
+      { kind: "Spoke", href: "/blog/management-fees-guide/", title: "What HOA & Condo Management Fees Actually Cover", desc: "How to read a management proposal — and why scope wins over price." },
+      { kind: "Spoke", href: "/blog/reserve-study-special-assessment/", title: "Reserve Studies & Special Assessments", desc: "How under-funded reserves become special assessments — and how to prevent it." },
+      { kind: "Pillar", href: "/accounting/", title: "CityBooks Accounting", desc: "Our in-house, CPA-led accounting practice." },
+    ],
+  },
+
+  ctaBand: {
+    eyebrow: "Want a CPA looking at your books?",
+    title: "We'd be happy to walk through a recent monthly packet with you.",
+    body: "If your board is unsure whether your current books meet the standards above, send us a recent monthly packet. We'll review it, flag what we'd do differently, and tell you whether you need a new firm or just a better conversation with your current one.",
+    primary: { label: "Request a proposal", href: "/request-proposal/index.html" },
+    secondary: { label: "About CityBooks", href: "/accounting/" },
+    phone: "(941) 485-0605",
+    hours: "Mon – Fri · 8:30am – 5:00pm ET",
+  },
+
+  footer: {},
+};
+
+const Page = () => (
+  <div className="kc-page">
+    <KCNav active={CONTENT.nav.active} />
+    <KCBreadcrumbs content={CONTENT.breadcrumbs} />
+    <KCBlogHeader content={CONTENT.header} />
+    <KCBlogToc content={CONTENT.toc} />
+    <KCBlogBody content={CONTENT.body} />
+    <KCBlogAuthor content={CONTENT.author} />
+    <KCBlogRelated content={CONTENT.related} />
+    <KCCtaBand content={CONTENT.ctaBand} />
+    <KCFooter content={CONTENT.footer} />
+  </div>
+);
+
+KCSeo.apply(CONTENT.meta, {
+  pageType: "blog",
+  pageUrl: CONTENT.meta.canonical,
+  breadcrumbs: CONTENT.breadcrumbs.items,
+  article: {
+    headline: CONTENT.header.title,
+    description: CONTENT.meta.description,
+    datePublished: "2026-04-02",
+    dateModified: "2026-04-30",
+    author: { name: CONTENT.author.name, jobTitle: CONTENT.author.role, credentials: CONTENT.author.credentials },
+  },
+});
+
+const renderWhenReady = () => {
+  if (typeof KCNav === 'undefined' || typeof KCBlogHeader === 'undefined') return setTimeout(renderWhenReady, 30);
+  ReactDOM.createRoot(document.getElementById('root')).render(<Page />);
+  requestAnimationFrame(() => { if (window.lucide) window.lucide.createIcons(); });
+  setTimeout(() => { if (window.lucide) window.lucide.createIcons(); }, 400);
+};
+renderWhenReady();
+</script>
+</body>
+</html>

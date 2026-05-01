@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<!-- ============================================================
+     Keys-Caldwell — Owners
+     ============================================================
+     URL slot       :  /owners/
+     Audience       :  Owners (NOT board members) — the resident at
+                       a Keys-Caldwell-managed association who needs
+                       to pay an assessment, submit an ARC request,
+                       file a work order, or get a real person on
+                       the phone.
+     Editorial tone :  Short, transactional, low-friction. The
+                       owner doesn't want company history; they
+                       want to click the right box and be done.
+     ============================================================ -->
+<title>For vendors & contractors · Keys-Caldwell · Pre-qualification, COI, payment terms</title>
+<meta name="description" content="Vendor onboarding for Keys-Caldwell-managed associations. Pre-qualification, three-bid procurement, COI requirements, payment terms, and how to be considered for our 120-vendor pre-qualified roster.">
+
+<link rel="canonical" href="https://keys-caldwell.com/vendors/">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://keys-caldwell-site-94tm.vercel.app/vendors/">
+<meta property="og:title" content="For vendors & contractors · Keys-Caldwell">
+<meta property="og:description" content="How to be pre-qualified, what COI we require, three-bid procurement on capital projects, and payment terms.">
+<meta property="og:image" content="https://keys-caldwell-site-94tm.vercel.app/assets/og/keys-caldwell-brand-og.jpg">
+<meta property="og:image:alt" content="Keys-Caldwell — Community Association Management. Venice, Sarasota, Charlotte County. Est. 1978.">
+<meta property="og:site_name" content="Keys-Caldwell">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="For vendors & contractors · Keys-Caldwell">
+<meta name="twitter:description" content="Pre-qualification, COI, three-bid procurement, payment terms.">
+<meta name="twitter:image" content="https://keys-caldwell-site-94tm.vercel.app/assets/og/keys-caldwell-brand-og.jpg">
+<meta name="twitter:image:alt" content="Keys-Caldwell — Community Association Management.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://unpkg.com">
+
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../about.css">
+<link rel="icon" href="data:,">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<style>
+  html, body { margin: 0; padding: 0; }
+  body { font-family: 'Source Sans 3', system-ui, sans-serif; }
+  #root { min-height: 100vh; }
+
+  /* ── HERO ── single, low-friction header */
+  .kc-own-hero { background: var(--kc-cream); padding: 80px 0 64px; border-bottom: 1px solid var(--kc-rule); }
+  .kc-own-hero-inner { display: grid; grid-template-columns: 1.4fr 1fr; gap: 64px; align-items: end; }
+  @media (max-width: 900px) { .kc-own-hero-inner { grid-template-columns: 1fr; gap: 32px; } }
+  .kc-own-hero h1 { font-family: var(--kc-serif); font-size: clamp(40px, 5.4vw, 64px); line-height: 1.04; margin: 16px 0 16px; color: var(--kc-ink); max-width: 18ch; }
+  .kc-own-hero h1 em { font-style: italic; font-weight: 400; color: var(--kc-brass); }
+  .kc-own-hero-lede { font-size: 17px; line-height: 1.6; color: var(--kc-ink-soft); max-width: 56ch; margin: 0; }
+
+  .kc-own-portal-card {
+    background: var(--kc-ink); color: var(--kc-paper);
+    padding: 32px; display: flex; flex-direction: column; gap: 16px;
+    border: 1px solid var(--kc-ink);
+  }
+  .kc-own-portal-eye { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--kc-brass); }
+  .kc-own-portal-h { font-family: var(--kc-serif); font-size: 24px; line-height: 1.25; margin: 0; color: var(--kc-paper); }
+  .kc-own-portal-h em { font-style: italic; font-weight: 400; color: var(--kc-brass); }
+  .kc-own-portal-p { font-size: 14px; line-height: 1.55; color: rgba(255,255,255,0.78); margin: 0; }
+  .kc-own-portal-cta {
+    display: inline-flex; align-items: center; justify-content: center;
+    background: var(--kc-brass); color: var(--kc-ink);
+    padding: 14px 20px; font-size: 14px; font-weight: 600;
+    text-decoration: none; letter-spacing: 0.04em;
+    border: 1px solid var(--kc-brass);
+  }
+  .kc-own-portal-cta:hover { background: transparent; color: var(--kc-paper); }
+  .kc-own-portal-foot { font-size: 12px; color: rgba(255,255,255,0.6); }
+
+  /* ── ACTIONS GRID ── 6 owner tasks */
+  .kc-own-actions { padding: 96px 0; background: var(--kc-paper); }
+  .kc-own-actions-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 48px; border: 1px solid var(--kc-rule); }
+  @media (max-width: 900px) { .kc-own-actions-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 600px) { .kc-own-actions-grid { grid-template-columns: 1fr; } }
+  .kc-own-action {
+    padding: 32px;
+    border-right: 1px solid var(--kc-rule);
+    border-bottom: 1px solid var(--kc-rule);
+    display: flex; flex-direction: column; gap: 12px;
+    background: var(--kc-paper);
+    text-decoration: none; color: inherit;
+    transition: background 0.15s ease;
+  }
+  .kc-own-action:hover { background: var(--kc-cream); color: inherit; }
+  .kc-own-action:nth-child(3n) { border-right: none; }
+  @media (max-width: 900px) { .kc-own-action:nth-child(3n) { border-right: 1px solid var(--kc-rule); } .kc-own-action:nth-child(2n) { border-right: none; } }
+  @media (max-width: 600px) { .kc-own-action { border-right: none !important; } }
+  .kc-own-action-icon { width: 32px; height: 32px; color: var(--kc-brass); }
+  .kc-own-action-h { font-family: var(--kc-serif); font-size: 22px; line-height: 1.25; margin: 0; color: var(--kc-ink); }
+  .kc-own-action-h em { font-style: italic; font-weight: 400; color: var(--kc-brass); }
+  .kc-own-action-p { font-size: 14px; line-height: 1.6; color: var(--kc-ink-soft); margin: 0; flex: 1; }
+  .kc-own-action-cta { font-size: 13px; color: var(--kc-ink); border-bottom: 1px solid var(--kc-brass); padding-bottom: 1px; align-self: flex-start; margin-top: 8px; letter-spacing: 0.04em; }
+  .kc-own-action:hover .kc-own-action-cta { color: var(--kc-brass); }
+
+  /* ── ASSOC LOOKUP STRIP ── */
+  .kc-own-assoc { background: var(--kc-cream); padding: 80px 0; border-top: 1px solid var(--kc-rule); border-bottom: 1px solid var(--kc-rule); }
+  .kc-own-assoc-inner { display: grid; grid-template-columns: 1fr 1.2fr; gap: 64px; align-items: center; }
+  @media (max-width: 900px) { .kc-own-assoc-inner { grid-template-columns: 1fr; gap: 32px; } }
+  .kc-own-assoc h2 { font-family: var(--kc-serif); font-size: clamp(28px, 3.4vw, 40px); line-height: 1.1; margin: 8px 0 16px; color: var(--kc-ink); }
+  .kc-own-assoc h2 em { font-style: italic; font-weight: 400; color: var(--kc-brass); }
+  .kc-own-assoc-p { font-size: 16px; line-height: 1.6; color: var(--kc-ink); margin: 0; }
+  .kc-own-assoc-card { background: var(--kc-paper); border: 1px solid var(--kc-rule); padding: 28px; display: flex; flex-direction: column; gap: 16px; }
+  .kc-own-assoc-card-h { font-family: var(--kc-serif); font-size: 18px; color: var(--kc-ink); margin: 0; }
+  .kc-own-assoc-row { display: grid; grid-template-columns: 120px 1fr; gap: 16px; padding: 12px 0; border-top: 1px solid var(--kc-rule); align-items: baseline; }
+  .kc-own-assoc-row:first-of-type { border-top: none; padding-top: 0; }
+  .kc-own-assoc-row-l { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--kc-ink-soft); }
+  .kc-own-assoc-row-r { font-size: 14px; line-height: 1.55; color: var(--kc-ink); }
+  .kc-own-assoc-row-r a { color: var(--kc-ink); text-decoration: underline; text-decoration-color: var(--kc-brass); text-underline-offset: 3px; }
+
+  /* ── PROCESS / what to expect ── */
+  .kc-own-expect { padding: 96px 0; background: var(--kc-paper); }
+  .kc-own-expect-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: start; }
+  @media (max-width: 900px) { .kc-own-expect-grid { grid-template-columns: 1fr; gap: 32px; } }
+  .kc-own-expect h2 { font-family: var(--kc-serif); font-size: clamp(28px, 3.4vw, 40px); line-height: 1.1; margin: 8px 0 16px; color: var(--kc-ink); }
+  .kc-own-expect h2 em { font-style: italic; font-weight: 400; color: var(--kc-brass); }
+  .kc-own-expect-p { font-size: 16px; line-height: 1.6; color: var(--kc-ink); margin: 0 0 16px; max-width: 50ch; }
+  .kc-own-expect-list { margin-top: 0; padding-left: 0; list-style: none; display: grid; gap: 0; }
+  .kc-own-expect-row { display: grid; grid-template-columns: 1fr 200px; gap: 32px; align-items: start; padding: 20px 0; border-top: 1px solid var(--kc-rule); }
+  .kc-own-expect-row:last-of-type { border-bottom: 1px solid var(--kc-rule); }
+  .kc-own-expect-row-l { font-family: var(--kc-serif); font-size: 17px; color: var(--kc-ink); margin: 0; line-height: 1.35; }
+  .kc-own-expect-row-r { font-size: 13px; color: var(--kc-ink-soft); letter-spacing: 0.04em; line-height: 1.4; }
+  @media (max-width: 600px) {
+    .kc-own-expect-row { grid-template-columns: 1fr; gap: 4px; }
+    .kc-own-expect-row-r { font-size: 12px; }
+  }
+
+  /* ── CONTACT STRIP ── */
+  .kc-own-contact { background: var(--kc-ink); color: var(--kc-paper); padding: 88px 0; }
+  .kc-own-contact h2 { font-family: var(--kc-serif); font-size: clamp(28px, 3.4vw, 40px); line-height: 1.1; margin: 12px 0 32px; color: var(--kc-paper); max-width: 24ch; }
+  .kc-own-contact h2 em { font-style: italic; font-weight: 400; color: var(--kc-brass); }
+  .kc-own-contact-eye { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--kc-brass); }
+  .kc-own-contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  @media (max-width: 800px) { .kc-own-contact-grid { grid-template-columns: 1fr; gap: 24px; } }
+  .kc-own-contact-block { padding: 28px; border: 1px solid rgba(255,255,255,0.18); display: flex; flex-direction: column; gap: 12px; }
+  .kc-own-contact-block-eye { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--kc-brass); }
+  .kc-own-contact-block-h { font-family: var(--kc-serif); font-size: 18px; color: var(--kc-paper); margin: 0; }
+  .kc-own-contact-block-big { font-family: var(--kc-serif); font-size: 28px; line-height: 1.1; color: var(--kc-paper); margin: 4px 0; font-feature-settings: "tnum"; }
+  .kc-own-contact-block-big a { color: var(--kc-paper); text-decoration: none; }
+  .kc-own-contact-block-big a:hover { color: var(--kc-brass); }
+  .kc-own-contact-block-p { font-size: 13px; line-height: 1.55; color: rgba(255,255,255,0.78); margin: 0; }
+
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script>window.KC_ASSET_BASE = '../';</script>
+<script src="../components/kc-org.js"></script>
+<script src="../components/kc-seo.jsx"></script>
+<script type="text/babel" src="../components/shared.jsx"></script>
+
+<script type="text/babel" id="page-content">
+const CONTENT = {
+
+  meta: {
+    title:           "For vendors & contractors · Keys-Caldwell · Pre-qualification, COI, payment terms",
+    description:     "Vendor onboarding for Keys-Caldwell-managed associations. Pre-qualification, three-bid procurement, COI requirements, payment terms, and how to be considered for our 120-vendor pre-qualified roster.",
+    canonical:       "/vendors/",
+    primaryKeyword:  "florida hoa vendor pre-qualification",
+    secondaryKeywords: [
+      "hoa contractor coi requirements florida",
+      "three bid procurement florida 718.3026",
+      "keys caldwell vendor list",
+      "sarasota condo vendor onboarding",
+    ],
+    ogTitle:         "For vendors & contractors · Keys-Caldwell",
+    ogDescription:   "Pre-qualification, COI, three-bid procurement, payment terms.",
+    ogImage:         "/assets/og/keys-caldwell-default.jpg",
+    schema:          ["LocalBusiness", "BreadcrumbList"],
+  },
+
+  breadcrumbs: {
+    items: [
+      { label: "Home",   href: "/" },
+      { label: "Vendors" },
+    ],
+  },
+
+  // Vendors is not in the main nav.
+  nav: { active: "" },
+
+  // ─── HERO ────────────────────────────────────────────
+  hero: {
+    eyebrow: "For contractors and service providers",
+    titlePlain: "How to work with",
+    titleItalic: "Keys-Caldwell.",
+    lede: "We coordinate roughly 120 pre-qualified vendors across the Suncoast — from landscape and pool to roofing, paint, and structural restoration. This page covers what we look for, what we require, and how to get on the list. We're a relationship firm; the vendors we work with longest are the ones who turn up, document the work, and bill cleanly.",
+    portal: {
+      eye: "Vendor application",
+      h: ["Submit your firm", "for review."],
+      p: "Send the application form, current Certificate of Insurance, W-9, license documentation (where applicable), and references from at least two community-association engagements. Applications are reviewed by the property-services lead within 5 business days.",
+      ctaLabel: "Email an application",
+      ctaHref:  "mailto:vendors@keys-caldwell.com?subject=Vendor%20application%20—%20[Firm%20Name]",
+      foot: "Already on the list and need to update insurance, license, or contact info? Email vendors@keys-caldwell.com with the change. We track expiration on a 30-day pre-notice schedule.",
+    },
+  },
+
+  // ─── ACTIONS ────────────────────────────────────────
+  actions: {
+    eyebrow: "What we look for",
+    titlePlain: "Six things",
+    titleItalic: "that get you on the list.",
+    items: [
+      {
+        icon: "shield-check",
+        h: ["Current", "COI"],
+        p: "General liability ($1M / $2M minimum), workers' comp where applicable, auto where applicable. Keys-Caldwell named as additional insured. We track expiration on 30-day pre-notice; expired COI means no work on the property until restored.",
+        ctaLabel: "COI requirements (PDF)",
+        ctaHref:  "mailto:vendors@keys-caldwell.com?subject=Request%3A%20COI%20requirements",
+      },
+      {
+        icon: "badge-check",
+        h: ["License", "& bonding"],
+        p: "Florida license appropriate to the trade (CGC / CRC / CFC / CMC / CPC / etc.) where law requires. Bonding for capital projects above $50K. We verify license status with DBPR at onboarding and on contract renewal.",
+        ctaLabel: "DBPR verification →",
+        ctaHref:  "https://www.myfloridalicense.com/wl11.asp",
+      },
+      {
+        icon: "users",
+        h: ["Two CAM", "references"],
+        p: "Active engagements at two other community associations under professional management. We call references. We're looking for response time, documentation discipline, and how the firm handled an issue that didn't go smoothly the first time.",
+        ctaLabel: "Submit application",
+        ctaHref:  "mailto:vendors@keys-caldwell.com?subject=Vendor%20application%20—%20[Firm%20Name]",
+      },
+      {
+        icon: "clipboard-list",
+        h: ["Three-bid", "procurement"],
+        p: "Florida 718.3026 mandates three competitive bids on capital expenditures above $5K. We solicit bids from our pre-qualified roster against engineer-developed scope. Vendors who consistently bid against scope (not against assumptions) win more often.",
+        ctaLabel: "How we run procurement",
+        ctaHref:  "/property-services/index.html",
+      },
+      {
+        icon: "file-text",
+        h: ["Documentation", "on every visit"],
+        p: "Service tickets, photos before/after, time on site, materials used. We track this in the work-order system and surface it in the monthly board packet. Vendors who document well make boards confident; vendors who don't get scored down on the quarterly scorecard.",
+        ctaLabel: "Work-order standard",
+        ctaHref:  "mailto:vendors@keys-caldwell.com?subject=Request%3A%20work-order%20documentation%20standard",
+      },
+      {
+        icon: "phone",
+        h: ["Talk to", "property services"],
+        p: "For questions about the vetting process, payment terms, or the procurement calendar, the property-services lead handles vendor relations directly. Email is best for first contact; phone follow-up is welcome.",
+        ctaLabel: "(941) 485-0605",
+        ctaHref:  "tel:+19414850605",
+      },
+    ],
+  },
+
+  // ─── ASSOC LOOKUP ────────────────────────────────────
+  assoc: {
+    eyebrow: "What categories we work with",
+    titlePlain: "The roster runs roughly",
+    titleItalic: "twenty trade categories.",
+    p: "We coordinate roughly 120 pre-qualified vendors across the Suncoast. Categories below run from recurring routine maintenance to capital project work. We always carry at least two qualified vendors per category so we can hold a competitive procurement when scope warrants.",
+    cardH: "Trade categories · by usage",
+    rows: [
+      { l: "Routine",      r: "Landscape · pool service · pest · pressure washing · pond / lake · janitorial" },
+      { l: "Mechanical",   r: "HVAC · plumbing · electrical · elevator · generator · fire systems" },
+      { l: "Capital",      r: "Roofing · paint · paving · concrete restoration · stucco · waterproofing · windows" },
+      { l: "Structural",   r: "Engineering · post-tension restoration · seawall · dock · milestone inspections" },
+      { l: "Specialty",    r: "Security · gate · access control · marine · hurricane shutters · fitness equipment" },
+    ],
+  },
+
+  // ─── EXPECT ────────────────────────────────────────
+  expect: {
+    eyebrow: "Payment terms & cadence",
+    titlePlain: "How invoicing",
+    titleItalic: "actually works.",
+    p: "Vendors get paid by the association directly, not by Keys-Caldwell. We run AP on a published cadence so you can expect timing. Payment terms are net-30 from invoice receipt unless the contract specifies otherwise.",
+    rows: [
+      { l: "Routine recurring",       r: "Net-30 from invoice. ACH preferred." },
+      { l: "Time-and-materials",      r: "Net-30 with work-order reference and photo documentation." },
+      { l: "Capital project draw",    r: "Per contract schedule of values; payment on engineer's certification." },
+      { l: "Final payment / retainage", r: "Released on punch-list completion and lien waiver." },
+      { l: "Lost / disputed invoice", r: "Email accounting@keys-caldwell.com with the work-order or contract reference." },
+      { l: "COI lapse",                r: "Open invoices held until COI restored. We notify 30 days pre-expiration." },
+      { l: "Statutory liens",          r: "Florida lien-rights notice should be served per statute; we coordinate with the association's counsel." },
+    ],
+  },
+
+  // ─── CONTACT ────────────────────────────────────────
+  contact: {
+    eyebrow: "Direct lines",
+    titlePlain: "Three channels",
+    titleItalic: "that route correctly.",
+    blocks: [
+      { eye: "Vendor onboarding",  h: "Property services lead", big: <a href="mailto:vendors@keys-caldwell.com">vendors@keys-caldwell.com</a>, p: "New applications, COI updates, license renewals, scope clarifications, scorecard discussions." },
+      { eye: "Accounts payable",   h: "Invoicing & payment",    big: <a href="mailto:accounting@keys-caldwell.com">accounting@keys-caldwell.com</a>, p: "Invoice submissions, payment status, ACH setup, W-9 updates, 1099 questions." },
+      { eye: "Front desk",         h: "General inquiries",      big: <a href="tel:+19414850605">(941) 485-0605</a>, p: "Mon – Fri · 8:30am – 5:00pm ET. The front desk routes vendor calls to the right CAM or to property services." },
+    ],
+  },
+
+  // ─── CTA ────────────────────────────────────────
+  ctaBand: {
+    eyebrow: "Are you on a board, not a vendor?",
+    title: "Boards have a different door for capital projects.",
+    body: "If you're a board member looking for vendors for a specific project — a roof, a paint cycle, a milestone inspection — the property-services page is the right starting point. It walks through the procurement process, scope development, and how we coordinate engineering on capital work.",
+    primary:   { label: "Property services & capital projects", href: "/property-services/index.html" },
+    secondary: { label: "Request a proposal",                    href: "/request-proposal/index.html" },
+    phone: "(941) 485-0605",
+    hours: "Mon – Fri · 8:30am – 5:00pm ET",
+  },
+
+  footer: {},
+};
+
+// ---------- Page-specific section components ----------
+
+const KCOwnHero = ({ content }) => {
+  const c = content || {};
+  const p = c.portal || {};
+  return (
+    <section className="kc-own-hero">
+      <div className="kc-container">
+        <div className="kc-own-hero-inner">
+          <div>
+            {c.eyebrow && <div className="kc-eyebrow">{c.eyebrow}</div>}
+            <h1>{c.titlePlain} <em>{c.titleItalic}</em></h1>
+            <p className="kc-own-hero-lede">{c.lede}</p>
+          </div>
+          <div className="kc-own-portal-card">
+            <div className="kc-own-portal-eye">{p.eye}</div>
+            <h2 className="kc-own-portal-h">{p.h && p.h[0]} <em>{p.h && p.h[1]}</em></h2>
+            <p className="kc-own-portal-p">{p.p}</p>
+            <a className="kc-own-portal-cta" href={p.ctaHref} target="_blank" rel="noopener noreferrer">{p.ctaLabel}</a>
+            <p className="kc-own-portal-foot">{p.foot}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const KCOwnActions = ({ content }) => {
+  const c = content || {};
+  return (
+    <section className="kc-own-actions">
+      <div className="kc-container">
+        {c.eyebrow && <div className="kc-eyebrow">{c.eyebrow}</div>}
+        <h2 className="kc-section-title">{c.titlePlain} <em>{c.titleItalic}</em></h2>
+        <div className="kc-own-actions-grid">
+          {(c.items || []).map((it, i) => {
+            const isExternal = /^https?:/.test(it.ctaHref);
+            return (
+              <a className="kc-own-action" key={i} href={it.ctaHref}
+                 target={isExternal ? "_blank" : undefined}
+                 rel={isExternal ? "noopener noreferrer" : undefined}>
+                <i data-lucide={it.icon} className="kc-own-action-icon"></i>
+                <h3 className="kc-own-action-h">{it.h[0]} <em>{it.h[1]}</em></h3>
+                <p className="kc-own-action-p">{it.p}</p>
+                <span className="kc-own-action-cta">{it.ctaLabel}</span>
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const KCOwnAssoc = ({ content }) => {
+  const c = content || {};
+  return (
+    <section className="kc-own-assoc">
+      <div className="kc-container">
+        <div className="kc-own-assoc-inner">
+          <div>
+            {c.eyebrow && <div className="kc-eyebrow">{c.eyebrow}</div>}
+            <h2>{c.titlePlain} <em>{c.titleItalic}</em></h2>
+            <p className="kc-own-assoc-p">{c.p}</p>
+          </div>
+          <div className="kc-own-assoc-card">
+            <h3 className="kc-own-assoc-card-h">{c.cardH}</h3>
+            {(c.rows || []).map((r, i) => (
+              <div className="kc-own-assoc-row" key={i}>
+                <div className="kc-own-assoc-row-l">{r.l}</div>
+                <div className="kc-own-assoc-row-r">{r.r}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const KCOwnExpect = ({ content }) => {
+  const c = content || {};
+  return (
+    <section className="kc-own-expect">
+      <div className="kc-container">
+        <div className="kc-own-expect-grid">
+          <div>
+            {c.eyebrow && <div className="kc-eyebrow">{c.eyebrow}</div>}
+            <h2>{c.titlePlain} <em>{c.titleItalic}</em></h2>
+            <p className="kc-own-expect-p">{c.p}</p>
+          </div>
+          <div>
+            <ul className="kc-own-expect-list">
+              {(c.rows || []).map((r, i) => (
+                <li className="kc-own-expect-row" key={i}>
+                  <div className="kc-own-expect-row-l">{r.l}</div>
+                  <div className="kc-own-expect-row-r">{r.r}</div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const KCOwnContact = ({ content }) => {
+  const c = content || {};
+  return (
+    <section className="kc-own-contact">
+      <div className="kc-container">
+        <div className="kc-own-contact-eye">{c.eyebrow}</div>
+        <h2>{c.titlePlain} <em>{c.titleItalic}</em></h2>
+        <div className="kc-own-contact-grid">
+          {(c.blocks || []).map((b, i) => (
+            <div className="kc-own-contact-block" key={i}>
+              <div className="kc-own-contact-block-eye">{b.eye}</div>
+              <h3 className="kc-own-contact-block-h">{b.h}</h3>
+              <div className="kc-own-contact-block-big">{b.big}</div>
+              <p className="kc-own-contact-block-p">{b.p}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const Page = () => (
+  <div className="kc-page">
+    <KCNav active={CONTENT.nav.active} />
+    <KCBreadcrumbs content={CONTENT.breadcrumbs} />
+    <KCOwnHero     content={CONTENT.hero} />
+    <KCOwnActions  content={CONTENT.actions} />
+    <KCOwnAssoc    content={CONTENT.assoc} />
+    <KCOwnExpect   content={CONTENT.expect} />
+    <KCOwnContact  content={CONTENT.contact} />
+    <KCCtaBand     content={CONTENT.ctaBand} />
+    <KCFooter      content={CONTENT.footer} />
+  </div>
+);
+
+KCSeo.apply(CONTENT.meta, {
+  pageType:    "info",
+  pageUrl:     CONTENT.meta.canonical,
+  breadcrumbs: CONTENT.breadcrumbs.items,
+});
+
+const renderWhenReady = () => {
+  if (typeof KCNav === 'undefined') {
+    return setTimeout(renderWhenReady, 30);
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(<Page />);
+  requestAnimationFrame(() => { if (window.lucide) window.lucide.createIcons(); });
+  setTimeout(() => { if (window.lucide) window.lucide.createIcons(); }, 400);
+};
+renderWhenReady();
+</script>
+
+</body>
+</html>

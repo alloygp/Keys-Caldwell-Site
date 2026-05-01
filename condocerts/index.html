@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<!-- ============================================================
+     Keys-Caldwell — Owners
+     ============================================================
+     URL slot       :  /owners/
+     Audience       :  Owners (NOT board members) — the resident at
+                       a Keys-Caldwell-managed association who needs
+                       to pay an assessment, submit an ARC request,
+                       file a work order, or get a real person on
+                       the phone.
+     Editorial tone :  Short, transactional, low-friction. The
+                       owner doesn't want company history; they
+                       want to click the right box and be done.
+     ============================================================ -->
+<title>Resale documents · CondoCerts · Keys-Caldwell</title>
+<meta name="description" content="Resale documents, estoppel certificates, and payoff statements for Keys-Caldwell-managed associations — ordered through CondoCerts. For realtors, title companies, and lenders.">
+
+<link rel="canonical" href="https://keys-caldwell.com/condocerts/">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://keys-caldwell-site-94tm.vercel.app/condocerts/">
+<meta property="og:title" content="Resale documents · CondoCerts · Keys-Caldwell">
+<meta property="og:description" content="Order estoppels, resale packets, and payoff statements through CondoCerts. For realtors, title companies, and lenders working a unit transfer.">
+<meta property="og:image" content="https://keys-caldwell-site-94tm.vercel.app/assets/og/keys-caldwell-brand-og.jpg">
+<meta property="og:image:alt" content="Keys-Caldwell — Community Association Management. Venice, Sarasota, Charlotte County. Est. 1978.">
+<meta property="og:site_name" content="Keys-Caldwell">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Resale documents · CondoCerts · Keys-Caldwell">
+<meta name="twitter:description" content="Order estoppels, resale packets, and payoff statements through CondoCerts.">
+<meta name="twitter:image" content="https://keys-caldwell-site-94tm.vercel.app/assets/og/keys-caldwell-brand-og.jpg">
+<meta name="twitter:image:alt" content="Keys-Caldwell — Community Association Management.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://unpkg.com">
+
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../about.css">
+<link rel="icon" href="data:,">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<style>
+  html, body { margin: 0; padding: 0; }
+  body { font-family: 'Source Sans 3', system-ui, sans-serif; }
+  #root { min-height: 100vh; }
+
+  /* ── HERO ── single, low-friction header */
+  .kc-own-hero { background: var(--kc-cream); padding: 80px 0 64px; border-bottom: 1px solid var(--kc-rule); }
+  .kc-own-hero-inner { display: grid; grid-template-columns: 1.4fr 1fr; gap: 64px; align-items: end; }
+  @media (max-width: 900px) { .kc-own-hero-inner { grid-template-columns: 1fr; gap: 32px; } }
+  .kc-own-hero h1 { font-family: var(--kc-serif); font-size: clamp(40px, 5.4vw, 64px); line-height: 1.04; margin: 16px 0 16px; color: var(--kc-ink); max-width: 18ch; }
+  .kc-own-hero h1 em { font-style: italic; font-weight: 400; color: var(--kc-brass); }
+  .kc-own-hero-lede { font-size: 17px; line-height: 1.6; color: var(--kc-ink-soft); max-width: 56ch; margin: 0; }
+
+  .kc-own-portal-card {
+    background: var(--kc-ink); color: var(--kc-paper);
+    padding: 32px; display: flex; flex-direction: column; gap: 16px;
+    border: 1px solid var(--kc-ink);
+  }
+  .kc-own-portal-eye { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--kc-brass); }
+  .kc-own-portal-h { font-family: var(--kc-serif); font-size: 24px; line-height: 1.25; margin: 0; color: var(--kc-paper); }
+  .kc-own-portal-h em { font-style: italic; font-weight: 400; color: var(--kc-brass); }
+  .kc-own-portal-p { font-size: 14px; line-height: 1.55; color: rgba(255,255,255,0.78); margin: 0; }
+  .kc-own-portal-cta {
+    display: inline-flex; align-items: center; justify-content: center;
+    background: var(--kc-brass); color: var(--kc-ink);
+    padding: 14px 20px; font-size: 14px; font-weight: 600;
+    text-decoration: none; letter-spacing: 0.04em;
+    border: 1px solid var(--kc-brass);
+  }
+  .kc-own-portal-cta:hover { background: transparent; color: var(--kc-paper); }
+  .kc-own-portal-foot { font-size: 12px; color: rgba(255,255,255,0.6); }
+
+  /* ── ACTIONS GRID ── 6 owner tasks */
+  .kc-own-actions { padding: 96px 0; background: var(--kc-paper); }
+  .kc-own-actions-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 48px; border: 1px solid var(--kc-rule); }
+  @media (max-width: 900px) { .kc-own-actions-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 600px) { .kc-own-actions-grid { grid-template-columns: 1fr; } }
+  .kc-own-action {
+    padding: 32px;
+    border-right: 1px solid var(--kc-rule);
+    border-bottom: 1px solid var(--kc-rule);
+    display: flex; flex-direction: column; gap: 12px;
+    background: var(--kc-paper);
+    text-decoration: none; color: inherit;
+    transition: background 0.15s ease;
+  }
+  .kc-own-action:hover { background: var(--kc-cream); color: inherit; }
+  .kc-own-action:nth-child(3n) { border-right: none; }
+  @media (max-width: 900px) { .kc-own-action:nth-child(3n) { border-right: 1px solid var(--kc-rule); } .kc-own-action:nth-child(2n) { border-right: none; } }
+  @media (max-width: 600px) { .kc-own-action { border-right: none !important; } }
+  .kc-own-action-icon { width: 32px; height: 32px; color: var(--kc-brass); }
+  .kc-own-action-h { font-family: var(--kc-serif); font-size: 22px; line-height: 1.25; margin: 0; color: var(--kc-ink); }
+  .kc-own-action-h em { font-style: italic; font-weight: 400; color: var(--kc-brass); }
+  .kc-own-action-p { font-size: 14px; line-height: 1.6; color: var(--kc-ink-soft); margin: 0; flex: 1; }
+  .kc-own-action-cta { font-size: 13px; color: var(--kc-ink); border-bottom: 1px solid var(--kc-brass); padding-bottom: 1px; align-self: flex-start; margin-top: 8px; letter-spacing: 0.04em; }
+  .kc-own-action:hover .kc-own-action-cta { color: var(--kc-brass); }
+
+  /* ── ASSOC LOOKUP STRIP ── */
+  .kc-own-assoc { background: var(--kc-cream); padding: 80px 0; border-top: 1px solid var(--kc-rule); border-bottom: 1px solid var(--kc-rule); }
+  .kc-own-assoc-inner { display: grid; grid-template-columns: 1fr 1.2fr; gap: 64px; align-items: center; }
+  @media (max-width: 900px) { .kc-own-assoc-inner { grid-template-columns: 1fr; gap: 32px; } }
+  .kc-own-assoc h2 { font-family: var(--kc-serif); font-size: clamp(28px, 3.4vw, 40px); line-height: 1.1; margin: 8px 0 16px; color: var(--kc-ink); }
+  .kc-own-assoc h2 em { font-style: italic; font-weight: 400; color: var(--kc-brass); }
+  .kc-own-assoc-p { font-size: 16px; line-height: 1.6; color: var(--kc-ink); margin: 0; }
+  .kc-own-assoc-card { background: var(--kc-paper); border: 1px solid var(--kc-rule); padding: 28px; display: flex; flex-direction: column; gap: 16px; }
+  .kc-own-assoc-card-h { font-family: var(--kc-serif); font-size: 18px; color: var(--kc-ink); margin: 0; }
+  .kc-own-assoc-row { display: grid; grid-template-columns: 120px 1fr; gap: 16px; padding: 12px 0; border-top: 1px solid var(--kc-rule); align-items: baseline; }
+  .kc-own-assoc-row:first-of-type { border-top: none; padding-top: 0; }
+  .kc-own-assoc-row-l { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--kc-ink-soft); }
+  .kc-own-assoc-row-r { font-size: 14px; line-height: 1.55; color: var(--kc-ink); }
+  .kc-own-assoc-row-r a { color: var(--kc-ink); text-decoration: underline; text-decoration-color: var(--kc-brass); text-underline-offset: 3px; }
+
+  /* ── PROCESS / what to expect ── */
+  .kc-own-expect { padding: 96px 0; background: var(--kc-paper); }
+  .kc-own-expect-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: start; }
+  @media (max-width: 900px) { .kc-own-expect-grid { grid-template-columns: 1fr; gap: 32px; } }
+  .kc-own-expect h2 { font-family: var(--kc-serif); font-size: clamp(28px, 3.4vw, 40px); line-height: 1.1; margin: 8px 0 16px; color: var(--kc-ink); }
+  .kc-own-expect h2 em { font-style: italic; font-weight: 400; color: var(--kc-brass); }
+  .kc-own-expect-p { font-size: 16px; line-height: 1.6; color: var(--kc-ink); margin: 0 0 16px; max-width: 50ch; }
+  .kc-own-expect-list { margin-top: 0; padding-left: 0; list-style: none; display: grid; gap: 0; }
+  .kc-own-expect-row { display: grid; grid-template-columns: 1fr 200px; gap: 32px; align-items: start; padding: 20px 0; border-top: 1px solid var(--kc-rule); }
+  .kc-own-expect-row:last-of-type { border-bottom: 1px solid var(--kc-rule); }
+  .kc-own-expect-row-l { font-family: var(--kc-serif); font-size: 17px; color: var(--kc-ink); margin: 0; line-height: 1.35; }
+  .kc-own-expect-row-r { font-size: 13px; color: var(--kc-ink-soft); letter-spacing: 0.04em; line-height: 1.4; }
+  @media (max-width: 600px) {
+    .kc-own-expect-row { grid-template-columns: 1fr; gap: 4px; }
+    .kc-own-expect-row-r { font-size: 12px; }
+  }
+
+  /* ── CONTACT STRIP ── */
+  .kc-own-contact { background: var(--kc-ink); color: var(--kc-paper); padding: 88px 0; }
+  .kc-own-contact h2 { font-family: var(--kc-serif); font-size: clamp(28px, 3.4vw, 40px); line-height: 1.1; margin: 12px 0 32px; color: var(--kc-paper); max-width: 24ch; }
+  .kc-own-contact h2 em { font-style: italic; font-weight: 400; color: var(--kc-brass); }
+  .kc-own-contact-eye { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--kc-brass); }
+  .kc-own-contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  @media (max-width: 800px) { .kc-own-contact-grid { grid-template-columns: 1fr; gap: 24px; } }
+  .kc-own-contact-block { padding: 28px; border: 1px solid rgba(255,255,255,0.18); display: flex; flex-direction: column; gap: 12px; }
+  .kc-own-contact-block-eye { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--kc-brass); }
+  .kc-own-contact-block-h { font-family: var(--kc-serif); font-size: 18px; color: var(--kc-paper); margin: 0; }
+  .kc-own-contact-block-big { font-family: var(--kc-serif); font-size: 28px; line-height: 1.1; color: var(--kc-paper); margin: 4px 0; font-feature-settings: "tnum"; }
+  .kc-own-contact-block-big a { color: var(--kc-paper); text-decoration: none; }
+  .kc-own-contact-block-big a:hover { color: var(--kc-brass); }
+  .kc-own-contact-block-p { font-size: 13px; line-height: 1.55; color: rgba(255,255,255,0.78); margin: 0; }
+
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script>window.KC_ASSET_BASE = '../';</script>
+<script src="../components/kc-org.js"></script>
+<script src="../components/kc-seo.jsx"></script>
+<script type="text/babel" src="../components/shared.jsx"></script>
+
+<script type="text/babel" id="page-content">
+const CONTENT = {
+
+  meta: {
+    title:           "Resale documents · CondoCerts · Keys-Caldwell",
+    description:     "Resale documents, estoppel certificates, and payoff statements for Keys-Caldwell-managed associations — ordered through CondoCerts. For realtors, title companies, and lenders.",
+    canonical:       "/condocerts/",
+    primaryKeyword:  "condocerts florida estoppel",
+    secondaryKeywords: [
+      "order estoppel certificate florida",
+      "hoa resale packet sarasota",
+      "condo payoff statement florida",
+      "keys caldwell resale documents",
+    ],
+    ogTitle:         "Resale documents · CondoCerts · Keys-Caldwell",
+    ogDescription:   "Order estoppels, resale packets, and payoff statements through CondoCerts — the realtor / title / lender front door.",
+    ogImage:         "/assets/og/keys-caldwell-default.jpg",
+    schema:          ["LocalBusiness", "BreadcrumbList"],
+  },
+
+  breadcrumbs: {
+    items: [
+      { label: "Home",        href: "/" },
+      { label: "Resale documents" },
+    ],
+  },
+
+  nav: { active: "" },
+
+  // ─── HERO ────────────────────────────────────────────
+  hero: {
+    eyebrow: "For realtors, title companies, and lenders",
+    titlePlain: "Resale documents,",
+    titleItalic: "ordered the right way.",
+    lede: "If you're closing on a unit in a Keys-Caldwell-managed association, this is your front door. Estoppel certificates, resale packets, payoff statements, governing documents, and insurance certificates — ordered, paid for, and delivered through CondoCerts on a statutory timeline.",
+    portal: {
+      eye: "CondoCerts portal",
+      h: ["Order through", "CondoCerts."],
+      p: "All resale documents, estoppels, and payoff statements for Keys-Caldwell-managed associations are processed through CondoCerts. Orders are queued, paid, and delivered electronically on a statutory timeline. Replaces the legacy HomeWiseDocs flow.",
+      ctaLabel: "Open CondoCerts",
+      ctaHref:  "https://www.condocerts.com/",
+      foot: "First time using CondoCerts for a Keys-Caldwell association? Set up a free professional account; choose Keys-Caldwell as the management company; the association list will populate.",
+    },
+  },
+
+  // ─── ACTIONS ────────────────────────────────────────
+  actions: {
+    eyebrow: "What you can order",
+    titlePlain: "Six documents,",
+    titleItalic: "one portal.",
+    items: [
+      {
+        icon: "file-check",
+        h: ["Estoppel", "certificate"],
+        p: "Statutory closing document under FL 718.116(8) and 720.30851 — confirms unit balance, assessments, transfer fees, and any unpaid amounts as of the closing date. Required for unit transfers.",
+        ctaLabel: "Order through CondoCerts",
+        ctaHref:  "https://www.condocerts.com/",
+      },
+      {
+        icon: "package",
+        h: ["Resale", "packet"],
+        p: "Florida resale disclosure — declaration, bylaws, rules, financial statements, current budget, latest reserve study, and Q&A document. Required for the buyer's review period.",
+        ctaLabel: "Order through CondoCerts",
+        ctaHref:  "https://www.condocerts.com/",
+      },
+      {
+        icon: "receipt",
+        h: ["Payoff", "statement"],
+        p: "Final amount due to clear all assessments, special-assessment installments, fines, and statutory late fees through the closing date. Re-issued at no charge if closing slips past the original date.",
+        ctaLabel: "Order through CondoCerts",
+        ctaHref:  "https://www.condocerts.com/",
+      },
+      {
+        icon: "book",
+        h: ["Governing", "documents"],
+        p: "Recorded declaration, bylaws, articles of incorporation, and rules — the controlling documents. Buyers' attorneys typically request these for review during the inspection period.",
+        ctaLabel: "Order through CondoCerts",
+        ctaHref:  "https://www.condocerts.com/",
+      },
+      {
+        icon: "shield-check",
+        h: ["Insurance", "certificate"],
+        p: "Master-policy COI naming the lender or buyer as additional interest. Required by most lenders for unit financing. Issued by the association's broker, requested via CondoCerts.",
+        ctaLabel: "Order through CondoCerts",
+        ctaHref:  "https://www.condocerts.com/",
+      },
+      {
+        icon: "phone",
+        h: ["Talk to a", "real person"],
+        p: "Statutory deadline pressure, an unusual document, lost order, or a special-assessment question that needs context? The front desk routes you to the right CAM the same business day.",
+        ctaLabel: "(941) 485-0605",
+        ctaHref:  "tel:+19414850605",
+      },
+    ],
+  },
+
+  // ─── ASSOC LOOKUP ────────────────────────────────────
+  assoc: {
+    eyebrow: "How CondoCerts works for Keys-Caldwell associations",
+    titlePlain: "One portal,",
+    titleItalic: "one statutory clock.",
+    p: "All Keys-Caldwell-managed associations route resale documents through CondoCerts. Orders are time-stamped against statutory deadlines, paid for by the requester, and delivered electronically to the requester and to the closing party. The CAM assigned to that association is notified for any document that requires custom preparation.",
+    cardH: "Front desk · Venice office",
+    rows: [
+      { l: "Phone",   r: <a href="tel:+19414850605">(941) 485-0605</a> },
+      { l: "Email",   r: <a href="mailto:info@keys-caldwell.com">info@keys-caldwell.com</a> },
+      { l: "Address", r: <>1162 Indian Hills Boulevard<br/>Venice, FL 34293</> },
+      { l: "Hours",   r: "Mon – Fri · 8:30am – 5:00pm ET" },
+      { l: "Rush orders", r: "Statutory deadline pressure? Call the front desk so we can flag the order in CondoCerts and get the right CAM on it." },
+    ],
+  },
+
+  // ─── EXPECT ────────────────────────────────────────
+  expect: {
+    eyebrow: "Statutory turnaround — what to expect",
+    titlePlain: "Document timing,",
+    titleItalic: "by document type.",
+    p: "Florida sets statutory turnarounds for resale documents — we don't bury them. These are the timelines the law requires; in practice we deliver standard orders well inside the deadline.",
+    rows: [
+      { l: "Estoppel certificate (standard)",         r: "Per FL 718.116(8)(b) / 720.30851 — 10 business days" },
+      { l: "Estoppel certificate (rush, by request)", r: "3 business days where prep allows; rush fee per statute" },
+      { l: "Payoff statement (re-issue)",             r: "Same-day if closing slips and original is in CondoCerts" },
+      { l: "Resale packet (full)",                    r: "3–5 business days, electronic delivery" },
+      { l: "Governing documents",                     r: "Per FL 718.111(12) — 10 business days" },
+      { l: "Insurance certificate (master policy)",   r: "2–3 business days via the association's broker" },
+      { l: "Lender questionnaire",                    r: "Per Fannie / Freddie format — 5–7 business days" },
+    ],
+  },
+
+  // ─── CONTACT ────────────────────────────────────────
+  contact: {
+    eyebrow: "Other ways to reach us",
+    titlePlain: "If CondoCerts doesn't fit the request,",
+    titleItalic: "here are real channels.",
+    blocks: [
+      { eye: "Front desk",       h: "Realtor / lender / title line", big: <a href="tel:+19414850605">(941) 485-0605</a>, p: "Monday – Friday · 8:30am – 5:00pm ET. Front desk routes statutory deadlines to the assigned CAM the same day." },
+      { eye: "Email",            h: "Slower but tracked",      big: <a href="mailto:info@keys-caldwell.com">info@keys-caldwell.com</a>, p: "All inbound email is logged in the association's record. Replies typically within 1 business day." },
+      { eye: "Office address",   h: "1162 Indian Hills Blvd",  big: "Venice, FL 34293", p: "Walk-ins welcome during business hours. We've been at this address since 1978." },
+    ],
+  },
+
+  // ─── CTA ────────────────────────────────────────
+  ctaBand: {
+    eyebrow: "Looking for owner-side resources?",
+    title: "Owners and board members have different doors.",
+    body: "If you're a unit owner at a Keys-Caldwell-managed association, the assessment-payment, ARC, and work-order tools are on the owner page. If you're on the board and looking for a new management firm, the proposal flow is on a different page entirely.",
+    primary:   { label: "Owner resources",       href: "/owners/index.html" },
+    secondary: { label: "Request a proposal",    href: "/request-proposal/index.html" },
+    phone: "(941) 485-0605",
+    hours: "Mon – Fri · 8:30am – 5:00pm ET",
+  },
+
+  footer: {},
+};
+
+// ---------- Page-specific section components ----------
+
+const KCOwnHero = ({ content }) => {
+  const c = content || {};
+  const p = c.portal || {};
+  return (
+    <section className="kc-own-hero">
+      <div className="kc-container">
+        <div className="kc-own-hero-inner">
+          <div>
+            {c.eyebrow && <div className="kc-eyebrow">{c.eyebrow}</div>}
+            <h1>{c.titlePlain} <em>{c.titleItalic}</em></h1>
+            <p className="kc-own-hero-lede">{c.lede}</p>
+          </div>
+          <div className="kc-own-portal-card">
+            <div className="kc-own-portal-eye">{p.eye}</div>
+            <h2 className="kc-own-portal-h">{p.h && p.h[0]} <em>{p.h && p.h[1]}</em></h2>
+            <p className="kc-own-portal-p">{p.p}</p>
+            <a className="kc-own-portal-cta" href={p.ctaHref} target="_blank" rel="noopener noreferrer">{p.ctaLabel}</a>
+            <p className="kc-own-portal-foot">{p.foot}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const KCOwnActions = ({ content }) => {
+  const c = content || {};
+  return (
+    <section className="kc-own-actions">
+      <div className="kc-container">
+        {c.eyebrow && <div className="kc-eyebrow">{c.eyebrow}</div>}
+        <h2 className="kc-section-title">{c.titlePlain} <em>{c.titleItalic}</em></h2>
+        <div className="kc-own-actions-grid">
+          {(c.items || []).map((it, i) => {
+            const isExternal = /^https?:/.test(it.ctaHref);
+            return (
+              <a className="kc-own-action" key={i} href={it.ctaHref}
+                 target={isExternal ? "_blank" : undefined}
+                 rel={isExternal ? "noopener noreferrer" : undefined}>
+                <i data-lucide={it.icon} className="kc-own-action-icon"></i>
+                <h3 className="kc-own-action-h">{it.h[0]} <em>{it.h[1]}</em></h3>
+                <p className="kc-own-action-p">{it.p}</p>
+                <span className="kc-own-action-cta">{it.ctaLabel}</span>
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const KCOwnAssoc = ({ content }) => {
+  const c = content || {};
+  return (
+    <section className="kc-own-assoc">
+      <div className="kc-container">
+        <div className="kc-own-assoc-inner">
+          <div>
+            {c.eyebrow && <div className="kc-eyebrow">{c.eyebrow}</div>}
+            <h2>{c.titlePlain} <em>{c.titleItalic}</em></h2>
+            <p className="kc-own-assoc-p">{c.p}</p>
+          </div>
+          <div className="kc-own-assoc-card">
+            <h3 className="kc-own-assoc-card-h">{c.cardH}</h3>
+            {(c.rows || []).map((r, i) => (
+              <div className="kc-own-assoc-row" key={i}>
+                <div className="kc-own-assoc-row-l">{r.l}</div>
+                <div className="kc-own-assoc-row-r">{r.r}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const KCOwnExpect = ({ content }) => {
+  const c = content || {};
+  return (
+    <section className="kc-own-expect">
+      <div className="kc-container">
+        <div className="kc-own-expect-grid">
+          <div>
+            {c.eyebrow && <div className="kc-eyebrow">{c.eyebrow}</div>}
+            <h2>{c.titlePlain} <em>{c.titleItalic}</em></h2>
+            <p className="kc-own-expect-p">{c.p}</p>
+          </div>
+          <div>
+            <ul className="kc-own-expect-list">
+              {(c.rows || []).map((r, i) => (
+                <li className="kc-own-expect-row" key={i}>
+                  <div className="kc-own-expect-row-l">{r.l}</div>
+                  <div className="kc-own-expect-row-r">{r.r}</div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const KCOwnContact = ({ content }) => {
+  const c = content || {};
+  return (
+    <section className="kc-own-contact">
+      <div className="kc-container">
+        <div className="kc-own-contact-eye">{c.eyebrow}</div>
+        <h2>{c.titlePlain} <em>{c.titleItalic}</em></h2>
+        <div className="kc-own-contact-grid">
+          {(c.blocks || []).map((b, i) => (
+            <div className="kc-own-contact-block" key={i}>
+              <div className="kc-own-contact-block-eye">{b.eye}</div>
+              <h3 className="kc-own-contact-block-h">{b.h}</h3>
+              <div className="kc-own-contact-block-big">{b.big}</div>
+              <p className="kc-own-contact-block-p">{b.p}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const Page = () => (
+  <div className="kc-page">
+    <KCNav active={CONTENT.nav.active} />
+    <KCBreadcrumbs content={CONTENT.breadcrumbs} />
+    <KCOwnHero     content={CONTENT.hero} />
+    <KCOwnActions  content={CONTENT.actions} />
+    <KCOwnAssoc    content={CONTENT.assoc} />
+    <KCOwnExpect   content={CONTENT.expect} />
+    <KCOwnContact  content={CONTENT.contact} />
+    <KCCtaBand     content={CONTENT.ctaBand} />
+    <KCFooter      content={CONTENT.footer} />
+  </div>
+);
+
+KCSeo.apply(CONTENT.meta, {
+  pageType:    "info",
+  pageUrl:     CONTENT.meta.canonical,
+  breadcrumbs: CONTENT.breadcrumbs.items,
+});
+
+const renderWhenReady = () => {
+  if (typeof KCNav === 'undefined') {
+    return setTimeout(renderWhenReady, 30);
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(<Page />);
+  requestAnimationFrame(() => { if (window.lucide) window.lucide.createIcons(); });
+  setTimeout(() => { if (window.lucide) window.lucide.createIcons(); }, 400);
+};
+renderWhenReady();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<!-- ============================================================
+     Keys-Caldwell — Florida CAM Glossary
+     ============================================================
+     URL slot       :  /blog/glossary/
+     Template type  :  REFERENCE (alphabetical, link-rich)
+     Composition    :  KCNav · KCBreadcrumbs · KCGlossaryHeader ·
+                       KCGlossaryNav · KCGlossaryList · KCCtaBand ·
+                       KCFooter
+     ----------------------------------------------------------------
+     EDITORIAL POSTURE: Reference-grade. Each term has a plain-English
+     definition, the source statute or industry body where applicable,
+     and a "where this comes up" note that links to a relevant pillar
+     or guide on our site. NOT a Wikipedia mirror — every entry is
+     anchored to Florida-specific operating context.
+     ============================================================ -->
+<title>Florida community association glossary · Keys-Caldwell · Plain-English definitions</title>
+<meta name="description" content="Plain-English definitions of the terms Florida condo and HOA boards encounter — SIRS, milestone inspection, reserve study, CAM license, Chapter 718, Chapter 720, and 50+ more. Each entry cites the source statute or governing body." />
+
+<link rel="canonical" href="https://keys-caldwell.com/blog/glossary/" />
+
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://keys-caldwell-site-94tm.vercel.app/blog/glossary/" />
+<meta property="og:title" content="Florida community association glossary · Keys-Caldwell" />
+<meta property="og:description" content="Plain-English definitions of Florida condo and HOA terminology." />
+<meta property="og:image" content="https://keys-caldwell-site-94tm.vercel.app/assets/og/keys-caldwell-brand-og.jpg" />
+<meta property="og:image:alt" content="Keys-Caldwell — Community Association Management. Venice, Sarasota, Charlotte County. Est. 1978." />
+<meta property="og:site_name" content="Keys-Caldwell" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Florida community association glossary" />
+<meta name="twitter:description" content="Plain-English definitions of Florida condo and HOA terminology." />
+<meta name="twitter:image" content="https://keys-caldwell-site-94tm.vercel.app/assets/og/keys-caldwell-brand-og.jpg" />
+<meta name="twitter:image:alt" content="Keys-Caldwell — Community Association Management." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://unpkg.com">
+
+<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../../about.css">
+<link rel="icon" href="data:,">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<style>
+  html, body { margin: 0; padding: 0; }
+  body { font-family: 'Source Sans 3', system-ui, sans-serif; }
+  #root { min-height: 100vh; }
+
+  .kc-glossary-head { background: var(--kc-paper); padding: 80px 0 56px; border-bottom: 1px solid var(--kc-rule); }
+  .kc-glossary-head h1 { font-family: var(--kc-serif); font-size: clamp(38px, 5vw, 60px); line-height: 1.05; margin: 12px 0 16px; color: var(--kc-ink); max-width: 18ch; }
+  .kc-glossary-head h1 em { font-style: italic; font-weight: 400; color: var(--kc-brass); }
+  .kc-glossary-head-lede { font-size: 18px; line-height: 1.55; color: var(--kc-ink-soft); max-width: 60ch; }
+
+  .kc-glossary-toolbar { background: var(--kc-cream); border-bottom: 1px solid var(--kc-rule); padding: 20px 0; position: sticky; top: 0; z-index: 10; backdrop-filter: blur(6px); }
+  .kc-glossary-toolbar-inner { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+  .kc-glossary-search { flex: 1; min-width: 240px; max-width: 360px; }
+  .kc-glossary-search input { width: 100%; padding: 10px 14px; font-family: inherit; font-size: 15px; border: 1px solid var(--kc-rule); background: var(--kc-paper); border-radius: 4px; color: var(--kc-ink); }
+  .kc-glossary-search input:focus { outline: none; border-color: var(--kc-ink); }
+  .kc-glossary-letters { display: flex; gap: 4px; flex-wrap: wrap; }
+  .kc-glossary-letter { width: 28px; height: 28px; display: inline-flex; align-items: center; justify-content: center; font-size: 13px; font-family: var(--kc-serif); color: var(--kc-ink-soft); background: transparent; border: 1px solid transparent; border-radius: 4px; text-decoration: none; transition: all .12s ease; cursor: pointer; }
+  .kc-glossary-letter:hover { color: var(--kc-ink); border-color: var(--kc-rule); }
+  .kc-glossary-letter[data-active="true"] { color: var(--kc-paper); background: var(--kc-ink); border-color: var(--kc-ink); }
+  .kc-glossary-letter[data-empty="true"] { opacity: 0.3; pointer-events: none; }
+
+  .kc-glossary-list { background: var(--kc-paper); padding: 64px 0 96px; }
+  .kc-glossary-section { margin-bottom: 56px; }
+  .kc-glossary-section-letter { font-family: var(--kc-serif); font-size: 64px; line-height: 1; color: var(--kc-brass); margin: 0 0 24px; padding-bottom: 16px; border-bottom: 2px solid var(--kc-brass); }
+  .kc-glossary-entries { display: grid; gap: 32px; }
+  .kc-glossary-entry { display: grid; grid-template-columns: 240px 1fr; gap: 32px; padding-bottom: 32px; border-bottom: 1px solid var(--kc-rule); }
+  .kc-glossary-entry:last-child { border-bottom: none; }
+  .kc-glossary-entry-term { font-family: var(--kc-serif); font-size: 22px; color: var(--kc-ink); line-height: 1.25; margin: 0; padding-top: 2px; }
+  .kc-glossary-entry-aka { display: block; font-family: 'Source Sans 3', system-ui, sans-serif; font-size: 12px; color: var(--kc-ink-soft); letter-spacing: 0.04em; text-transform: uppercase; margin-top: 6px; font-style: normal; }
+  .kc-glossary-entry-body { font-size: 15px; line-height: 1.6; color: var(--kc-ink); }
+  .kc-glossary-entry-body p { margin: 0 0 12px; }
+  .kc-glossary-entry-body p:last-child { margin-bottom: 0; }
+  .kc-glossary-entry-source { font-size: 12px; color: var(--kc-ink-soft); padding: 6px 0; border-top: 1px dashed var(--kc-rule); margin-top: 12px; padding-top: 10px; font-family: var(--kc-serif); }
+  .kc-glossary-entry-source strong { color: var(--kc-brass); font-weight: 600; }
+  .kc-glossary-entry-link { font-size: 13px; color: var(--kc-ink); text-decoration: none; border-bottom: 1px solid var(--kc-brass); padding-bottom: 1px; display: inline-block; margin-top: 8px; }
+  .kc-glossary-entry-link:hover { color: var(--kc-brass); }
+  .kc-glossary-entry-link::before { content: "→ "; color: var(--kc-brass); }
+
+  .kc-glossary-empty { padding: 80px 0; text-align: center; color: var(--kc-ink-soft); font-style: italic; }
+
+  @media (max-width: 700px) {
+    .kc-glossary-entry { grid-template-columns: 1fr; gap: 8px; }
+    .kc-glossary-section-letter { font-size: 48px; }
+  }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script>window.KC_ASSET_BASE = '../../';</script>
+<script src="../../components/kc-org.js"></script>
+<script src="../../components/kc-seo.jsx"></script>
+<script type="text/babel" src="../../components/shared.jsx"></script>
+
+<script type="text/babel" id="page-content">
+const CONTENT = {
+
+  meta: {
+    title:           "Florida community association glossary · Keys-Caldwell · Plain-English definitions",
+    description:     "Plain-English definitions of the terms Florida condo and HOA boards encounter — SIRS, milestone inspection, reserve study, CAM license, Chapter 718, Chapter 720, and 50+ more. Each entry cites the source statute or governing body.",
+    canonical:       "/blog/glossary/",
+    primaryKeyword:  "florida condo association glossary",
+    secondaryKeywords: [
+      "florida hoa terms glossary",
+      "what is sirs florida",
+      "florida cam terminology",
+      "chapter 718 explained",
+    ],
+    ogTitle:         "Florida community association glossary",
+    ogDescription:   "Plain-English definitions of Florida condo and HOA terminology.",
+    ogImage:         "/assets/og/keys-caldwell-default.jpg",
+    schema:          ["LocalBusiness", "BreadcrumbList"],
+  },
+
+  breadcrumbs: {
+    items: [
+      { label: "Home",      href: "/" },
+      { label: "Resources", href: "/blog/" },
+      { label: "Glossary" },
+    ],
+  },
+
+  nav: { active: "blog" },
+
+  head: {
+    eyebrow: "Reference · 56 terms",
+    titlePlain: "Plain-English definitions —",
+    titleItalic: "for Florida boards.",
+    lede: "Florida condo and HOA boards inherit a specific vocabulary: statutes by chapter number, certifications by acronym, building-system terms by industry trade. This glossary defines what we use in our own written communication with boards, with the source statute or governing body cited where applicable. Updated quarterly.",
+  },
+
+  // Each entry: { term, aka?, body[], source, linkHref?, linkLabel? }
+  // Entries are flat — grouped into A-Z sections by KCGlossaryList.
+  entries: [
+    { term: "ARC", aka: "Architectural Review Committee",
+      body: ["A board-appointed committee that reviews exterior modifications proposed by owners — fences, paint colors, roofing changes, lanai enclosures, etc. — against the association's published architectural standards. ARCs are mandatory in most HOAs and many condominiums; their authority comes from the governing documents, not statute."],
+      source: "FL Ch. 720 (HOA), Ch. 718 (Condo), and the association's CC&Rs.",
+      linkHref: "/hoa-management-company-sarasota/", linkLabel: "How we run ARC for HOA boards" },
+
+    { term: "Assessment",
+      body: ["A mandatory financial obligation owed by every owner to the association. Two main types: regular assessments (the recurring monthly or quarterly fee) and special assessments (one-time levies for unbudgeted capital expenses). Both are enforceable by lien under Florida statute."],
+      source: "FL Ch. 718.116 / Ch. 720.3085.",
+      linkHref: "/condo-association-management-sarasota/", linkLabel: "How we coordinate assessments" },
+
+    { term: "Audit",
+      body: ["An independent CPA examination of an association's financial statements, conducted annually for associations meeting the statutory size threshold (>$500K annual revenue for condos under FL 718.111(13)). Audits produce an opinion on whether the financials present fairly, in all material respects, the association's financial position. Smaller associations may be required to produce a review (lighter scope) or compilation instead — defined in 718.111(13)(a)."],
+      source: "FL Ch. 718.111(13), Ch. 720.303(7).",
+      linkHref: "/accounting/", linkLabel: "Our annual audit coordination" },
+
+    { term: "Bid",
+      body: ["A written quote from a vendor for proposed work. For capital projects above $5,000, FL 718.3026 requires condominium associations to receive at least three competitive bids (with limited exceptions). HOAs operate under similar requirements via 720.3055."],
+      source: "FL Ch. 718.3026, Ch. 720.3055." },
+
+    { term: "Board",
+      body: ["The elected directors of the association, charged with administering the association's affairs. Florida statute imposes specific duties on directors — fiduciary, statutory, and contractual — and requires director education within 90 days of seating (or a signed certification in lieu)."],
+      source: "FL Ch. 718.112, Ch. 720.303." },
+
+    { term: "Budget",
+      body: ["The annual financial plan adopted by the board, projecting revenue (assessments) against operating expenses and reserve contributions. Florida statute requires board adoption at a noticed meeting, owner notice 14 days in advance with the proposed budget attached, and disclosure of any reserve under-funding."],
+      source: "FL Ch. 718.112(2)(f), Ch. 720.303(6)." },
+
+    { term: "Bylaws",
+      body: ["The document defining how the association operates internally — meeting procedures, election procedures, board composition, voting requirements, etc. Bylaws are filed with the association's incorporation documents and can only be amended through the procedure described in the bylaws themselves (typically requiring a supermajority owner vote)."],
+      source: "Recorded with the association's Articles of Incorporation." },
+
+    { term: "CAM", aka: "Community Association Manager",
+      body: ["A Florida-licensed professional authorized to manage community associations on behalf of boards. Licensing is administered by the Florida Department of Business and Professional Regulation (DBPR) under FL Ch. 468 Part VIII. License numbers are searchable on the DBPR public database."],
+      source: "FL Ch. 468 Part VIII (DBPR).",
+      linkHref: "/about/", linkLabel: "Our licensed managers" },
+
+    { term: "Capital project",
+      body: ["A non-recurring expenditure on the association's infrastructure — roof replacement, seawall repair, elevator modernization, exterior recoating, etc. Capital projects are funded from the reserve account (or a special assessment if reserves are insufficient) and are typically scheduled against the reserve study's component schedule."],
+      source: "Internal classification; tracked separately from operating expense.",
+      linkHref: "/reserve-studies/", linkLabel: "How capital projects relate to reserves" },
+
+    { term: "CC&Rs", aka: "Covenants, Conditions & Restrictions",
+      body: ["The recorded restrictions that run with the land in an HOA — what can be built, how the property must be maintained, restrictions on use. CC&Rs are recorded against every lot at the time of subdivision and bind every successor owner. The condo equivalent is the Declaration of Condominium."],
+      source: "Recorded in county property records." },
+
+    { term: "Chapter 718",
+      body: ["The Florida statute governing condominium associations — formally Title XL, Chapter 718 of the Florida Statutes (\"The Condominium Act\"). Covers everything from formation to dissolution, including reserves, assessments, board governance, owner rights, and (since 2022) structural integrity reserve studies."],
+      source: "FL Ch. 718 (full text on flsenate.gov).",
+      linkHref: "/condo-association-management-sarasota/", linkLabel: "Our condo management practice" },
+
+    { term: "Chapter 720",
+      body: ["The Florida statute governing homeowners associations — formally Title XL, Chapter 720 of the Florida Statutes (\"Homeowners' Association Act\"). Covers HOA formation, board duties, owner rights, assessments, ARC authority, and the operating posture of master-planned communities."],
+      source: "FL Ch. 720 (full text on flsenate.gov).",
+      linkHref: "/hoa-management-company-sarasota/", linkLabel: "Our HOA management practice" },
+
+    { term: "CDD", aka: "Community Development District",
+      body: ["A special-purpose government unit, established by Florida Ch. 190, that funds and operates community infrastructure (roads, drainage, amenities) inside a master-planned development. CDDs are independent of the HOA but commonly co-exist with one — the CDD owns and assesses for infrastructure; the HOA owns and assesses for governance and architectural control. Lakewood Ranch is the most prominent CDD in our coverage area."],
+      source: "FL Ch. 190." },
+
+    { term: "Common element",
+      body: ["In a condominium, the portions of the property owned in undivided interest by all unit owners — exterior walls, roofs, lobbies, elevators, pool decks, parking. Maintenance of common elements is the association's responsibility; cost is borne via assessments. The HOA equivalent term is \"common area.\""],
+      source: "FL Ch. 718.108." },
+
+    { term: "Declaration of Condominium",
+      body: ["The foundational recorded document that creates a condominium and defines unit boundaries, common elements, ownership shares, voting rights, and assessment obligations. The Declaration is the condo equivalent of CC&Rs in an HOA — it cannot be amended except by the procedure stated in the document itself, almost always requiring a supermajority unit-owner vote."],
+      source: "Recorded in county property records." },
+
+    { term: "Director education",
+      body: ["Florida statute requires every newly seated condominium board director to complete a state-approved director education course within 90 days of seating, or sign a written certification stating they have read and will comply with the governing documents. HOA directors face a similar requirement under Ch. 720."],
+      source: "FL Ch. 718.112(2)(d)4.b., Ch. 720.3033(1)(a)." },
+
+    { term: "Estoppel",
+      body: ["A written certificate issued by the association at closing, stating the unit's assessment status — current vs. delinquent, dues amount, special assessments outstanding, etc. Florida statute caps the fee an association can charge for an estoppel and dictates the response timeline (10 business days). Title companies will not close without one."],
+      source: "FL Ch. 718.116(8), Ch. 720.30851." },
+
+    { term: "Fining",
+      body: ["The authority of an association to impose monetary penalties on owners for violations of the governing documents. In Florida, fines must be imposed by a fining committee (separate from the board) following written notice, an opportunity to be heard, and a finding by majority vote. Maximum fines are statutorily capped per violation."],
+      source: "FL Ch. 718.303, Ch. 720.305." },
+
+    { term: "Hurricane preparedness plan",
+      body: ["A documented plan for the association's response to an approaching tropical system — boarding-up procedures, common-element shutdown, owner notifications, post-storm damage assessment, insurance carrier contact. Not statutorily required, but standard practice for any coastal Florida association."],
+      source: "Industry best practice; coordinate with insurance carrier requirements." },
+
+    { term: "Insurance — Property",
+      body: ["The master policy carried by the association on the building's structure (in a condo) or the common-area improvements (in an HOA). Florida property insurance markets have hardened significantly post-2022; carriers commonly require completed milestone inspections and SIRS reports before binding or renewing."],
+      source: "FL Ch. 718.111(11) (condo); industry practice (HOA)." },
+
+    { term: "Lien",
+      body: ["A legal claim recorded against an owner's property for unpaid assessments. In Florida, the association's lien is automatic from the moment assessments are due (FL 718.116, 720.3085) — no recording is required for the lien to attach, though recording is required to enforce it. Lien priority is statutorily defined."],
+      source: "FL Ch. 718.116, Ch. 720.3085." },
+
+    { term: "Master association",
+      body: ["The umbrella association in a multi-tier governance structure — typically governing infrastructure, recreation amenities, and master-level architectural standards. Sub-associations operate underneath, governing their own subdivision-level affairs. Document alignment between master and sub is the dominant operational discipline in master-planned communities."],
+      source: "FL Ch. 720; recorded in master and sub-CC&Rs.",
+      linkHref: "/hoa-management-company-sarasota/lakewood-ranch/", linkLabel: "Master/sub HOA work in Lakewood Ranch" },
+
+    { term: "Material alteration",
+      body: ["A change to the common elements that goes beyond ordinary maintenance and replacement. In a condominium, material alterations require unit-owner approval (typically 75% under FL 718.113, unless the Declaration sets a different threshold). Includes things like changing exterior color schemes, adding pool features, or substantially modifying landscape design."],
+      source: "FL Ch. 718.113." },
+
+    { term: "Meeting — Annual",
+      body: ["The yearly meeting at which the association elects board directors and conducts other statutorily-required business. Must be noticed to all owners at least 14 days in advance with the agenda, candidate list, and proxy form attached."],
+      source: "FL Ch. 718.112(2)(d), Ch. 720.306(2)." },
+
+    { term: "Meeting — Board",
+      body: ["A meeting of the board of directors at which association business is transacted. Must be noticed to owners (at least 48 hours under FL 718, with limited exceptions for emergencies). Owners have the right to attend and to speak (subject to reasonable rules) but not to vote."],
+      source: "FL Ch. 718.112(2)(c), Ch. 720.303(2)." },
+
+    { term: "Milestone inspection",
+      body: ["A structural inspection required by Florida statute for condominium buildings of three stories or more, performed by a licensed engineer or architect. Phase 1 (visual) is required at year 30 (or year 25 within 3 miles of the coast), with subsequent inspections every 10 years. If Phase 1 finds substantial structural deterioration, a Phase 2 (invasive) inspection is triggered. The 2022 statute (post-Surfside) made these inspections mandatory and codified the timeline."],
+      source: "FL Ch. 553.899.",
+      linkHref: "/blog/florida-sirs-milestone-inspection-guide/", linkLabel: "Full SIRS & milestone guide" },
+
+    { term: "Minutes",
+      body: ["The written record of what was discussed, decided, and voted on at a board or association meeting. Must be retained for seven years and made available for owner inspection on reasonable notice. Discipline around minute-taking is one of the strongest predictors of governance health — boards with consistent minutes have continuity across director turnover."],
+      source: "FL Ch. 718.111(12), Ch. 720.303(5)." },
+
+    { term: "Official records",
+      body: ["The statutorily-defined set of association documents that owners have the right to inspect — governing documents, financial records (current and 7 years prior), meeting minutes (7 years), insurance policies, contracts, vendor bids, and others. Florida law sets a 10-business-day response window for records requests."],
+      source: "FL Ch. 718.111(12), Ch. 720.303(5)." },
+
+    { term: "Owner",
+      body: ["The titled holder of a condominium unit or HOA lot. Florida statute confers on owners specific rights — voting, records inspection, meeting attendance, ability to run for the board — independent of whether the owner is in good standing on assessments (with limited exceptions for delinquent owners losing the right to vote)."],
+      source: "FL Ch. 718.103, Ch. 720.301." },
+
+    { term: "Pet restriction",
+      body: ["A governing-document provision regulating animals on the property — number, weight, breed, and visitor pets. Pet restrictions are enforceable but must be reasonable and applied uniformly. Federal Fair Housing Act considerations override certain breed and number restrictions for service and emotional-support animals."],
+      source: "Governing documents + 42 U.S.C. § 3604 (FHA)." },
+
+    { term: "Quorum",
+      body: ["The minimum percentage of owners (by voting interest) who must be present or by proxy at a meeting for business to be transacted. Florida statute defaults to 30% for condominium annual meetings (FL 718.112(2)(b)), but governing documents may set a different threshold. HOAs vary by document."],
+      source: "FL Ch. 718.112(2)(b), Ch. 720.306(1)." },
+
+    { term: "Record-keeping",
+      body: ["The discipline of maintaining the association's official records — meeting minutes, financials, contracts, owner correspondence, vendor scorecards. Florida statute defines the categories that must be retained and for how long; industry best practice goes further, retaining operating context (capital schedules, board decision logs) that aren't statutorily required but are essential for continuity."],
+      source: "FL Ch. 718.111(12), Ch. 720.303(5)." },
+
+    { term: "Reserve account",
+      body: ["A segregated bank account holding funds set aside for major capital expenditures — roof, painting, paving, structural elements, etc. In Florida, condominium reserves are statutorily required and must be funded according to a reserve study unless owners vote (annually, by majority of those voting at the meeting) to waive or reduce. Post-SB-4D (2022), the waive/reduce option is being phased out for SIRS-mandated components."],
+      source: "FL Ch. 718.112(2)(f)2., 718.112(2)(g).",
+      linkHref: "/reserve-studies/", linkLabel: "Reserve study practice" },
+
+    { term: "Reserve study",
+      body: ["An engineering-based analysis of the association's capital components — roofs, paving, painting, mechanicals, structural elements — projecting useful life, replacement cost, and required annual contribution to fund replacements without special assessment. Florida statute requires reserve studies be performed at minimum every 10 years; SIRS (the structural sub-set) is required every 10 years for condos 3+ stories."],
+      source: "FL Ch. 718.112(2)(g) — SIRS sub-section.",
+      linkHref: "/reserve-studies/", linkLabel: "AccuReserve continuum" },
+
+    { term: "Roster",
+      body: ["The official list of unit owners (or HOA lot owners) maintained by the association — names, mailing addresses, voting interests, and (under recent FL amendments) email addresses for those who consent to electronic notice. Owners have the right to inspect a redacted version of the roster on reasonable notice."],
+      source: "FL Ch. 718.111(12)(c)." },
+
+    { term: "Rules and regulations",
+      body: ["Operating rules adopted by the board to govern day-to-day common-element use — pool hours, parking, guest policies, etc. Rules are subordinate to the governing documents (Declaration, CC&Rs, bylaws) — a rule that conflicts with the governing documents is unenforceable."],
+      source: "Authority under FL Ch. 718.103, Ch. 720.301." },
+
+    { term: "SB-4D", aka: "Senate Bill 4-D (2022)",
+      body: ["The 2022 Florida law passed in response to the Surfside collapse, codifying mandatory milestone inspections and structural integrity reserve studies for condominium buildings of three stories or more. SB-4D rolled into FL 553.899 (milestone) and FL 718.112(2)(g) (SIRS), with subsequent amendments in SB-154 (2023) extending and clarifying the timelines."],
+      source: "FL SB-4D (2022) → codified at FL 553.899 and 718.112(2)(g).",
+      linkHref: "/blog/florida-sirs-milestone-inspection-guide/", linkLabel: "Full SB-4D guide" },
+
+    { term: "Seawall",
+      body: ["A vertical or near-vertical retaining wall protecting waterfront property from erosion and wave action. In coastal Florida associations, the seawall is the single largest reserve component for buildings with direct waterfront — typical replacement cost runs $400-700 per linear foot in 2025. Inspection cadence is annually (visual) and every 5-7 years (structural engineer)."],
+      source: "Industry standard; component scheduled in reserve study." },
+
+    { term: "Special assessment",
+      body: ["A one-time levy on owners, beyond the regular assessment, to fund an unbudgeted expense — typically a capital project that exceeds available reserves. Florida statute requires owner notice (14 days minimum), a board vote at a noticed meeting, and (in many governing documents) an owner vote for amounts above a certain threshold."],
+      source: "FL Ch. 718.112(2)(c), Ch. 720.303(2). Governing-document thresholds vary." },
+
+    { term: "SIRS", aka: "Structural Integrity Reserve Study",
+      body: ["A specialized reserve study required for Florida condominium buildings 3+ stories, focusing exclusively on structural components — roof, foundations, exterior walls, plumbing in walls/ceilings, electrical, fire-protection, waterproofing, elevators, and any other components costing more than $10K to replace. Required at year 30 (or 25 within 3 miles of coast), then every 10 years. Cannot be waived or under-funded once on the schedule."],
+      source: "FL Ch. 718.112(2)(g).",
+      linkHref: "/blog/florida-sirs-milestone-inspection-guide/", linkLabel: "Plain-English SIRS guide" },
+
+    { term: "Sub-association",
+      body: ["A neighborhood-level association operating underneath a master association in a master-planned community. Sub-associations typically govern an HOA-style enclave (single-family, townhome, or villa) within a larger development; the master governs infrastructure and amenity access. See \"Master association.\""],
+      source: "Recorded in sub-association CC&Rs; subordinate to master." },
+
+    { term: "Tort claim",
+      body: ["A civil claim against the association for damages arising from a non-contractual harm — a slip-and-fall in the common element, an injury from negligent maintenance, etc. Defended by the association's liability insurance carrier. Most associations carry $1M / $2M general liability with umbrella coverage above."],
+      source: "FL Ch. 768 (Negligence)." },
+
+    { term: "Transition",
+      body: ["The handoff of association control from the developer to the elected unit owners — typically when 90% of units are sold (condo) or based on a date or sale-percentage trigger in the CC&Rs (HOA). Transition is the most operationally complex moment in an association's life cycle: documents transfer, vendor contracts come up for review, reserves are audited, and the unit owners have their first true budget cycle."],
+      source: "FL Ch. 718.301, Ch. 720.307." },
+
+    { term: "Trial balance",
+      body: ["A summary report of the association's general ledger, listing every account balance at a point in time. The trial balance is the foundation document for the monthly financial packet — every line on the income statement and balance sheet traces back to the trial balance. Boards should be able to ask for it and receive it within one business day."],
+      source: "Standard accounting practice; not statutorily defined.",
+      linkHref: "/accounting/", linkLabel: "Our monthly packet structure" },
+
+    { term: "Useful life",
+      body: ["The estimated number of years a capital component will perform its intended function before requiring replacement. Useful life is set in the reserve study; it drives the annual reserve contribution. AccuReserve and other reserve study firms use industry-standard useful-life ranges (e.g., 25-30 years for asphalt shingle roofs in coastal Florida) modulated by site conditions."],
+      source: "Reserve study methodology; ASTM E2018, E2502 for guidance.",
+      linkHref: "/reserve-studies/", linkLabel: "How useful life is set" },
+
+    { term: "Vantaca",
+      body: ["The community-association management software platform Keys-Caldwell uses for owner-facing services — owner portal, ARC submissions, work-order tracking, document storage. Vantaca is one of two dominant platforms in the Florida CAM market (alongside CINC); choice of platform is a vendor decision, not a statutory one."],
+      source: "Vendor platform; vantaca.com." },
+
+    { term: "Vendor",
+      body: ["A contractor or service provider engaged by the association — landscaping, pool service, painting, roofing, pest control, accounting, etc. Vendor management discipline (scoring, scope-of-work, three-bid procurement above $5K) is one of the largest operational levers an association manager has on the budget."],
+      source: "FL Ch. 718.3026 (3-bid threshold)." },
+
+    { term: "Voting interest",
+      body: ["The percentage of total owner voting weight held by a single unit or lot. In a condominium, voting interests are set in the Declaration and typically (but not always) follow square-footage ratios. In an HOA, voting interests are usually 1-per-lot regardless of lot size. Quorum and supermajority calculations work off voting interests, not headcount."],
+      source: "FL Ch. 718.103(33), Ch. 720.301." },
+
+    { term: "Waiver — Reserves",
+      body: ["The historical practice (allowed under FL 718.112(2)(f)2.) of asking unit owners to vote, annually, to fund reserves at less than the reserve-study-recommended level. Post-SB-4D, waiver authority is being phased out for SIRS-mandated structural components (roof, structural, waterproofing, etc.) — meaning these components must be funded at study-recommended levels regardless of owner appetite."],
+      source: "FL Ch. 718.112(2)(f)2.; SIRS exclusion at 718.112(2)(g)." },
+
+    { term: "Working capital",
+      body: ["The buffer of unrestricted operating funds carried by the association beyond month-to-month obligations — typically 1.5-3 months of operating expenses, depending on assessment frequency and seasonal cash flow. Distinct from the reserve account, which is restricted to specific capital components. Working capital is what absorbs unexpected operating shocks (a roof leak between assessment cycles, an insurance deductible)."],
+      source: "Financial best practice; not statutorily defined.",
+      linkHref: "/accounting/", linkLabel: "How we set working capital targets" },
+  ],
+
+  ctaBand: {
+    eyebrow: "Found a term that's missing?",
+    title: "Boards send us terms to add. We add the ones that show up across associations.",
+    body: "If you encountered a Florida CAM term in a board packet, statute, or vendor proposal that isn't defined here, send us a note — we'll add it (with the source citation) in the next quarterly update. The glossary is meant to reflect the actual operating vocabulary boards encounter, not just our internal one.",
+    primary:   { label: "Suggest a term", href: "mailto:info@keys-caldwell.com?subject=Glossary%20suggestion" },
+    secondary: { label: "Browse the resource hub", href: "/blog/index.html" },
+    phone: "(941) 485-0605",
+    hours: "Mon – Fri · 8:30am – 5:00pm ET",
+  },
+
+  footer: {},
+};
+
+// ---------- Page-specific section components ----------
+
+const KCGlossaryHeader = ({ content }) => {
+  const c = content || {};
+  return (
+    <section className="kc-glossary-head">
+      <div className="kc-container">
+        {c.eyebrow && <div className="kc-eyebrow">{c.eyebrow}</div>}
+        <h1>{c.titlePlain} <em>{c.titleItalic}</em></h1>
+        {c.lede && <p className="kc-glossary-head-lede">{c.lede}</p>}
+      </div>
+    </section>
+  );
+};
+
+const KCGlossaryToolbar = ({ entries, query, setQuery, presentLetters, activeLetter, setActiveLetter }) => {
+  const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+  return (
+    <section className="kc-glossary-toolbar">
+      <div className="kc-container">
+        <div className="kc-glossary-toolbar-inner">
+          <div className="kc-glossary-search">
+            <input type="search" placeholder="Search the glossary…" value={query} onChange={(e) => setQuery(e.target.value)} />
+          </div>
+          <div className="kc-glossary-letters">
+            {letters.map((L) => {
+              const empty = !presentLetters.has(L);
+              return (
+                <a key={L} href={empty ? undefined : '#letter-' + L}
+                  className="kc-glossary-letter"
+                  data-active={activeLetter === L}
+                  data-empty={empty}
+                  onClick={(e) => { if (!empty) setActiveLetter(L); }}>
+                  {L}
+                </a>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const KCGlossaryList = ({ entries }) => {
+  // Group entries by leading letter
+  const groups = {};
+  entries.forEach((e) => {
+    const letter = e.term[0].toUpperCase();
+    (groups[letter] = groups[letter] || []).push(e);
+  });
+  const letters = Object.keys(groups).sort();
+  if (letters.length === 0) {
+    return <section className="kc-glossary-list"><div className="kc-container"><div className="kc-glossary-empty">No matching terms.</div></div></section>;
+  }
+  return (
+    <section className="kc-glossary-list">
+      <div className="kc-container">
+        {letters.map((L) => (
+          <div className="kc-glossary-section" id={"letter-" + L} key={L}>
+            <div className="kc-glossary-section-letter">{L}</div>
+            <div className="kc-glossary-entries">
+              {groups[L].map((e) => (
+                <div className="kc-glossary-entry" key={e.term}>
+                  <div>
+                    <h3 className="kc-glossary-entry-term">{e.term}
+                      {e.aka && <span className="kc-glossary-entry-aka">{e.aka}</span>}
+                    </h3>
+                  </div>
+                  <div className="kc-glossary-entry-body">
+                    {e.body.map((p, i) => <p key={i}>{p}</p>)}
+                    <div className="kc-glossary-entry-source"><strong>Source ·</strong> {e.source}</div>
+                    {e.linkHref && (
+                      <a href={window.kcHref ? window.kcHref(e.linkHref) : e.linkHref} className="kc-glossary-entry-link">{e.linkLabel}</a>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
+const Page = () => {
+  const [query, setQuery] = React.useState('');
+  const [activeLetter, setActiveLetter] = React.useState(null);
+  const filtered = React.useMemo(() => {
+    if (!query.trim()) return CONTENT.entries;
+    const q = query.trim().toLowerCase();
+    return CONTENT.entries.filter((e) =>
+      e.term.toLowerCase().includes(q) ||
+      (e.aka || '').toLowerCase().includes(q) ||
+      e.body.join(' ').toLowerCase().includes(q)
+    );
+  }, [query]);
+  const presentLetters = React.useMemo(() => {
+    const s = new Set();
+    filtered.forEach((e) => s.add(e.term[0].toUpperCase()));
+    return s;
+  }, [filtered]);
+  return (
+    <div className="kc-page">
+      <KCNav active={CONTENT.nav.active} />
+      <KCBreadcrumbs    content={CONTENT.breadcrumbs} />
+      <KCGlossaryHeader content={CONTENT.head} />
+      <KCGlossaryToolbar entries={CONTENT.entries} query={query} setQuery={setQuery}
+        presentLetters={presentLetters} activeLetter={activeLetter} setActiveLetter={setActiveLetter} />
+      <KCGlossaryList   entries={filtered} />
+      <KCCtaBand        content={CONTENT.ctaBand} />
+      <KCFooter         content={CONTENT.footer} />
+    </div>
+  );
+};
+
+KCSeo.apply(CONTENT.meta, {
+  pageType:    "blog",
+  pageUrl:     CONTENT.meta.canonical,
+  breadcrumbs: CONTENT.breadcrumbs.items,
+});
+
+const renderWhenReady = () => {
+  if (typeof KCNav === 'undefined') {
+    return setTimeout(renderWhenReady, 30);
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(<Page />);
+  requestAnimationFrame(() => { if (window.lucide) window.lucide.createIcons(); });
+  setTimeout(() => { if (window.lucide) window.lucide.createIcons(); }, 400);
+};
+renderWhenReady();
+</script>
+
+</body>
+</html>

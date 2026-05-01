@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<!-- ============================================================
+     Keys-Caldwell — Quarterly newsletter signup
+     ============================================================
+     URL slot       :  /blog/newsletter/
+     Template type  :  CONVERSION (signup) + ARCHIVE
+     Composition    :  KCNav · KCBreadcrumbs · KCNewsHeader ·
+                       KCNewsForm · KCNewsArchive · KCNewsAbout ·
+                       KCFooter
+     ============================================================ -->
+<title>Quarterly newsletter · Keys-Caldwell · Florida community association briefing</title>
+<meta name="description" content="A quarterly briefing for Florida condo and HOA boards — statute updates, insurance market signals, reserve cost trends, and operational notes from a 47-year-old Florida CAM firm. One email per quarter. Past issues linked." />
+
+<link rel="canonical" href="https://keys-caldwell.com/blog/newsletter/" />
+
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://keys-caldwell-site-94tm.vercel.app/blog/newsletter/" />
+<meta property="og:title" content="Quarterly newsletter · Keys-Caldwell" />
+<meta property="og:description" content="One email per quarter for Florida condo and HOA boards." />
+<meta property="og:image" content="https://keys-caldwell-site-94tm.vercel.app/assets/og/keys-caldwell-brand-og.jpg" />
+<meta property="og:image:alt" content="Keys-Caldwell — Community Association Management. Venice, Sarasota, Charlotte County. Est. 1978." />
+<meta property="og:site_name" content="Keys-Caldwell" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Quarterly newsletter · Keys-Caldwell" />
+<meta name="twitter:description" content="One email per quarter for Florida condo and HOA boards." />
+<meta name="twitter:image" content="https://keys-caldwell-site-94tm.vercel.app/assets/og/keys-caldwell-brand-og.jpg" />
+<meta name="twitter:image:alt" content="Keys-Caldwell — Community Association Management." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://unpkg.com">
+
+<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../../about.css">
+<link rel="icon" href="data:,">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<style>
+  html, body { margin: 0; padding: 0; }
+  body { font-family: 'Source Sans 3', system-ui, sans-serif; }
+  #root { min-height: 100vh; }
+
+  .kc-newshead { background: var(--kc-paper); padding: 88px 0 64px; border-bottom: 1px solid var(--kc-rule); }
+  .kc-newshead-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 80px; align-items: start; }
+  @media (max-width: 900px) { .kc-newshead-grid { grid-template-columns: 1fr; gap: 56px; } }
+  .kc-newshead h1 { font-family: var(--kc-serif); font-size: clamp(40px, 5vw, 64px); line-height: 1.05; margin: 12px 0 20px; color: var(--kc-ink); }
+  .kc-newshead h1 em { font-style: italic; font-weight: 400; color: var(--kc-brass); }
+  .kc-newshead-lede { font-size: 18px; line-height: 1.6; color: var(--kc-ink-soft); max-width: 52ch; }
+  .kc-newshead-bullets { margin: 32px 0 0; padding: 0; list-style: none; display: grid; gap: 12px; }
+  .kc-newshead-bullets li { display: grid; grid-template-columns: 24px 1fr; gap: 14px; font-size: 15px; line-height: 1.5; color: var(--kc-ink); align-items: start; }
+  .kc-newshead-bullets li::before { content: "·"; font-family: var(--kc-serif); font-size: 32px; color: var(--kc-brass); line-height: 0.4; padding-top: 8px; }
+
+  /* Form card */
+  .kc-newsform-card { background: var(--kc-cream); border: 1px solid var(--kc-rule); padding: 36px; }
+  .kc-newsform-eye { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--kc-brass); margin-bottom: 12px; }
+  .kc-newsform-h { font-family: var(--kc-serif); font-size: 24px; line-height: 1.25; margin: 0 0 8px; color: var(--kc-ink); }
+  .kc-newsform-h em { font-style: italic; font-weight: 400; color: var(--kc-brass); }
+  .kc-newsform-p { font-size: 14px; line-height: 1.5; color: var(--kc-ink-soft); margin: 0 0 24px; }
+  .kc-newsform-row { display: grid; gap: 6px; margin-bottom: 16px; }
+  .kc-newsform-row label { font-size: 12px; letter-spacing: 0.04em; color: var(--kc-ink); text-transform: uppercase; }
+  .kc-newsform-row input, .kc-newsform-row select { padding: 10px 12px; font-family: inherit; font-size: 15px; border: 1px solid var(--kc-rule); background: var(--kc-paper); color: var(--kc-ink); border-radius: 4px; }
+  .kc-newsform-row input:focus, .kc-newsform-row select:focus { outline: none; border-color: var(--kc-ink); }
+  .kc-newsform-actions { margin-top: 20px; display: flex; flex-direction: column; gap: 10px; align-items: stretch; }
+  .kc-newsform-fine { font-size: 12px; color: var(--kc-ink-soft); margin-top: 12px; line-height: 1.5; }
+
+  .kc-news { padding: 96px 0; }
+  .kc-news.kc-bg-cream { background: var(--kc-cream); }
+  .kc-news.kc-bg-paper { background: var(--kc-paper); }
+
+  /* Archive */
+  .kc-newsarch-list { margin-top: 48px; display: grid; gap: 16px; }
+  .kc-newsarch-row { background: var(--kc-paper); border: 1px solid var(--kc-rule); padding: 28px 32px; display: grid; grid-template-columns: 140px 1fr 100px; gap: 32px; align-items: center; }
+  @media (max-width: 700px) { .kc-newsarch-row { grid-template-columns: 1fr; gap: 8px; padding: 20px; } }
+  .kc-newsarch-issue { font-family: var(--kc-serif); font-size: 14px; color: var(--kc-brass); letter-spacing: 0.04em; text-transform: uppercase; }
+  .kc-newsarch-h { font-family: var(--kc-serif); font-size: 20px; line-height: 1.3; margin: 0 0 6px; color: var(--kc-ink); }
+  .kc-newsarch-h em { font-style: italic; font-weight: 400; color: var(--kc-brass); }
+  .kc-newsarch-summary { font-size: 14px; line-height: 1.55; color: var(--kc-ink-soft); margin: 0; }
+  .kc-newsarch-link { font-size: 13px; color: var(--kc-ink); border-bottom: 1px solid var(--kc-brass); padding-bottom: 1px; text-decoration: none; }
+  .kc-newsarch-link:hover { color: var(--kc-brass); }
+
+  /* About */
+  .kc-newsabout-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 48px; }
+  @media (max-width: 800px) { .kc-newsabout-grid { grid-template-columns: 1fr; } }
+  .kc-newsabout-block h3 { font-family: var(--kc-serif); font-size: 20px; margin: 0 0 12px; color: var(--kc-ink); }
+  .kc-newsabout-block p { font-size: 15px; line-height: 1.65; color: var(--kc-ink); margin: 0 0 16px; }
+  .kc-newsabout-block ul { margin: 0; padding: 0 0 0 20px; font-size: 15px; line-height: 1.65; color: var(--kc-ink); }
+  .kc-newsabout-block ul li { margin-bottom: 8px; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script>window.KC_ASSET_BASE = '../../';</script>
+<script src="../../components/kc-org.js"></script>
+<script src="../../components/kc-seo.jsx"></script>
+<script type="text/babel" src="../../components/shared.jsx"></script>
+
+<script type="text/babel" id="page-content">
+const CONTENT = {
+
+  meta: {
+    title:           "Quarterly newsletter · Keys-Caldwell · Florida community association briefing",
+    description:     "A quarterly briefing for Florida condo and HOA boards — statute updates, insurance market signals, reserve cost trends, and operational notes from a 47-year-old Florida CAM firm. One email per quarter. Past issues linked.",
+    canonical:       "/blog/newsletter/",
+    primaryKeyword:  "florida condo hoa newsletter",
+    secondaryKeywords: [
+      "florida cam newsletter",
+      "florida community association briefing",
+      "florida hoa statute newsletter",
+    ],
+    ogTitle:         "Quarterly newsletter · Keys-Caldwell",
+    ogDescription:   "One email per quarter for Florida condo and HOA boards.",
+    ogImage:         "/assets/og/keys-caldwell-default.jpg",
+    schema:          ["LocalBusiness", "BreadcrumbList"],
+  },
+
+  breadcrumbs: {
+    items: [
+      { label: "Home",      href: "/" },
+      { label: "Resources", href: "/blog/" },
+      { label: "Newsletter" },
+    ],
+  },
+
+  nav: { active: "blog" },
+
+  head: {
+    eyebrow: "Quarterly · since 2019",
+    titlePlain: "One email per quarter.",
+    titleItalic: "Operating context, not marketing.",
+    lede: "The Keys-Caldwell quarterly briefing is what we'd want to read if we were on a Florida condo or HOA board — what changed in statute, what the insurance market is doing, what reserve component costs are running, and what the firms in our network are seeing on the ground. We've published it since 2019. About 1,400 boards subscribe.",
+    bullets: [
+      "Florida statute updates with the section number and a plain-English what-changed paragraph.",
+      "Insurance market signals from carriers and agents we work with — capacity, pricing, mandatory inspections.",
+      "Reserve component cost trend data from the AccuReserve continuum (roof, paving, painting, structural).",
+      "Field notes from associations across our portfolio — what's working, what's not, what to watch for.",
+    ],
+  },
+
+  form: {
+    eyebrow: "Subscribe",
+    titlePlain: "Get the next issue.",
+    titleItalic: "Sent in March, June, Sept, Dec.",
+    p: "Required fields below. We'll send the next issue and the standing welcome email (which includes a link to the past four issues). Unsubscribe link in every email.",
+  },
+
+  archive: {
+    eyebrow: "Past issues",
+    titlePlain: "What's been in the briefing",
+    titleItalic: "lately.",
+    items: [
+      {
+        issue: "Q4 · 2025",
+        h: ["Insurance market hardened again ·", "and what boards are doing about it."],
+        summary: "Three carriers narrowed their Florida condo binding criteria in October; we walked through the new posture, what it means for September renewals, and how four of our coastal boards re-bid their property line. Plus: 2025 reserve cost recap and what 2026 budgets should assume.",
+      },
+      {
+        issue: "Q3 · 2025",
+        h: ["Reserve waiver phase-out ·", "the sequencing matters."],
+        summary: "SB-4D's phase-out of reserve underfunding is sequenced — by component, by inspection year, and by what the SIRS report finds. We unpacked the sequencing, walked through three boards' planning approaches, and flagged the document language to stop using.",
+      },
+      {
+        issue: "Q2 · 2025",
+        h: ["Director education timing.", "What we tell new directors at orientation."],
+        summary: "The 90-day-from-seating clock matters. We covered the providers we vet, what the certification-in-lieu actually requires, and the most common mistake we see (signing the certification without reading the documents).",
+      },
+      {
+        issue: "Q1 · 2025",
+        h: ["Hurricane season post-mortem ·", "lessons from Helene & Milton."],
+        summary: "What we learned coordinating across 47 associations during the back-to-back storms — communication cadence, vendor mobilization, insurance documentation, and the assumptions in our hurricane plan template that needed updating.",
+      },
+      {
+        issue: "Q4 · 2024",
+        h: ["Vendor scorecard methodology ·", "how we score and re-bid."],
+        summary: "The internal scorecard we use across the portfolio — categories, weights, what triggers a re-bid, what triggers a termination. Made available to boards as a working spreadsheet.",
+      },
+      {
+        issue: "Q3 · 2024",
+        h: ["SIRS report deep dive ·", "what the engineer actually delivers."],
+        summary: "We walked through three real (anonymized) SIRS reports — what they look like, what the cost figures mean, what the recommendations actually mean for capital planning over the next decade.",
+      },
+    ],
+  },
+
+  about: {
+    eyebrow: "About the briefing",
+    titlePlain: "Who writes it.",
+    titleItalic: "What it's not.",
+    blocks: [
+      {
+        h: "Who writes it",
+        body: "Maria Caldwell (President) and the senior management team write the quarterly. Statute summaries are reviewed by Becker & Poliakoff (our outside counsel for governance work). Insurance commentary is reviewed by an independent agent we partner with. Cost trend data comes from AccuReserve's component-level dataset.",
+      },
+      {
+        h: "What it's not",
+        body: "It's not legal advice — though we cite the statutes accurately. It's not investment advice. It's not a sales channel — joining the list does not put you on a sales contact list, and we publish the same briefing to clients and non-clients. About a third of subscribers have never been clients; they read because the operating signal is useful.",
+      },
+      {
+        h: "Privacy",
+        body: "We use one mailing platform (Mailchimp). We do not share, sell, or rent the list to anyone. The unsubscribe link is in every email and works immediately. If you want off, one click does it; you don't need to email us.",
+      },
+      {
+        h: "Why we publish it",
+        body: "We've found that the boards who read the briefing for two or three years before becoming clients are usually our best clients — they understand the operating posture before they call us, and the conversation about scope of work is more grounded. So we keep writing it.",
+      },
+    ],
+  },
+
+  footer: {},
+};
+
+// ---------- Page-specific section components ----------
+
+const KCNewsHeader = ({ content, formContent }) => {
+  const c = content || {};
+  const f = formContent || {};
+  return (
+    <section className="kc-newshead">
+      <div className="kc-container">
+        <div className="kc-newshead-grid">
+          <div>
+            {c.eyebrow && <div className="kc-eyebrow">{c.eyebrow}</div>}
+            <h1>{c.titlePlain} <em>{c.titleItalic}</em></h1>
+            <p className="kc-newshead-lede">{c.lede}</p>
+            {c.bullets && (
+              <ul className="kc-newshead-bullets">
+                {c.bullets.map((b, i) => <li key={i}>{b}</li>)}
+              </ul>
+            )}
+          </div>
+          <div className="kc-newsform-card">
+            {f.eyebrow && <div className="kc-newsform-eye">{f.eyebrow}</div>}
+            <h2 className="kc-newsform-h">{f.titlePlain} <em>{f.titleItalic}</em></h2>
+            <p className="kc-newsform-p">{f.p}</p>
+            <form onSubmit={(e) => { e.preventDefault(); alert('Thanks. The welcome email is on its way.'); }}>
+              <div className="kc-newsform-row">
+                <label htmlFor="newsf-name">Name</label>
+                <input id="newsf-name" type="text" required />
+              </div>
+              <div className="kc-newsform-row">
+                <label htmlFor="newsf-email">Email</label>
+                <input id="newsf-email" type="email" required />
+              </div>
+              <div className="kc-newsform-row">
+                <label htmlFor="newsf-role">Role</label>
+                <select id="newsf-role" defaultValue="">
+                  <option value="" disabled>Select role…</option>
+                  <option>Board director</option>
+                  <option>Board officer (President / Treasurer / Secretary)</option>
+                  <option>CAM at another firm</option>
+                  <option>Owner</option>
+                  <option>Industry partner (counsel, insurance, vendor)</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div className="kc-newsform-row">
+                <label htmlFor="newsf-assoc">Association name <span style={{opacity:.5}}>(optional)</span></label>
+                <input id="newsf-assoc" type="text" />
+              </div>
+              <div className="kc-newsform-actions">
+                <button type="submit" className="kc-btn kc-btn-brass">Subscribe</button>
+                <div className="kc-newsform-fine">We'll send the next issue and a welcome email with the past four. Unsubscribe link in every email. We do not share the list.</div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const KCNewsArchive = ({ content }) => {
+  const c = content || {};
+  return (
+    <section className="kc-news kc-bg-cream">
+      <div className="kc-container">
+        {c.eyebrow && <div className="kc-eyebrow">{c.eyebrow}</div>}
+        <h2 className="kc-section-title">{c.titlePlain} <em>{c.titleItalic}</em></h2>
+        <div className="kc-newsarch-list">
+          {(c.items || []).map((it, i) => (
+            <div className="kc-newsarch-row" key={i}>
+              <div className="kc-newsarch-issue">{it.issue}</div>
+              <div>
+                <h3 className="kc-newsarch-h">
+                  {Array.isArray(it.h) ? <>{it.h[0]} <em>{it.h[1]}</em></> : it.h}
+                </h3>
+                <p className="kc-newsarch-summary">{it.summary}</p>
+              </div>
+              <div>
+                <a className="kc-newsarch-link" href="mailto:newsletter@keys-caldwell.com?subject=Past%20issue%20request">Read →</a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const KCNewsAbout = ({ content }) => {
+  const c = content || {};
+  return (
+    <section className="kc-news kc-bg-paper">
+      <div className="kc-container">
+        {c.eyebrow && <div className="kc-eyebrow">{c.eyebrow}</div>}
+        <h2 className="kc-section-title">{c.titlePlain} <em>{c.titleItalic}</em></h2>
+        <div className="kc-newsabout-grid">
+          {(c.blocks || []).map((b, i) => (
+            <div className="kc-newsabout-block" key={i}>
+              <h3>{b.h}</h3>
+              <p>{b.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const Page = () => (
+  <div className="kc-page">
+    <KCNav active={CONTENT.nav.active} />
+    <KCBreadcrumbs content={CONTENT.breadcrumbs} />
+    <KCNewsHeader  content={CONTENT.head} formContent={CONTENT.form} />
+    <KCNewsArchive content={CONTENT.archive} />
+    <KCNewsAbout   content={CONTENT.about} />
+    <KCFooter      content={CONTENT.footer} />
+  </div>
+);
+
+KCSeo.apply(CONTENT.meta, {
+  pageType:    "blog",
+  pageUrl:     CONTENT.meta.canonical,
+  breadcrumbs: CONTENT.breadcrumbs.items,
+});
+
+const renderWhenReady = () => {
+  if (typeof KCNav === 'undefined') {
+    return setTimeout(renderWhenReady, 30);
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(<Page />);
+  requestAnimationFrame(() => { if (window.lucide) window.lucide.createIcons(); });
+  setTimeout(() => { if (window.lucide) window.lucide.createIcons(); }, 400);
+};
+renderWhenReady();
+</script>
+
+</body>
+</html>

@@ -207,21 +207,28 @@
   background: var(--shell);
   border-top: 1px solid var(--shell-line);
 }
+.sv-how-head {
+  margin: 0 0 56px;
+}
+.sv-how-h {
+  font-family: var(--font-heading); font-weight: 700;
+  font-size: clamp(36px, 3.4vw, 52px); line-height: 1.05;
+  color: var(--deep-ink); letter-spacing: -0.018em; margin: 12px 0 0;
+  text-wrap: balance; max-width: 28ch;
+}
+.sv-how-h em { font-style: italic; color: var(--kc-indigo); font-weight: 700; }
+.sv-how-rule {
+  border: 0; border-top: 1px solid var(--aged-brass);
+  margin: 24px 0 0; max-width: 80px; opacity: 0.55;
+}
 .sv-how-grid {
-  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 80px;
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr); gap: 80px;
   align-items: start;
 }
 .sv-how-aside { position: sticky; top: 124px; }
-.sv-how-h {
-  font-family: var(--font-heading); font-weight: 700;
-  font-size: clamp(32px, 3vw, 44px); line-height: 1.1;
-  color: var(--deep-ink); letter-spacing: -0.018em; margin: 16px 0 24px;
-  text-wrap: balance;
-}
-.sv-how-h em { font-style: italic; color: var(--kc-indigo); font-weight: 700; }
 .sv-how-aside-p {
-  font-family: var(--font-body); font-size: 16px; line-height: 1.6;
-  color: var(--deep-ink); opacity: .82; margin: 0 0 18px; max-width: 38ch;
+  font-family: var(--font-body); font-size: 17px; line-height: 1.65;
+  color: var(--deep-ink); opacity: .85; margin: 0 0 20px; max-width: 44ch;
 }
 .sv-how-aside-link {
   font-family: var(--font-heading); font-style: italic; font-weight: 600;
@@ -259,16 +266,26 @@
 
 /* Not included strip */
 .sv-not { padding: 80px 0; background: #fff; }
-.sv-not-grid {
-  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 80px;
-  align-items: start;
-}
+.sv-not-head { margin: 0 0 56px; }
 .sv-not-h {
   font-family: var(--font-heading); font-weight: 700;
-  font-size: clamp(28px, 2.6vw, 36px); line-height: 1.15;
-  color: var(--deep-ink); letter-spacing: -0.016em; margin: 16px 0 0;
+  font-size: clamp(36px, 3.4vw, 52px); line-height: 1.05;
+  color: var(--deep-ink); letter-spacing: -0.016em; margin: 12px 0 0;
+  text-wrap: balance; max-width: 28ch;
 }
 .sv-not-h em { font-style: italic; color: var(--kc-indigo); font-weight: 700; }
+.sv-not-rule {
+  border: 0; border-top: 1px solid var(--aged-brass);
+  margin: 24px 0 0; max-width: 80px; opacity: 0.55;
+}
+.sv-not-grid {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr); gap: 80px;
+  align-items: start;
+}
+.sv-not-lede {
+  font-family: var(--font-body); font-size: 17px; line-height: 1.65;
+  color: var(--deep-ink); opacity: .85; margin: 0; max-width: 44ch;
+}
 .sv-not-list { display: flex; flex-direction: column; gap: 14px; padding: 0; margin: 0; list-style: none; }
 .sv-not-item {
   font-family: var(--font-body); font-size: 16px; line-height: 1.55;
@@ -567,12 +584,15 @@ body { font-family: 'Source Sans 3', system-ui, sans-serif; }
   const SVHowEngagement = ({ content: c }) => (
     <section className="sv-how">
       <div className="kc-container">
+        <div className="sv-how-head">
+          <div className="kc-eyebrow">{c.eyebrow}</div>
+          <h2 className="sv-how-h">
+            {c.titlePlain} <em>{c.titleItalic}</em>
+          </h2>
+          <hr className="sv-how-rule" />
+        </div>
         <div className="sv-how-grid">
           <aside className="sv-how-aside">
-            <div className="kc-eyebrow">{c.eyebrow}</div>
-            <h2 className="sv-how-h">
-              {c.titlePlain} <em>{c.titleItalic}</em>
-            </h2>
             <p className="sv-how-aside-p">{c.asideP}</p>
             <a className="sv-how-aside-link" href={kcHref(c.asideLink.href)}>
               {c.asideLink.label} <span aria-hidden="true">→</span>
@@ -597,13 +617,16 @@ body { font-family: 'Source Sans 3', system-ui, sans-serif; }
   const SVNotIncluded = ({ content: c }) => (
     <section className="sv-not">
       <div className="kc-container">
+        <div className="sv-not-head">
+          <div className="kc-eyebrow">{c.eyebrow}</div>
+          <h2 className="sv-not-h">
+            {c.titlePlain} <em>{c.titleItalic}</em>
+          </h2>
+          <hr className="sv-not-rule" />
+        </div>
         <div className="sv-not-grid">
           <div>
-            <div className="kc-eyebrow">{c.eyebrow}</div>
-            <h2 className="sv-not-h">
-              {c.titlePlain} <em>{c.titleItalic}</em>
-            </h2>
-            <p style={{ fontFamily: 'var(--font-body)', fontSize: 16, lineHeight: 1.6, color: 'var(--deep-ink)', opacity: .82, marginTop: 18, maxWidth: '38ch' }}>{c.lede}</p>
+            <p className="sv-not-lede">{c.lede}</p>
           </div>
           <ul className="sv-not-list">
             {c.items.map((it, i) => (

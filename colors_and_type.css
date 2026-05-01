@@ -87,8 +87,7 @@
   --radius-pill: 999px;
 
   /* ── ELEVATION ─────────────────────────────────────────────── */
-  --shadow-1: 0 1px 4px rgba(26, 29, 46, 0.07);
-  --shadow-2: 0 1px 6px rgba(26, 29, 46, 0.10);
+  --shadow-1: 0 1px 4px rgba(26, 29, 46, 0.07);  --shadow-2: 0 1px 6px rgba(26, 29, 46, 0.10);
   --shadow-3: 0 4px 16px rgba(26, 29, 46, 0.10);
   --shadow-4: 0 12px 32px rgba(26, 29, 46, 0.16);
 
@@ -213,3 +212,22 @@ a:hover { color: var(--kc-indigo-90); text-decoration-color: currentColor; }
 
 /* Selection */
 ::selection { background: var(--kc-indigo); color: var(--shell); }
+
+/* ────────────────────────────────────────────────────────────
+   LEGACY-TOKEN COMPATIBILITY SHIM
+   Many page-level <style> blocks were authored against an earlier
+   token vocabulary (--kc-paper, --kc-cream, --kc-ink, --kc-rule,
+   --kc-brass, --kc-serif, --kc-ink-soft). These were never defined,
+   so dependent rules silently fell back. Aliasing them here keeps
+   those pages (events, glossary, newsletter, careers, case-studies,
+   property-services, owners, etc.) on-brand without a per-file edit.
+   ──────────────────────────────────────────────────────────── */
+:root {
+  --kc-paper:     #FFFFFF;            /* white surface (cards, hero blocks) */
+  --kc-cream:     var(--shell);       /* warm shell page background */
+  --kc-ink:       var(--deep-ink);    /* primary text / headings */
+  --kc-ink-soft:  var(--driftwood);   /* secondary / body */
+  --kc-rule:      var(--shell-line);  /* hairline divider on shell */
+  --kc-brass:     var(--aged-brass);  /* accent / eyebrow / rules */
+  --kc-serif:     var(--font-heading);/* Lora */
+}

@@ -92,22 +92,28 @@
 }
 .sa-region:nth-child(even) { background: #fcfaf6; }
 .sa-region-head {
-  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 64px;
-  margin-bottom: 56px;
-  align-items: start;
+  margin: 0 0 48px;
 }
 .sa-region-eye {
   font-family: var(--font-heading); font-style: italic; font-weight: 600;
   font-size: 14px; color: var(--kc-indigo); letter-spacing: 0.02em;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 .sa-region-h {
   font-family: var(--font-heading); font-weight: 700;
-  font-size: clamp(32px, 3vw, 44px); line-height: 1.1; color: var(--deep-ink);
+  font-size: clamp(36px, 3.4vw, 52px); line-height: 1.05; color: var(--deep-ink);
   letter-spacing: -0.018em; margin: 0;
-  text-wrap: balance;
+  text-wrap: balance; max-width: 28ch;
 }
 .sa-region-h em { font-style: italic; color: var(--kc-indigo); font-weight: 700; }
+.sa-region-rule {
+  border: 0; border-top: 1px solid var(--aged-brass);
+  margin: 24px 0 0; max-width: 80px; opacity: 0.55;
+}
+.sa-region-blurb {
+  font-family: var(--font-body); font-size: 17px; line-height: 1.6;
+  color: var(--deep-ink); opacity: .85; margin: 24px 0 0; max-width: 72ch;
+}
 
 /* Notes section — title above, paragraphs in two-column flow */
 .sa-notes-head {
@@ -137,10 +143,8 @@
 @media (max-width: 900px) {
   .sa-notes-body { columns: 1; }
   .sa-notes-head { margin-bottom: 32px; }
-}
-.sa-region-blurb {
-  font-family: var(--font-body); font-size: 17px; line-height: 1.55;
-  color: var(--deep-ink); opacity: .82; margin: 0;
+  .sa-region-head { margin-bottom: 32px; }
+  .sa-region-h { max-width: none; }
 }
 
 /* City rows — table-like editorial */
@@ -150,10 +154,10 @@
 }
 .sa-city {
   display: grid;
-  grid-template-columns: 28px minmax(0, 220px) minmax(0, 1fr) 96px;
+  grid-template-columns: 28px minmax(180px, 1.1fr) minmax(0, 2fr) auto 72px;
   align-items: center;
-  gap: 32px;
-  padding: 24px 0;
+  gap: 28px;
+  padding: 22px 0;
   border-bottom: 1px solid var(--shell-line);
   transition: background 140ms ease;
 }
@@ -171,14 +175,14 @@
 .sa-city-note {
   font-family: var(--font-body); font-size: 14px; line-height: 1.55;
   color: var(--deep-ink); opacity: .72;
-  max-width: 64ch;
 }
 .sa-city-links {
-  display: flex; gap: 8px;
-  justify-self: end;
+  display: flex; flex-direction: column; gap: 6px;
+  align-items: stretch;
+  min-width: 150px;
 }
 .sa-city-link {
-  display: inline-flex; align-items: center; gap: 5px;
+  display: inline-flex; align-items: center; justify-content: space-between; gap: 8px;
   font-family: var(--font-heading); font-style: italic; font-weight: 600;
   font-size: 13px;
   padding: 6px 12px;
@@ -211,9 +215,9 @@
 /* Table header row */
 .sa-cities-headrow {
   display: grid;
-  grid-template-columns: 28px minmax(0, 220px) minmax(0, 1fr) 96px;
+  grid-template-columns: 28px minmax(180px, 1.1fr) minmax(0, 2fr) auto 72px;
   align-items: center;
-  gap: 32px;
+  gap: 28px;
   padding: 12px 0;
 }
 .sa-cities-headrow > div {
@@ -221,13 +225,12 @@
   font-size: 12px; color: var(--kc-indigo); letter-spacing: 0.04em;
   text-transform: uppercase;
 }
-.sa-cities-headrow > div:nth-child(4) { justify-self: end; }
+.sa-cities-headrow > div:nth-child(4) { min-width: 150px; }
 .sa-cities-headrow > div:last-child   { text-align: right; }
 
 /* Mobile */
 @media (max-width: 900px) {
-  .sa-hero-grid,
-  .sa-region-head { grid-template-columns: 1fr; gap: 32px; }
+  .sa-hero-grid { grid-template-columns: 1fr; gap: 32px; }
   .sa-cities-headrow { display: none; }
   .sa-city {
     grid-template-columns: 1fr;
@@ -342,6 +345,7 @@ const CONTENT = {
       titlePlain: "Where we live and work — the corridor from Venice",
       titleItalic: "to Osprey.",
       blurb: "The four cities closest to our office. Most of these associations are inside a 15-minute drive door-to-door. Bi-weekly visit cadence is standard; emergency response is typically same-day.",
+      image: { src: "../assets/hero/coastal-condo.jpg", alt: "Gulf-front condo building along the Venice coast." },
       cities: [
         { slug: "venice",  name: "Venice",  note: "HQ city. Mid-rise condos along the gulf, gated villa HOAs across South Venice and East Venice, master/sub stacks inland of US-41.", distance: "0 mi", condo: true, hoa: true },
         { slug: "nokomis", name: "Nokomis", note: "Bay-front mid-rises along Albee Road plus 1990s gated villa HOAs on Albee Farm Road. Both pillars active.", distance: "4 mi", condo: true, hoa: true },
@@ -354,6 +358,7 @@ const CONTENT = {
       titlePlain: "Master-planned country —",
       titleItalic: "where governance is layered from day one.",
       blurb: "Sarasota and Lakewood Ranch HOAs and condos sit inside multi-tier governance frames: master HOA, sub-association, CDD, sometimes a village master on top. Document alignment between layers is the dominant operational discipline.",
+      image: { src: "../assets/hero/condo-towers.jpg", alt: "Mid-rise condo towers in downtown Sarasota." },
       cities: [
         { slug: "sarasota",        name: "Sarasota",        note: "From Palmer Ranch villa communities to downtown bay-front condo towers. The full range of building stock under one city header.", distance: "22 mi", condo: true, hoa: true },
         { slug: "lakewood-ranch",  name: "Lakewood Ranch",  note: "One of Florida's largest master-planned communities. Heavy CDD and master/sub HOA layering; newer-build condos inside the Main Street District.", distance: "38 mi", condo: true, hoa: true },
@@ -363,6 +368,7 @@ const CONTENT = {
       eye: "Region 3 · Barrier islands",
       titlePlain: "The buildings and communities that operate on a barrier",
       titleItalic: "island clock.",
+      image: { src: "../assets/hero/keys-caldwell-board-testimonials.jpg", alt: "Coastal architecture along a Sarasota barrier island." },
       blurb: "Bridge access, evacuation orders, beach renourishment, sea-turtle nesting, gulf-front capital obligations, SB-4D milestone inspections at the front of the line. Different operating reality from the mainland — the playbooks are built around it.",
       cities: [
         { slug: "siesta-key",        name: "Siesta Key",        note: "Densest barrier-island condo stock in our coverage. 1960s – 1990s mid-rises and towers; SB-4D is present-tense work for many buildings.", distance: "24 mi", condo: true, hoa: true },
@@ -450,10 +456,9 @@ const SARegion = ({ region, indexOffset }) => {
     <section className="sa-region">
       <div className="kc-container">
         <div className="sa-region-head">
-          <div>
-            <div className="sa-region-eye">{region.eye}</div>
-            <h2 className="sa-region-h">{italicize(region.titlePlain, region.titleItalic)}</h2>
-          </div>
+          <div className="sa-region-eye">{region.eye}</div>
+          <h2 className="sa-region-h">{italicize(region.titlePlain, region.titleItalic)}</h2>
+          <hr className="sa-region-rule" />
           <p className="sa-region-blurb">{region.blurb}</p>
         </div>
         <div>
@@ -461,6 +466,7 @@ const SARegion = ({ region, indexOffset }) => {
             <div></div>
             <div>City / area</div>
             <div>Coverage profile</div>
+            <div>Coverage</div>
             <div>From HQ</div>
           </div>
           <div className="sa-cities">
@@ -475,8 +481,7 @@ const SARegion = ({ region, indexOffset }) => {
                   <div className="sa-city-num">{num}</div>
                   <div className="sa-city-name">{city.name}</div>
                   <div className="sa-city-note">{city.note}</div>
-                  <div className="sa-city-distance">{city.distance}</div>
-                  <div className="sa-city-links" style={{ gridColumn: '2 / span 3', justifySelf: 'start', marginTop: 4 }}>
+                  <div className="sa-city-links">
                     {city.condo
                       ? <a className="sa-city-link" data-pillar="condo" href={kcHref(condoHref)}>Condo coverage <span aria-hidden="true">→</span></a>
                       : <span className="sa-city-link" data-pillar="condo" data-disabled="true">Condo · coming soon</span>}
@@ -484,6 +489,7 @@ const SARegion = ({ region, indexOffset }) => {
                       ? <a className="sa-city-link" data-pillar="hoa" href={kcHref(hoaHref)}>HOA coverage <span aria-hidden="true">→</span></a>
                       : <span className="sa-city-link" data-pillar="hoa" data-disabled="true">HOA · coming soon</span>}
                   </div>
+                  <div className="sa-city-distance">{city.distance}</div>
                 </div>
               );
             })}
