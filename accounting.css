@@ -1,0 +1,456 @@
+/* =============================================================
+   Keys-Caldwell — /accounting/ (CityBooks service page)
+   =============================================================
+   Loaded after styles.css and pillar.css. Page-specific styles
+   for the five accounting components defined in components/accounting.jsx.
+   ============================================================= */
+
+/* ─── KCAcctMethodology — monthly cadence calendar strip ─── */
+.kc-acct-method {
+  background: #fff;
+  border-top: 1px solid var(--shell-line);
+  border-bottom: 1px solid var(--shell-line);
+  padding: 96px 0 88px;
+}
+.kc-acct-method-head {
+  max-width: 760px; margin: 0 0 56px;
+}
+.kc-acct-method-h {
+  font-family: var(--font-heading); font-style: italic; font-weight: 700;
+  font-size: 44px; line-height: 1.12; color: var(--deep-ink);
+  letter-spacing: -0.018em; margin: 0 0 18px;
+  text-wrap: balance;
+}
+.kc-acct-method-h em { color: var(--kc-indigo); font-style: italic; }
+.kc-acct-method-p {
+  font-size: 18px; line-height: 1.65; color: var(--driftwood);
+  max-width: 660px;
+}
+.kc-acct-method-strip {
+  list-style: none; padding: 0; margin: 0;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+  border-top: 1px solid var(--shell-line);
+  position: relative;
+}
+.kc-acct-method-strip::before {
+  content: ''; position: absolute;
+  left: 0; top: -1px; width: 96px; height: 3px; background: var(--aged-brass);
+}
+.kc-acct-method-step {
+  padding: 32px 28px 32px 0;
+  border-right: 1px solid var(--shell-line);
+  position: relative;
+}
+.kc-acct-method-step:last-child { border-right: 0; padding-right: 0; }
+.kc-acct-method-step + .kc-acct-method-step { padding-left: 28px; }
+.kc-acct-method-when {
+  font-family: var(--font-heading); font-style: italic; font-weight: 700;
+  font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--aged-brass); margin-bottom: 18px;
+}
+.kc-acct-method-h3 {
+  font-family: var(--font-heading); font-style: italic; font-weight: 700;
+  font-size: 22px; line-height: 1.25; color: var(--deep-ink);
+  letter-spacing: -0.005em; margin: 0 0 10px;
+  text-wrap: balance;
+}
+.kc-acct-method-body {
+  font-size: 14.5px; line-height: 1.6; color: var(--driftwood);
+  margin: 0;
+}
+
+/* ─── KCAcctStoplight — risk grading dashboard frame ─── */
+.kc-acct-stop {
+  background: var(--shell);
+  padding: 96px 0 96px;
+}
+.kc-acct-stop-head {
+  max-width: 760px; margin: 0 0 48px;
+}
+.kc-acct-stop-h {
+  font-family: var(--font-heading); font-style: italic; font-weight: 700;
+  font-size: 44px; line-height: 1.12; color: var(--deep-ink);
+  letter-spacing: -0.018em; margin: 0 0 18px;
+  text-wrap: balance;
+}
+.kc-acct-stop-h em { color: var(--kc-indigo); font-style: italic; }
+.kc-acct-stop-p {
+  font-size: 18px; line-height: 1.65; color: var(--driftwood);
+  max-width: 700px;
+}
+
+.kc-acct-stop-frame {
+  background: #fff;
+  border: 1px solid var(--shell-line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-3);
+  overflow: hidden;
+}
+.kc-acct-stop-frame-bar {
+  display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 18px;
+  padding: 14px 22px;
+  background: var(--deep-ink); color: var(--shell);
+  border-bottom: 3px solid var(--aged-brass);
+}
+.kc-acct-stop-frame-dots { display: flex; gap: 6px; }
+.kc-acct-stop-frame-dots span {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: rgba(245,239,227,0.25);
+}
+.kc-acct-stop-frame-title {
+  font-family: var(--font-heading); font-style: italic; font-weight: 600;
+  font-size: 14px; letter-spacing: 0.01em;
+  color: rgba(245,239,227,0.92);
+}
+.kc-acct-stop-frame-stamp {
+  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  font-weight: 700;
+  color: var(--aged-brass);
+}
+
+.kc-acct-stop-table {
+  display: block;
+}
+.kc-acct-stop-row {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 0.9fr 2.2fr;
+  gap: 24px; align-items: center;
+  padding: 18px 22px;
+  border-bottom: 1px solid var(--shell-line);
+}
+.kc-acct-stop-row:last-of-type { border-bottom: 0; }
+.kc-acct-stop-thead {
+  background: rgba(31,42,77,0.03);
+  padding: 12px 22px;
+}
+.kc-acct-stop-thead > div {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--driftwood);
+}
+.kc-acct-stop-metric {
+  font-family: var(--font-body); font-weight: 600;
+  font-size: 15px; color: var(--deep-ink);
+}
+.kc-acct-stop-value {
+  font-family: var(--font-heading); font-style: italic; font-weight: 700;
+  font-size: 19px; color: var(--kc-indigo);
+  letter-spacing: -0.005em;
+}
+.kc-acct-stop-what {
+  font-size: 14px; line-height: 1.55; color: var(--driftwood);
+}
+.kc-acct-stop-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 12px; font-weight: 700; letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 5px 11px 5px 9px;
+  border-radius: 999px;
+  border: 1px solid;
+}
+.kc-acct-stop-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+}
+.kc-acct-stop-badge.is-green {
+  color: #1b5e3f; background: #e6f3ec; border-color: #b6dcc4;
+}
+.kc-acct-stop-badge.is-green .kc-acct-stop-dot { background: #2c8a5b; }
+.kc-acct-stop-badge.is-yellow {
+  color: #785310; background: #fbf2dc; border-color: #ecd9a8;
+}
+.kc-acct-stop-badge.is-yellow .kc-acct-stop-dot { background: #c69218; }
+.kc-acct-stop-badge.is-red {
+  color: #8a2a1f; background: #f6dfdb; border-color: #e3b8b1;
+}
+.kc-acct-stop-badge.is-red .kc-acct-stop-dot { background: #b53527; }
+
+.kc-acct-stop-footnote {
+  padding: 14px 22px;
+  background: rgba(31,42,77,0.04);
+  border-top: 1px solid var(--shell-line);
+  font-size: 12.5px; line-height: 1.5; color: var(--driftwood);
+  font-style: italic;
+}
+
+/* ─── KCAcctPacket — sample monthly packet preview ─── */
+.kc-acct-packet {
+  background: var(--deep-ink); color: var(--shell);
+  padding: 104px 0 104px;
+}
+.kc-acct-packet-head { max-width: 760px; margin: 0 0 56px; }
+.kc-acct-packet-head .kc-eyebrow { color: var(--aged-brass); }
+.kc-acct-packet-head .kc-eyebrow::before { background: var(--aged-brass); }
+.kc-acct-packet-h {
+  font-family: var(--font-heading); font-style: italic; font-weight: 700;
+  font-size: 44px; line-height: 1.12; color: var(--shell);
+  letter-spacing: -0.018em; margin: 0 0 18px;
+  text-wrap: balance;
+}
+.kc-acct-packet-h em { color: var(--aged-brass); font-style: italic; }
+.kc-acct-packet-p {
+  font-size: 18px; line-height: 1.65;
+  color: rgba(245,239,227,0.78);
+  max-width: 700px;
+}
+
+.kc-acct-packet-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.kc-acct-packet-card {
+  background: #fff; color: var(--deep-ink);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex; flex-direction: column;
+  box-shadow: var(--shadow-3);
+  border-top: 3px solid var(--aged-brass);
+}
+.kc-acct-packet-mock {
+  background: #fbf8f1;
+  border-bottom: 1px solid var(--shell-line);
+  aspect-ratio: 8 / 5;
+}
+.kc-acct-packet-mock svg { width: 100%; height: 100%; display: block; }
+.kc-acct-packet-meta {
+  padding: 22px 22px 24px;
+  flex: 1;
+}
+.kc-acct-packet-kind {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--aged-brass);
+  margin-bottom: 8px;
+}
+.kc-acct-packet-title {
+  font-family: var(--font-heading); font-style: italic; font-weight: 700;
+  font-size: 19px; line-height: 1.25; color: var(--deep-ink);
+  margin: 0 0 8px;
+  letter-spacing: -0.005em;
+}
+.kc-acct-packet-cap {
+  font-size: 13.5px; line-height: 1.55; color: var(--driftwood);
+  margin: 0;
+}
+
+/* ─── KCAcctCpa — Meet your CPA spread ─── */
+.kc-acct-cpa {
+  background: var(--shell);
+  padding: 104px 0 104px;
+  border-top: 1px solid var(--shell-line);
+}
+.kc-acct-cpa-grid {
+  display: grid; grid-template-columns: 360px 1fr; gap: 72px;
+  align-items: start;
+}
+.kc-acct-cpa-photo-frame {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  background: linear-gradient(160deg, #1f2a4d 0%, #2d3a64 100%);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-3);
+  display: grid; place-items: center;
+}
+.kc-acct-cpa-photo-frame::after {
+  content: ''; position: absolute; left: 0; right: 0; bottom: 0;
+  height: 50%;
+  background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.32) 100%);
+}
+.kc-acct-cpa-photo-mono {
+  font-family: var(--font-heading); font-style: italic; font-weight: 700;
+  font-size: 132px; line-height: 1;
+  color: rgba(245,239,227,0.18);
+  letter-spacing: -0.04em;
+}
+.kc-acct-cpa-photo-tag {
+  position: absolute; right: 14px; bottom: 12px;
+  font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(245,239,227,0.72);
+  font-weight: 600;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 220ms cubic-bezier(.16,1,.3,1);
+}
+.kc-acct-cpa-photo-frame:hover .kc-acct-cpa-photo-tag { opacity: 1; }
+.kc-acct-cpa-creds {
+  display: flex; gap: 8px; flex-wrap: wrap;
+  margin-top: 18px;
+}
+.kc-acct-cpa-cred {
+  font-family: var(--font-heading); font-style: italic; font-weight: 700;
+  font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--kc-indigo);
+  background: #fff;
+  border: 1px solid var(--shell-line);
+  border-radius: 999px;
+  padding: 6px 12px;
+}
+.kc-acct-cpa-h {
+  font-family: var(--font-heading); font-style: italic; font-weight: 700;
+  font-size: 44px; line-height: 1.12; color: var(--deep-ink);
+  letter-spacing: -0.018em; margin: 0 0 24px;
+  text-wrap: balance;
+}
+.kc-acct-cpa-h em { color: var(--kc-indigo); font-style: italic; }
+.kc-acct-cpa-name {
+  display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap;
+  padding-bottom: 18px; margin-bottom: 22px;
+  border-bottom: 1px solid var(--shell-line);
+}
+.kc-acct-cpa-name-plain {
+  font-family: var(--font-heading); font-style: italic; font-weight: 700;
+  font-size: 22px; color: var(--deep-ink);
+  letter-spacing: -0.005em;
+}
+.kc-acct-cpa-role {
+  font-size: 13px; color: var(--driftwood);
+  letter-spacing: 0.04em; text-transform: uppercase;
+  font-weight: 600;
+}
+.kc-acct-cpa-p {
+  font-size: 17px; line-height: 1.65; color: var(--deep-ink);
+  margin: 0 0 20px;
+}
+.kc-acct-cpa-list {
+  list-style: none; padding: 0; margin: 0 0 28px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 12px 32px;
+}
+.kc-acct-cpa-list li {
+  position: relative;
+  padding-left: 22px;
+  font-size: 14.5px; line-height: 1.5; color: var(--driftwood);
+}
+.kc-acct-cpa-list li::before {
+  content: ''; position: absolute;
+  left: 0; top: 9px;
+  width: 12px; height: 2px; background: var(--aged-brass);
+}
+.kc-acct-cpa-link {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--font-body); font-weight: 600; font-size: 14.5px;
+  color: var(--kc-indigo); text-decoration: none;
+  border-bottom: 1.5px solid var(--aged-brass);
+  padding-bottom: 4px;
+  transition: color 220ms cubic-bezier(.16,1,.3,1);
+}
+.kc-acct-cpa-link:hover { color: var(--deep-ink); }
+.kc-acct-cpa-link span {
+  font-family: var(--font-heading); font-style: italic;
+  font-size: 1.1em;
+}
+
+/* ─── KCAcctReceipts — what's-included ledger ─── */
+.kc-acct-receipts {
+  background: #fff;
+  padding: 96px 0 104px;
+  border-top: 1px solid var(--shell-line);
+}
+.kc-acct-receipts-head { max-width: 760px; margin: 0 0 48px; }
+.kc-acct-receipts-h {
+  font-family: var(--font-heading); font-style: italic; font-weight: 700;
+  font-size: 44px; line-height: 1.12; color: var(--deep-ink);
+  letter-spacing: -0.018em; margin: 0 0 18px;
+  text-wrap: balance;
+}
+.kc-acct-receipts-h em { color: var(--kc-indigo); font-style: italic; }
+.kc-acct-receipts-p {
+  font-size: 18px; line-height: 1.65; color: var(--driftwood);
+  max-width: 660px;
+}
+.kc-acct-receipts-list {
+  list-style: none; padding: 0; margin: 0;
+  display: grid; grid-template-columns: 1fr 1fr;
+  column-gap: 56px; row-gap: 0;
+  border-top: 1px solid var(--shell-line);
+}
+.kc-acct-receipts-row {
+  display: grid; grid-template-columns: auto 1fr; gap: 22px;
+  padding: 26px 0;
+  border-bottom: 1px solid var(--shell-line);
+}
+.kc-acct-receipts-n {
+  font-family: var(--font-heading); font-style: italic; font-weight: 700;
+  font-size: 22px; color: var(--aged-brass);
+  letter-spacing: -0.005em;
+  line-height: 1.2;
+  min-width: 28px;
+}
+.kc-acct-receipts-title {
+  font-family: var(--font-body); font-weight: 700;
+  font-size: 16.5px; color: var(--deep-ink);
+  margin-bottom: 6px;
+  letter-spacing: -0.005em;
+}
+.kc-acct-receipts-desc {
+  font-size: 14.5px; line-height: 1.6; color: var(--driftwood);
+  margin: 0;
+}
+
+/* ─── KCAcctStack — Vantaca / CityBooks / SOC 2 strip ─── */
+.kc-acct-stack {
+  background: var(--shell);
+  padding: 88px 0 88px;
+  border-top: 1px solid var(--shell-line);
+}
+.kc-acct-stack-head { max-width: 720px; margin: 0 0 40px; }
+.kc-acct-stack-h {
+  font-family: var(--font-heading); font-style: italic; font-weight: 700;
+  font-size: 36px; line-height: 1.15; color: var(--deep-ink);
+  letter-spacing: -0.015em; margin: 0;
+  text-wrap: balance;
+}
+.kc-acct-stack-h em { color: var(--kc-indigo); font-style: italic; }
+.kc-acct-stack-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--shell-line);
+  border-bottom: 1px solid var(--shell-line);
+}
+.kc-acct-stack-card {
+  padding: 28px 28px 30px 0;
+  border-right: 1px solid var(--shell-line);
+}
+.kc-acct-stack-card:last-child { border-right: 0; padding-right: 0; }
+.kc-acct-stack-card + .kc-acct-stack-card { padding-left: 28px; }
+.kc-acct-stack-name {
+  font-family: var(--font-heading); font-style: italic; font-weight: 700;
+  font-size: 22px; color: var(--deep-ink);
+  letter-spacing: -0.005em;
+  margin-bottom: 4px;
+}
+.kc-acct-stack-role {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--aged-brass);
+  margin-bottom: 12px;
+}
+.kc-acct-stack-detail {
+  font-size: 14.5px; line-height: 1.55; color: var(--driftwood);
+  margin: 0;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 1080px) {
+  .kc-acct-method-strip,
+  .kc-acct-packet-grid { grid-template-columns: repeat(2, 1fr); }
+  .kc-acct-method-step { padding: 24px; border-right: 0; border-bottom: 1px solid var(--shell-line); }
+  .kc-acct-method-step + .kc-acct-method-step { padding-left: 24px; }
+  .kc-acct-cpa-grid { grid-template-columns: 1fr; gap: 48px; }
+  .kc-acct-cpa-photo-frame { max-width: 360px; }
+  .kc-acct-receipts-list { grid-template-columns: 1fr; column-gap: 0; }
+  .kc-acct-stack-grid { grid-template-columns: 1fr; }
+  .kc-acct-stack-card { border-right: 0; border-bottom: 1px solid var(--shell-line); padding: 24px 0; }
+  .kc-acct-stack-card + .kc-acct-stack-card { padding-left: 0; }
+  .kc-acct-stop-row {
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: auto;
+  }
+  .kc-acct-stop-row .kc-acct-stop-what { grid-column: 1 / -1; }
+  .kc-acct-stop-thead { display: none; }
+}
+@media (max-width: 720px) {
+  .kc-acct-method-h,
+  .kc-acct-stop-h,
+  .kc-acct-packet-h,
+  .kc-acct-cpa-h,
+  .kc-acct-receipts-h { font-size: 32px; }
+  .kc-acct-method-strip,
+  .kc-acct-packet-grid { grid-template-columns: 1fr; }
+}

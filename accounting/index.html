@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<!-- ============================================================
+     Keys-Caldwell — Accounting · CityBooks
+     ============================================================
+     URL slot       :  /accounting/
+     Template type  :  SUB-SERVICE  (depth 2 — sits between pillars
+                       and the deep blog spoke at
+                       /blog/hoa-accounting-best-practices/)
+     Page intent    :  A+B HYBRID — service brochure that proves
+                       itself with methodology + visual artifacts
+                       (stoplight dashboard, sample packet preview).
+     ----------------------------------------------------------------
+     COPYWRITER MANIFEST — every editable slot lives in CONTENT below.
+
+     Image slots on this page :
+       1. Ande Duda CPA photo — see CONTENT.cpa.person.photoSlot
+          (currently rendered as an indigo monogram placeholder)
+
+     Asset slots :
+       - The four artifact mocks in CONTENT.packet.artifacts each
+         render a stylized SVG. They're meant as visual cues, not
+         real document scans. Do not replace with live PDFs without
+         masking unit-owner names + dollar figures.
+     ============================================================ -->
+<title>Accounting · CityBooks Platform · Keys-Caldwell</title>
+<meta name="description" content="CPA-supervised condo & HOA accounting on CityBooks — used by 500+ associations nationally. Daily bank reconciliation, stoplight risk grading, monthly board packets, audit-ready year-end. Ande Duda CPA on staff." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://unpkg.com">
+
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../pillar.css">
+<link rel="stylesheet" href="../accounting.css">
+<link rel="icon" href="data:,">
+
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<style>
+  html, body { margin: 0; padding: 0; }
+  body { font-family: 'Source Sans 3', system-ui, sans-serif; }
+  #root { min-height: 100vh; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script>window.KC_ASSET_BASE = '../';</script>
+
+<script src="../components/kc-org.js"></script>
+<script src="../components/kc-seo.jsx"></script>
+
+<script type="text/babel" src="../components/shared.jsx"></script>
+<script type="text/babel" src="../components/pillar.jsx"></script>
+<script type="text/babel" src="../components/accounting.jsx"></script>
+
+<script type="text/babel" id="page-content">
+const CONTENT = {
+
+  // ─── META ─────────────────────────────────────────────────
+  // Sitemap target: depth-2 sub-service that ranks for branded
+  // CityBooks / accounting queries and supports the deep blog
+  // spoke (/blog/hoa-accounting-best-practices/) for unbranded
+  // ranking. Schema: Service nested under LocalBusiness.
+  meta: {
+    title:           "Condo & HOA Accounting on CityBooks · Keys-Caldwell",
+    description:     "CPA-supervised condo & HOA accounting on CityBooks — used by 500+ associations nationally. Daily reconciliation, stoplight risk grading, audit-ready year-end. Ande Duda CPA on staff.",
+    canonical:       "/accounting/",
+    primaryKeyword:  "hoa accounting services",
+    secondaryKeywords: [
+      "condo association accounting",
+      "hoa accountant",
+      "hoa management accounting",
+      "citybooks accounting",
+      "condo association financial reporting",
+      "hoa reserve fund accounting",
+    ],
+    ogTitle:         "CPA-Supervised Accounting for Condo & HOA Boards · CityBooks",
+    ogDescription:   "Daily reconciliation, stoplight risk grading, board-ready monthly packets, audit-ready year-end. The same CityBooks platform 500+ associations run on — supervised in-house by Ande Duda CPA.",
+    ogImage:         "/assets/og/keys-caldwell-accounting.jpg",
+    schema:          ["Service", "BreadcrumbList"],
+  },
+
+  // ─── BREADCRUMBS ──────────────────────────────────────────
+  breadcrumbs: {
+    items: [
+      { label: "Home",                          href: "/" },
+      { label: "Services",                      href: "/" },
+      { label: "Accounting · CityBooks" },
+    ],
+  },
+
+  // ─── NAV ──────────────────────────────────────────────────
+  nav: { active: "accounting" },
+
+  // ─── HERO ─────────────────────────────────────────────────
+  // Reuses KCPillarHero; statute-aware aside replaced with
+  // platform-scale stats. The contrast in the title ("not just
+  // a bookkeeper") is the HomepageV2 framing — keep continuity.
+  hero: {
+    numeral: "—",
+    eyebrow: "Accounting · CityBooks Platform",
+    titlePlain: "CPA-supervised accounting on the platform 500+ associations already run.",
+    titleItalic: "500+ associations already run.",
+    lede: "A bookkeeper codes invoices. We run a financial-controls function for your association — daily reconciliation, monthly stoplight risk grading, board packets that read like board packets, and CPA review on every association every month. Same CityBooks platform used by hundreds of management firms nationally; supervised in-house by Ande Duda CPA.",
+    primaryCta:   { label: "Request a proposal", href: "/request-proposal/index.html" },
+    secondaryCta: { label: "Read the deep-dive", href: "/blog/hoa-accounting-best-practices/index.html" },
+    aside: {
+      eyebrow: "Why this is a different job",
+      h: "Bookkeeping records the past. Accounting predicts the future.",
+      p: "Most boards don't realize how much of their financial risk lives in transactions never reconciled, reserve transfers no one quite explains, and a year-end audit that surfaces the variance ten months too late. CityBooks is built so the variance shows up the same week the transaction does.",
+      stats: [
+        { num: "500", suffix: "+", label: "Associations on CityBooks" },
+        { num: "1",   suffix: "x", label: "Daily bank reconciliation" },
+        { num: "12",                label: "Board packets per year" },
+        { num: "100", suffix: "%",  label: "CPA review on every client" },
+      ],
+    },
+  },
+
+  // ─── METHODOLOGY — monthly cadence calendar strip ──────────
+  // The "B" half of A+B. Show the work, not just the brochure.
+  methodology: {
+    eyebrow: "How a month actually runs",
+    titlePlain: "Four checkpoints between the bank and the board.",
+    titleItalic: "between the bank and the board.",
+    intro: "Most associations get one financial moment a year — when the audit lands. CityBooks is built around four checkpoints a month, so a board sees the variance as it forms, not after it's compounded into a special assessment.",
+    steps: [
+      { when: "Daily",
+        h: "Bank reconciliation, every business day.",
+        p: "Operating, reserve, and CD accounts reconciled to the bank feed each morning. Anomalies — duplicate entries, miscoded vendor payments, transfers that don't match — are flagged the same day, not the next quarter." },
+      { when: "Mid-month",
+        h: "Variance review against budget.",
+        p: "Each association is reviewed line-by-line against budget halfway through the month. Variances exceeding board-set thresholds generate a written commentary that ships with the board packet." },
+      { when: "Day 28-30",
+        h: "CPA review on every association.",
+        p: "Ande Duda, CPA reviews every association before the packet locks. Reserve allocations, fund segregation, and any account showing yellow or red status get an explicit sign-off before the report goes out." },
+      { when: "Day 1-3",
+        h: "Board packet delivered.",
+        p: "Balance sheet, P&L, budget-to-actual, AR aging, reserve summary, variance commentary, stoplight grading — board-ready, not raw QuickBooks exports. In owners' inboxes by the third business day of the new month." },
+    ],
+  },
+
+  // ─── STOPLIGHT — risk grading dashboard frame ──────────────
+  // The signature visual artifact of this page. The values are
+  // DEMONSTRATIVE — they're not from any real client. Marked
+  // as a sample in the dashboard chrome and footnoted explicitly.
+  stoplight: {
+    eyebrow: "Stoplight risk grading",
+    titlePlain: "A board doesn't need 47 pages of financials. It needs to know what's on track and what's not.",
+    titleItalic: "what's on track and what's not.",
+    intro: "Every monthly packet leads with a stoplight grade across six financial-health metrics. The grade isn't a software trick — it's a CPA-reviewed judgment with documented thresholds. Boards open the packet, see the row of badges, and know immediately where to spend the meeting.",
+    community: "Sample Coastal Condo Association",
+    asOf:      "Mar 31",
+    rows: [
+      { metric: "Operating cash position", value: "118 days",
+        status: "green",
+        what: "Above the 90-day target. Healthy buffer for off-cycle vendor payments." },
+      { metric: "AR aging — 60+ days",     value: "2.4%",
+        status: "green",
+        what: "Below the 5% threshold. Two owner accounts on payment plans." },
+      { metric: "Reserve funding ratio",   value: "62%",
+        status: "yellow",
+        what: "Below 70% target per AccuReserve study. Recommend allocation review at next budget cycle." },
+      { metric: "Budget variance — YTD",   value: "+4.1%",
+        status: "yellow",
+        what: "Insurance line driving variance. Q1 reforecast underway." },
+      { metric: "Vendor AP aging",         value: "0 over 30",
+        status: "green",
+        what: "All vendor invoices current. Two contractor 1099s pending year-end." },
+      { metric: "Special assessment exposure", value: "$0",
+        status: "green",
+        what: "No assessment under board consideration. Capital plan funded from reserves through 2027." },
+    ],
+    note: "Sample dashboard. Numbers are illustrative; metric definitions, thresholds, and CPA-review process are real and identical across every Keys-Caldwell client.",
+  },
+
+  // ─── PACKET — sample monthly artifact preview ──────────────
+  packet: {
+    eyebrow: "What lands in the board's inbox",
+    titlePlain: "The monthly packet, by document.",
+    titleItalic: "by document.",
+    intro: "The packet ships as a single PDF with the stoplight grade up front, followed by these four documents in order. Boards can read just the grade and the variance commentary in five minutes — or pull any individual document for the AGM book.",
+    artifacts: [
+      { kind: "Document 01",
+        title: "Balance sheet & P&L",
+        caption: "Operating, reserve, and CD positions. Income vs. expense categories with prior-period comparison. GAAP-formatted, audit-ready.",
+        mock: "balance" },
+      { kind: "Document 02",
+        title: "Budget-to-actual variance",
+        caption: "Line-by-line vs. board-approved budget. Variances above threshold carry a written commentary explaining what shifted and why.",
+        mock: "variance" },
+      { kind: "Document 03",
+        title: "AR aging by owner",
+        caption: "Current, 30, 60, 90+ buckets. Payment-plan flags. Pre-collections list (anonymized for the packet, full detail for the treasurer).",
+        mock: "aging" },
+      { kind: "Document 04",
+        title: "Reserve summary & forecast",
+        caption: "Fund balance by component, allocation YTD, AccuReserve schedule alignment. Capital plan years ahead at a glance.",
+        mock: "reserve" },
+    ],
+  },
+
+  // ─── CPA SPOTLIGHT — Ande Duda ─────────────────────────────
+  cpa: {
+    eyebrow: "Meet your CPA",
+    titlePlain: "Most management firms outsource the CPA function. Ours sits in the office.",
+    titleItalic: "sits in the office.",
+    body: "Most management firms outsource the CPA function — a year-end engagement with a regional accounting firm that touches the books once. We run it differently. Ande Duda is the staff Certified Public Accountant for Keys-Caldwell, reviewing every association's financials every month before the board packet ships, supervising reserve fund segregation, and signing off on year-end audit prep. Boards get monthly CPA-level oversight, not a one-time audit reaction.",
+    bullets: [
+      "Monthly CPA review on every active client",
+      "Reserve fund accounting per FS 718 segregation rules",
+      "Year-end audit preparation & 1099 / tax-form coordination",
+      "GAAP financial statement preparation",
+      "Special-assessment accounting & owner-allocation tracking",
+      "Annual budget review & multi-year financial modeling",
+    ],
+    person: {
+      name:        "Ande Duda, CPA",
+      role:        "Accounting Principal · CityBooks Platform Lead",
+      initials:    "AD",
+      credentials: ["CPA", "CMCA"],
+      bioHref:     "/about/index.html#ande-duda",
+    },
+  },
+
+  // ─── RECEIPTS — what's-included ledger ─────────────────────
+  // Per copywriting guide: "be specific — not 'financial reporting'
+  // but 'monthly financials with bank reconciliation, AR aging,
+  // and budget-to-actual variance.'"
+  receipts: {
+    eyebrow: "What's included",
+    titlePlain: "Eight specific deliverables, every month, for every client.",
+    titleItalic: "every month, for every client.",
+    intro: "There is no \"silver / gold / platinum\" tier on the accounting service. Below is what every Keys-Caldwell association receives as part of the standard management agreement.",
+    items: [
+      { title: "Daily bank reconciliation",
+        desc: "Operating, reserve, and CD accounts reconciled to the bank feed each business day. Anomalies flagged the same day, not the next quarter." },
+      { title: "Monthly board financial packet",
+        desc: "Balance sheet, P&L, budget-to-actual, AR aging, reserve summary, variance commentary — delivered by the third business day of the new month." },
+      { title: "Stoplight risk grading",
+        desc: "Six-metric financial-health grade with documented thresholds, reviewed and signed off by Ande Duda CPA before the packet ships." },
+      { title: "AR & collections workflow",
+        desc: "Owner accounts aged 30/60/90+ with payment-plan flags. Coordinated escalation to association attorney for pre-collections per board policy." },
+      { title: "AP & vendor payment processing",
+        desc: "Coded, approved, and paid on the board's calendar. 1099 tracking through the year, not at the December scramble." },
+      { title: "Reserve fund accounting",
+        desc: "FS 718-compliant fund segregation. Allocation tracking against the AccuReserve schedule. Component-level reporting for capital projects." },
+      { title: "Annual budget development",
+        desc: "Multi-year forecast modeled against current reserve position. Budget presented to the board with line-item rationale, not a copy-paste of last year." },
+      { title: "Year-end audit preparation",
+        desc: "Audit binder assembled, supporting documentation organized, third-party CPA engagement coordinated. Boards walk into the audit prepared, not surprised." },
+    ],
+  },
+
+  // ─── TECH STACK ────────────────────────────────────────────
+  // Boards ask about security and integration. Don't make them dig.
+  stack: {
+    eyebrow: "Platform & controls",
+    titlePlain: "Enterprise-grade infrastructure. Local engagement.",
+    titleItalic: "Local engagement.",
+    items: [
+      { name: "CityBooks",
+        role: "Accounting platform",
+        detail: "Used by 500+ associations and management firms nationally. Daily reconciliation, fund accounting, audit trails, role-based reporting. SOC 2 Type II infrastructure." },
+      { name: "Vantaca",
+        role: "Owner-facing portal & ARC",
+        detail: "Owner payments, maintenance requests, ARC application workflow, document library. Integrated with CityBooks so the treasurer's report and the owner's portal show the same numbers." },
+      { name: "SOC 2 Type II",
+        role: "Security & compliance",
+        detail: "Encryption at rest and in transit, role-based access, audit logging, cyber-liability insurance carried by the firm. Independent annual SOC 2 Type II attestation on the underlying platforms." },
+    ],
+  },
+
+  // ─── TESTIMONIAL — accounting-specific ─────────────────────
+  testimonials: {
+    eyebrow: "From the treasurer's seat",
+    items: [
+      { quote: "Our previous firm sent a QuickBooks export they called a financial report. Keys-Caldwell sends a board packet with a stoplight grade up front, variance commentary that actually explains what shifted, and a CPA's name on the cover. The first month the difference was obvious. By month three, I stopped reviewing line-by-line because I trusted the grade.",
+        name:  "Daniel Reinhart",
+        role:  "Board Treasurer · 38-unit coastal condo · Venice, FL",
+        initials: "DR" },
+      { quote: "I asked their accounting team a question on a Wednesday afternoon about a reserve allocation. Ande Duda himself called back inside two hours with the answer and the FS 718 citation. That kind of access — to a CPA who actually knows your association — is not what we got from the regional accounting firm we used before.",
+        name:  "Linda Forsythe",
+        role:  "Board President · 24-unit mid-rise · Sarasota, FL",
+        initials: "LF" },
+    ],
+  },
+
+  // ─── FAQ — accounting-specific ─────────────────────────────
+  faq: {
+    titlePlain: "Questions treasurers ask before signing the engagement.",
+    titleItalic: "before signing the engagement.",
+    side: "These come up on almost every intake call. If yours isn't here, send a note — we'd rather answer the real one than the obvious one.",
+    items: [
+      { q: "Is your CPA actually on staff, or is this a marketing line?",
+        a: ["Ande Duda, CPA is a Keys-Caldwell employee — not an outside firm we engage at year-end. He reviews every active client's financials every month before the board packet ships, supervises reserve fund segregation, and signs off on year-end audit prep.",
+            "The annual independent audit is still performed by a third-party CPA firm, as Florida statute and most governing documents require. Our in-house CPA's job is the other 11 months of the year — when most boards have no CPA-level oversight at all."] },
+      { q: "What is CityBooks, exactly? Is it your software or a vendor?",
+        a: "CityBooks is a national accounting platform used by 500+ community associations and management firms across the country. We're a CityBooks operator — not a software vendor reselling it. The platform gives us enterprise-grade fund accounting, audit trails, and SOC 2 Type II infrastructure that a regional management firm couldn't reasonably build on its own. Our value-add is the people running it: licensed managers, a staff CPA, and decades of association-specific practice." },
+      { q: "How does this work with our current CPA / outside auditor?",
+        a: "Cleanly. Our staff CPA prepares the audit binder, organizes the supporting documentation, and runs point with your engaged audit firm. Boards report this is the year-end transition that surprised them most — the audit goes from a four-week scramble to a structured handoff. We don't compete with your independent auditor; we make their job easier and faster." },
+      { q: "How is reserve fund accounting handled, especially under FS 718?",
+        a: "Reserve funds are segregated from operating funds at the bank-account level, accounted for separately on the balance sheet, and allocated against the AccuReserve study schedule on a documented monthly cadence. Component-level reporting means the board can see — at any moment — how much is in the roof reserve, how much is in concrete restoration, how much is allocated for the seawall. Pooling vs. straight-line methodology is selected per association, documented, and reviewed annually." },
+      { q: "What does the monthly board packet actually contain?",
+        a: "Stoplight risk grade up front, then balance sheet, P&L, budget-to-actual variance with written commentary, AR aging by owner, reserve summary, and a one-page CPA review note. Delivered as a single PDF by the third business day of the new month. The four artifact previews on this page show what each document looks like." },
+      { q: "How are special assessments accounted for?",
+        a: "As a separate fund with documented owner-by-owner allocation, payment tracking, and reporting back to the board on collection status. Boards see what's been billed, what's been collected, and what's outstanding by owner. Year-end reconciliation closes the assessment cleanly and rolls any unspent funds into the project's actual close-out, not into operating cash." },
+    ],
+  },
+
+  // ─── FINAL CTA BAND ───────────────────────────────────────
+  ctaBand: {
+    eyebrow: "See what your packet should look like",
+    title:   "Send us your last three monthly financials. We'll show you what the same period would look like on CityBooks — at no charge.",
+    body:    "It's a 30-minute review, not a sales pitch. Boards leave with a clearer picture of what monthly financial reporting should look like — whether that's with us or someone else.",
+    primary:   { label: "Request a proposal",     href: "/request-proposal/index.html" },
+    secondary: { label: "Read the deep-dive guide", href: "/blog/hoa-accounting-best-practices/index.html" },
+    phone: "(941) 485-0605",
+    hours: "Mon – Fri · 8:30am – 5:00pm ET",
+  },
+
+  // ─── FOOTER (defaults from shared.jsx) ────────────────────
+  footer: {},
+};
+
+const Page = () => (
+  <div className="kc-page">
+    <KCNav active={CONTENT.nav.active} />
+    <KCBreadcrumbs     content={CONTENT.breadcrumbs} />
+    <KCPillarHero      content={CONTENT.hero} />
+    <KCAcctMethodology content={CONTENT.methodology} />
+    <KCAcctStoplight   content={CONTENT.stoplight} />
+    <KCAcctPacket      content={CONTENT.packet} />
+    <KCAcctCpa         content={CONTENT.cpa} />
+    <KCAcctReceipts    content={CONTENT.receipts} />
+    <KCAcctStack       content={CONTENT.stack} />
+    <KCTestimonialPair content={CONTENT.testimonials} />
+    <KCFAQ             content={CONTENT.faq} />
+    <KCCtaBand         content={CONTENT.ctaBand} />
+    <KCFooter          content={CONTENT.footer} />
+  </div>
+);
+
+// ─── SEO meta + JSON-LD ───────────────────────────────
+KCSeo.apply(CONTENT.meta, {
+  pageType:    "service",
+  pageUrl:     CONTENT.meta.canonical,
+  breadcrumbs: CONTENT.breadcrumbs.items,
+  faqs:        CONTENT.faq.items.map(f => ({
+    q: f.q,
+    a: Array.isArray(f.a) ? f.a.join('\n\n') : f.a,
+  })),
+  service: {
+    name:        "Condo & HOA Accounting · CityBooks Platform",
+    description: CONTENT.meta.description,
+    areaServed:  KC_ORG.areaServed,
+  },
+});
+
+// Render once shared + pillar + accounting components are registered.
+const renderWhenReady = () => {
+  if (typeof KCNav === 'undefined'
+   || typeof KCPillarHero === 'undefined'
+   || typeof KCAcctMethodology === 'undefined') {
+    return setTimeout(renderWhenReady, 30);
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(<Page />);
+  requestAnimationFrame(() => { if (window.lucide) window.lucide.createIcons(); });
+  setTimeout(() => { if (window.lucide) window.lucide.createIcons(); }, 400);
+};
+renderWhenReady();
+</script>
+
+</body>
+</html>
