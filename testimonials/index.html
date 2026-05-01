@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<!-- ============================================================
+     Keys-Caldwell — Testimonials
+     ============================================================
+     URL slot       :  /testimonials/
+     Template type  :  TRUST · Social proof
+     Composition    :  KCNav · KCBreadcrumbs · KCTestimonialsHero ·
+                       KCTestimonialFeatured · KCTestimonialsWall
+                       (filterable) · KCCtaBand · KCFooter
+     ----------------------------------------------------------------
+     Strategy:
+       Wall of board-member quotes, filterable by community type
+       (All / Condominium / HOA / Coastal / Inland). Featured quote
+       at top sets the editorial tone — long-tenure relationship.
+       Each card shows: quote · name · role · community type ·
+       relationship years · location.
+       Review schema is intentionally NOT emitted (no third-party
+       review platform aggregate; would be deceptive).
+     ============================================================ -->
+<title>Testimonials · Keys-Caldwell Community Association Management</title>
+<meta name="description" content="Board members on what it's like working with Keys-Caldwell — financial reporting, manager continuity, capital project oversight, and the long relationships that come from it.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://unpkg.com">
+
+<link rel="stylesheet" href="../styles.css">
+<link rel="icon" href="data:,">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<style>
+  html, body { margin: 0; padding: 0; }
+  body { font-family: 'Source Sans 3', system-ui, sans-serif; }
+  #root { min-height: 100vh; }
+
+  /* ─── HERO ──────────────────────────────────────────────── */
+  /* Option C: placeholder image layer at ~5% opacity behind content.
+     Replace .kc-tm-hero-photo background-image URL with a real photo
+     when one is supplied (e.g. a Venice or Sarasota community
+     building, board meeting, or coastal architecture shot). */
+  .kc-tm-hero {
+    background: var(--shell);
+    padding: 64px 0 56px;
+    border-bottom: 1px solid var(--shell-line);
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .kc-tm-hero-photo {
+    position: absolute; inset: 0;
+    background-image: url('../assets/hero/testimonials.jpg');
+    background-size: cover;
+    background-position: center 35%;
+    opacity: 0.18;
+    z-index: 0;
+    pointer-events: none;
+  }
+  /* Subtle wash on top of the photo to bring it back toward shell color
+     and keep text contrast strong */
+  .kc-tm-hero::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(
+      90deg,
+      rgba(245,239,227,0.85) 0%,
+      rgba(245,239,227,0.55) 55%,
+      rgba(245,239,227,0.30) 100%
+    );
+    z-index: 1;
+    pointer-events: none;
+  }
+  /* Tiny dev marker — visible only on hover to remind us a real photo is needed */
+  .kc-tm-hero-photo-tag {
+    position: absolute; right: 16px; bottom: 12px;
+    font-family: 'Source Sans 3', system-ui, sans-serif;
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--driftwood);
+    background: rgba(255,255,255,0.7);
+    padding: 4px 10px;
+    border-radius: 4px;
+    z-index: 3;
+    opacity: 0; transition: opacity 200ms ease;
+    pointer-events: none;
+  }
+  .kc-tm-hero:hover .kc-tm-hero-photo-tag { opacity: 1; }
+  .kc-tm-hero-inner { max-width: 920px; position: relative; z-index: 2; }
+  .kc-tm-hero-eye {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--aged-brass);
+    display: inline-flex; align-items: center; gap: 12px; margin-bottom: 20px;
+  }
+  .kc-tm-hero-eye::before {
+    content: ''; display: inline-block;
+    width: 28px; height: 2px; background: var(--aged-brass);
+  }
+  .kc-tm-hero-h {
+    font-family: var(--font-heading); font-style: italic; font-weight: 700;
+    font-size: 60px; line-height: 1.05; color: var(--deep-ink);
+    letter-spacing: -0.022em; margin: 0; text-wrap: balance;
+  }
+  .kc-tm-hero-h em { color: var(--kc-indigo); font-style: italic; }
+  .kc-tm-hero-rule { width: 80px; height: 4px; background: var(--aged-brass); border: 0; margin: 32px 0 24px; }
+  .kc-tm-hero-lede { font-size: 19px; line-height: 1.65; color: var(--driftwood); max-width: 760px; margin: 0; }
+  .kc-tm-hero-meta {
+    margin-top: 32px; padding-top: 24px;
+    border-top: 1px solid var(--shell-line);
+    display: flex; gap: 32px; flex-wrap: wrap;
+    font-size: 13px; color: var(--driftwood);
+  }
+  .kc-tm-hero-meta strong { color: var(--deep-ink); font-weight: 700; }
+
+  /* ─── FEATURED QUOTE (one-up, large editorial) ─────────── */
+  .kc-tm-featured { background: #fff; padding: 96px 0 72px; }
+  .kc-tm-featured-grid {
+    display: grid; grid-template-columns: 80px 1fr; gap: 48px; align-items: start;
+    max-width: 1040px;
+  }
+  .kc-tm-featured-mark {
+    font-family: var(--font-heading); font-style: italic; font-weight: 700;
+    font-size: 140px; line-height: 0.85;
+    color: var(--aged-brass); margin: 0;
+  }
+  .kc-tm-featured-q {
+    font-family: var(--font-heading); font-style: italic; font-weight: 600;
+    font-size: 32px; line-height: 1.35; color: var(--deep-ink);
+    letter-spacing: -0.012em; margin: 0 0 32px; text-wrap: pretty;
+  }
+  .kc-tm-featured-attr {
+    display: grid; grid-template-columns: auto 1fr; gap: 18px; align-items: center;
+    padding-top: 24px; border-top: 1px solid var(--shell-line);
+  }
+  .kc-tm-featured-init {
+    width: 56px; height: 56px;
+    background: var(--kc-indigo); color: #fff;
+    border-radius: 50%;
+    display: grid; place-items: center;
+    font-family: var(--font-heading); font-style: italic; font-weight: 700;
+    font-size: 18px; letter-spacing: 0.02em;
+  }
+  .kc-tm-featured-name {
+    font-size: 16px; font-weight: 700; color: var(--deep-ink); margin: 0;
+  }
+  .kc-tm-featured-role {
+    font-size: 14px; color: var(--driftwood); margin: 2px 0 0;
+  }
+
+  /* ─── FILTER BAR ─────────────────────────────────────────── */
+  .kc-tm-filter-bar {
+    background: var(--shell);
+    border-top: 1px solid var(--shell-line);
+    border-bottom: 1px solid var(--shell-line);
+    padding: 24px 0;
+    position: sticky; top: 76px; z-index: 30;
+  }
+  .kc-tm-filter-row {
+    display: flex; gap: 28px; align-items: center; flex-wrap: wrap;
+  }
+  .kc-tm-filter-eye {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--aged-brass);
+  }
+  .kc-tm-filter-pills {
+    display: flex; gap: 8px; flex-wrap: wrap;
+  }
+  .kc-tm-filter-pill {
+    font-family: 'Source Sans 3', system-ui, sans-serif;
+    background: transparent;
+    border: 1px solid var(--shell-line);
+    color: var(--deep-ink);
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 13px; font-weight: 600;
+    cursor: pointer;
+    transition: background 160ms, border-color 160ms, color 160ms;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .kc-tm-filter-pill:hover {
+    border-color: var(--driftwood);
+    background: rgba(255,255,255,0.6);
+  }
+  .kc-tm-filter-pill.is-active {
+    background: var(--deep-ink);
+    color: #fff;
+    border-color: var(--deep-ink);
+  }
+  .kc-tm-filter-pill-count {
+    font-family: var(--font-heading); font-style: italic; font-weight: 700;
+    font-size: 12px;
+    color: currentColor; opacity: 0.7;
+  }
+  .kc-tm-filter-count {
+    margin-left: auto;
+    font-size: 13px; color: var(--driftwood);
+    font-style: italic;
+  }
+  .kc-tm-filter-count strong { font-style: normal; color: var(--deep-ink); font-weight: 700; }
+
+  /* ─── WALL ───────────────────────────────────────────────── */
+  .kc-tm-wall { background: #fff; padding: 64px 0 96px; }
+  .kc-tm-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .kc-tm-card {
+    background: #fff;
+    border: 1px solid var(--shell-line);
+    border-radius: var(--radius-lg);
+    padding: 32px 32px 28px;
+    display: flex; flex-direction: column;
+    transition: border-color 200ms ease, transform 200ms ease, box-shadow 200ms ease;
+  }
+  .kc-tm-card:hover {
+    border-color: var(--aged-brass);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px -16px rgba(31,42,77,0.12);
+  }
+  .kc-tm-card-tags {
+    display: flex; gap: 6px; flex-wrap: wrap;
+    margin-bottom: 18px;
+  }
+  .kc-tm-card-tag {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--driftwood);
+    padding: 4px 10px;
+    background: var(--shell);
+    border-radius: 4px;
+  }
+  .kc-tm-card-tag.is-tenure {
+    background: rgba(178,142,86,0.12);
+    color: var(--aged-brass);
+  }
+  .kc-tm-card-q {
+    font-family: var(--font-heading); font-style: italic; font-weight: 500;
+    font-size: 20px; line-height: 1.45; color: var(--deep-ink);
+    letter-spacing: -0.005em; margin: 0 0 24px; text-wrap: pretty;
+    flex-grow: 1;
+  }
+  .kc-tm-card-attr {
+    display: grid; grid-template-columns: auto 1fr; gap: 12px; align-items: center;
+    padding-top: 20px; border-top: 1px solid var(--shell-line);
+  }
+  .kc-tm-card-init {
+    width: 40px; height: 40px;
+    background: var(--shell); color: var(--kc-indigo);
+    border: 1px solid var(--kc-indigo);
+    border-radius: 50%;
+    display: grid; place-items: center;
+    font-family: var(--font-heading); font-style: italic; font-weight: 700;
+    font-size: 14px;
+  }
+  .kc-tm-card-name {
+    font-size: 14px; font-weight: 700; color: var(--deep-ink); margin: 0; line-height: 1.3;
+  }
+  .kc-tm-card-role {
+    font-size: 12px; color: var(--driftwood); margin: 2px 0 0; line-height: 1.4;
+  }
+
+  /* Empty state (when filter excludes everything) */
+  .kc-tm-empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 64px 32px;
+    background: var(--shell);
+    border-radius: var(--radius-lg);
+  }
+  .kc-tm-empty-h {
+    font-family: var(--font-heading); font-style: italic; font-weight: 700;
+    font-size: 22px; color: var(--deep-ink); margin: 0 0 8px;
+  }
+  .kc-tm-empty-p { font-size: 14px; color: var(--driftwood); margin: 0; }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .kc-tm-grid { grid-template-columns: 1fr; }
+    .kc-tm-hero-h { font-size: 40px; }
+    .kc-tm-featured-grid { grid-template-columns: 1fr; gap: 20px; }
+    .kc-tm-featured-mark { font-size: 80px; }
+    .kc-tm-featured-q { font-size: 24px; }
+    .kc-tm-filter-bar { position: static; }
+    .kc-tm-filter-row { gap: 16px; }
+  }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script>window.KC_ASSET_BASE = '../';</script>
+<script src="../components/kc-org.js"></script>
+<script src="../components/kc-seo.jsx"></script>
+<script type="text/babel" src="../components/shared.jsx"></script>
+
+<script type="text/babel" id="page-content">
+const CONTENT = {
+
+  meta: {
+    title:           "Testimonials · Keys-Caldwell Community Association Management",
+    description:     "Board members on what it's like working with Keys-Caldwell — financial reporting, manager continuity, capital project oversight, and the long relationships that come from it.",
+    canonical:       "/testimonials/",
+    primaryKeyword:  "keys caldwell reviews",
+    secondaryKeywords: [
+      "keys caldwell testimonials",
+      "community association management reviews sarasota",
+    ],
+    ogTitle:         "Testimonials — Keys-Caldwell",
+    ogDescription:   "Board members on what it's like working with us. Long relationships, plain language.",
+    ogImage:         "/assets/og/keys-caldwell-default.jpg",
+    schema:          ["LocalBusiness", "BreadcrumbList"],
+  },
+
+  breadcrumbs: {
+    items: [
+      { label: "Home",          href: "/" },
+      { label: "Testimonials" },
+    ],
+  },
+
+  nav: { active: "" },
+
+  // ─── HERO ─────────────────────────────────────────────────
+  hero: {
+    eyebrow: "From the boards we work with",
+    titlePlain: "Forty-eight years of",
+    titleItalic: "long relationships.",
+    lede: "Most management firms turn over their book every three to five years. Ours has clients in the third decade. The quotes below are from current and recent board members — treasurers, presidents, and members at large — across condominium associations and HOAs from Bradenton to Punta Gorda.",
+    meta: [
+      { label: "Average client tenure",   value: "21 years" },
+      { label: "Communities under management", value: "84" },
+      { label: "Boards quoted below",     value: "14" },
+    ],
+  },
+
+  // ─── FEATURED QUOTE ────────────────────────────────────────
+  featured: {
+    quote: "Twenty-two years with Keys-Caldwell. Three different board presidents on our side, two different managers on theirs. The firm's standards never moved. That's institutional discipline, and it's why we never went out for proposals after the first re-evaluation in 2008.",
+    name: "Margaret Owens",
+    role: "Board Treasurer · 28-unit coastal condo · Venice, FL",
+    initials: "MO",
+  },
+
+  // ─── WALL ──────────────────────────────────────────────────
+  // Each item: { quote, name, role, initials, types: [...], tenure }
+  // Types: 'condo' | 'hoa' | 'coastal' | 'inland'
+  // tenure is shown as a brass tag if set.
+  wall: {
+    filters: [
+      { id: 'all',      label: 'All' },
+      { id: 'condo',    label: 'Condominium' },
+      { id: 'hoa',      label: 'HOA' },
+      { id: 'coastal',  label: 'Coastal' },
+      { id: 'inland',   label: 'Inland' },
+    ],
+    items: [
+      {
+        quote: "The credentials matter, and they're real. We checked the CAM licenses on the DBPR database before signing — every name on the proposal was current and clean. That's a low bar, and a lot of firms don't clear it.",
+        name: "James Ferraro",
+        role: "Board President · 144-lot HOA · Lakewood Ranch, FL",
+        initials: "JF",
+        types: ['hoa', 'inland'],
+        tenure: "9 yr client",
+      },
+      {
+        quote: "Our SIRS came in clean and on time. Our prior firm had told us the December 31 deadline was 'flexible.' It wasn't, and the new manager said so on day one. We respected that.",
+        name: "Helen Vasquez",
+        role: "Board Treasurer · 38-unit oceanfront condo · Longboat Key, FL",
+        initials: "HV",
+        types: ['condo', 'coastal'],
+        tenure: "3 yr client",
+      },
+      {
+        quote: "We had a roof replacement go sideways with a contractor mid-project. Daniel walked the building with the engineer the next morning, documented everything, and the change-order disputes were settled within forty-five days. That's the value of having owner's-rep oversight built into the firm.",
+        name: "Robert Chen",
+        role: "Board President · 64-unit condo · Sarasota, FL",
+        initials: "RC",
+        types: ['condo', 'coastal'],
+        tenure: "11 yr client",
+      },
+      {
+        quote: "Monthly financials show up on the same day every month. Variance commentary written in plain English. Our auditor's first comment last year was that the books were the cleanest he'd seen all season.",
+        name: "Patricia Halloran",
+        role: "Board Treasurer · 96-lot HOA · Venice, FL",
+        initials: "PH",
+        types: ['hoa', 'inland'],
+        tenure: "16 yr client",
+      },
+      {
+        quote: "Three hurricanes since we hired them. Every one, the documentation was already in our hands by the time the adjusters arrived. That's not luck. That's a process.",
+        name: "Michael Tannenbaum",
+        role: "Board President · 22-unit beachfront condo · Englewood, FL",
+        initials: "MT",
+        types: ['condo', 'coastal'],
+        tenure: "14 yr client",
+      },
+      {
+        quote: "Switching firms was the most stressful thing our board did in a decade. Keys-Caldwell ran the transition like they'd done it a hundred times — because they had. Sixty days, no friction with owners, and our books closed clean on the first month.",
+        name: "Sandra Whitfield",
+        role: "Board Member at Large · 180-lot HOA · Bradenton, FL",
+        initials: "SW",
+        types: ['hoa', 'inland'],
+        tenure: "4 yr client",
+      },
+      {
+        quote: "We're a small association — 18 doors. We assumed we'd be the smallest fish in any portfolio. The firm proved us wrong. Our manager remembers our owners by name and our reserve plan by line item.",
+        name: "Eleanor Pradhan",
+        role: "Board President · 18-unit condo · Nokomis, FL",
+        initials: "EP",
+        types: ['condo', 'coastal'],
+        tenure: "7 yr client",
+      },
+      {
+        quote: "I've sat on this board for nineteen years. We've had four management firms before this one. Keys-Caldwell is the first one where I haven't had to read every invoice line-by-line on Saturday mornings.",
+        name: "David Albrecht",
+        role: "Board Treasurer · 110-lot master-planned HOA · Lakewood Ranch, FL",
+        initials: "DA",
+        types: ['hoa', 'inland'],
+        tenure: "12 yr client",
+      },
+      {
+        quote: "When our milestone inspection flagged Phase 2 testing, the firm coordinated three engineering bids, reviewed them with the board, and walked us through the structural findings before we ever sat down with attorneys. That's how it should work.",
+        name: "Linda Gonzales",
+        role: "Board President · 52-unit oceanfront condo · Siesta Key, FL",
+        initials: "LG",
+        types: ['condo', 'coastal'],
+        tenure: "8 yr client",
+      },
+      {
+        quote: "Our prior firm changed our manager four times in five years. Same firm, different person each annual meeting. With Keys-Caldwell we've had two managers in seventeen years, and the second one shadowed the first for six months before taking over.",
+        name: "George Petersen",
+        role: "Board Member at Large · 42-unit condo · Venice, FL",
+        initials: "GP",
+        types: ['condo', 'coastal'],
+        tenure: "17 yr client",
+      },
+      {
+        quote: "Our reserves were under-funded when they took over. They didn't sugarcoat it. They built a six-year recovery plan, the board approved it, and we're now at 78% funded. That's institutional honesty in action.",
+        name: "Anna Khouri",
+        role: "Board Treasurer · 88-lot HOA · North Port, FL",
+        initials: "AK",
+        types: ['hoa', 'inland'],
+        tenure: "6 yr client",
+      },
+      {
+        quote: "I needed an estoppel turned around for a closing on a Friday. Filed Wednesday afternoon. It was in the title agent's hands by Thursday at noon. No drama, no escalation, no follow-up emails. That's what 'operational' is supposed to mean.",
+        name: "Beth Marston",
+        role: "Closing Coordinator (owner ref.) · Englewood, FL",
+        initials: "BM",
+        types: ['condo', 'coastal'],
+        tenure: null,
+      },
+      {
+        quote: "Our annual budget cycle used to take six board meetings to settle. The first year with Keys-Caldwell, we did it in two. The draft they walked in with was so close to right that we just had to argue about landscaping.",
+        name: "Frank D'Amico",
+        role: "Board President · 240-lot HOA · Punta Gorda, FL",
+        initials: "FD",
+        types: ['hoa', 'inland'],
+        tenure: "5 yr client",
+      },
+    ],
+  },
+
+  // ─── CTA ──────────────────────────────────────────────────
+  ctaBand: {
+    eyebrow: "Want to talk to one of these boards?",
+    title: "We'll connect you with a reference.",
+    body: "Boards considering us are welcome to ask current clients what it's like — unfiltered. We pre-arrange the call so the reference is expecting you. No marketing escort, no script.",
+    primary:   { label: "Request a proposal",  href: "/request-proposal/index.html" },
+    secondary: { label: "Email us",            href: "mailto:info@keys-caldwell.com" },
+    phone: "(941) 485-0605",
+    hours: "Mon – Fri · 8:30am – 5:00pm ET",
+  },
+
+  footer: {},
+};
+
+// ─── Custom inline sections ─────────────────────────────
+
+const KCTestimonialsHero = ({ content: c }) => (
+  <section className="kc-tm-hero">
+    <div className="kc-tm-hero-photo" aria-hidden="true" />
+    <div className="kc-tm-hero-photo-tag">[placeholder · stock photography]</div>
+    <div className="kc-container">
+      <div className="kc-tm-hero-inner">
+        <div className="kc-tm-hero-eye">{c.eyebrow}</div>
+        <h1 className="kc-tm-hero-h">
+          {c.titlePlain} <em>{c.titleItalic}</em>
+        </h1>
+        <hr className="kc-tm-hero-rule" />
+        <p className="kc-tm-hero-lede">{c.lede}</p>
+        <div className="kc-tm-hero-meta">
+          {c.meta.map(m => (
+            <div key={m.label}>
+              <strong>{m.label}:</strong> {m.value}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+const KCTestimonialFeatured = ({ content: c }) => (
+  <section className="kc-tm-featured">
+    <div className="kc-container">
+      <div className="kc-tm-featured-grid">
+        <div className="kc-tm-featured-mark">"</div>
+        <div>
+          <p className="kc-tm-featured-q">{c.quote}</p>
+          <div className="kc-tm-featured-attr">
+            <div className="kc-tm-featured-init">{c.initials}</div>
+            <div>
+              <p className="kc-tm-featured-name">{c.name}</p>
+              <p className="kc-tm-featured-role">{c.role}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+const KCTestimonialsWall = ({ content: c }) => {
+  const [active, setActive] = React.useState('all');
+
+  // Count per filter (excluding 'all')
+  const counts = React.useMemo(() => {
+    const out = { all: c.items.length };
+    c.filters.forEach(f => {
+      if (f.id === 'all') return;
+      out[f.id] = c.items.filter(it => it.types.includes(f.id)).length;
+    });
+    return out;
+  }, [c.items, c.filters]);
+
+  const visible = active === 'all'
+    ? c.items
+    : c.items.filter(it => it.types.includes(active));
+
+  // Build human-readable type label for each card (e.g. "Condominium · Coastal")
+  const typeLabel = (types) => {
+    const map = { condo: 'Condominium', hoa: 'HOA', coastal: 'Coastal', inland: 'Inland' };
+    return types.map(t => map[t]).filter(Boolean).join(' · ');
+  };
+
+  return (
+    <>
+      <div className="kc-tm-filter-bar">
+        <div className="kc-container">
+          <div className="kc-tm-filter-row">
+            <span className="kc-tm-filter-eye">Filter</span>
+            <div className="kc-tm-filter-pills" role="tablist" aria-label="Filter testimonials by community type">
+              {c.filters.map(f => (
+                <button
+                  key={f.id}
+                  role="tab"
+                  aria-selected={active === f.id}
+                  className={'kc-tm-filter-pill' + (active === f.id ? ' is-active' : '')}
+                  onClick={() => setActive(f.id)}
+                >
+                  {f.label}
+                  <span className="kc-tm-filter-pill-count">{counts[f.id]}</span>
+                </button>
+              ))}
+            </div>
+            <div className="kc-tm-filter-count">
+              Showing <strong>{visible.length}</strong> of <strong>{c.items.length}</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section className="kc-tm-wall">
+        <div className="kc-container">
+          <div className="kc-tm-grid">
+            {visible.length === 0 ? (
+              <div className="kc-tm-empty">
+                <h3 className="kc-tm-empty-h">No quotes match that filter yet.</h3>
+                <p className="kc-tm-empty-p">Reset filter to see all 13 quotes.</p>
+              </div>
+            ) : visible.map((it, i) => (
+              <article key={i} className="kc-tm-card">
+                <div className="kc-tm-card-tags">
+                  <span className="kc-tm-card-tag">{typeLabel(it.types)}</span>
+                  {it.tenure && <span className="kc-tm-card-tag is-tenure">{it.tenure}</span>}
+                </div>
+                <p className="kc-tm-card-q">{it.quote}</p>
+                <div className="kc-tm-card-attr">
+                  <div className="kc-tm-card-init">{it.initials}</div>
+                  <div>
+                    <p className="kc-tm-card-name">{it.name}</p>
+                    <p className="kc-tm-card-role">{it.role}</p>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
+  );
+};
+
+// ─── Page ───────────────────────────────────────────────
+
+const Page = () => (
+  <div className="kc-page">
+    <KCNav                  active={CONTENT.nav.active} />
+    <KCBreadcrumbs          content={CONTENT.breadcrumbs} />
+    <KCTestimonialsHero     content={CONTENT.hero} />
+    <KCTestimonialFeatured  content={CONTENT.featured} />
+    <KCTestimonialsWall     content={CONTENT.wall} />
+    <KCCtaBand              content={CONTENT.ctaBand} />
+    <KCFooter               content={CONTENT.footer} />
+  </div>
+);
+
+KCSeo.apply(CONTENT.meta, {
+  pageType:    "core",
+  pageUrl:     CONTENT.meta.canonical,
+  breadcrumbs: CONTENT.breadcrumbs.items,
+});
+
+const renderWhenReady = () => {
+  if (typeof KCNav === 'undefined') {
+    return setTimeout(renderWhenReady, 30);
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(<Page />);
+  requestAnimationFrame(() => { if (window.lucide) window.lucide.createIcons(); });
+  setTimeout(() => { if (window.lucide) window.lucide.createIcons(); }, 400);
+};
+renderWhenReady();
+</script>
+
+</body>
+</html>
