@@ -14,8 +14,27 @@
 //   primaryCta, secondaryCta,
 //   aside: { eyebrow, h, p, stats: [{num, suffix?, label}] }
 // }
-const KCPillarHero = ({ content: c }) => (
-  <section className="kc-pillar-hero">
+const KCPillarHero = ({ content: c }) => {
+  const v = c.videoBg;
+  const hasVideo = !!v && (v.vimeoId || v.src);
+  return (
+  <section className={'kc-pillar-hero' + (hasVideo ? ' has-video-bg' : '')}>
+    {hasVideo && (
+      <div className="kc-pillar-hero-video" aria-hidden="true">
+        {v.vimeoId ? (
+          <iframe
+            src={`https://player.vimeo.com/video/${v.vimeoId}?background=1&autoplay=1&loop=1&muted=1&controls=0&autopause=0&playsinline=1`}
+            frameBorder="0"
+            allow="autoplay; fullscreen; picture-in-picture"
+            title=""
+            tabIndex="-1"
+          ></iframe>
+        ) : (
+          <video src={v.src} autoPlay muted loop playsInline preload="metadata" poster={v.poster}></video>
+        )}
+        <div className="kc-pillar-hero-video-overlay"></div>
+      </div>
+    )}
     <div className="kc-container">
       <div>
         <div className="kc-pillar-hero-eye">
@@ -45,7 +64,8 @@ const KCPillarHero = ({ content: c }) => (
       </aside>
     </div>
   </section>
-);
+  );
+};
 
 // ---------- KCProblem ----------
 // content = { eyebrow, titlePlain, titleItalic, intro, cards: [{n, h, p}] }
