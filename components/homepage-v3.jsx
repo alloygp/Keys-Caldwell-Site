@@ -71,12 +71,12 @@ const KCThreePillars = () => {
     {
       eye: 'Financial clarity',
       t: 'CPA-supervised every month.',
-      d: 'CityBooks runs accounting for 500+ associations nationally. Daily reconciliation, monthly board packets, stoplight risk grading, audit-ready year-end. Ande Duda CPA reviews the books your board signs off on.',
+      d: 'we run accounting for 500+ associations nationally. Daily reconciliation, monthly board packets, stoplight risk grading, audit-ready year-end. Ande Duda CPA reviews the books your board signs off on.',
     },
     {
       eye: 'Capital projects',
       t: 'A construction bench small condos rarely get.',
-      d: 'Property Services scopes, bids, and runs roof, balcony, seawall, and concrete projects to closeout. AccuReserve and Karen\'s Engineering on the SIRS side. JLL partnership for on-site construction management.',
+      d: 'Property Services scopes, bids, and runs roof, balcony, seawall, and concrete projects to closeout. reserve-study continuum and Karen\'s Engineering on the SIRS side. JLL partnership for on-site construction management.',
     },
   ];
   return (

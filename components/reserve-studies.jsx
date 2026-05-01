@@ -1,7 +1,7 @@
 // =============================================================
 // /components/reserve-studies.jsx
 // =============================================================
-// Components specific to /reserve-studies/ — the AccuReserve service page.
+// Components specific to /reserve-studies/ — the reserve-study continuum service page.
 //
 // All seven components below assume:
 //   - Tailwind-style class naming via global styles (../reserve-studies.css)
@@ -187,7 +187,7 @@ const KCResHealth = ({ content: c }) => {
 //   community, asOf, columns: [string],
 //   rows: [{ component, cat, ul, remaining, cost, funded, status, note }]
 // }
-// Stylized AccuReserve component schedule. Looks like a real document.
+// Stylized reserve-study continuum component schedule. Looks like a real document.
 const KCResSchedule = ({ content: c }) => {
   const statusLabel = (s) => ({ ok: 'On schedule', watch: 'Watch', action: 'Action' }[s] || s);
   return (
@@ -205,7 +205,7 @@ const KCResSchedule = ({ content: c }) => {
               <span></span><span></span><span></span>
             </div>
             <div className="kc-res-sched-title">
-              AccuReserve · Component Schedule · {c.community}
+              reserve-study continuum · Component Schedule · {c.community}
             </div>
             <div className="kc-res-sched-stamp">{c.asOf}</div>
           </div>

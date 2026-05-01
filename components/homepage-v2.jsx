@@ -33,7 +33,7 @@ const KCFears = () => {
     {
       q: 'We won\'t know about a six-figure shortfall until it\'s too late.',
       ae: 'Reserve discipline · 5-year horizon',
-      a: 'CityBooks reviews every association monthly with stoplight risk grading. AccuReserve modeling surfaces capital exposure five years out. Boards see special assessments forming before they\'re unavoidable.',
+      a: 'Our CPA-led accounting team reviews every association monthly with stoplight risk grading. Reserve-study modeling surfaces capital exposure five years out. Boards see special assessments forming before they\'re unavoidable.',
     },
     {
       q: 'Our SIRS report and milestone inspection are coming and no one has a plan.',
@@ -72,7 +72,7 @@ const KCCompare = () => {
     },
     {
       old: { t: 'A bookkeeper who codes invoices', p: 'Monthly statements that don\'t reconcile. Reserve transfers no one can quite explain. A nervous treasurer.' },
-      neu: { t: 'CPA-supervised CityBooks', p: 'Daily reconciliation, monthly board packets, stoplight risk grading, audit-ready year-end. Ande Duda CPA on staff.' },
+      neu: { t: 'CPA-supervised accounting', p: 'Daily reconciliation, monthly board packets, stoplight risk grading, audit-ready year-end. Ande Duda CPA on staff.' },
     },
     {
       old: { t: 'Buffet pricing — pick a tier', p: 'You pay for services you don\'t use, and the ones you actually need cost extra. Scope creep is the business model.' },
@@ -127,7 +127,7 @@ const KCV2Stats = () => (
         </div>
         <div className="kc-hero-trust-stat">
           <span className="kc-hero-trust-num">500<small>+</small></span>
-          <span className="kc-hero-trust-lbl">Associations on CityBooks accounting</span>
+          <span className="kc-hero-trust-lbl">Associations on the platform</span>
         </div>
         <div className="kc-hero-trust-credentials">
           <div className="kc-hero-trust-credentials-eye">Credentials</div>

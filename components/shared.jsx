@@ -65,8 +65,8 @@ const KCNav = ({ active = 'home', variant = 'shell', content }) => {
           { label: 'HOA management',                href: '/hoa-management/index.html',     desc: 'Single-family & master-planned.' },
         ]},
         { title: 'Departments', items: [
-          { label: 'Accounting · CityBooks',  href: '/accounting/index.html', desc: 'CPA-supervised reporting.' },
-          { label: 'Reserve studies · AccuReserve', href: '/reserve-studies/index.html', desc: 'SIRS, HOA, subscription tiers.' },
+          { label: 'Accounting',         href: '/accounting/index.html', desc: 'CPA-supervised reporting.' },
+          { label: 'Reserve studies',    href: '/reserve-studies/index.html', desc: 'SIRS, HOA, subscription tiers.' },
           { label: 'Property services',       href: '/property-services/index.html', desc: 'Capital projects & maintenance.' },
           { label: 'Pricing & scope',         href: '/pricing/index.html', desc: 'How proposals are built.' },
         ]},
@@ -437,8 +437,8 @@ const KCFooter = ({ content }) => {
     { title: 'Services', links: [
       { label: 'Condo association management', href: '/condo-management/index.html' },
       { label: 'HOA management',                href: '/hoa-management/index.html' },
-      { label: 'Accounting & CityBooks',        href: '/accounting/index.html' },
-      { label: 'Reserve studies · AccuReserve', href: '/reserve-studies/index.html' },
+      { label: 'Accounting',                  href: '/accounting/index.html' },
+      { label: 'Reserve studies',             href: '/reserve-studies/index.html' },
       { label: 'Property services',             href: '/property-services/index.html' },
       { label: 'Service areas',                  href: '/service-areas/index.html' },
       { label: 'Pricing & scope',               href: '/pricing/index.html' },
@@ -505,9 +505,9 @@ const KCPillars = ({ content }) => {
       desc: 'Aging mid-rise structures need a manager who reads the SIRS report and a firm that has the bench to act on it. We run the building, handle the capital projects, and keep insurance carriers writing the policy.',
       bullets: [
         'Florida SIRS & milestone inspection coordination',
-        'Reserve studies via the AccuReserve continuum',
+        'Reserve studies on a graduated continuum — self-assessment to subscription',
         'Capital projects — roofs, balconies, seawalls, concrete',
-        'Insurance broker relationships through SuperKey',
+        'Insurance broker relationships for renewal & claims',
         'CPA-supervised accounting with monthly board packets',
       ],
       cta: 'Explore condo management',
@@ -567,7 +567,7 @@ const KCFourChamber = ({ content }) => {
   const intro   = c.intro   || 'Every Keys-Caldwell community has a single association manager — but behind them is the full firm. When boards need accounting, property, or after-hours support, those answers come from specialists, not a callback queue.';
   const items   = c.items   || [
     { icon: 'building-2',  n: '01', title: 'Community management', desc: 'A dedicated association manager attends every meeting, enforces the documents, manages vendors, and answers when boards call.' },
-    { icon: 'dollar-sign', n: '02', title: 'Accounting · CityBooks', desc: 'CPA-supervised financials, daily reconciliation, transparent monthly reporting, and reserve oversight that flags shortfalls early.', href: '/accounting/index.html' },
+    { icon: 'dollar-sign', n: '02', title: 'Accounting', desc: 'CPA-supervised financials, daily reconciliation, transparent monthly reporting, and reserve oversight that flags shortfalls early.', href: '/accounting/index.html' },
     { icon: 'wrench',      n: '03', title: 'Property services', desc: 'In-house maintenance coordination for the day-to-day, plus capital project management for roofs, seawalls, and structural milestones.' },
     { icon: 'phone',       n: '04', title: 'Client services', desc: 'Owners reach a real person — front-desk, after hours, weekends. Boards hear about issues before they escalate.' },
   ];
@@ -665,8 +665,8 @@ const KCDifferentiators = ({ content }) => {
   const title   = c.title   || 'Six things we won\'t compromise on.';
   const items   = c.items   || [
     { title: 'Local expertise, 48 years deep',     desc: 'Forty-eight years in Venice and Sarasota means we know which contractors show up, which vendors last, and which issues come back if you don\'t fix them right.' },
-    { title: 'CPA-level financial oversight',      desc: 'CityBooks runs accounting for 500+ associations nationally. Daily reconciliation, stoplight risk grading, and Ande Duda CPA on staff — every association reviewed monthly.' },
-    { title: 'Reserve study expertise',            desc: 'AccuReserve continuum — from a $150 self-assessment to a fully managed subscription study. Boards see capital risk five years out, not five months.' },
+    { title: 'CPA-level financial oversight',      desc: 'A nationally-scaled accounting platform supports 500+ associations — daily reconciliation, stoplight risk grading, and Ande Duda CPA on staff. Every association reviewed monthly.' },
+    { title: 'Reserve study expertise',            desc: 'A graduated reserve-study continuum — from a $150 self-assessment to a fully managed subscription study. Boards see capital risk five years out, not five months.' },
     { title: 'Departmental accountability',        desc: 'Four chambers. Every function has an owner. No "let me transfer you" loops between vague property-management departments.' },
     { title: 'Scope-based pricing — no buffet',    desc: 'Every contract is priced on a custom man-hour estimate, not a tier. Boards co-build the scope. The product is time and expertise.' },
     { title: 'Institutional continuity',           desc: 'Associations don\'t want a new manager every eighteen months. Many of our contracts run twenty years and longer. A board member can reasonably expect not to switch firms during their term.' },

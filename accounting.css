@@ -1,5 +1,5 @@
 /* =============================================================
-   Keys-Caldwell — /accounting/ (CityBooks service page)
+   Keys-Caldwell — /accounting/ service page
    =============================================================
    Loaded after styles.css and pillar.css. Page-specific styles
    for the five accounting components defined in components/accounting.jsx.
@@ -422,7 +422,7 @@
   margin: 0;
 }
 
-/* ─── KCAcctStack — Vantaca / CityBooks / SOC 2 strip ─── */
+/* ─── KCAcctStack — Vantaca / accounting / SOC 2 strip ─── */
 .kc-acct-stack {
   background: var(--shell);
   padding: 88px 0 88px;

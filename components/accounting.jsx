@@ -1,7 +1,7 @@
 // =============================================================
 // /components/accounting.jsx
 // =============================================================
-// Components specific to /accounting/ — the CityBooks service page.
+// Components specific to /accounting/ — the accounting service page.
 //
 // All five components below assume:
 //   - Tailwind-style class naming via global styles (../accounting.css)
@@ -15,7 +15,7 @@
 //   KCAcctPacket      — sample monthly packet preview (4 artifact cards)
 //   KCAcctCpa         — "Meet your CPA" Ande Duda spotlight
 //   KCAcctReceipts    — what's-included specific bullet list
-//   KCAcctStack       — Vantaca / CityBooks / SOC 2 horizontal strip
+//   KCAcctStack       — Vantaca / accounting / SOC 2 horizontal strip
 // =============================================================
 
 const acctItalicize = (plain, italic) => {
@@ -85,7 +85,7 @@ const KCAcctStoplight = ({ content: c }) => {
               <span></span><span></span><span></span>
             </div>
             <div className="kc-acct-stop-frame-title">
-              CityBooks · Risk Grading · {c.community}
+              Risk Grading · {c.community}
             </div>
             <div className="kc-acct-stop-frame-stamp">As of {c.asOf}</div>
           </div>
