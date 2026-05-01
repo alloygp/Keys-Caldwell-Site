@@ -1,0 +1,64 @@
+/* =============================================================
+   Keys-Caldwell — /condo-management/ pillar page
+   =============================================================
+   Loaded after styles.css and pillar.css. Page-specific styles
+   for the condo pillar — currently scoped to the hero photo
+   treatment (replaces the prior ambient video).
+   ============================================================= */
+
+/* ─── HERO PHOTO TREATMENT ─────────────────────────────────
+   Background: a coastal-condo corridor opening onto the
+   intracoastal (assets/hero/condo-hallway.jpg). Same opacity
+   + cream veil pattern used on /accounting/ and /reserve-studies/.
+   Scoped to .kc-page-condo so the shared KCPillarHero on sister
+   pillar pages (HOA, Reserve Studies) is unaffected. */
+.kc-page-condo .kc-pillar-hero {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.kc-page-condo .kc-pillar-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: url('assets/hero/condo-hallway.jpg');
+  background-size: cover;
+  /* Image's vanishing point sits a hair above center; pull
+     focus down so the doorway/water aligns with the lede,
+     not the eyebrow. */
+  background-position: center 58%;
+  opacity: 0.32;
+  z-index: 0;
+  pointer-events: none;
+}
+.kc-page-condo .kc-pillar-hero::after {
+  content: '';
+  position: absolute; inset: 0;
+  /* Cream veil — slightly heavier on the typography side (left)
+     and lighter on the aside-card side (right) so the photo's
+     vanishing-point light reads through where the stats sit. */
+  background: linear-gradient(
+    90deg,
+    rgba(245,239,227,0.82) 0%,
+    rgba(245,239,227,0.55) 55%,
+    rgba(245,239,227,0.25) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+.kc-page-condo .kc-pillar-hero > .kc-container {
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 700px) {
+  /* On phones, lift the veil a touch — the photo is mostly
+     compositional context at this width, not the hero of the
+     hero. Keep readability ahead of atmosphere. */
+  .kc-page-condo .kc-pillar-hero::after {
+    background: linear-gradient(
+      180deg,
+      rgba(245,239,227,0.95) 0%,
+      rgba(245,239,227,0.85) 100%
+    );
+  }
+}

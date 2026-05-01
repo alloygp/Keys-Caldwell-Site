@@ -49,6 +49,7 @@
 
 <link rel="stylesheet" href="../styles.css">
 <link rel="stylesheet" href="../pillar.css">
+<link rel="stylesheet" href="../condo.css">
 <link rel="icon" href="data:,">
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
@@ -60,7 +61,7 @@
   #root { min-height: 100vh; }
 </style>
 </head>
-<body>
+<body class="kc-page-condo">
 <div id="root"></div>
 
 <script>window.KC_ASSET_BASE = '../';</script>
@@ -115,9 +116,10 @@ const CONTENT = {
   hero: {
     numeral: "02",
     eyebrow: "Condo Association Management · Sarasota County",
-    // Ambient video background — local MP4. Auto-disabled on phones +
-    // reduced-motion. Overlay tuned in pillar.css (kc-pillar-hero-video-overlay).
-    videoBg: { src: "../assets/hero/condo-hero-bg.mp4" },
+    // Ambient hero treatment is now a still image (coastal corridor
+    // → intracoastal opening) handled in condo.css via the
+    // .kc-page-condo .kc-pillar-hero::before pseudo-element. Same
+    // opacity + veil pattern as /accounting/ and /reserve-studies/.
     titlePlain: "Condo management for boards who'd rather not learn what SIRS stands for",
     titleItalic: "at the worst possible moment.",
     lede: "We manage 12 – 80-unit coastal condominium associations from a Venice office that's been at the same address since 1978. CPA-supervised accounting, milestone inspection coordination, and the kind of capital project leadership that keeps insurance carriers writing the policy.",

@@ -1,6 +1,18 @@
 # SEO Audit — Keys-Caldwell site
 
 _Compiled May 2026, after the URL rename + 59-page build._
+_Re-swept May 2026 (sweep #2, after Era III copy rewrite + accounting page rebuild)._
+
+## Sweep #2 — delta from sweep #1
+
+| Status | Finding | Pages | Owner |
+|---|---|---|---|
+| ✅ | All sweep #1 ✅ items still healthy at runtime (canonical, OG, JSON-LD, single H1, internal links) | 59/59 | confirmed |
+| ✅ | Internal link integrity — **0 broken links** across the entire built tree | 59/59 | confirmed |
+| ✅ | Schema graph at runtime — Organization + ProfessionalService + BreadcrumbList on every page; Article on blog spokes | 59/59 | confirmed |
+| 🐞 → ✅ | **Duplicate `<title>` between `/accounting/` and `/accounting/v2/`** — v2 was a copy exploration that became redundant once V1 absorbed the Era III copy | 1 | **v2 deleted this turn** |
+| ⚠️ | **31 title tags still >60ch and 56 descriptions still >165ch** — unchanged from sweep #1; treated as cosmetic SERP truncation, not blocking | 31 / 56 | copy review (deferred) |
+| ⚠️ | **23 static `og:url` tags hard-coded to vercel preview domain.** Runtime override via `KCSeo.apply()` writes the correct keys-caldwell.com URL, so live-rendered pages are fine. The risk is JS-disabled or pre-hydration social scrapers seeing the preview URL. Low impact, but worth a single find/replace before launch. | 23 | flagged |
 
 ---
 
