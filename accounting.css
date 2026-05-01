@@ -5,6 +5,44 @@
    for the five accounting components defined in components/accounting.jsx.
    ============================================================= */
 
+/* ─── HERO PHOTO TREATMENT ─────────────────────────────────
+   Subtle background image of CPA reviewing condo association
+   financial reports — same opacity treatment used on the
+   /testimonials/ hero. Scoped to .kc-page-accounting so it
+   never bleeds into the shared KCPillarHero used on the two
+   sister pillar pages. */
+.kc-page-accounting .kc-pillar-hero {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.kc-page-accounting .kc-pillar-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: url('assets/hero/hoa-accounting-services.jpg');
+  background-size: cover;
+  background-position: center 38%;
+  opacity: 0.16;
+  z-index: 0;
+  pointer-events: none;
+}
+.kc-page-accounting .kc-pillar-hero::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(245,239,227,0.88) 0%,
+    rgba(245,239,227,0.65) 55%,
+    rgba(245,239,227,0.40) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+.kc-page-accounting .kc-pillar-hero > .kc-container {
+  position: relative;
+  z-index: 2;
+}
+
 /* ─── KCAcctMethodology — monthly cadence calendar strip ─── */
 .kc-acct-method {
   background: #fff;
