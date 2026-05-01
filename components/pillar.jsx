@@ -93,6 +93,12 @@ const KCPillarServices = ({ content: c }) => (
                 {s.bullets.map(b => <li key={b}>{b}</li>)}
               </ul>
             )}
+            {s.href && (
+              <a className="kc-pillar-service-more" href={kcHref(s.href)}>
+                {s.linkLabel || `More on ${s.title.replace(/^Accounting · |^Property /, m => m.toLowerCase())}`}
+                <span aria-hidden="true">→</span>
+              </a>
+            )}
           </article>
         ))}
       </div>

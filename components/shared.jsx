@@ -57,7 +57,7 @@ const KCNav = ({ active = 'home', variant = 'shell', content }) => {
           { label: 'HOA management',                href: '/hoa-management-company-sarasota/index.html',     desc: 'Single-family & master-planned.' },
         ]},
         { title: 'Departments', items: [
-          { label: 'Accounting · CityBooks',  href: '#', desc: 'CPA-supervised reporting.' },
+          { label: 'Accounting · CityBooks',  href: '/accounting/index.html', desc: 'CPA-supervised reporting.' },
           { label: 'Property services',       href: '#', desc: 'Capital projects & maintenance.' },
           { label: 'Pricing & scope',         href: '/pricing/index.html', desc: 'How proposals are built.' },
         ]},
@@ -239,7 +239,7 @@ const KCFooter = ({ content }) => {
     { title: 'Services', links: [
       { label: 'Condo association management', href: '/condo-association-management-sarasota/index.html' },
       { label: 'HOA management',                href: '/hoa-management-company-sarasota/index.html' },
-      { label: 'Accounting & CityBooks',        href: '#' },
+      { label: 'Accounting & CityBooks',        href: '/accounting/index.html' },
       { label: 'Property services',             href: '#' },
       { label: 'Pricing & scope',               href: '/pricing/index.html' },
     ]},
@@ -367,7 +367,7 @@ const KCFourChamber = ({ content }) => {
   const intro   = c.intro   || 'Every Keys-Caldwell community has a single association manager — but behind them is the full firm. When boards need accounting, property, or after-hours support, those answers come from specialists, not a callback queue.';
   const items   = c.items   || [
     { icon: 'building-2',  n: '01', title: 'Community management', desc: 'A dedicated association manager attends every meeting, enforces the documents, manages vendors, and answers when boards call.' },
-    { icon: 'dollar-sign', n: '02', title: 'Accounting · CityBooks', desc: 'CPA-supervised financials, daily reconciliation, transparent monthly reporting, and reserve oversight that flags shortfalls early.' },
+    { icon: 'dollar-sign', n: '02', title: 'Accounting · CityBooks', desc: 'CPA-supervised financials, daily reconciliation, transparent monthly reporting, and reserve oversight that flags shortfalls early.', href: '/accounting/index.html' },
     { icon: 'wrench',      n: '03', title: 'Property services', desc: 'In-house maintenance coordination for the day-to-day, plus capital project management for roofs, seawalls, and structural milestones.' },
     { icon: 'phone',       n: '04', title: 'Client services', desc: 'Owners reach a real person — front-desk, after hours, weekends. Boards hear about issues before they escalate.' },
   ];
@@ -379,14 +379,26 @@ const KCFourChamber = ({ content }) => {
         <hr className="kc-rule" />
         <p className="kc-section-intro">{intro}</p>
         <div className="kc-services-grid">
-          {items.map(s => (
-            <article key={s.title} className="kc-service-card">
-              <div className="kc-service-icon"><i data-lucide={s.icon}></i></div>
-              <div className="kc-service-num">No.{s.n}</div>
-              <h4 className="kc-service-title">{s.title}</h4>
-              <p className="kc-service-desc">{s.desc}</p>
-            </article>
-          ))}
+          {items.map(s => {
+            const inner = (
+              <>
+                <div className="kc-service-icon"><i data-lucide={s.icon}></i></div>
+                <div className="kc-service-num">No.{s.n}</div>
+                <h4 className="kc-service-title">
+                  {s.title}
+                  {s.href && <span className="kc-service-arrow" aria-hidden="true">→</span>}
+                </h4>
+                <p className="kc-service-desc">{s.desc}</p>
+              </>
+            );
+            return s.href ? (
+              <a key={s.title} className="kc-service-card kc-service-card-link" href={kcHref(s.href)}>
+                {inner}
+              </a>
+            ) : (
+              <article key={s.title} className="kc-service-card">{inner}</article>
+            );
+          })}
         </div>
       </div>
     </section>

@@ -549,6 +549,24 @@
   transition: transform 200ms, box-shadow 200ms;
 }
 .kc-service-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-3); }
+
+/* Linkable variant — used when items[].href is supplied */
+.kc-service-card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+}
+.kc-service-card-link:hover { border-color: var(--aged-brass); }
+.kc-service-arrow {
+  display: inline-block;
+  margin-left: 8px;
+  font-family: var(--font-heading); font-style: italic; font-weight: 700;
+  color: var(--aged-brass);
+  transform: translateX(0);
+  transition: transform 220ms cubic-bezier(.16,1,.3,1);
+}
+.kc-service-card-link:hover .kc-service-arrow { transform: translateX(4px); }
 .kc-service-icon {
   width: 44px; height: 44px; border-radius: var(--radius-md);
   background: var(--kc-indigo); color: var(--shell);

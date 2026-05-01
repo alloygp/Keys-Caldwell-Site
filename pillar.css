@@ -149,6 +149,24 @@
   content: '→'; position: absolute; left: 0; top: 6px;
   color: var(--aged-brass); font-weight: 700; font-size: 11px;
 }
+.kc-pillar-service-more {
+  display: inline-flex; align-items: center; gap: 8px;
+  margin-top: 18px;
+  font-family: var(--font-body); font-size: 13.5px; font-weight: 600;
+  color: var(--kc-indigo); text-decoration: none;
+  letter-spacing: 0.005em;
+  border-bottom: 1.5px solid var(--aged-brass);
+  padding-bottom: 3px;
+  transition: color 220ms cubic-bezier(.16,1,.3,1);
+}
+.kc-pillar-service-more:hover { color: var(--deep-ink); }
+.kc-pillar-service-more span {
+  font-family: var(--font-heading); font-style: italic;
+  font-size: 1.15em; line-height: 1;
+  transform: translateX(0);
+  transition: transform 220ms cubic-bezier(.16,1,.3,1);
+}
+.kc-pillar-service-more:hover span { transform: translateX(3px); }
 
 /* ═══ CAPITAL PROJECTS STRIP — image-tile-ish ═══ */
 .kc-capital { background: var(--shell); padding: 96px 0; }
