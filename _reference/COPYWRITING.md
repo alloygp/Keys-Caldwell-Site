@@ -44,7 +44,7 @@ Each template has a `CONTENT` block in the HTML. Below is what each slot needs.
 - **Testimonial** — real attribution with first name, last initial, role, community. No anonymous quotes. If you can't get the name, drop the testimonial.
 - **CTA band** — keep the secondary CTA pointed at *learning more*, not at another form. Boards bounce when every CTA is "request a proposal."
 
-### 2.2 Service pillar pages (`/condo-association-management-sarasota/`, `/hoa-management-company-sarasota/`)
+### 2.2 Service pillar pages (`/condo-management/`, `/hoa-management/`)
 
 These are the SEO money pages. They must rank for the head term in their slug
 and convert at the bottom of the page. Length target: **1,500–2,000 words.**

@@ -42,10 +42,10 @@ agency didn't clean up. Several are still ranking in Google.
 /services-v3/                                       →  /                                                    301
 /services3/                                         →  /                                                    301
 /services-2/                                        →  /                                                    301
-/condo-management/                                  →  /condo-association-management-sarasota/              301
-/condo-association-management/                      →  /condo-association-management-sarasota/              301
-/hoa-management/                                    →  /hoa-management-company-sarasota/                    301
-/homeowners-association-management/                 →  /hoa-management-company-sarasota/                    301
+/condo-management/                                  →  /condo-management/              301
+/condo-association-management/                      →  /condo-management/              301
+/hoa-management/                                    →  /hoa-management/                    301
+/homeowners-association-management/                 →  /hoa-management/                    301
 /about-us/                                          →  /about/                                              301
 /our-team/                                          →  /about/                                              301
 /the-caldwell-family/                               →  /about/                                              301
@@ -61,8 +61,8 @@ These need to map to the *current* canonical URL of that content.
 ```
 /?page_id=2          →  /                                                301
 /?page_id=15         →  /about/                                          301
-/?page_id=47         →  /condo-association-management-sarasota/          301
-/?page_id=49         →  /hoa-management-company-sarasota/                301
+/?page_id=47         →  /condo-management/          301
+/?page_id=49         →  /hoa-management/                301
 /?page_id=51         →  /request-proposal/                               301
 /?page_id=83         →  /testimonials/                                   301
 # … (full mapping in spreadsheet — search the WP db for `wp_posts` rows of post_type='page')
@@ -123,8 +123,8 @@ faster than 404.
 const REDIRECTS = {
   '/home/': '/',
   '/services-v3/': '/',
-  '/condo-management/': '/condo-association-management-sarasota/',
-  '/hoa-management/': '/hoa-management-company-sarasota/',
+  '/condo-management/': '/condo-management/',
+  '/hoa-management/': '/hoa-management/',
   '/contact/': '/request-proposal/',
   '/references/': '/testimonials/',
   // … full table
@@ -161,8 +161,8 @@ async function handle(req) {
 ```
 /home/                       /                                                  301!
 /services-v3/                /                                                  301!
-/condo-management/           /condo-association-management-sarasota/            301!
-/hoa-management/             /hoa-management-company-sarasota/                  301!
+/condo-management/           /condo-management/            301!
+/hoa-management/             /hoa-management/                  301!
 /contact/                    /request-proposal/                                 301!
 /references/                 /testimonials/                                     301!
 /alternate-contact-information-example-form/   /404                             410!
@@ -176,8 +176,8 @@ RewriteEngine On
 # Class A
 RewriteRule ^home/?$              /                                              [R=301,L]
 RewriteRule ^services-v3/?$       /                                              [R=301,L]
-RewriteRule ^condo-management/?$  /condo-association-management-sarasota/        [R=301,L]
-RewriteRule ^hoa-management/?$    /hoa-management-company-sarasota/              [R=301,L]
+RewriteRule ^condo-management/?$  /condo-management/        [R=301,L]
+RewriteRule ^hoa-management/?$    /hoa-management/              [R=301,L]
 RewriteRule ^contact/?$           /request-proposal/                             [R=301,L]
 RewriteRule ^references/?$        /testimonials/                                 [R=301,L]
 
@@ -185,7 +185,7 @@ RewriteRule ^references/?$        /testimonials/                                
 RewriteCond %{QUERY_STRING} ^page_id=2$
 RewriteRule ^$ /? [R=301,L]
 RewriteCond %{QUERY_STRING} ^page_id=47$
-RewriteRule ^$ /condo-association-management-sarasota/? [R=301,L]
+RewriteRule ^$ /condo-management/? [R=301,L]
 # … etc
 
 # Class D — 410 Gone

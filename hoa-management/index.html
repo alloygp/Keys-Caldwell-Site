@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<!-- ============================================================
+     Keys-Caldwell — HOA Management Company
+     ============================================================
+     URL slot       :  /hoa-management/
+     Template type  :  SERVICE_PILLAR  (mirror of condo pillar)
+     Composition    :  KCNav · KCBreadcrumbs · KCPillarHero · KCProblem ·
+                       KCPillarServices · KCCapital · KCFeature ·
+                       KCHeritage · KCTestimonialPair · KCCoverage ·
+                       KCProposalForm · KCFAQ · KCCtaBand · KCFooter
+     ----------------------------------------------------------------
+     This is the second SEO money page. It targets FS 720 (HOA)
+     queries — explicitly distinct from FS 718 (condo). The two
+     pillars share the same template but should NEVER share copy.
+     Boards searching for HOA management are buying a different
+     product than condo boards (different statute, different ops,
+     different capital profile).
+     ============================================================ -->
+<title>HOA Management Company · Sarasota & Manatee · Keys-Caldwell</title>
+<meta name="description" content="Keys-Caldwell manages homeowners associations across Sarasota, Manatee, and Charlotte counties. ARC enforcement, landscape operations, FS 720 compliance, and CPA-supervised accounting from a Venice firm in business since 1978." />
+
+<link rel="canonical" href="https://keys-caldwell.com/hoa-management/" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://keys-caldwell-site-94tm.vercel.app/hoa-management/" />
+<meta property="og:title" content="HOA Management Company · Sarasota & Manatee · Keys-Caldwell" />
+<meta property="og:description" content="Keys-Caldwell manages homeowners associations across Sarasota, Manatee, and Charlotte counties. ARC enforcement, landscape operations, FS 720 compliance, and CPA-supervised accounting from a Venice firm in business since 1978." />
+<meta property="og:image" content="https://keys-caldwell-site-94tm.vercel.app/assets/og/keys-caldwell-brand-og.jpg" />
+<meta property="og:image:alt" content="Keys-Caldwell — Community Association Management. Venice, Sarasota, Charlotte County. Est. 1978." />
+<meta property="og:site_name" content="Keys-Caldwell" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="HOA Management Company · Sarasota & Manatee County" />
+<meta name="twitter:description" content="ARC enforcement, landscape operations, FS 720 compliance, CPA-supervised accounting from a Venice firm in business since 1978." />
+<meta name="twitter:image" content="https://keys-caldwell-site-94tm.vercel.app/assets/og/keys-caldwell-brand-og.jpg" />
+<meta name="twitter:image:alt" content="Keys-Caldwell — Community Association Management. Venice, Sarasota, Charlotte County. Est. 1978." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://unpkg.com">
+
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../pillar.css">
+<link rel="icon" href="data:,">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<style>
+  html, body { margin: 0; padding: 0; }
+  body { font-family: 'Source Sans 3', system-ui, sans-serif; }
+  #root { min-height: 100vh; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script>window.KC_ASSET_BASE = '../';</script>
+<script src="../components/kc-org.js"></script>
+<script src="../components/kc-seo.jsx"></script>
+<script type="text/babel" src="../components/shared.jsx"></script>
+<script type="text/babel" src="../components/pillar.jsx"></script>
+
+<script type="text/babel" id="page-content">
+const CONTENT = {
+
+  meta: {
+    title:           "HOA Management Company · Sarasota & Manatee · Keys-Caldwell",
+    description:     "Keys-Caldwell is a Venice, FL homeowners association management company serving Sarasota, Manatee, and Charlotte counties since 1978. ARC enforcement, landscape operations, FS 720 compliance, and CPA-supervised accounting.",
+    canonical:       "/hoa-management/",
+    primaryKeyword:  "hoa management company",
+    secondaryKeywords: [
+      "homeowners association management",
+      "hoa management sarasota",
+      "hoa management bradenton",
+      "hoa property management",
+      "hoa management companies near me",
+      "what does an hoa management company do",
+    ],
+    ogTitle:         "HOA Management for Sarasota, Manatee, and Charlotte Counties",
+    ogDescription:   "ARC enforcement, landscape operations, FS 720 compliance, CPA-supervised accounting. 48 years managing Florida homeowners associations.",
+    ogImage:         "/assets/og/keys-caldwell-hoa.jpg",
+    schema:          ["LocalBusiness", "Service", "FAQPage", "BreadcrumbList"],
+  },
+
+  breadcrumbs: {
+    items: [
+      { label: "Home",                  href: "/" },
+      { label: "HOA Management" },
+    ],
+  },
+
+  nav: { active: "hoa" },
+
+  hero: {
+    numeral: "03",
+    eyebrow: "HOA Management · Sarasota, Manatee & Charlotte",
+    // Ambient video background — local MP4. Auto-disabled on phones +
+    // reduced-motion. Overlay tuned in pillar.css (kc-pillar-hero-video-overlay).
+    // Plays at 0.5× by default; tune via `rate` if needed.
+    videoBg: { src: "../assets/hero/hoa-hero-bg.mp4" },
+    titlePlain: "HOA management for boards who want",
+    titleItalic: "fewer landscape complaints",
+    lede: "We manage homeowners associations from 40 lots to 600 — gated single-family, master-planned, and zero-lot-line communities — across the I-75 corridor. Operationally tight, statutorily current, and run by people who answer the phone.",
+    primaryCta:   { label: "Request a proposal", href: "/request-proposal/index.html" },
+    secondaryCta: { label: "How we work",        href: "/about/index.html" },
+    aside: {
+      eyebrow: "What boards get",
+      h: "An association manager who actually drives the community.",
+      p: "Your manager visits the property on a documented schedule, walks with vendors, and brings photographs to the board meeting. Drive-bys aren't a deliverable — they're table stakes.",
+      stats: [
+        { num: "48",  label: "Years in Sarasota County" },
+        { num: "50",  suffix: "+", label: "Communities under management" },
+        { num: "20",  suffix: "+", label: "Year average client tenure" },
+        { num: "FS",  suffix: " 720", label: "Statute we read every year" },
+      ],
+    },
+  },
+
+  problem: {
+    eyebrow: "HOA management ≠ condo management",
+    titlePlain: "Different statute, different operations",
+    titleItalic: "different management product.",
+    intro: "Florida treats HOAs and condominiums under separate chapters of statute for good reason — the operational job is genuinely different. A board that hires a firm fluent in condos but lukewarm on HOAs ends up with a manager who under-services landscape, under-enforces deed restrictions, and over-engineers reserves they don't need.",
+    cards: [
+      { n: "01", h: "FS 720, not FS 718.",
+        p: "HOA governance, voting thresholds, recall procedures, fining frameworks, and recordkeeping all live under Chapter 720. The 2024 amendments changed disclosure requirements, board-member education, and architectural review timelines. Your manager should be able to recite these without looking them up." },
+      { n: "02", h: "Landscape is the product.",
+        p: "In a condominium the building is the asset; in an HOA the curb-appeal of every common area, every entry feature, and every shared amenity is the asset. Vendor management, irrigation audits, mulch cycles, palm trimming schedules — operationally this is what owners notice and what realtors price." },
+      { n: "03", h: "Architectural review enforcement.",
+        p: "ARC volume in a 200-lot community can run 40 – 80 applications a year. Roof colors, fence placement, paint chips, lanai screens. Slow, inconsistent, or politically uneven enforcement is the #1 reason boards fire their management firm. We have a documented response SLA and we hit it." },
+    ],
+  },
+
+  services: {
+    eyebrow: "What's included",
+    titlePlain: "HOA management",
+    titleItalic: "by department.",
+    intro: "Every Keys-Caldwell HOA is run through the same four-chamber model used on the condo side — adapted for the operational realities of homeowners associations. Meetings, money, common-area maintenance, and member service.",
+    services: [
+      { icon: "users", n: "01", title: "Community management",
+        desc: "Your dedicated association manager runs the operating cadence — meetings, owner relations, vendors, ARC.",
+        bullets: [
+          "Attendance at all board, annual, and special meetings",
+          "Architectural Review Committee process & response SLAs",
+          "Deed-restriction enforcement with documented evidence",
+          "Vendor sourcing, RFPs, contract negotiation & oversight",
+          "Annual budget development presented to the board",
+        ]},
+      { icon: "calculator", n: "02", title: "Accounting · CityBooks platform",
+        desc: "CPA-supervised accounting on the same platform used by 500+ associations nationally — daily reconciliation and stoplight risk grading.",
+        href: "/accounting/index.html",
+        linkLabel: "Inside the CityBooks methodology",
+        bullets: [
+          "Monthly financial packets — board-ready, not raw exports",
+          "Daily bank reconciliation with variance flags",
+          "Assessment collections, lien filings, attorney coordination",
+          "Annual audit prep & 1099 / tax-form coordination",
+          "Ande Duda CPA review on every association every month",
+        ]},
+      { icon: "wrench", n: "03", title: "Property services",
+        desc: "Common-area operations: landscape, irrigation, entry features, amenity buildings, lakes, and roads.",
+        bullets: [
+          "Documented monthly property walks with photographs",
+          "Landscape vendor scope, KPIs & quarterly performance review",
+          "Irrigation audits, well-system maintenance, pump-house service",
+          "Pond / lake management & littoral shelf compliance",
+          "Reserve study coordination via the AccuReserve continuum",
+        ]},
+      { icon: "phone", n: "04", title: "Client services",
+        desc: "Owners reach a real person. Boards hear about issues before they escalate, not after.",
+        bullets: [
+          "Vantaca owner portal — payments, ARC, requests, documents",
+          "After-hours emergency line answered by a person",
+          "ARC application processing with documented response SLAs",
+          "Annual meeting notices, ballots, election & quorum support",
+          "Onboarding for new owners with welcome package & rules",
+        ]},
+    ],
+  },
+
+  capital: {
+    eyebrow: "Capital projects we run",
+    titlePlain: "The infrastructure work an HOA",
+    titleItalic: "actually accumulates.",
+    intro: "HOA capital tends to be less dramatic than condominium capital — until it isn't. Roads and stormwater are the items that quietly age past their reserve assumption. We surface that risk early and run the bid when it's time.",
+    tiles: [
+      { n: "01", h: "Asphalt & roads",       p: "Full mill-and-overlays, crack seal, striping. Pavement condition surveys on a documented cycle." },
+      { n: "02", h: "Stormwater & ponds",    p: "Pond bank repair, weir replacement, littoral planting, county compliance reporting." },
+      { n: "03", h: "Entry features",        p: "Monument signage, gates, gatehouses, perimeter walls. The first thing prospective buyers see." },
+      { n: "04", h: "Amenity buildings",     p: "Clubhouses, pool decks, fitness rooms. Roof, HVAC, finish-level capital cycles." },
+      { n: "05", h: "Pool & water features", p: "Resurfacing, code compliance, deck rebuilds, equipment-room overhauls." },
+      { n: "06", h: "Landscape capital",     p: "Mulch transitions, irrigation system replacement, palm replacement, tree canopy planning." },
+      { n: "07", h: "Perimeter walls",       p: "Stucco, paint, structural repair on community walls. Often deferred — and expensive when it isn't." },
+      { n: "08", h: "Lighting & low-voltage", p: "Street lights, decorative fixtures, gate controls, security camera infrastructure." },
+    ],
+  },
+
+  feature: {
+    eyebrow: "Reserve studies, calibrated for HOAs",
+    titlePlain: "HOA reserves are easier to under-fund — and easier to",
+    titleItalic: "fix early.",
+    body: "Unlike SB-4D's mandatory SIRS for condominiums, HOA reserve funding is governed by board policy and member vote. That means it's easier to defer — and the consequences arrive a decade later as an avoidable special assessment. Our AccuReserve continuum gives boards a defensible, engineer-grade plan they can actually fund.",
+    bullets: [
+      "30-year capital forecast modeled against current reserve balance",
+      "Component inventory with engineer-led inspection",
+      "Annual reserve allocation calculated to fully fund the schedule",
+      "Voting-package preparation if reserves require member approval",
+      "Subscription option: continuous updates as conditions change",
+    ],
+    card: {
+      eyebrow: "AccuReserve · Pricing tiers",
+      h: "Three ways to start, depending on the board's situation.",
+      tiers: [
+        { price: "$150",   name: "Self-assessment",  desc: "Board-led component inventory with our template and review. The right starting point for small associations getting their first picture." },
+        { price: "$2,400", name: "Engineered study", desc: "Site-walked inspection, full component inventory, 30-year forecast. The right product for HOAs with significant common infrastructure." },
+        { price: "Annual", name: "Subscription",     desc: "Continuous updates. As components are repaired, replaced, or extended, the schedule and the funding plan stay current. The right product for active capital plans." },
+      ],
+    },
+  },
+
+  heritage: null,
+
+  testimonials: {
+    eyebrow: "From HOA boards we manage",
+    items: [
+      { quote: "ARC turnaround dropped from six weeks to ten days the month they took over. The owners noticed inside a quarter — and so did the realtors who'd been complaining to the board for two years. Operationally tight, no drama.",
+        name: "Robert Hannigan",
+        role: "Board President · 184-lot gated community · Lakewood Ranch, FL",
+        initials: "RH" },
+      { quote: "Our previous firm ran the community on autopilot. Keys-Caldwell walks the property monthly with photographs, brings vendor scorecards to every meeting, and flagged a $90,000 stormwater issue six months before it would have become an emergency. That's the difference.",
+        name: "Linda Whitaker",
+        role: "Board Treasurer · 92-lot single-family HOA · Bradenton, FL",
+        initials: "LW" },
+    ],
+  },
+
+  coverage: {
+    titlePlain: "HOA communities we manage",
+    titleItalic: "across the I-75 corridor.",
+    primaryPlace: { label: "Venice (HQ)", href: "/hoa-management/venice/" },
+    places: [
+      { label: "Sarasota",         href: "/hoa-management/sarasota/" },
+      { label: "Lakewood Ranch",   href: "/hoa-management/lakewood-ranch/" },
+      { label: "Bradenton",        href: "/hoa-management/bradenton/" },
+      { label: "North Port",       href: "/hoa-management/north-port/" },
+      { label: "Englewood",        href: "/hoa-management/englewood/" },
+      { label: "Nokomis",          href: "/hoa-management/nokomis/" },
+      { label: "Osprey",           href: "/hoa-management/osprey/" },
+      { label: "Siesta Key",       href: "/hoa-management/siesta-key/" },
+      { label: "Longboat Key",     href: "/hoa-management/longboat-key/" },
+      { label: "Casey Key",        href: "/hoa-management/casey-key/" },
+      { label: "Manasota Key",     href: "/hoa-management/manasota-key/" },
+      { label: "Anna Maria Island",href: "/hoa-management/anna-maria-island/" },
+      { label: "Charlotte County",href: "/hoa-management/charlotte-county/" },
+    ],
+    hubLink: { label: "View all service areas", href: "/service-areas/index.html" },
+  },
+
+  proposalForm: {
+    eyebrow:    "Request a proposal",
+    titlePlain: "Send us a few details.",
+    titleItalic: "We'll do the homework.",
+    intro: "Tell us about your community — lot count, current capital horizon, ARC volume, and what's prompting the search. We'll come back within five business days with a tailored scope and three references from comparable HOAs.",
+    action: "mailto:info@keys-caldwell.com",
+  },
+
+  faq: {
+    titlePlain: "Questions HOA boards usually ask",
+    titleItalic: "before switching firms.",
+    side: "These come up almost every initial board call. If yours isn't here, send a note — we'd rather answer the real question than the obvious one.",
+    items: [
+      { q: "How is your fee structured? Are there hidden charges?",
+        a: ["Every Keys-Caldwell contract is priced on a custom man-hour estimate, not a tier. We don't have \"silver / gold / platinum\" packages — we have your scope, your meeting cadence, your reporting needs, your ARC volume.",
+            "Boards co-build the scope with us during the proposal phase. Anything outside that scope (large special projects, individual collection actions, mass mailings) is billed transparently at a documented rate. No buffet, no surprise add-ons."] },
+      { q: "How does Keys-Caldwell handle ARC enforcement?",
+        a: "Architectural review applications get a documented response SLA — typically ten business days for standard requests, with a tracked queue boards can audit at any time. We apply guidelines consistently across owners, document the evidence, and escalate denials with the documentation an attorney would expect to see if a homeowner contests. Politically uneven enforcement is what gets boards sued — we don't run it that way." },
+      { q: "What does landscape oversight actually look like?",
+        a: "Your manager walks the property monthly with the landscape vendor, takes photographs, and brings a written scorecard to the board meeting. Quarterly we run a structured vendor performance review with the board. Irrigation audits run twice a year. If a vendor is under-performing, the board sees the evidence in time to act — not nine months in." },
+      { q: "Will we get a dedicated manager, or are we handed off?",
+        a: "Yes — every association has a single named manager who attends every meeting, runs the property walks, and is the board's first call. They are backed by accounting, property services, and client services teams, but the relationship is with one person. That person doesn't change unless they leave the firm." },
+      { q: "What's the typical onboarding timeline?",
+        a: "Most HOAs transition in 60 – 90 days. Phase one is records transfer and accounting setup (typically 30 days). Phase two is operational handover — vendor introductions, ARC backlog triage, board-policy alignment. Phase three is the first full management cycle, where boards usually feel the difference within the first two property walks." },
+      { q: "Can we see references from communities our size?",
+        a: "Of course. We'll provide three references — one similar in lot count, one similar in age and capital horizon, and one we'd consider a hard case. Boards should hear how a firm performs when things are difficult, not just when they're easy." },
+    ],
+  },
+
+  ctaBand: {
+    eyebrow: "Considering a change?",
+    title:   "Send us your governing documents and your current vendor list. We'll respond with a tailored proposal — typically within five business days.",
+    body:    "We'll review your scope, your reserve position, your ARC backlog, and your vendor relationships. The call is consultative, not a pitch — boards leave with a clearer picture of what they should expect from their management firm, whether that's us or someone else.",
+    primary:   { label: "Request a proposal", href: "/request-proposal/index.html" },
+    secondary: { label: "Meet the team",      href: "/about/index.html" },
+    phone: "(941) 485-0605",
+    hours: "Mon – Fri · 8:30am – 5:00pm ET",
+  },
+
+  footer: {},
+};
+
+const Page = () => (
+  <div className="kc-page">
+    <KCNav active={CONTENT.nav.active} />
+    <KCBreadcrumbs     content={CONTENT.breadcrumbs} />
+    <KCPillarHero      content={CONTENT.hero} />
+    <KCProblem         content={CONTENT.problem} />
+    <KCPillarServices  content={CONTENT.services} />
+    <KCCapital         content={CONTENT.capital} />
+    <KCFeature         content={CONTENT.feature} />
+    <KCHeritage        content={CONTENT.heritage} />
+    <KCTestimonialPair content={CONTENT.testimonials} />
+    <KCCoverage        content={CONTENT.coverage} />
+    <KCFAQ             content={CONTENT.faq} />
+    <KCProposalForm    content={CONTENT.proposalForm} />
+    <KCCtaBand         content={CONTENT.ctaBand} />
+    <KCFooter          content={CONTENT.footer} />
+  </div>
+);
+
+KCSeo.apply(CONTENT.meta, {
+  pageType:    "pillar",
+  pageUrl:     CONTENT.meta.canonical,
+  breadcrumbs: CONTENT.breadcrumbs.items,
+  faqs:        CONTENT.faq.items.map(f => ({
+    q: f.q,
+    a: Array.isArray(f.a) ? f.a.join('\n\n') : f.a,
+  })),
+  service: {
+    name:        "HOA Management",
+    description: CONTENT.meta.description,
+    areaServed:  KC_ORG.areaServed,
+  },
+});
+
+const renderWhenReady = () => {
+  if (typeof KCNav === 'undefined' || typeof KCPillarHero === 'undefined' || typeof KCBreadcrumbs === 'undefined') {
+    return setTimeout(renderWhenReady, 30);
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(<Page />);
+  requestAnimationFrame(() => { if (window.lucide) window.lucide.createIcons(); });
+  setTimeout(() => { if (window.lucide) window.lucide.createIcons(); }, 400);
+};
+renderWhenReady();
+</script>
+
+</body>
+</html>

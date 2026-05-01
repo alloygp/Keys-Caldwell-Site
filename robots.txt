@@ -6,10 +6,10 @@ Allow: /
 
 # Block legacy/duplicate URLs that Google still has indexed
 # (these are also 301 redirected — see _reference/REDIRECTS.md)
+# NOTE: Do NOT add /services/ here — that's an active page in this site.
 Disallow: /home/
 Disallow: /services-v3/
 Disallow: /services3/
-Disallow: /services/
 Disallow: /contact/
 Disallow: /references/
 Disallow: /information/

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<!-- ============================================================
+     Keys-Caldwell — HOA Management · Osprey, FL
+     URL slot       :  /hoa-management/osprey/
+     Template type  :  GEO  (mirror this for all city children)
+     Composition    :  KCNav · KCBreadcrumbs · KCGeoHero · KCGeoIntro
+                       KCGeoCommunities · KCGeoServices · KCGeoDirections ·
+                       KCGeoLocal · KCTestimonial · KCCtaBand · KCFooter
+     ============================================================ -->
+<title>HOA Management · Osprey, FL · Keys-Caldwell</title>
+<meta name="description" content="Keys-Caldwell manages homeowners associations in Osprey, FL. Osprey HOA inventory is mostly 1990s – 2010s gated developments — single-family, villa, and a handful of townhome associations. The Bay Stre" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://unpkg.com">
+
+<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../../geo.css">
+<link rel="icon" href="data:,">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<style>
+  html, body { margin: 0; padding: 0; }
+  body { font-family: 'Source Sans 3', system-ui, sans-serif; }
+  #root { min-height: 100vh; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script>window.KC_ASSET_BASE = '../../';</script>
+<script src="../../components/kc-org.js"></script>
+<script src="../../components/kc-seo.jsx"></script>
+<script type="text/babel" src="../../components/shared.jsx"></script>
+<script type="text/babel" src="../../components/geo.jsx"></script>
+
+<script type="text/babel" id="page-content">
+const CONTENT = {
+
+  meta: {
+    title:           "HOA Management · Osprey, FL · Keys-Caldwell",
+    description:     "Keys-Caldwell manages HOAs in Osprey, FL. Osprey HOA inventory is mostly 1990s – 2010s gated developments — single-family, villa, and a handful of townhome associations. The Bay St",
+    canonical:       "/hoa-management/osprey/",
+    primaryKeyword:  "hoa management osprey fl",
+    secondaryKeywords: [
+      "homeowners association management osprey",
+      "hoa management company osprey florida",
+      "hoa manager osprey fl",
+    ],
+    ogTitle:         "HOA Management in Osprey, FL",
+    ogDescription:   "Master-planned and gated-community HOA management for Osprey.",
+    ogImage:         "/assets/og/keys-caldwell-default.jpg",
+    schema:          ["LocalBusiness", "BreadcrumbList"],
+  },
+
+  breadcrumbs: {
+    items: [
+      { label: "Home",                   href: "/" },
+      { label: "HOA Management",         href: "/hoa-management/" },
+      { label: "Osprey, FL" },
+    ],
+  },
+
+  nav: { active: "hoa" },
+
+  hero: {
+    eyebrow: "HOA management · Osprey, FL",
+    titlePlain: "HOA management for Osprey — gated villa and single-family communities along the",
+    titleItalic: "Bay Street corridor.",
+    lede: "Osprey HOA inventory is mostly 1990s – 2010s gated developments — single-family, villa, and a handful of townhome associations. The Bay Street and Old Venice Road corridors hold most of what we manage here.",
+    primaryCta:   { label: "Request a proposal", href: "/request-proposal/index.html" },
+    secondaryCta: { label: "HOA services overview", href: "/hoa-management/" },
+    distance:        "8 mi",
+    communitiesCount: "5 HOAs",
+    visitCadence:    "Monthly",
+    responseSla:     "24 hours",
+  },
+
+  intro: {
+    eyebrow: "Why Osprey HOAs are a different management job",
+    titlePlain: "Osprey HOAs sit inside layered master-planned",
+    titleItalic: "governance frames.",
+    paragraphs: [
+      "Most Osprey HOAs are sub-associations under a master umbrella. Document alignment between master and sub, vendor standards, and amenity-cost allocation are daily operational items. We track which document controls which scope for every association we manage.",
+      "Capital concerns are the standard HOA stack: roof cycles, repaint, asphalt, gate and amenity infrastructure. Reserve-study rigor is taken seriously — Osprey boards typically run AccuReserve schedules continuously rather than as a periodic exercise.",
+      "Owner profile is mixed full-time and seasonal. Communications, ARC, and rules enforcement function for both groups. The Vantaca portal handles routine volume; the client-services line picks up the rest.",
+    ],
+  },
+
+  communities: {
+    eyebrow: "Coverage in Osprey",
+    titlePlain: "A representative sample of Osprey HOAs",
+    titleItalic: "under management.",
+    items: [
+      { type: "Master + 2 sub-assocs", units: "210 units total", area: "Sorrento East" },
+      { type: "Gated villa community", units: "64 villas", area: "Bay Street" },
+      { type: "Single-family HOA", units: "82 homes", area: "Old Venice Road" },
+      { type: "Townhome association", units: "38 townhomes", area: "Vamo" },
+      { type: "Lake-front gated", units: "48 homes", area: "Pine View" },
+    ],
+  },
+
+  services: {
+    eyebrow: "What we do for Osprey HOAs",
+    titlePlain: "Four service pillars, applied to Osprey's gated communities and",
+    titleItalic: "master-planned developments.",
+    intro: "The Osprey geo page is local proof. The actual service descriptions — methodology, scope, what's included — live on the four pillar pages below.",
+    tiles: [
+      { label: "HOA management",
+        blurb: "Governance, vendor management, ARC, capital planning, master/sub-association coordination.",
+        href: "/hoa-management/",
+        footnote: "Pillar service · This page is a child" },
+      { label: "Accounting (CityBooks)",
+        blurb: "CPA-supervised, daily reconciliation, monthly board packets, audit-ready records.",
+        href: "/accounting/index.html",
+        footnote: "500+ associations on the platform" },
+      { label: "Reserve studies (AccuReserve)",
+        blurb: "Self-assessment, engineered F.S. 720 reserve studies, and continuous-update subscription.",
+        href: "/reserve-studies/index.html",
+        footnote: "From $150 self-assessment to subscription" },
+      { label: "Condo association management",
+        blurb: "For Osprey condominium boards — SIRS coordination, milestone inspections, capital projects.",
+        href: "/condo-management/",
+        footnote: "Sister pillar · same firm" },
+    ],
+  },
+
+  directions: {
+    eyebrow: "Find us",
+    titlePlain: "Our office is in Venice — 8 mi from",
+    titleItalic: "Osprey.",
+    paragraphs: [
+      "Osprey is a 12-minute drive north of our Venice office on US-41. Board meetings are typically a 20-minute door-to-door window.",
+      "From Osprey: south on US-41 to Venice, exit Venice Avenue, west to Indian Hills Boulevard.",
+    ],
+    address: {
+      street: "1162 Indian Hills Blvd",
+      city:   "Venice",
+      region: "FL",
+      zip:    "34293",
+      phone:  "(941) 485-0605",
+    },
+  },
+
+  local: {
+    eyebrow: "City resources for Osprey boards",
+    titlePlain: "The references your board will actually need",
+    titleItalic: "for permits, records, and storm prep.",
+    intro: "Osprey boards work across multiple government authorities. The references below are the ones our managers use most often when working a Osprey HOA.",
+    notes: [
+      { kind: "Building & permitting",
+        title: "Sarasota County Building Department",
+        body: "Osprey is unincorporated Sarasota County.",
+        items: [
+          { k: "Phone",  v: "(941) 861-6678" },
+          { k: "Portal", v: "Permitting", href: "https://www.scgov.net/government/planning-and-development-services" },
+        ],
+        link: { label: "County permitting portal", href: "https://www.scgov.net/government/planning-and-development-services" },
+      },
+      { kind: "Public records",
+        title: "Sarasota County Property Appraiser",
+        body: "Parcel data, assessed values, ownership records, and homestead information for Osprey HOAs.",
+        items: [
+          { k: "Phone",   v: "(941) 861-8200" },
+          { k: "Portal",  v: "sc-pa.com", href: "https://www.sc-pa.com" },
+        ],
+        link: { label: "Property appraiser search", href: "https://www.sc-pa.com" },
+      },
+      { kind: "Public records",
+        title: "Sarasota County Clerk of Court",
+        body: "Recorded documents — declarations, amendments, easements, lien filings — for any HOA in Sarasota County.",
+        items: [
+          { k: "Phone",  v: "(941) 861-7400" },
+          { k: "Portal", v: "sarasotaclerk.com", href: "https://www.sarasotaclerk.com" },
+        ],
+        link: { label: "Official records search", href: "https://www.sarasotaclerk.com" },
+      },
+      { kind: "Compliance calendar",
+        title: "Florida statute deadlines we track for Osprey HOAs",
+        body: "F.S. 720 governs HOAs (separately from F.S. 718, which governs condominiums). State-level dates that drive board calendars; we coordinate the underlying work in advance.",
+        items: [
+          { k: "Annual budget",       v: "14+ days advance notice to members" },
+          { k: "Reserve disclosure",  v: "F.S. 720.303(6) — required line items each year" },
+          { k: "Annual financial",    v: "Compiled / reviewed / audited per assessment threshold" },
+          { k: "Annual meeting",      v: "Per declaration; typ. Q1 calendar" },
+        ],
+      },
+      { kind: "Storm preparedness",
+        title: "Hurricane operations for Osprey HOAs",
+        body: "Pre-season prep, evacuation coordination, post-storm site assessment. Standard parts of our annual cadence for every coastal HOA we manage.",
+        items: [
+          { k: "Pre-season window",  v: "May 1 – June 1 community walk-through" },
+          { k: "Common-area shutdown", v: "Pool, gates, amenity checklist per board approval" },
+          { k: "Post-storm response", v: "48-hour site assessment SLA" },
+        ],
+      },
+    ],
+  },
+
+  testimonial: {
+    quote: "We are a master with two sub-associations under it. The cost-allocation accounting between the three was a mess. Keys-Caldwell rebuilt it from the documents up and the next audit was clean. That kind of work is invisible when it's right; it's loud when it isn't.",
+    name: "Nicholas Reardon",
+    role: "Master Treasurer · 210-unit master HOA · Osprey",
+    initials: "NR",
+  },
+
+  ctaBand: {
+    eyebrow: "Boards in Osprey",
+    title: "If your board is evaluating management firms, we'd be happy to come walk the community.",
+    body: "We do consultative meetings on-site for Osprey HOAs. Bring your governing documents, your most recent reserve study, and an honest description of where the community is. We'll respond with a tailored proposal within five business days.",
+    primary:   { label: "Request a proposal", href: "/request-proposal/index.html" },
+    secondary: { label: "HOA services overview", href: "/hoa-management/" },
+    phone: "(941) 485-0605",
+    hours: "Mon – Fri · 8:30am – 5:00pm ET",
+  },
+
+  // ─── NEARBY ───────────────────────────────────────────
+  // Cross-link strip into adjacent hoa city pages.
+  // Lets a board that landed here but realized this isn't
+  // the right city jump to a neighbor without bouncing.
+  nearby: {
+    eyebrow: "Nearby HOA coverage",
+    titlePlain: "Where Osprey boards also tend to look —",
+    titleItalic: "the corridor in both directions.",
+    pillar: "hoa",
+    cities: [
+      { slug: "sarasota", name: "Sarasota", distance: "14 mi", note: "Up the corridor. Master-planned governance and full range of building stock." },
+      { slug: "nokomis", name: "Nokomis", distance: "4 mi", note: "Just south on US-41. Bay-front mid-rises, similar operating profile." },
+      { slug: "siesta-key", name: "Siesta Key", distance: "12 mi", note: "Closest barrier island. Bridge access via Stickney Point or Siesta Drive." },
+    ],
+  },
+  footer: {},
+};
+
+const Page = () => (
+  <div className="kc-page">
+    <KCNav active={CONTENT.nav.active} />
+    <KCBreadcrumbs    content={CONTENT.breadcrumbs} />
+    <KCGeoHero        content={CONTENT.hero} />
+    <KCGeoIntro       content={CONTENT.intro} />
+    <KCGeoCommunities content={CONTENT.communities} />
+    <KCGeoServices    content={CONTENT.services} />
+    <KCGeoDirections  content={CONTENT.directions} />
+    <KCGeoLocal       content={CONTENT.local} />
+    <KCTestimonial    content={CONTENT.testimonial} />
+    <KCGeoNearby     content={CONTENT.nearby} />
+    <KCCtaBand        content={CONTENT.ctaBand} />
+    <KCFooter         content={CONTENT.footer} />
+  </div>
+);
+
+KCSeo.apply(CONTENT.meta, {
+  pageType:    "geo",
+  pageUrl:     CONTENT.meta.canonical,
+  breadcrumbs: CONTENT.breadcrumbs.items,
+});
+
+const renderWhenReady = () => {
+  if (typeof KCNav === 'undefined' || typeof KCGeoHero === 'undefined') {
+    return setTimeout(renderWhenReady, 30);
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(<Page />);
+  requestAnimationFrame(() => { if (window.lucide) window.lucide.createIcons(); });
+  setTimeout(() => { if (window.lucide) window.lucide.createIcons(); }, 400);
+};
+renderWhenReady();
+</script>
+
+</body>
+</html>

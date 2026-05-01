@@ -61,8 +61,8 @@ const KCNav = ({ active = 'home', variant = 'shell', content }) => {
       columns: [
         { title: 'Practice areas', items: [
           { label: 'Services — overview',          href: '/services/index.html', desc: 'How proposals & engagements work.', badge: 'Start here' },
-          { label: 'Condo association management', href: '/condo-association-management-sarasota/index.html', desc: 'Coastal mid-rise & high-rise.' },
-          { label: 'HOA management',                href: '/hoa-management-company-sarasota/index.html',     desc: 'Single-family & master-planned.' },
+          { label: 'Condo association management', href: '/condo-management/index.html', desc: 'Coastal mid-rise & high-rise.' },
+          { label: 'HOA management',                href: '/hoa-management/index.html',     desc: 'Single-family & master-planned.' },
         ]},
         { title: 'Departments', items: [
           { label: 'Accounting · CityBooks',  href: '/accounting/index.html', desc: 'CPA-supervised reporting.' },
@@ -435,8 +435,8 @@ const KCFooter = ({ content }) => {
   const places = c.places || 'VENICE · SARASOTA · BRADENTON · ENGLEWOOD · NORTH PORT';
   const columns = c.columns || [
     { title: 'Services', links: [
-      { label: 'Condo association management', href: '/condo-association-management-sarasota/index.html' },
-      { label: 'HOA management',                href: '/hoa-management-company-sarasota/index.html' },
+      { label: 'Condo association management', href: '/condo-management/index.html' },
+      { label: 'HOA management',                href: '/hoa-management/index.html' },
       { label: 'Accounting & CityBooks',        href: '/accounting/index.html' },
       { label: 'Reserve studies · AccuReserve', href: '/reserve-studies/index.html' },
       { label: 'Property services',             href: '/property-services/index.html' },
@@ -512,7 +512,7 @@ const KCPillars = ({ content }) => {
       ],
       cta: 'Explore condo management',
       places: 'Venice · Longboat · Siesta · Englewood',
-      href: '/condo-association-management-sarasota/index.html',
+      href: '/condo-management/index.html',
     },
     {
       eyebrow: 'Secondary practice · HOAs',
@@ -527,7 +527,7 @@ const KCPillars = ({ content }) => {
       ],
       cta: 'Explore HOA management',
       places: 'Bradenton · Charlotte · North Port',
-      href: '/hoa-management-company-sarasota/index.html',
+      href: '/hoa-management/index.html',
     },
   ];
   return (
@@ -845,11 +845,17 @@ const KCHero = ({ content }) => {
 
 // ---------- Shared helpers (used by page CONTENT blocks) ----------
 // Splits a plain headline string into "before <em>italic</em> after"
-// using the chosen italic substring. Works in JSX.
+// using the chosen italic substring. If italic isn't a substring of plain,
+// treats it as a trailing clause (concat with a space) — that's the form
+// every CONTENT block authors. Works in JSX.
 const italicize = (text, italicPart) => {
-  if (!italicPart || !text || !text.includes(italicPart)) return text;
-  const [before, after] = text.split(italicPart);
-  return <>{before}<em>{italicPart}</em>{after}</>;
+  if (!italicPart) return text || null;
+  if (!text) return <em>{italicPart}</em>;
+  if (text.includes(italicPart)) {
+    const [before, after] = text.split(italicPart);
+    return <>{before}<em>{italicPart}</em>{after}</>;
+  }
+  return <>{text} <em>{italicPart}</em></>;
 };
 // Renders a quote string honoring \n as <br/>.
 const withBreaks = (str) => str.split('\n').flatMap((line, i, arr) =>

@@ -385,7 +385,7 @@ const CONTENT = {
       cities: [
         { slug: "englewood",         name: "Englewood",         note: "Splits across Sarasota County (north) and Charlotte County (south). Manasota Key barrier island plus Lemon Bay frontage. Mixed building era.", distance: "14 mi", condo: true, hoa: true },
         { slug: "north-port",        name: "North Port",        note: "Sarasota County's fastest-growing city. Newer-build inland condos and master-planned HOA communities in Heron Creek, Bobcat Trail, and Wellen Park.", distance: "20 mi", condo: true, hoa: true },
-        { slug: "charlotte-county",  name: "Charlotte County",  note: "Port Charlotte, Punta Gorda, and the south end of our coverage area. Distinct county-level permitting and storm-recovery profile.", distance: "30 mi", condo: true, hoa: false, charlotteOverride: true },
+        { slug: "charlotte-county",  name: "Charlotte County",  note: "Port Charlotte, Punta Gorda, and the south end of our coverage area. Distinct county-level permitting and storm-recovery profile.", distance: "30 mi", condo: true, hoa: true, charlotteOverride: true },
       ],
     },
     {
@@ -473,9 +473,9 @@ const SARegion = ({ region, indexOffset }) => {
             {region.cities.map((city, i) => {
               const num = String(indexOffset + i + 1).padStart(2, '0');
               const condoHref = city.charlotteOverride
-                ? '/condo-association-management-sarasota/charlotte-county/'
-                : `/condo-association-management-sarasota/${city.slug}/`;
-              const hoaHref = `/hoa-management-company-sarasota/${city.slug}/`;
+                ? '/condo-management/charlotte-county/'
+                : `/condo-management/${city.slug}/`;
+              const hoaHref = `/hoa-management/${city.slug}/`;
               return (
                 <div key={city.slug} className="sa-city">
                   <div className="sa-city-num">{num}</div>

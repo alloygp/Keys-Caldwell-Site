@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<!-- ============================================================
+     Keys-Caldwell — Condo Association Management
+     ============================================================
+     URL slot       :  /condo-management/
+     Template type  :  SERVICE_PILLAR  (also used by /hoa-management/)
+     Composition    :  KCNav · KCPillarHero · KCProblem · KCPillarServices ·
+                       KCCapital · KCFeature · KCHeritage · KCTestimonial ·
+                       KCCoverage · KCFAQ · KCCtaBand · KCFooter
+     ----------------------------------------------------------------
+     COPYWRITER MANIFEST — every editable slot lives in the
+     `CONTENT` object inside <script id="page-content"> below.
+
+     Image slots on this page : none on first build (type-led).
+                                Optional: hero photograph slot can
+                                be added later by extending KCPillarHero.
+     ============================================================ -->
+<!-- Title + meta description are populated by KCSeo from CONTENT.meta below.
+     Values here are progressive-enhancement fallbacks. -->
+<title>Condo Association Management · Sarasota County · Keys-Caldwell</title>
+<meta name="description" content="Keys-Caldwell manages 12–80-unit coastal condominium associations across Sarasota County. SIRS-ready, CPA-supervised accounting, AccuReserve studies, and capital project leadership from a Venice firm in business since 1978." />
+
+<link rel="canonical" href="https://keys-caldwell.com/condo-management/" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://keys-caldwell-site-94tm.vercel.app/condo-management/" />
+<meta property="og:title" content="Condo Association Management · Sarasota County · Keys-Caldwell" />
+<meta property="og:description" content="Keys-Caldwell manages 12–80-unit coastal condominium associations across Sarasota County. SIRS-ready, CPA-supervised accounting, AccuReserve studies, and capital project leadership from a Venice firm in business since 1978." />
+<meta property="og:image" content="https://keys-caldwell-site-94tm.vercel.app/assets/og/keys-caldwell-brand-og.jpg" />
+<meta property="og:image:alt" content="Keys-Caldwell — Community Association Management. Venice, Sarasota, Charlotte County. Est. 1978." />
+<meta property="og:site_name" content="Keys-Caldwell" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Condo Association Management · Sarasota County" />
+<meta name="twitter:description" content="SIRS-ready, CPA-supervised accounting, AccuReserve studies, capital project leadership for 12–80-unit coastal condos." />
+<meta name="twitter:image" content="https://keys-caldwell-site-94tm.vercel.app/assets/og/keys-caldwell-brand-og.jpg" />
+<meta name="twitter:image:alt" content="Keys-Caldwell — Community Association Management. Venice, Sarasota, Charlotte County. Est. 1978." />
+
+<!-- Performance: preconnect to font + script CDNs before parser hits the stylesheet -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://unpkg.com">
+
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../pillar.css">
+<link rel="icon" href="data:,">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<style>
+  html, body { margin: 0; padding: 0; }
+  body { font-family: 'Source Sans 3', system-ui, sans-serif; }
+  #root { min-height: 100vh; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script>window.KC_ASSET_BASE = '../';</script>
+
+<!-- Org data + SEO helper (load BEFORE Babel pipeline). -->
+<script src="../components/kc-org.js"></script>
+<script src="../components/kc-seo.jsx"></script>
+
+<script type="text/babel" src="../components/shared.jsx"></script>
+<script type="text/babel" src="../components/pillar.jsx"></script>
+
+<script type="text/babel" id="page-content">
+const CONTENT = {
+
+  // ─── META ─────────────────────────────────────────────────
+  // Sitemap targets (see site/_reference/kc-sitemap.html, line ~225):
+  //   primary KW : "condo association property management"  (KD 14, 100 SV)
+  //   primary KW : "condominium management company"         (KD 3,   80 SV)
+  //   geo  KW    : "condo management sarasota"
+  //   schema     : LocalBusiness + Service + FAQPage
+  meta: {
+    title:           "Condo Association Management Company · Sarasota & Venice, FL",
+    description:     "Keys-Caldwell is a Venice, FL condominium management company serving Sarasota County since 1978. SIRS coordination, CPA-supervised accounting, AccuReserve studies, and capital project leadership for 12–80-unit coastal condos.",
+    canonical:       "/condo-management/",
+    primaryKeyword:  "condo association property management",
+    secondaryKeywords: [
+      "condominium management company",
+      "condo management sarasota",
+      "condo association manager",
+      "condominium management sarasota",
+      "condo management companies sarasota fl",
+      "what does a management company do for a condo association",
+    ],
+    ogTitle:         "Condo Association Management for Sarasota County's Coastal Buildings",
+    ogDescription:   "SIRS-ready condo management for 12–80-unit coastal buildings. CPA-supervised accounting, reserve studies via AccuReserve, capital project leadership. 48 years in Venice, FL.",
+    ogImage:         "/assets/og/keys-caldwell-condo.jpg",
+    schema:          ["LocalBusiness", "Service", "FAQPage", "BreadcrumbList"],
+  },
+
+  // ─── BREADCRUMBS ──────────────────────────────────────────
+  breadcrumbs: {
+    items: [
+      { label: "Home",                          href: "/" },
+      { label: "Condo Association Management" },
+    ],
+  },
+
+  // ─── NAV ──────────────────────────────────────────────────
+  nav: { active: "condo" },
+
+  // ─── HERO (pillar variant) ────────────────────────────────
+  hero: {
+    numeral: "02",
+    eyebrow: "Condo Association Management · Sarasota County",
+    // Ambient video background — local MP4. Auto-disabled on phones +
+    // reduced-motion. Overlay tuned in pillar.css (kc-pillar-hero-video-overlay).
+    videoBg: { src: "../assets/hero/condo-hero-bg.mp4" },
+    titlePlain: "Condo management for boards who'd rather not learn what SIRS stands for",
+    titleItalic: "at the worst possible moment.",
+    lede: "We manage 12 – 80-unit coastal condominium associations from a Venice office that's been at the same address since 1978. CPA-supervised accounting, milestone inspection coordination, and the kind of capital project leadership that keeps insurance carriers writing the policy.",
+    primaryCta:   { label: "Request a proposal", href: "/request-proposal/index.html" },
+    secondaryCta: { label: "How we work",        href: "/about/index.html" },
+    aside: {
+      eyebrow: "What boards get",
+      h: "A single association manager. Backed by the full firm.",
+      p: "One person owns the relationship — meetings, vendors, the documents, the day-to-day. Behind them sit accounting, property services, and client services as named departments, not extension numbers.",
+      stats: [
+        { num: "48",  label: "Years in Sarasota County" },
+        { num: "50",  suffix: "+", label: "Communities under management" },
+        { num: "20",  suffix: "+", label: "Year average client tenure" },
+        { num: "500", suffix: "+", label: "Associations on the CityBooks platform" },
+      ],
+    },
+  },
+
+  // ─── PROBLEM STATEMENT ────────────────────────────────────
+  problem: {
+    eyebrow: "Why a generalist won't cut it",
+    titlePlain: "Managing a coastal condo in 2026 is",
+    titleItalic: "a different job",
+    intro: "Three operational realities have changed the standard of care for condominium boards in Florida. Hire a manager who reads the engineering report — not just the budget.",
+    cards: [
+      { n: "01", h: "The post-Surfside regulatory frame.",
+        p: "Florida SB-4D made milestone inspections and Structural Integrity Reserve Studies non-negotiable for buildings three stories and up. Boards need a manager who reads the SIRS, schedules the inspections, and translates the findings into a multi-year capital plan." },
+      { n: "02", h: "Aging mid-rise structures.",
+        p: "The Sarasota County coast is full of buildings now in their fourth or fifth decade. Concrete restoration, balcony rebuilds, seawall replacement, roof recoats — these aren't \"someday\" line items anymore. They're the calendar." },
+      { n: "03", h: "An insurance market that's running its own due diligence.",
+        p: "Carriers want documentation: roof age, wind mitigation, water intrusion history, board-approved capital plans. Bad records mean non-renewal. Good records keep the building insurable." },
+    ],
+  },
+
+  // ─── SERVICES ─────────────────────────────────────────────
+  services: {
+    eyebrow: "What's included",
+    titlePlain: "Condominium management",
+    titleItalic: "by department.",
+    intro: "Every Keys-Caldwell condo client is run through the same four-chamber model. Below is what that looks like translated into the specific deliverables a coastal condo board should expect — meetings, money, maintenance, and member service.",
+    services: [
+      { icon: "users", n: "01", title: "Community management",
+        desc: "Your dedicated association manager runs the operating cadence of the building — board meetings, owner relations, the documents.",
+        bullets: [
+          "Attendance at all board, annual, and special meetings",
+          "Document & rules enforcement with consistent process",
+          "Vendor sourcing, RFPs, contract negotiation & oversight",
+          "Annual budget development presented to the board",
+          "Insurance renewal coordination & broker relationships",
+        ]},
+      { icon: "calculator", n: "02", title: "Accounting · CityBooks platform",
+        desc: "CPA-supervised accounting on the same platform used by 500+ associations nationally — daily reconciliation and stoplight risk grading.",
+        href: "/accounting/index.html",
+        linkLabel: "Inside the CityBooks methodology",
+        bullets: [
+          "Monthly financial packets — board-ready, not raw exports",
+          "Daily bank reconciliation with variance flags",
+          "Reserve fund segregation & allocation tracking",
+          "Annual audit prep & 1099 / tax-form coordination",
+          "Ande Duda CPA review on every association every month",
+        ]},
+      { icon: "wrench", n: "03", title: "Property services",
+        desc: "In-house maintenance coordination for the day-to-day, plus capital project management for everything that requires an engineer.",
+        bullets: [
+          "Routine preventive maintenance schedule per asset class",
+          "After-hours emergency dispatch & escalation tree",
+          "Florida milestone inspection coordination (SB-4D)",
+          "Reserve study coordination via the AccuReserve continuum",
+          "Capital project bid management & owner's-rep services",
+        ]},
+      { icon: "phone", n: "04", title: "Client services",
+        desc: "Owners reach a real person — front-desk, after hours, weekends. Boards hear about issues before they escalate, not after.",
+        bullets: [
+          "Vantaca owner portal — payments, requests, documents",
+          "After-hours emergency line answered by a person",
+          "ARC application processing & response SLAs",
+          "Annual meeting notices, ballots, election support",
+          "Onboarding for new owners with welcome package",
+        ]},
+    ],
+  },
+
+  // ─── CAPITAL PROJECTS STRIP ───────────────────────────────
+  capital: {
+    eyebrow: "Capital projects we run",
+    titlePlain: "The work an aging coastal building",
+    titleItalic: "actually needs.",
+    intro: "Most condo management firms hand boards a vendor list and walk away. We act as the owner's representative — managing the bid, coordinating the engineer, and keeping the schedule honest.",
+    tiles: [
+      { n: "01", h: "Roof systems",         p: "TPO, modified bitumen, tile. Recoat, partial replace, full tear-off — bid, supervise, close out." },
+      { n: "02", h: "Concrete restoration", p: "Spalling repair, post-tension cable replacement, balcony rebuilds, structural concrete." },
+      { n: "03", h: "Seawalls & docks",     p: "Coastal-specific work. Marine engineers, county permitting, scope and contingency." },
+      { n: "04", h: "Milestone inspections", p: "Florida SB-4D coordination — engineer selection, SIRS report integration, capital plan response." },
+      { n: "05", h: "Painting & coatings",  p: "Building-wide repaint cycles. Substrate prep, color selection, owner-coordination logistics." },
+      { n: "06", h: "Mechanical systems",   p: "Elevators, chillers, pump rooms. Long-lead-item planning, parts contracts, end-of-life replacement." },
+      { n: "07", h: "Pool & amenity",       p: "Resurfacing, code compliance, deck rebuilds, equipment-room overhauls." },
+      { n: "08", h: "Common-area refresh",  p: "Lobby, hallway, and amenity refurbishments. Kept on a documented capital schedule, not a whim." },
+    ],
+  },
+
+  // ─── FEATURE BAND — Reserve studies / SIRS ────────────────
+  feature: {
+    eyebrow: "Reserve studies, done right",
+    titlePlain: "Most boards see capital risk five months out. We help boards see it",
+    titleItalic: "five years out.",
+    body: "Our AccuReserve continuum is built so a board can start at the right level of rigor for where they are — and graduate up as the building, the regulator, or the carrier demands more. No firm in the region has more reserve-study fluency than Keys-Caldwell.",
+    bullets: [
+      "Structural Integrity Reserve Study (SIRS) compliance for SB-4D",
+      "30-year capital forecast modeled against current reserve balance",
+      "Annual reserve allocation calculated to fully fund the schedule",
+      "Engineer-led component inspections — not just spreadsheet math",
+      "Subscription option: continuous updates as conditions change",
+    ],
+    card: {
+      eyebrow: "AccuReserve · Pricing tiers",
+      h: "Three ways to start, depending on the board's situation.",
+      tiers: [
+        { price: "$150",   name: "Self-assessment",  desc: "Board-led component inventory with our template and review. The right starting point for small associations getting their first picture." },
+        { price: "$2,400", name: "Engineered study", desc: "Site-walked inspection, full component inventory, 30-year forecast. SIRS-compliant for buildings three stories and up." },
+        { price: "Annual", name: "Subscription",     desc: "Continuous updates. As components are repaired, replaced, or extended, the schedule and the funding plan stay current. The right product for active capital plans." },
+      ],
+    },
+  },
+
+  // ─── HERITAGE (reused from homepage) ──────────────────────
+  // Uses the shared KCHeritage default content unless overridden.
+  heritage: null,
+
+  // ─── TESTIMONIALS — condo-specific (sitemap requires "blocks" plural) ──
+  testimonials: {
+    eyebrow: "From condo boards we manage",
+    items: [
+      { quote: "Our previous manager learned about a $400,000 reserve gap when the SIRS report landed. Keys-Caldwell flagged it during budget planning — three years before the assessment would have come due. Owners saw a manageable annual increase instead of a six-figure surprise.",
+        name: "Michael Cochran",
+        role: "Board Treasurer · 32-unit coastal condo · Venice, FL",
+        initials: "MC" },
+      { quote: "Carrier was about to non-renew the master policy. Keys-Caldwell pulled together a 10-year roof history, the wind-mitigation report, and a board-approved capital plan inside two weeks. We renewed without a coverage gap and the premium came in under last year's.",
+        name: "Patricia Grant",
+        role: "Board President · 24-unit mid-rise · Longboat Key, FL",
+        initials: "PG" },
+    ],
+  },
+
+  // ─── COVERAGE / PLACES ────────────────────────────────────
+  coverage: {
+    titlePlain: "Coastal condo communities we manage in Sarasota County",
+    titleItalic: "and the barrier islands.",
+    primaryPlace: { label: "Venice (HQ)", href: "/condo-management/venice/" },
+    places: [
+      { label: "Nokomis",          href: "/condo-management/nokomis/" },
+      { label: "Osprey",           href: "/condo-management/osprey/" },
+      { label: "Sarasota",         href: "/condo-management/sarasota/" },
+      { label: "Lakewood Ranch",   href: "/condo-management/lakewood-ranch/" },
+      { label: "Siesta Key",       href: "/condo-management/siesta-key/" },
+      { label: "Longboat Key",     href: "/condo-management/longboat-key/" },
+      { label: "Casey Key",        href: "/condo-management/casey-key/" },
+      { label: "Englewood",        href: "/condo-management/englewood/" },
+      { label: "Manasota Key",     href: "/condo-management/manasota-key/" },
+      { label: "Bradenton",        href: "/condo-management/bradenton/" },
+      { label: "Anna Maria Island",href: "/condo-management/anna-maria-island/" },
+      { label: "North Port",       href: "/condo-management/north-port/" },
+    ],
+    hubLink: { label: "View all service areas", href: "/service-areas/index.html" },
+  },
+
+  // ─── PROPOSAL FORM (embedded conversion endpoint) ───────────────
+  // The sitemap requires every pillar page to include an embedded
+  // proposal form, not just CTA links. Hosting team should swap
+  // `action` for the real CRM endpoint when wired up.
+  proposalForm: {
+    eyebrow:    "Request a proposal",
+    titlePlain: "Send us a few details.",
+    titleItalic: "We'll do the homework.",
+    intro: "Your association is a one-of-one situation — building stock, board priorities, capital horizon, vendor relationships, the works. The proposal we send back reflects that. Tell us where you are; we'll come back within five business days.",
+    action: "mailto:info@keys-caldwell.com",   // TODO: replace with CRM endpoint
+  },
+
+  // ─── FAQ ──────────────────────────────────────────────────
+  faq: {
+    titlePlain: "Questions boards usually ask",
+    titleItalic: "before switching firms.",
+    side: "If your board is considering a change, these are the questions that come up most often. If yours isn't here, send us a note — we'd rather answer the real one than the obvious one.",
+    items: [
+      { q: "How is your fee structured? Are there hidden charges?",
+        a: ["Every Keys-Caldwell contract is priced on a custom man-hour estimate, not a tier. We don't have \"silver / gold / platinum\" packages — we have your scope, your meeting cadence, your reporting needs. The product is time and expertise.",
+            "Boards co-build the scope with us during the proposal phase. Anything outside that scope (large special projects, owner-by-owner enforcement actions) is billed transparently at a documented rate. No buffet, no surprise add-ons."] },
+      { q: "Will we get a dedicated manager, or are we handed off?",
+        a: "Yes — every association has a single named manager who attends every meeting, owns the documents, and is the board's first call. They are backed by the firm's accounting, property services, and client services teams, but the relationship is with one person. That person doesn't change unless they leave the firm." },
+      { q: "How does Keys-Caldwell handle Florida SB-4D / milestone inspections?",
+        a: "We coordinate the entire process: engineer selection, scheduling, owner communications, integrating the Structural Integrity Reserve Study findings into the capital plan, and presenting a board-ready response within 30 days of the report. We've handled milestone inspections for buildings up and down the coast — this is operational territory for us, not a one-off." },
+      { q: "What's the typical onboarding timeline?",
+        a: "Most boards transition in 60 – 90 days. Phase one is records transfer and accounting setup (typically 30 days). Phase two is operational handover — vendor introductions, document review, board-policy alignment. Phase three is the first full management cycle with monthly board packets, where boards usually feel the difference within the first two reports." },
+      { q: "Can we see references from associations our size?",
+        a: "Of course. We'll provide three references — one similar in unit count, one similar in age and capital horizon, and one we'd consider a hard case. Boards should hear how a firm performs when things are difficult, not just when they're easy." },
+      { q: "Do owners get an online portal? What about the front desk?",
+        a: "Owners get a Vantaca portal for payments, maintenance requests, ARC applications, and documents. Behind that portal is a real client-services team — front-desk, after hours, weekends. The portal is for convenience; the team is for everything else." },
+    ],
+  },
+
+  // ─── FINAL CTA BAND ───────────────────────────────────────
+  ctaBand: {
+    eyebrow: "Considering a change?",
+    title:   "Send us your governing documents and your most recent reserve study. We'll respond with a tailored proposal — typically within five business days.",
+    body:    "We'll review your current scope, your reserve position, and your building's capital horizon. The call is consultative, not a pitch — boards leave with a clearer picture of what they should expect from their management firm, whether that's us or someone else.",
+    primary:   { label: "Request a proposal", href: "/request-proposal/index.html" },
+    secondary: { label: "Meet the team",      href: "/about/index.html" },
+    phone: "(941) 485-0605",
+    hours: "Mon – Fri · 8:30am – 5:00pm ET",
+  },
+
+  // ─── FOOTER (defaults from shared.jsx) ────────────────────
+  footer: {},
+};
+
+const Page = () => (
+  <div className="kc-page">
+    <KCNav active={CONTENT.nav.active} />
+    <KCBreadcrumbs     content={CONTENT.breadcrumbs} />
+    <KCPillarHero      content={CONTENT.hero} />
+    <KCProblem         content={CONTENT.problem} />
+    <KCPillarServices  content={CONTENT.services} />
+    <KCCapital         content={CONTENT.capital} />
+    <KCFeature         content={CONTENT.feature} />
+    <KCHeritage        content={CONTENT.heritage} />
+    <KCTestimonialPair content={CONTENT.testimonials} />
+    <KCCoverage        content={CONTENT.coverage} />
+    <KCFAQ             content={CONTENT.faq} />
+    <KCProposalForm    content={CONTENT.proposalForm} />
+    <KCCtaBand         content={CONTENT.ctaBand} />
+    <KCFooter          content={CONTENT.footer} />
+  </div>
+);
+
+// ─── SEO meta + JSON-LD ───────────────────────────────
+KCSeo.apply(CONTENT.meta, {
+  pageType:    "pillar",
+  pageUrl:     CONTENT.meta.canonical,
+  breadcrumbs: CONTENT.breadcrumbs.items,
+  faqs:        CONTENT.faq.items.map(f => ({
+    q: f.q,
+    a: Array.isArray(f.a) ? f.a.join('\n\n') : f.a,
+  })),
+  service: {
+    name:        "Condo Association Management",
+    description: CONTENT.meta.description,
+    areaServed:  KC_ORG.areaServed,
+  },
+});
+
+// Wait until shared + pillar primitives are loaded before rendering.
+const renderWhenReady = () => {
+  if (typeof KCNav === 'undefined' || typeof KCPillarHero === 'undefined' || typeof KCBreadcrumbs === 'undefined') {
+    return setTimeout(renderWhenReady, 30);
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(<Page />);
+  requestAnimationFrame(() => { if (window.lucide) window.lucide.createIcons(); });
+  setTimeout(() => { if (window.lucide) window.lucide.createIcons(); }, 400);
+};
+renderWhenReady();
+</script>
+
+</body>
+</html>

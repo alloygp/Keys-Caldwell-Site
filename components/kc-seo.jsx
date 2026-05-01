@@ -10,7 +10,7 @@
 //
 //   KCSeo.apply(CONTENT.meta, {
 //     pageType:  "pillar",                       // "homepage" | "pillar" | "geo" | "blog" | "trust" | "core"
-//     pageUrl:   "/condo-association-management-sarasota/",
+//     pageUrl:   "/condo-management/",
 //     breadcrumbs: [
 //       { label: "Home", href: "/" },
 //       { label: "Condo Association Management" }
