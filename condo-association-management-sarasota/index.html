@@ -24,6 +24,24 @@
 <title>Condo Association Management · Sarasota County · Keys-Caldwell</title>
 <meta name="description" content="Keys-Caldwell manages 12–80-unit coastal condominium associations across Sarasota County. SIRS-ready, CPA-supervised accounting, AccuReserve studies, and capital project leadership from a Venice firm in business since 1978." />
 
+<link rel="canonical" href="https://keys-caldwell.com/condo-association-management-sarasota/" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://keys-caldwell-site-94tm.vercel.app/condo-association-management-sarasota/" />
+<meta property="og:title" content="Condo Association Management · Sarasota County · Keys-Caldwell" />
+<meta property="og:description" content="Keys-Caldwell manages 12–80-unit coastal condominium associations across Sarasota County. SIRS-ready, CPA-supervised accounting, AccuReserve studies, and capital project leadership from a Venice firm in business since 1978." />
+<meta property="og:image" content="https://keys-caldwell-site-94tm.vercel.app/assets/og/keys-caldwell-brand-og.jpg" />
+<meta property="og:image:alt" content="Keys-Caldwell — Community Association Management. Venice, Sarasota, Charlotte County. Est. 1978." />
+<meta property="og:site_name" content="Keys-Caldwell" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Condo Association Management · Sarasota County" />
+<meta name="twitter:description" content="SIRS-ready, CPA-supervised accounting, AccuReserve studies, capital project leadership for 12–80-unit coastal condos." />
+<meta name="twitter:image" content="https://keys-caldwell-site-94tm.vercel.app/assets/og/keys-caldwell-brand-og.jpg" />
+<meta name="twitter:image:alt" content="Keys-Caldwell — Community Association Management. Venice, Sarasota, Charlotte County. Est. 1978." />
+
 <!-- Performance: preconnect to font + script CDNs before parser hits the stylesheet -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -244,13 +262,22 @@ const CONTENT = {
   coverage: {
     titlePlain: "Coastal condo communities we manage in Sarasota County and the barrier islands.",
     titleItalic: "and the barrier islands.",
-    primaryPlace: "Venice (HQ)",
+    primaryPlace: { label: "Venice (HQ)", href: "/condo-association-management-sarasota/venice/" },
     places: [
-      "Nokomis", "Osprey", "Sarasota", "Lakewood Ranch",
-      "Siesta Key", "Longboat Key", "Casey Key",
-      "Englewood", "Manasota Key", "Bradenton",
-      "Anna Maria Island", "North Port",
+      { label: "Nokomis",          href: "/condo-association-management-sarasota/nokomis/" },
+      { label: "Osprey",           href: "/condo-association-management-sarasota/osprey/" },
+      { label: "Sarasota",         href: "/condo-association-management-sarasota/sarasota/" },
+      { label: "Lakewood Ranch",   href: "/condo-association-management-sarasota/lakewood-ranch/" },
+      { label: "Siesta Key",       href: "/condo-association-management-sarasota/siesta-key/" },
+      { label: "Longboat Key",     href: "/condo-association-management-sarasota/longboat-key/" },
+      { label: "Casey Key",        href: "/condo-association-management-sarasota/casey-key/" },
+      { label: "Englewood",        href: "/condo-association-management-sarasota/englewood/" },
+      { label: "Manasota Key",     href: "/condo-association-management-sarasota/manasota-key/" },
+      { label: "Bradenton",        href: "/condo-association-management-sarasota/bradenton/" },
+      { label: "Anna Maria Island",href: "/condo-association-management-sarasota/anna-maria-island/" },
+      { label: "North Port",       href: "/condo-association-management-sarasota/north-port/" },
     ],
+    hubLink: { label: "View all service areas", href: "/service-areas/index.html" },
   },
 
   // ─── PROPOSAL FORM (embedded conversion endpoint) ───────────────

@@ -348,6 +348,32 @@
 .kc-coverage-pill.is-primary {
   background: var(--kc-indigo); color: var(--shell); border-color: var(--kc-indigo);
 }
+.kc-coverage-pill.is-link {
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
+}
+.kc-coverage-pill.is-link:hover {
+  background: var(--deep-ink);
+  border-color: var(--deep-ink);
+  color: var(--shell);
+}
+.kc-coverage-pill.is-primary.is-link:hover {
+  background: var(--deep-ink);
+  border-color: var(--deep-ink);
+}
+.kc-coverage-hublink {
+  display: inline-flex; align-items: baseline; gap: 8px;
+  font-family: var(--font-heading); font-style: italic; font-weight: 600;
+  font-size: 16px; color: var(--kc-indigo);
+  padding: 8px 0 8px 8px;
+  text-decoration: none;
+  letter-spacing: -0.005em;
+  border-bottom: 1px solid transparent;
+  transition: border-color 160ms ease;
+}
+.kc-coverage-hublink:hover { border-bottom-color: var(--kc-indigo); }
+.kc-coverage-hublink span { font-size: 14px; }
 
 /* ═══ Responsive ═══ */
 @media (max-width: 980px) {

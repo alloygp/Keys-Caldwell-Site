@@ -209,20 +209,43 @@ const KCFAQ = ({ content: c }) => {
 };
 
 // ---------- KCCoverage ----------
-// content = { titlePlain, titleItalic, primaryPlace, places: [string] }
-const KCCoverage = ({ content: c }) => (
-  <section className="kc-coverage">
-    <div className="kc-container">
-      <div className="kc-coverage-grid">
-        <h2 className="kc-coverage-h">{italicize(c.titlePlain, c.titleItalic)}</h2>
-        <div className="kc-coverage-list">
-          {c.primaryPlace && <span className="kc-coverage-pill is-primary">{c.primaryPlace}</span>}
-          {c.places.map(p => <span key={p} className="kc-coverage-pill">{p}</span>)}
+// content = {
+//   titlePlain, titleItalic,
+//   primaryPlace : string | { label, href }    // optional; HQ city
+//   places       : (string | { label, href })[]
+//   hubLink      : { label, href } optional — link to service-areas hub
+// }
+//
+// Backwards-compatible: bare strings render as static pills (legacy).
+// Object form { label, href } renders as a linked pill that navigates
+// into the city geo page. The hub link sits at the end of the list.
+const KCCoverage = ({ content: c }) => {
+  const Pill = ({ p, primary }) => {
+    const cls = "kc-coverage-pill" + (primary ? " is-primary" : "");
+    if (p && typeof p === 'object' && p.href) {
+      return <a className={cls + " is-link"} href={kcHref(p.href)}>{p.label}</a>;
+    }
+    return <span className={cls}>{typeof p === 'string' ? p : p.label}</span>;
+  };
+  return (
+    <section className="kc-coverage">
+      <div className="kc-container">
+        <div className="kc-coverage-grid">
+          <h2 className="kc-coverage-h">{italicize(c.titlePlain, c.titleItalic)}</h2>
+          <div className="kc-coverage-list">
+            {c.primaryPlace && <Pill p={c.primaryPlace} primary />}
+            {c.places.map((p, i) => <Pill key={i} p={p} />)}
+            {c.hubLink && (
+              <a className="kc-coverage-hublink" href={kcHref(c.hubLink.href)}>
+                {c.hubLink.label} <span aria-hidden="true">→</span>
+              </a>
+            )}
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 Object.assign(window, {
   KCPillarHero, KCProblem, KCPillarServices, KCCapital,

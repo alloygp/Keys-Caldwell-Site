@@ -18,6 +18,16 @@
 // All copy slots are populated from CONTENT in the page HTML.
 // =====================================================================
 
+// Splits a headline string into "before <em>italic</em> after" using the
+// chosen italic substring. If italic isn't present in plain, renders plain
+// alone (no double-print). Mirror of the helper in shared.jsx.
+const geoItalicize = (text, italicPart) => {
+  if (!italicPart || !text) return text;
+  if (!text.includes(italicPart)) return text;
+  const [before, after] = text.split(italicPart);
+  return <>{before}<em>{italicPart}</em>{after}</>;
+};
+
 // ---------- KCGeoHero ----------
 // Short hero that names the city in the H1 and pairs with one
 // 1–2 sentence promise. NO marketing illustration — boards searching
@@ -31,8 +41,7 @@ const KCGeoHero = ({ content }) => {
           <div className="kc-geohero-text">
             {c.eyebrow && <div className="kc-eyebrow">{c.eyebrow}</div>}
             <h1 className="kc-geohero-h1">
-              {c.titlePlain}
-              {c.titleItalic && <em> {c.titleItalic}</em>}
+              {geoItalicize(c.titlePlain, c.titleItalic)}
             </h1>
             {c.lede && <p className="kc-geohero-lede">{c.lede}</p>}
             <div className="kc-geohero-ctas">
@@ -73,8 +82,7 @@ const KCGeoIntro = ({ content }) => {
           <div className="kc-geointro-side">
             {c.eyebrow && <div className="kc-eyebrow">{c.eyebrow}</div>}
             <h2 className="kc-geointro-h2">
-              {c.titlePlain}
-              {c.titleItalic && <em> {c.titleItalic}</em>}
+              {geoItalicize(c.titlePlain, c.titleItalic)}
             </h2>
           </div>
           <div className="kc-geointro-body">
@@ -98,8 +106,7 @@ const KCGeoCommunities = ({ content }) => {
         <div className="kc-geocomm-head">
           {c.eyebrow && <div className="kc-eyebrow">{c.eyebrow}</div>}
           <h2 className="kc-geocomm-h2">
-            {c.titlePlain}
-            {c.titleItalic && <em> {c.titleItalic}</em>}
+            {geoItalicize(c.titlePlain, c.titleItalic)}
           </h2>
         </div>
         <ul className="kc-geocomm-list">
@@ -131,8 +138,7 @@ const KCGeoDirections = ({ content }) => {
           <div className="kc-geodir-side">
             {c.eyebrow && <div className="kc-eyebrow">{c.eyebrow}</div>}
             <h2 className="kc-geodir-h2">
-              {c.titlePlain}
-              {c.titleItalic && <em> {c.titleItalic}</em>}
+              {geoItalicize(c.titlePlain, c.titleItalic)}
             </h2>
           </div>
           <div className="kc-geodir-body">
@@ -152,6 +158,108 @@ const KCGeoDirections = ({ content }) => {
   );
 };
 
+// ---------- KCGeoServices ----------
+// Service-pillar tile strip for geo pages. Sits between
+// KCGeoCommunities and KCGeoDirections. Sends boards back
+// up to the four parent pillars — the geo page is local
+// proof, but the actual service description lives upstream.
+//
+// content = {
+//   eyebrow, titlePlain, titleItalic, intro,
+//   tiles: [{ label, blurb, href, footnote? }]
+// }
+const KCGeoServices = ({ content }) => {
+  const c = content || {};
+  return (
+    <section className="kc-geosvc">
+      <div className="kc-container">
+        <div className="kc-geosvc-head">
+          {c.eyebrow && <div className="kc-eyebrow">{c.eyebrow}</div>}
+          <h2 className="kc-geosvc-h2">
+            {geoItalicize(c.titlePlain, c.titleItalic)}
+          </h2>
+          {c.intro && <p className="kc-geosvc-intro">{c.intro}</p>}
+        </div>
+        <div className="kc-geosvc-grid">
+          {(c.tiles || []).map((t, i) => (
+            <a className="kc-geosvc-tile" key={i} href={kcHref(t.href)}>
+              <div className="kc-geosvc-tile-n">{String(i + 1).padStart(2, '0')}</div>
+              <div className="kc-geosvc-tile-label">{t.label}</div>
+              <div className="kc-geosvc-tile-blurb">{t.blurb}</div>
+              {t.footnote && <div className="kc-geosvc-tile-foot">{t.footnote}</div>}
+              <div className="kc-geosvc-tile-arrow" aria-hidden="true">→</div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// ---------- KCGeoLocal ----------
+// Reference panel of city-specific local data — building department,
+// county records, statute calendar, storm prep. Designed to be the
+// most useful link on the page for a board member living in that
+// city. Hand-edit the data per-city; do NOT generalize.
+//
+// content = {
+//   eyebrow, titlePlain, titleItalic, intro,
+//   notes: [{
+//     kind, title, body,
+//     items?: [{ k, v, href? }],   // tabular data — name/value rows
+//     link?: { label, href }       // single CTA at bottom
+//   }]
+// }
+const KCGeoLocal = ({ content }) => {
+  const c = content || {};
+  return (
+    <section className="kc-geolocal">
+      <div className="kc-container">
+        <div className="kc-geolocal-head">
+          {c.eyebrow && <div className="kc-eyebrow">{c.eyebrow}</div>}
+          <h2 className="kc-geolocal-h2">
+            {geoItalicize(c.titlePlain, c.titleItalic)}
+          </h2>
+          {c.intro && <p className="kc-geolocal-intro">{c.intro}</p>}
+        </div>
+        <div className="kc-geolocal-grid">
+          {(c.notes || []).map((n, i) => (
+            <article className="kc-geolocal-card" key={i}>
+              <div className="kc-geolocal-card-kind">{n.kind}</div>
+              <h3 className="kc-geolocal-card-title">{n.title}</h3>
+              {n.body && <p className="kc-geolocal-card-body">{n.body}</p>}
+              {n.items && (
+                <dl className="kc-geolocal-card-items">
+                  {n.items.map((it, j) => (
+                    <div className="kc-geolocal-card-row" key={j}>
+                      <dt>{it.k}</dt>
+                      <dd>
+                        {it.href
+                          ? <a href={it.href} target={it.href.startsWith('http') ? '_blank' : undefined} rel={it.href.startsWith('http') ? 'noopener' : undefined}>{it.v}</a>
+                          : it.v}
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+              )}
+              {n.link && (
+                <a className="kc-geolocal-card-link"
+                   href={n.link.href}
+                   target={n.link.href.startsWith('http') ? '_blank' : undefined}
+                   rel={n.link.href.startsWith('http') ? 'noopener' : undefined}>
+                  {n.link.label} <span aria-hidden="true">→</span>
+                </a>
+              )}
+            </article>
+          ))}
+        </div>
+        {c.note && <p className="kc-geolocal-note">{c.note}</p>}
+      </div>
+    </section>
+  );
+};
+
 Object.assign(window, {
   KCGeoHero, KCGeoIntro, KCGeoCommunities, KCGeoDirections,
+  KCGeoServices, KCGeoLocal,
 });

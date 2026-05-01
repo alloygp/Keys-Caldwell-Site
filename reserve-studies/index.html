@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<!-- ============================================================
+     Keys-Caldwell — Reserve Studies · AccuReserve
+     ============================================================
+     URL slot       :  /reserve-studies/
+     Template type  :  SUB-SERVICE  (depth 2 — sits between pillars
+                       and the deep blog spoke at
+                       /blog/florida-hoa-reserve-study-special-assessment-guide/)
+     Page intent    :  A+B HYBRID — service brochure that proves
+                       itself with methodology + visual artifacts
+                       (3-tier continuum hero, funding-health chart,
+                       sample component schedule, SIRS-vs-HOA split).
+     ----------------------------------------------------------------
+     COPYWRITER MANIFEST — every editable slot lives in CONTENT below.
+
+     Image slots on this page :
+       1. Hero background — coastal-condo.jpg (subtle, behind hero)
+          Replace later with an authentic Sarasota County image.
+
+     Asset slots :
+       - The component-schedule artifact and the funding-health chart
+         are both stylized SVG mocks. Numbers are illustrative, not
+         from any real client.
+     ============================================================ -->
+<title>Reserve Studies · AccuReserve Continuum · Keys-Caldwell</title>
+<meta name="description" content="Florida condo SIRS and HOA reserve studies on the AccuReserve continuum — from a $150 self-assessment template to an annually-updated subscription study. CPA-supervised reserve fund accounting included. 48 years of Sarasota County experience." />
+<meta name="keywords" content="reserve study, hoa reserve study, condo reserve study florida, florida sirs, structural integrity reserve study, accureserve, hoa reserve fund, special assessment, capital plan" />
+<link rel="canonical" href="https://keys-caldwell.com/reserve-studies/" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://keys-caldwell-site-94tm.vercel.app/reserve-studies/" />
+<meta property="og:title" content="Reserve Studies & SIRS · AccuReserve Continuum · Keys-Caldwell" />
+<meta property="og:description" content="From a $150 self-assessment to an annually-updated subscription study. SIRS-compliant for SB-4D condos. HOA-grade for single-family communities. Reserve fund accounting included." />
+<meta property="og:image" content="https://keys-caldwell-site-94tm.vercel.app/assets/og/keys-caldwell-brand-og.jpg" />
+<meta property="og:image:alt" content="Keys-Caldwell — Community Association Management. Venice, Sarasota, Charlotte County. Est. 1978." />
+<meta property="og:site_name" content="Keys-Caldwell" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Reserve Studies & SIRS · AccuReserve Continuum" />
+<meta name="twitter:description" content="From a $150 self-assessment to an annually-updated subscription study. SIRS-compliant for SB-4D. HOA-grade for single-family. CPA-supervised." />
+<meta name="twitter:image" content="https://keys-caldwell-site-94tm.vercel.app/assets/og/keys-caldwell-brand-og.jpg" />
+<meta name="twitter:image:alt" content="Keys-Caldwell — Community Association Management. Venice, Sarasota, Charlotte County. Est. 1978." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://unpkg.com">
+
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../pillar.css">
+<link rel="stylesheet" href="../reserve-studies.css">
+<link rel="icon" href="data:,">
+
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<style>
+  html, body { margin: 0; padding: 0; }
+  body { font-family: 'Source Sans 3', system-ui, sans-serif; }
+  #root { min-height: 100vh; }
+</style>
+</head>
+<body class="kc-page-reserve">
+<div id="root"></div>
+
+<script>window.KC_ASSET_BASE = '../';</script>
+
+<script src="../components/kc-org.js"></script>
+<script src="../components/kc-seo.jsx"></script>
+
+<script type="text/babel" src="../components/shared.jsx"></script>
+<script type="text/babel" src="../components/pillar.jsx"></script>
+<script type="text/babel" src="../components/reserve-studies.jsx"></script>
+
+<script type="text/babel" id="page-content">
+const CONTENT = {
+
+  // ─── META ─────────────────────────────────────────────────
+  meta: {
+    title:           "Reserve Studies · AccuReserve Continuum · Keys-Caldwell",
+    description:     "Florida condo SIRS and HOA reserve studies on the AccuReserve continuum — from a $150 self-assessment template to an annually-updated subscription study. CPA-supervised reserve fund accounting included.",
+    canonical:       "/reserve-studies/",
+    primaryKeyword:  "reserve study",
+    secondaryKeywords: [
+      "hoa reserve study",
+      "condo reserve study florida",
+      "florida sirs",
+      "structural integrity reserve study",
+      "accureserve",
+      "hoa reserve fund accounting",
+      "special assessment",
+    ],
+    ogTitle:         "Reserve Studies & SIRS · AccuReserve Continuum · Keys-Caldwell",
+    ogDescription:   "From a $150 self-assessment to an annually-updated subscription study. SIRS-compliant for SB-4D condos. HOA-grade for single-family communities. Reserve fund accounting included.",
+    ogImage:         "/assets/og/keys-caldwell-brand-og.jpg",
+    schema:          ["Service", "BreadcrumbList"],
+  },
+
+  // ─── BREADCRUMBS ──────────────────────────────────────────
+  breadcrumbs: {
+    items: [
+      { label: "Home",                          href: "/" },
+      { label: "Services",                      href: "/" },
+      { label: "Reserve Studies · AccuReserve" },
+    ],
+  },
+
+  // ─── NAV ──────────────────────────────────────────────────
+  nav: { active: "services" },
+
+  // ─── HERO ─────────────────────────────────────────────────
+  // Reuses KCPillarHero with a coastal-condo photo treatment.
+  // Stats anchor on continuum scale, not platform scale.
+  hero: {
+    numeral: "—",
+    eyebrow: "Reserve Studies · AccuReserve Continuum",
+    titlePlain: "Most boards see capital risk five months out. We help boards see it five years out.",
+    titleItalic: "five years out.",
+    lede: "A reserve study is the document that turns a building into a 30-year financial plan. Done well, it shows the board what's coming, what it costs, and how to fund it without a special assessment. Done poorly — or not at all — it shows up the morning the SIRS report lands or the carrier says no. AccuReserve is our continuum: three rigor levels, one shared engineering discipline, full alignment with the way your reserve fund is actually accounted for.",
+    primaryCta:   { label: "Request a proposal", href: "/request-proposal/index.html" },
+    secondaryCta: { label: "Read the deep-dive", href: "/blog/florida-hoa-reserve-study-special-assessment-guide/index.html" },
+    aside: {
+      eyebrow: "Why this is different",
+      h: "A reserve study isn't a binder. It's a living plan that has to stay current.",
+      p: "Most reserve studies are commissioned once, photocopied at the AGM, and don't get touched again until the next 10-year update — by which point components have been replaced, life expectancies have shifted, and the funding plan has drifted from reality. AccuReserve is built around the assumption that the schedule should change as the building does.",
+      stats: [
+        { num: "$150",              label: "Self-assessment entry point" },
+        { num: "30",  suffix: "yr", label: "Forecast horizon · every tier" },
+        { num: "10",  suffix: "yr", label: "Florida SIRS update cycle" },
+        { num: "1",   suffix: "x",  label: "CPA-aligned with your books" },
+      ],
+    },
+  },
+
+  // ─── SIGNATURE STORY (callout) — averted special assessment ─────
+  // Per scope: "start with story, finish on blog" — short hook here,
+  // full narrative lives in /blog/florida-hoa-reserve-study-special-assessment-guide/.
+  story: {
+    eyebrow: "A board's-eye view",
+    titlePlain: "What a $400,000 surprise looks like — and the year-by-year early warning that prevents it.",
+    titleItalic: "and the year-by-year early warning that prevents it.",
+    body: "A coastal condo board we now manage came to us after the SIRS report landed with a $400,000 reserve gap. Their previous firm had run a single reserve study seven years earlier, never updated it, and missed two roof-membrane revisions and a seawall reassessment. By the time the board saw the number, they had three months to a special assessment and an angry AGM. We rebuilt the schedule, found two components that had been double-counted, modeled three funding paths, and the board avoided the assessment entirely with a manageable annual increase. The full narrative — including how the schedule had drifted and what we changed — is in the deep-dive guide.",
+    pull: "By the time the board saw the gap, they had three months to a special assessment.",
+    link: { label: "Read the full story on the blog", href: "/blog/florida-hoa-reserve-study-special-assessment-guide/index.html" },
+  },
+
+  // ─── CONTINUUM — the 3-tier centerpiece ───────────────────
+  // The signature visual of this page. Hero of its own section,
+  // not a sidebar card. Every tier is the same engineering discipline
+  // at a different rigor level — the page makes that explicit.
+  continuum: {
+    eyebrow: "The AccuReserve continuum",
+    titlePlain: "Three rigor levels. One engineering discipline. Boards graduate up as the building, the regulator, or the carrier demands more.",
+    titleItalic: "as the building, the regulator, or the carrier demands more.",
+    intro: "Most reserve-study providers offer a single product — a one-time engineered study — and force every board into the same envelope. We built three tiers around what boards actually need at different stages, and the same Keys-Caldwell engineering discipline runs through all of them.",
+    tiers: [
+      {
+        n: "01",
+        price: "$150",
+        priceUnit: "one-time",
+        name: "Self-assessment template",
+        for: "Small associations getting their first picture",
+        desc: "A board-led component inventory using our template, then a working session with our reserve team to pressure-test the entries, life expectancies, and replacement costs. The right starting point for boards that have never had a formal study, want to see what one looks like, or need a defensible interim document while they decide on a fuller engagement.",
+        includes: [
+          "Component inventory template (35-page workbook)",
+          "Working session with our reserve specialist",
+          "Recommended replacement-cost ranges for Sarasota County",
+          "30-year funding-position estimate",
+          "Annual refresh recommendation",
+        ],
+      },
+      {
+        n: "02",
+        price: "$2,400+",
+        priceUnit: "engagement",
+        name: "Engineered study",
+        for: "Buildings 3+ stories, SB-4D / SIRS compliance",
+        desc: "A full site-walked inspection with our partner engineers — Karen's Engineering on the structural side — followed by a complete component inventory, condition assessment, and 30-year forecast. SIRS-compliant for buildings three stories and up. Delivered as the document the carrier and the State will accept, with a board-meeting walkthrough so the schedule isn't a black box.",
+        includes: [
+          "On-site structural & component inspection",
+          "Full component inventory with photos & condition grades",
+          "30-year funding forecast (multiple scenarios)",
+          "SIRS compliance per FS 718.112 & SB-4D",
+          "Board-meeting walkthrough included",
+        ],
+        flag: "Recommended for SIRS",
+      },
+      {
+        n: "03",
+        price: "Annual",
+        priceUnit: "subscription",
+        name: "Subscription study",
+        for: "Active capital plans, communities replacing components",
+        desc: "Continuous updates. As components are repaired, replaced, or extended, the schedule and the funding plan stay current — not as a binder photocopied seven years ago, but as a working document that reflects the building today. The right product for boards executing capital projects, navigating insurance non-renewals, or simply done with the 10-year-old surprise. Includes annual budget integration with CityBooks accounting.",
+        includes: [
+          "Annual schedule update reflecting completed work",
+          "Component-level cost re-baselining each year",
+          "Funding plan re-modeled as components are extended",
+          "CityBooks integration · reserves match the books",
+          "Carrier & lender documentation on demand",
+        ],
+        flag: "Most popular for active boards",
+      },
+    ],
+    note: "All three tiers use the same component-categorization framework, the same 30-year forecast methodology, and the same Florida-statute compliance discipline. The differences are inspection rigor, update cadence, and how tightly the schedule is integrated with your monthly accounting.",
+  },
+
+  // ─── FUNDING-HEALTH CHART ─────────────────────────────────
+  // The signature data-viz. Industry funding-percentage bands
+  // showing where most associations sit. Numbers are illustrative
+  // industry ranges — clearly footnoted.
+  health: {
+    eyebrow: "Reserve funding health",
+    titlePlain: "Where most Florida associations actually sit — and where the carrier wants you.",
+    titleItalic: "where the carrier wants you.",
+    intro: "Reserve funding is rated as a percent-funded ratio: actual reserve balance divided by what an engineered study says you should have at this point in the components' life cycle. The chart below shows the industry-standard bands, where most Florida coastal communities currently fall, and where insurance carriers and lenders increasingly require boards to be.",
+    bands: [
+      { label: "Critically under-funded", min: 0,  max: 30,  pct: "0 – 30%",  count: "≈ 18% of FL coastal associations",
+        risk: "high",   note: "Special assessment likely within 5 years. Carriers may decline renewal." },
+      { label: "Under-funded",            min: 30, max: 70,  pct: "30 – 70%", count: "≈ 51% of FL coastal associations",
+        risk: "med",    note: "Manageable with policy changes; assessments avoidable with disciplined planning." },
+      { label: "Fairly funded",           min: 70, max: 100, pct: "70 – 100%", count: "≈ 24% of FL coastal associations",
+        risk: "low",    note: "Carrier-comfortable range. Most lender-required minimum is in this band." },
+      { label: "Fully funded",            min: 100, max: 130, pct: "100 %+",  count: "≈ 7% of FL coastal associations",
+        risk: "ideal",  note: "Best position for components, premiums, and resale. The goal of every plan." },
+    ],
+    target: { pct: 70, label: "Carrier comfort line" },
+    note: "Industry estimates based on AccuReserve and Community Associations Institute reporting for Florida coastal Class-B and Class-C buildings. Specific percentages vary by region, building age, and study methodology.",
+  },
+
+  // ─── COMPONENT SCHEDULE ARTIFACT ──────────────────────────
+  // A stylized AccuReserve component schedule as a living document.
+  // Demonstrates: component-level detail, remaining useful life,
+  // current-year funding allocation, schedule integrity.
+  schedule: {
+    eyebrow: "The component schedule, by document",
+    titlePlain: "What the working schedule actually looks like.",
+    titleItalic: "actually looks like.",
+    intro: "The component schedule is the operating heart of a reserve study. Below is a stylized excerpt — not from any one client — showing how a coastal mid-rise's components are categorized, dated, costed, and funded. The subscription tier keeps this document current as work happens; the engineered tier sets the baseline; the self-assessment tier produces a simpler version of the same artifact.",
+    community: "Sample Coastal Mid-Rise · 32 units · Venice, FL",
+    asOf:      "Plan year 2026",
+    columns: ["Component", "Useful life", "Remaining", "Replace cost", "% funded", "Status"],
+    rows: [
+      { component: "Roof — TPO membrane",       cat: "Roofing",      ul: "20 yrs", remaining: "4 yrs",  cost: "$118,000", funded: 62, status: "watch",
+        note: "Coastal exposure shortens life. Re-inspection scheduled 2027." },
+      { component: "Pool deck pavers",          cat: "Pool / deck",  ul: "25 yrs", remaining: "11 yrs", cost: "$54,000",  funded: 88, status: "ok",
+        note: "Replaced 2014. Salt-resistant pavers. On schedule." },
+      { component: "Seawall — south property",  cat: "Coastal",      ul: "40 yrs", remaining: "8 yrs",  cost: "$340,000", funded: 41, status: "watch",
+        note: "Highest single-component exposure. Funding plan accelerated." },
+      { component: "Asphalt — drives & parking",cat: "Site",         ul: "18 yrs", remaining: "13 yrs", cost: "$76,000",  funded: 95, status: "ok",
+        note: "Sealcoat 2027. Mill-and-overlay 2034. Both line-itemed." },
+      { component: "Building paint — exterior", cat: "Building",     ul: "8 yrs",  remaining: "2 yrs",  cost: "$92,000",  funded: 71, status: "ok",
+        note: "Bid cycle starts 2026 Q3. Carrier-approved paint system." },
+      { component: "Concrete — balconies & stairs", cat: "Structural", ul: "10 yrs", remaining: "1 yr", cost: "$215,000", funded: 35, status: "action",
+        note: "Spalling observed; engineering scope underway. SIRS-listed." },
+      { component: "Elevator — modernization",  cat: "Building",     ul: "25 yrs", remaining: "16 yrs", cost: "$165,000", funded: 79, status: "ok",
+        note: "Cab refresh 2030 in plan. Hoist-replacement 2042." },
+      { component: "HVAC — common areas",       cat: "Building",     ul: "15 yrs", remaining: "6 yrs",  cost: "$38,000",  funded: 84, status: "ok",
+        note: "Coastal-rated condensers. On-cycle." },
+    ],
+    note: "Stylized excerpt for illustration. Component categories, useful-life methodology, and the 'remaining / cost / % funded / status' format are all from real AccuReserve schedules. Numbers and association are not from any specific client.",
+  },
+
+  // ─── SIRS vs HOA SPLIT ───────────────────────────────────
+  // Boards searching for "reserve study" don't pre-segment.
+  // This section makes the legal distinction explicit so they
+  // self-identify which path is theirs.
+  split: {
+    eyebrow: "Two legal regimes, one engineering practice",
+    titlePlain: "Florida draws a hard line between condo SIRS and HOA reserve studies. The engineering doesn't care; the statute does.",
+    titleItalic: "the statute does.",
+    intro: "If you're on a condominium board for a building three stories or taller, your reserve obligation is the Structural Integrity Reserve Study (SIRS) under SB-4D / FS 718.112. If you're on an HOA board for a planned community of single-family homes, townhomes, or villas, your obligation is governed by your Declaration and FS 720. Both need a reserve study. The legal force, statutory components, funding-mechanism rules, and update cycles are different.",
+    columns: [
+      {
+        eyebrow: "For condominium boards · 3 stories +",
+        h: "Structural Integrity Reserve Study (SIRS)",
+        statute: "FS 718.112(2)(g) · SB-4D",
+        rows: [
+          { k: "Required by", v: "Florida statute (mandatory)" },
+          { k: "Components",  v: "Defined in statute: roof, structural, fireproofing, plumbing, electrical, waterproofing, windows, life-safety, plus any item ≥ $10,000 to replace" },
+          { k: "Underfunding shortcut", v: "No longer permitted by board vote (changed by 2024 statute)" },
+          { k: "Update cycle", v: "Every 10 years, with milestone inspection coordination" },
+          { k: "Carrier impact", v: "Increasingly required for renewal of master policy" },
+          { k: "Our tier",     v: "Engineered study (02) or Subscription (03)" },
+        ],
+        link: { label: "Florida SIRS deep-dive", href: "/blog/florida-sirs-milestone-inspection-guide/index.html" },
+      },
+      {
+        eyebrow: "For HOA boards · single-family / townhome / villa",
+        h: "HOA Reserve Study (advisory grade)",
+        statute: "FS 720 · Declaration / Bylaws",
+        rows: [
+          { k: "Required by", v: "Declaration in most cases · sometimes board policy" },
+          { k: "Components",  v: "Common-area assets the association maintains: roads, ponds, pools, gates, signage, irrigation, common-area buildings" },
+          { k: "Underfunding shortcut", v: "Permitted in many cases by member or board vote per Declaration" },
+          { k: "Update cycle", v: "Recommended every 3-5 years; subscription is the right answer for active capital plans" },
+          { k: "Carrier impact", v: "Lower than condo, but increasingly considered in master-coverage underwriting" },
+          { k: "Our tier",     v: "Self-assessment (01) for small HOAs · Engineered (02) for larger · Subscription (03) for active boards" },
+        ],
+        link: { label: "HOA management overview", href: "/hoa-management-company-sarasota/index.html" },
+      },
+    ],
+  },
+
+  // ─── METHODOLOGY — how a study runs ───────────────────────
+  methodology: {
+    eyebrow: "How an AccuReserve study actually runs",
+    titlePlain: "Five phases. Not a binder mailed to you six weeks later.",
+    titleItalic: "Not a binder mailed to you six weeks later.",
+    intro: "Most reserve studies arrive as a 60-page PDF the board never re-opens. AccuReserve is built around five active phases — kickoff, walk, draft, working session, and adoption — each with the board in the room or the loop. The product is the conversation, not just the document.",
+    steps: [
+      { when: "Phase 01",
+        h: "Kickoff & document handoff.",
+        p: "We collect prior studies, governing documents, capital project history, vendor records, and any milestone or SIRS reports already on file. The board names a treasurer-liaison so questions don't bounce." },
+      { when: "Phase 02",
+        h: "Site walk & inspection.",
+        p: "Engineering walk of the property with our partner team. Component-by-component inspection, condition grading, photograph documentation. Boards are welcome to attend; many treasurers do." },
+      { when: "Phase 03",
+        h: "Draft schedule & forecast.",
+        p: "Component inventory drafted, useful-life and replacement-cost values modeled against current Sarasota County ranges. 30-year forecast built with two or three funding scenarios so the board has options, not a single answer." },
+      { when: "Phase 04",
+        h: "Working session with the board.",
+        p: "We sit down with the board — virtually or in person — and walk every component, every assumption, every scenario. Adjustments made in the room. The schedule the board adopts is the one they helped finalize." },
+      { when: "Phase 05",
+        h: "Adoption, integration, and the next-year cadence.",
+        p: "Adopted study integrates with CityBooks accounting so the books reflect the schedule. Subscription clients are on a 12-month cadence from here; engineered clients schedule a check-in at year 5; self-assessment clients are recommended an annual refresh." },
+    ],
+  },
+
+  // ─── RECEIPTS — what's included ledger ────────────────────
+  receipts: {
+    eyebrow: "What's included in every tier",
+    titlePlain: "What we deliver, full stop — across all three tiers.",
+    titleItalic: "across all three tiers.",
+    intro: "Tier 02 and 03 deliver more than Tier 01, but every AccuReserve engagement — including the $150 self-assessment — produces these eight things. The difference between tiers is rigor of inspection and how often the schedule is refreshed, not whether you get a real document.",
+    items: [
+      { title: "Component inventory",
+        desc: "Every reserve-eligible component categorized by system. SIRS-listed items flagged separately for compliance. Photos and condition grades on Tier 02 and 03." },
+      { title: "30-year funding forecast",
+        desc: "Reserve balance modeled forward with current contributions, planned replacements, and inflation assumptions. Multiple funding scenarios so the board can compare." },
+      { title: "Funding plan recommendation",
+        desc: "Annual contribution schedule needed to hit the board's chosen funding-position target. Special-assessment scenarios modeled for stress-test purposes, not as a default." },
+      { title: "FS 718 / 720 compliance review",
+        desc: "Tier 02 and 03 carry SIRS compliance per FS 718.112 for SB-4D buildings. All tiers include FS 720 review for HOAs to confirm Declaration alignment." },
+      { title: "Carrier & lender documentation",
+        desc: "Excerpts on demand for master-policy renewal, lender refinance, or owner sale. Subscription clients get on-demand; engineered clients get on the engagement." },
+      { title: "Board working session",
+        desc: "Virtual or in-person walkthrough of the schedule with the board before adoption. Real questions, real answers, real adjustments — not a slide-deck handoff." },
+      { title: "CityBooks integration",
+        desc: "Adopted schedule integrates with CityBooks accounting so the reserve fund balance, allocation cadence, and component-level reporting all match the study. One source of truth, not two." },
+      { title: "Annual refresh cadence",
+        desc: "Subscription clients receive an annual schedule update. Engineered clients are placed on a check-in calendar at year 5. Self-assessment clients are walked through an annual refresh." },
+    ],
+  },
+
+  // ─── TESTIMONIAL — reserve-specific ───────────────────────
+  testimonials: {
+    eyebrow: "From the treasurer's seat",
+    items: [
+      { quote: "The previous reserve study was a binder we hadn't opened since 2017. Keys-Caldwell rebuilt the schedule, found two components that had been double-counted, and modeled three funding paths in a working session with our board. We adopted the middle one and avoided a $400,000 special assessment we were sleepwalking into.",
+        name:  "Michael Cochran",
+        role:  "Board Treasurer · 32-unit coastal condo · Venice, FL",
+        initials: "MC" },
+      { quote: "Our carrier was about to non-renew. They wanted a current SIRS-compliant study and a funding plan that matched the books. Keys-Caldwell delivered both inside three weeks and walked us through the renewal call with the broker on the line. We renewed without a coverage gap.",
+        name:  "Patricia Grant",
+        role:  "Board President · 24-unit mid-rise · Longboat Key, FL",
+        initials: "PG" },
+    ],
+  },
+
+  // ─── FAQ — reserve-specific ───────────────────────────────
+  faq: {
+    titlePlain: "Questions boards ask before commissioning a study.",
+    titleItalic: "before commissioning a study.",
+    side: "These come up on almost every intake call. If yours isn't here, send a note — we'd rather answer the real one than the obvious one.",
+    items: [
+      { q: "Do we need an engineered study, or is a self-assessment enough?",
+        a: ["For SB-4D condominium buildings three stories and up, the answer is unambiguous: an engineered SIRS-compliant study is required by Florida statute. The self-assessment tier is not a SIRS-compliant document.",
+            "For HOAs, smaller condos, and pre-SIRS situations, the self-assessment tier is often the right starting point. It produces a defensible interim document, gives the board a real picture, and makes the eventual decision to move to an engineered study a much smaller leap. Many of our subscription clients started on a self-assessment and graduated up after their first AGM."] },
+      { q: "How long does an engineered study take?",
+        a: "Typical engagement is 4-6 weeks from kickoff to adopted schedule. Site walk happens in week 1-2, draft schedule in week 3-4, working session in week 4-5, adoption in week 5-6. Carrier-deadline situations can compress that to about 3 weeks; we've delivered SIRS documentation to lenders and carriers inside a working week when the renewal calendar required it." },
+      { q: "What's the difference between a reserve study and a SIRS report?",
+        a: ["A reserve study is the full 30-year capital-planning document covering every component the association is responsible for — roads, pool decks, paint, HVAC, the whole inventory. A SIRS (Structural Integrity Reserve Study) is a Florida-statute-defined subset of that, focused on the structural and life-safety components in condominium buildings three stories and up.",
+            "Most engineered studies we deliver to SB-4D condos serve as both: the full reserve study with the SIRS components clearly identified and statute-compliant inside it. One document, two regulatory uses."] },
+      { q: "How does this integrate with our accounting?",
+        a: "Tightly. The adopted reserve schedule integrates with CityBooks so the reserve fund balance on the books, the allocation cadence, and the component-level reporting all match the study. The treasurer's monthly packet shows reserve health against the schedule, not against a separate spreadsheet that drifts. Our accounting page goes deeper on this." },
+      { q: "What if the board doesn't agree with the engineering numbers?",
+        a: "That's exactly what the working session in Phase 04 is for. Boards pressure-test our component costs, useful-life assumptions, and inflation rates against their experience with the building. We adjust where the board's information is better than the model — and we document where we disagreed and why. The schedule the board adopts is the schedule they helped build." },
+      { q: "Can a study help us avoid a special assessment?",
+        a: ["Sometimes — if the board is a few years ahead of the gap. The earlier a study surfaces an under-funded component, the more options the board has. Increase the annual contribution, restage the project, fund a partial scope first, refinance through a lender capital loan — all of those become available when the schedule has time to absorb them.",
+            "Where a study cannot help: the morning the SIRS report lands on a 40-year-old building that has run flat-funded reserves for 25 years. By that point, an assessment is usually mathematically unavoidable. The earlier you start, the more options you have. That's the entire pitch for the subscription tier."] },
+      { q: "Do you do reserve studies for buildings you don't manage?",
+        a: "Yes. AccuReserve is offered as a standalone product to associations regardless of who handles their day-to-day management. Many of our reserve-only clients eventually move their full management to Keys-Caldwell — but that's never the precondition." },
+    ],
+  },
+
+  // ─── FINAL CTA BAND ──────────────────────────────────────
+  ctaBand: {
+    eyebrow: "Find out where you actually stand",
+    title:   "Send us your last reserve study and the most recent year's financials. We'll come back with a funding-position estimate and a recommendation — at no charge.",
+    body:    "It's a 30-minute review, not a sales pitch. Boards leave with a clearer picture of where their reserve plan actually sits — and what tier of engagement, if any, would help.",
+    primary:   { label: "Request a proposal",     href: "/request-proposal/index.html" },
+    secondary: { label: "Read the deep-dive guide", href: "/blog/florida-hoa-reserve-study-special-assessment-guide/index.html" },
+    phone: "(941) 485-0605",
+    hours: "Mon – Fri · 8:30am – 5:00pm ET",
+  },
+
+  // ─── FOOTER (defaults from shared.jsx) ───────────────────
+  footer: {},
+};
+
+const Page = () => (
+  <div className="kc-page">
+    <KCNav active={CONTENT.nav.active} />
+    <KCBreadcrumbs       content={CONTENT.breadcrumbs} />
+    <KCPillarHero        content={CONTENT.hero} />
+    <KCResStory          content={CONTENT.story} />
+    <KCResContinuum      content={CONTENT.continuum} />
+    <KCResHealth         content={CONTENT.health} />
+    <KCResSchedule       content={CONTENT.schedule} />
+    <KCResSplit          content={CONTENT.split} />
+    <KCResMethodology    content={CONTENT.methodology} />
+    <KCResReceipts       content={CONTENT.receipts} />
+    <KCTestimonialPair   content={CONTENT.testimonials} />
+    <KCFAQ               content={CONTENT.faq} />
+    <KCCtaBand           content={CONTENT.ctaBand} />
+    <KCFooter            content={CONTENT.footer} />
+  </div>
+);
+
+// ─── SEO meta + JSON-LD ───────────────────────────────
+KCSeo.apply(CONTENT.meta, {
+  pageType:    "service",
+  pageUrl:     CONTENT.meta.canonical,
+  breadcrumbs: CONTENT.breadcrumbs.items,
+  faqs:        CONTENT.faq.items.map(f => ({
+    q: f.q,
+    a: Array.isArray(f.a) ? f.a.join('\n\n') : f.a,
+  })),
+  service: {
+    name:        "Reserve Studies · AccuReserve Continuum",
+    description: CONTENT.meta.description,
+    areaServed:  KC_ORG.areaServed,
+  },
+});
+
+// Render once shared + pillar + reserve-studies components are registered.
+const renderWhenReady = () => {
+  if (typeof KCNav === 'undefined'
+   || typeof KCPillarHero === 'undefined'
+   || typeof KCResContinuum === 'undefined') {
+    return setTimeout(renderWhenReady, 30);
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(<Page />);
+  requestAnimationFrame(() => { if (window.lucide) window.lucide.createIcons(); });
+  setTimeout(() => { if (window.lucide) window.lucide.createIcons(); }, 400);
+};
+renderWhenReady();
+</script>
+
+</body>
+</html>
