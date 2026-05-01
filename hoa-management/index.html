@@ -47,6 +47,7 @@
 
 <link rel="stylesheet" href="../styles.css">
 <link rel="stylesheet" href="../pillar.css">
+<link rel="stylesheet" href="../hoa.css">
 <link rel="icon" href="data:,">
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
@@ -58,7 +59,7 @@
   #root { min-height: 100vh; }
 </style>
 </head>
-<body>
+<body class="kc-page-hoa">
 <div id="root"></div>
 
 <script>window.KC_ASSET_BASE = '../';</script>
@@ -101,10 +102,11 @@ const CONTENT = {
   hero: {
     numeral: "03",
     eyebrow: "HOA Management · Sarasota, Manatee & Charlotte",
-    // Ambient video background — local MP4. Auto-disabled on phones +
-    // reduced-motion. Overlay tuned in pillar.css (kc-pillar-hero-video-overlay).
-    // Plays at 0.5× by default; tune via `rate` if needed.
-    videoBg: { src: "../assets/hero/hoa-hero-bg.mp4" },
+    // Ambient hero treatment is now a still image (gated-community
+    // entrance with royal-palm allée) handled in hoa.css via the
+    // .kc-page-hoa .kc-pillar-hero::before pseudo-element. Same
+    // opacity + veil pattern as /condo-management/, /accounting/,
+    // and /reserve-studies/.
     titlePlain: "HOA management for boards who want",
     titleItalic: "fewer landscape complaints",
     lede: "We manage homeowners associations from 40 lots to 600 — gated single-family, master-planned, and zero-lot-line communities — across the I-75 corridor. Operationally tight, statutorily current, and run by people who answer the phone.",

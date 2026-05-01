@@ -1,0 +1,64 @@
+/* =============================================================
+   Keys-Caldwell — /hoa-management/ pillar page
+   =============================================================
+   Loaded after styles.css and pillar.css. Page-specific styles
+   for the HOA pillar — currently scoped to the hero photo
+   treatment (replaces the prior ambient video).
+   ============================================================= */
+
+/* ─── HERO PHOTO TREATMENT ─────────────────────────────────
+   Background: a manicured master-planned community entrance
+   with stone monument, royal-palm allée, and divided drive
+   (assets/hero/hoa-neighborhood.jpg). Same opacity + cream-veil
+   pattern used on /condo-management/, /accounting/, and
+   /reserve-studies/. Scoped to .kc-page-hoa so the shared
+   KCPillarHero on sister pillar pages is unaffected. */
+.kc-page-hoa .kc-pillar-hero {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.kc-page-hoa .kc-pillar-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: url('assets/hero/hoa-neighborhood.jpg');
+  background-size: cover;
+  /* Composition leads down the divided drive; pull focus down
+     so the monument sign + palm allée align with the lede,
+     not the eyebrow. */
+  background-position: center 62%;
+  opacity: 0.32;
+  z-index: 0;
+  pointer-events: none;
+}
+.kc-page-hoa .kc-pillar-hero::after {
+  content: '';
+  position: absolute; inset: 0;
+  /* Cream veil — heavier on the typography side (left) and
+     lighter on the aside-card side (right) so the palm allée
+     and gate detail read through where the stats sit. */
+  background: linear-gradient(
+    90deg,
+    rgba(245,239,227,0.82) 0%,
+    rgba(245,239,227,0.55) 55%,
+    rgba(245,239,227,0.25) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+.kc-page-hoa .kc-pillar-hero > .kc-container {
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 700px) {
+  /* On phones, lift the veil so the headline stays readable
+     across the full hero width. */
+  .kc-page-hoa .kc-pillar-hero::after {
+    background: linear-gradient(
+      180deg,
+      rgba(245,239,227,0.95) 0%,
+      rgba(245,239,227,0.85) 100%
+    );
+  }
+}
