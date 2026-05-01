@@ -220,6 +220,21 @@ const CONTENT = {
     hours: "Mon – Fri · 8:30am – 5:00pm ET",
   },
 
+  // ─── NEARBY ───────────────────────────────────────────
+  // Cross-link strip into adjacent hoa city pages.
+  // Lets a board that landed here but realized this isn't
+  // the right city jump to a neighbor without bouncing.
+  nearby: {
+    eyebrow: "Nearby HOA coverage",
+    titlePlain: "Where Osprey boards also tend to look —",
+    titleItalic: "the corridor in both directions.",
+    pillar: "hoa",
+    cities: [
+      { slug: "sarasota", name: "Sarasota", distance: "14 mi", note: "Up the corridor. Master-planned governance and full range of building stock." },
+      { slug: "nokomis", name: "Nokomis", distance: "4 mi", note: "Just south on US-41. Bay-front mid-rises, similar operating profile." },
+      { slug: "siesta-key", name: "Siesta Key", distance: "12 mi", note: "Closest barrier island. Bridge access via Stickney Point or Siesta Drive." },
+    ],
+  },
   footer: {},
 };
 
@@ -234,6 +249,7 @@ const Page = () => (
     <KCGeoDirections  content={CONTENT.directions} />
     <KCGeoLocal       content={CONTENT.local} />
     <KCTestimonial    content={CONTENT.testimonial} />
+    <KCGeoNearby     content={CONTENT.nearby} />
     <KCCtaBand        content={CONTENT.ctaBand} />
     <KCFooter         content={CONTENT.footer} />
   </div>

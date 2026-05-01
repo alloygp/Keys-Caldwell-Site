@@ -243,6 +243,7 @@ const KCFooter = ({ content }) => {
       { label: 'Accounting & CityBooks',        href: '/accounting/index.html' },
       { label: 'Reserve studies · AccuReserve', href: '/reserve-studies/index.html' },
       { label: 'Property services',             href: '#' },
+      { label: 'Service areas',                  href: '/service-areas/index.html' },
       { label: 'Pricing & scope',               href: '/pricing/index.html' },
     ]},
     { title: 'Boards', links: [
@@ -254,7 +255,7 @@ const KCFooter = ({ content }) => {
     ]},
     { title: 'Firm', links: [
       { label: 'About Keys-Caldwell', href: '/about/index.html' },
-      { label: 'Communities served',  href: '#' },
+      { label: 'Service areas',       href: '/service-areas/index.html' },
       { label: 'Careers',             href: '#' },
       { label: 'Board login',         href: '#' },
       { label: 'Owner login',         href: '#' },

@@ -259,7 +259,51 @@ const KCGeoLocal = ({ content }) => {
   );
 };
 
+// ---------- KCGeoNearby ----------
+// Cross-link strip showing 3-5 nearby cities — same pillar.
+// Sits between KCTestimonial and KCCtaBand. Lifts boards from
+// a too-narrow geo page back into adjacent coverage when this
+// city isn't the right fit.
+//
+// content = {
+//   eyebrow, titlePlain, titleItalic,
+//   pillar: 'condo' | 'hoa',  // controls the link target
+//   cities: [{ slug, name, distance, note }]
+// }
+const KCGeoNearby = ({ content }) => {
+  const c = content || {};
+  const base = c.pillar === 'hoa'
+    ? '/hoa-management-company-sarasota/'
+    : '/condo-association-management-sarasota/';
+  return (
+    <section className="kc-geo-nearby">
+      <div className="kc-container">
+        <div className="kc-geo-nearby-head">
+          {c.eyebrow && <div className="kc-eyebrow">{c.eyebrow}</div>}
+          <h2 className="kc-geo-nearby-h2">
+            {geoItalicize(c.titlePlain, c.titleItalic)}
+          </h2>
+        </div>
+        <div className="kc-geo-nearby-grid">
+          {(c.cities || []).map((city, i) => (
+            <a key={i} className="kc-geo-nearby-card" href={kcHref(base + city.slug + '/')}>
+              <div className="kc-geo-nearby-card-top">
+                <div className="kc-geo-nearby-name">{city.name}</div>
+                <div className="kc-geo-nearby-distance">{city.distance}</div>
+              </div>
+              <div className="kc-geo-nearby-note">{city.note}</div>
+              <div className="kc-geo-nearby-cta">
+                See coverage <span aria-hidden="true">→</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
 Object.assign(window, {
   KCGeoHero, KCGeoIntro, KCGeoCommunities, KCGeoDirections,
-  KCGeoServices, KCGeoLocal,
+  KCGeoServices, KCGeoLocal, KCGeoNearby,
 });

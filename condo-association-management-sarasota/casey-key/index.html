@@ -219,6 +219,21 @@ const CONTENT = {
     hours: "Mon – Fri · 8:30am – 5:00pm ET",
   },
 
+  // ─── NEARBY ───────────────────────────────────────────
+  // Cross-link strip into adjacent condo city pages.
+  // Lets a board that landed here but realized this isn't
+  // the right city jump to a neighbor without bouncing.
+  nearby: {
+    eyebrow: "Nearby condo coverage",
+    titlePlain: "The mainland and adjacent islands Casey Key",
+    titleItalic: "boards also consider.",
+    pillar: "condo",
+    cities: [
+      { slug: "nokomis", name: "Nokomis", distance: "3 mi", note: "Mainland city via the Albee Road bridge." },
+      { slug: "venice", name: "Venice", distance: "6 mi", note: "Our HQ. Six miles south down US-41." },
+      { slug: "osprey", name: "Osprey", distance: "8 mi", note: "Mainland city to the north via the Blackburn Point bridge." },
+    ],
+  },
   footer: {},
 };
 
@@ -233,6 +248,7 @@ const Page = () => (
     <KCGeoDirections  content={CONTENT.directions} />
     <KCGeoLocal       content={CONTENT.local} />
     <KCTestimonial    content={CONTENT.testimonial} />
+    <KCGeoNearby     content={CONTENT.nearby} />
     <KCCtaBand        content={CONTENT.ctaBand} />
     <KCFooter         content={CONTENT.footer} />
   </div>

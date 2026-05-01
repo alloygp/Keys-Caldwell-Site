@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<!-- ============================================================
+     Keys-Caldwell — Service Areas Hub
+     URL slot       :  /service-areas/
+     Template type  :  HUB  (custom; not based on geo or pillar)
+     Composition    :  KCNav · KCBreadcrumbs ·
+                       SAHero · SARegions · SACoverageMap (text) ·
+                       SACtaBand · KCFooter
+     Purpose        :  Provide a single index into all 24 city pages
+                       (12 condo + 12 HOA) and convert mid-funnel
+                       browsers who landed via a non-city query.
+     ============================================================ -->
+<title>Service Areas · Sarasota County, Manatee, Charlotte · Keys-Caldwell</title>
+<meta name="description" content="Where Keys-Caldwell manages condo and HOA associations: Venice, Sarasota, Bradenton, Lakewood Ranch, the barrier islands (Siesta, Longboat, Casey, Manasota, Anna Maria), and South County. Every city links into the right pillar coverage page." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://unpkg.com">
+
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../geo.css">
+<link rel="icon" href="data:,">
+
+<style>
+/* ── Service Areas hub — page-specific styles ─────────────── */
+.sa-hero {
+  background: var(--shell);
+  border-bottom: 1px solid var(--shell-line);
+  padding: 96px 0 80px;
+}
+.sa-hero-grid {
+  display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 80px;
+  align-items: end;
+}
+.sa-hero-eye {
+  font-family: var(--font-heading); font-style: italic; font-weight: 600;
+  font-size: 14px; color: var(--kc-indigo); letter-spacing: 0.02em;
+  text-transform: none; margin-bottom: 24px;
+}
+.sa-hero-h {
+  font-family: var(--font-heading); font-weight: 700; font-style: normal;
+  font-size: clamp(48px, 5.6vw, 84px); line-height: 1.02;
+  color: var(--deep-ink); letter-spacing: -0.022em; margin: 0 0 32px;
+  text-wrap: balance;
+}
+.sa-hero-h em {
+  font-style: italic; color: var(--kc-indigo); font-weight: 700;
+}
+.sa-hero-lede {
+  font-family: var(--font-body); font-size: 19px; line-height: 1.55;
+  color: var(--deep-ink); opacity: .82; margin: 0; max-width: 56ch;
+}
+.sa-hero-meta {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+  border-top: 1px solid var(--shell-line);
+  border-bottom: 1px solid var(--shell-line);
+}
+.sa-hero-meta-cell {
+  padding: 24px 0;
+  border-right: 1px solid var(--shell-line);
+}
+.sa-hero-meta-cell:last-child {
+  border-right: 0;
+  padding-left: 24px;
+}
+.sa-hero-meta-cell:first-child {
+  padding-right: 24px;
+}
+.sa-hero-meta-k {
+  font-family: var(--font-heading); font-style: italic; font-weight: 600;
+  font-size: 12px; color: var(--kc-indigo); letter-spacing: 0.04em;
+  text-transform: uppercase; margin-bottom: 6px;
+}
+.sa-hero-meta-v {
+  font-family: var(--font-heading); font-style: italic; font-weight: 700;
+  font-size: 32px; color: var(--deep-ink); line-height: 1; letter-spacing: -0.012em;
+}
+.sa-hero-meta-sub {
+  font-family: var(--font-body); font-size: 13px; color: var(--deep-ink);
+  opacity: .65; margin-top: 6px;
+}
+
+/* Region sections */
+.sa-region {
+  border-top: 1px solid var(--shell-line);
+  padding: 80px 0;
+  background: var(--shell);
+}
+.sa-region:nth-child(even) { background: #fcfaf6; }
+.sa-region-head {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 64px;
+  margin-bottom: 56px;
+  align-items: start;
+}
+.sa-region-eye {
+  font-family: var(--font-heading); font-style: italic; font-weight: 600;
+  font-size: 14px; color: var(--kc-indigo); letter-spacing: 0.02em;
+  margin-bottom: 16px;
+}
+.sa-region-h {
+  font-family: var(--font-heading); font-weight: 700;
+  font-size: clamp(32px, 3vw, 44px); line-height: 1.1; color: var(--deep-ink);
+  letter-spacing: -0.018em; margin: 0;
+  text-wrap: balance;
+}
+.sa-region-h em { font-style: italic; color: var(--kc-indigo); font-weight: 700; }
+.sa-region-blurb {
+  font-family: var(--font-body); font-size: 17px; line-height: 1.55;
+  color: var(--deep-ink); opacity: .82; margin: 0;
+}
+
+/* City rows — table-like editorial */
+.sa-cities {
+  display: flex; flex-direction: column;
+  border-top: 1px solid var(--shell-line);
+}
+.sa-city {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 220px) minmax(0, 1fr) 96px;
+  align-items: center;
+  gap: 32px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--shell-line);
+  transition: background 140ms ease;
+}
+.sa-city:hover { background: rgba(63, 78, 142, 0.04); }
+.sa-city-num {
+  font-family: var(--font-heading); font-style: italic; font-weight: 600;
+  font-size: 13px; color: var(--kc-indigo); opacity: .7;
+}
+.sa-city-name {
+  font-family: var(--font-heading); font-weight: 700;
+  font-size: 22px; color: var(--deep-ink); letter-spacing: -0.012em;
+  line-height: 1.15;
+}
+.sa-city-name em { font-style: italic; font-weight: 700; }
+.sa-city-note {
+  font-family: var(--font-body); font-size: 14px; line-height: 1.55;
+  color: var(--deep-ink); opacity: .72;
+  max-width: 64ch;
+}
+.sa-city-links {
+  display: flex; gap: 8px;
+  justify-self: end;
+}
+.sa-city-link {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-family: var(--font-heading); font-style: italic; font-weight: 600;
+  font-size: 13px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--shell-line);
+  background: var(--shell);
+  color: var(--deep-ink);
+  text-decoration: none;
+  transition: background 140ms ease, border-color 140ms ease, color 140ms ease;
+  white-space: nowrap;
+}
+.sa-city-link:hover {
+  background: var(--kc-indigo);
+  border-color: var(--kc-indigo);
+  color: var(--shell);
+}
+.sa-city-link[data-pillar="condo"] { /* default */ }
+.sa-city-link[data-pillar="hoa"]   { /* default */ }
+.sa-city-link[data-disabled="true"] {
+  opacity: .35;
+  pointer-events: none;
+}
+.sa-city-distance {
+  font-family: var(--font-heading); font-style: italic; font-weight: 600;
+  font-size: 13px; color: var(--deep-ink); opacity: .55;
+  text-align: right;
+  letter-spacing: 0.01em;
+}
+
+/* Table header row */
+.sa-cities-headrow {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 220px) minmax(0, 1fr) 96px;
+  align-items: center;
+  gap: 32px;
+  padding: 12px 0;
+}
+.sa-cities-headrow > div {
+  font-family: var(--font-heading); font-style: italic; font-weight: 600;
+  font-size: 12px; color: var(--kc-indigo); letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.sa-cities-headrow > div:nth-child(4) { justify-self: end; }
+.sa-cities-headrow > div:last-child   { text-align: right; }
+
+/* Mobile */
+@media (max-width: 900px) {
+  .sa-hero-grid,
+  .sa-region-head { grid-template-columns: 1fr; gap: 32px; }
+  .sa-cities-headrow { display: none; }
+  .sa-city {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 24px 0;
+  }
+  .sa-city-num { display: none; }
+  .sa-city-distance {
+    text-align: left;
+    order: 2;
+  }
+  .sa-city-name { order: 1; }
+  .sa-city-note { order: 3; }
+  .sa-city-links { justify-self: stretch; order: 4; }
+  .sa-hero-meta { grid-template-columns: 1fr; }
+  .sa-hero-meta-cell {
+    border-right: 0;
+    border-bottom: 1px solid var(--shell-line);
+    padding: 20px 0 !important;
+  }
+}
+
+/* CTA band specific to hub */
+.sa-cta {
+  background: var(--deep-ink);
+  color: var(--shell);
+  padding: 96px 0;
+}
+.sa-cta-grid {
+  display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 80px;
+  align-items: center;
+}
+.sa-cta-h {
+  font-family: var(--font-heading); font-weight: 700;
+  font-size: clamp(36px, 3.4vw, 52px); line-height: 1.1;
+  color: var(--shell); letter-spacing: -0.018em; margin: 0 0 24px;
+  text-wrap: balance;
+}
+.sa-cta-h em { font-style: italic; color: var(--brass, #d6b06d); font-weight: 700; }
+.sa-cta-p {
+  font-family: var(--font-body); font-size: 17px; line-height: 1.55;
+  color: var(--shell); opacity: .82; margin: 0; max-width: 56ch;
+}
+.sa-cta-actions { display: flex; flex-direction: column; gap: 16px; }
+.sa-cta-actions .kc-btn { white-space: nowrap; }
+@media (max-width: 900px) {
+  .sa-cta-grid { grid-template-columns: 1fr; gap: 40px; }
+}
+</style>
+
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="root"></div>
+
+<script>window.KC_ASSET_BASE = '../';</script>
+<script src="../components/kc-org.js"></script>
+<script src="../components/kc-seo.jsx"></script>
+<script type="text/babel" src="../components/shared.jsx"></script>
+
+<script type="text/babel" id="page-content">
+const CONTENT = {
+
+  meta: {
+    title:           "Service Areas · Sarasota County, Manatee, Charlotte · Keys-Caldwell",
+    description:     "Where Keys-Caldwell manages condo and HOA associations across Sarasota, Manatee, and Charlotte counties. Every city links into the right pillar coverage page.",
+    canonical:       "/service-areas/",
+    primaryKeyword:  "association management service areas sarasota",
+    secondaryKeywords: [
+      "hoa management coverage area sarasota fl",
+      "condo management service areas florida gulf coast",
+      "keys-caldwell coverage map",
+    ],
+    ogTitle:         "Where Keys-Caldwell Manages Communities",
+    ogDescription:   "All cities and barrier islands across Sarasota, Manatee, and Charlotte counties.",
+    ogImage:         "/assets/og/keys-caldwell-default.jpg",
+    schema:          ["LocalBusiness", "BreadcrumbList"],
+  },
+
+  breadcrumbs: {
+    items: [
+      { label: "Home",            href: "/" },
+      { label: "Service Areas" },
+    ],
+  },
+
+  // ─── HERO ────────────────────────────────────────────────
+  hero: {
+    eyebrow: "Service areas · Sarasota, Manatee & Charlotte counties",
+    titlePlain: "Where we manage. Twenty-four cities and barrier islands across",
+    titleItalic: "the Florida Gulf Coast.",
+    lede: "Our office is in Venice. From there we cover the I-75 corridor north to Bradenton and Anna Maria Island, south to Charlotte County, and west across every barrier island in between. Each city below links into the dedicated pillar coverage page — condo or HOA — for that location.",
+    meta: [
+      { k: "Coverage radius",       v: "0 – 60 mi", sub: "from Venice HQ" },
+      { k: "Cities served",         v: "14",        sub: "across 3 counties" },
+      { k: "Active associations",   v: "500+",      sub: "under management" },
+      { k: "Years in this market",  v: "47",        sub: "since 1978" },
+    ],
+  },
+
+  // ─── REGIONS ────────────────────────────────────────────
+  // Each region is a sub-area editorial chunk. Cities inside a region
+  // share an operating profile (similar building stock, similar
+  // governance frame, similar permitting authority) — that's the
+  // organizing principle, not strict geography.
+  regions: [
+    {
+      eye: "Region 1 · Venice corridor",
+      titlePlain: "Where we live and work — the corridor from Venice",
+      titleItalic: "to Osprey.",
+      blurb: "The four cities closest to our office. Most of these associations are inside a 15-minute drive door-to-door. Bi-weekly visit cadence is standard; emergency response is typically same-day.",
+      cities: [
+        { slug: "venice",  name: "Venice",  note: "HQ city. Mid-rise condos along the gulf, gated villa HOAs across South Venice and East Venice, master/sub stacks inland of US-41.", distance: "0 mi", condo: true, hoa: true },
+        { slug: "nokomis", name: "Nokomis", note: "Bay-front mid-rises along Albee Road plus 1990s gated villa HOAs on Albee Farm Road. Both pillars active.", distance: "4 mi", condo: true, hoa: true },
+        { slug: "osprey",  name: "Osprey",  note: "Bayfront condos along Bay Street; layered master/sub HOA stacks east of US-41. Seawall and amenity capital concerns dominate.", distance: "8 mi", condo: true, hoa: true },
+        { slug: "casey-key", name: "Casey Key", note: "Small barrier island. Condo mid-rises gulf and bay; tiny exclusive single-family HOAs on the south end. Bridge-dependent operations.", distance: "5 mi", condo: true, hoa: true },
+      ],
+    },
+    {
+      eye: "Region 2 · Sarasota & Lakewood Ranch",
+      titlePlain: "Master-planned country —",
+      titleItalic: "where governance is layered from day one.",
+      blurb: "Sarasota and Lakewood Ranch HOAs and condos sit inside multi-tier governance frames: master HOA, sub-association, CDD, sometimes a village master on top. Document alignment between layers is the dominant operational discipline.",
+      cities: [
+        { slug: "sarasota",        name: "Sarasota",        note: "From Palmer Ranch villa communities to downtown bay-front condo towers. The full range of building stock under one city header.", distance: "22 mi", condo: true, hoa: true },
+        { slug: "lakewood-ranch",  name: "Lakewood Ranch",  note: "One of Florida's largest master-planned communities. Heavy CDD and master/sub HOA layering; newer-build condos inside the Main Street District.", distance: "38 mi", condo: true, hoa: true },
+      ],
+    },
+    {
+      eye: "Region 3 · Barrier islands",
+      titlePlain: "The buildings and communities that operate on a barrier",
+      titleItalic: "island clock.",
+      blurb: "Bridge access, evacuation orders, beach renourishment, sea-turtle nesting, gulf-front capital obligations, SB-4D milestone inspections at the front of the line. Different operating reality from the mainland — the playbooks are built around it.",
+      cities: [
+        { slug: "siesta-key",        name: "Siesta Key",        note: "Densest barrier-island condo stock in our coverage. 1960s – 1990s mid-rises and towers; SB-4D is present-tense work for many buildings.", distance: "24 mi", condo: true, hoa: true },
+        { slug: "longboat-key",      name: "Longboat Key",      note: "Most demanding building stock in our coverage area. Two-county footprint plus the Town of Longboat as primary building authority. High per-unit valuations.", distance: "32 mi", condo: true, hoa: true },
+        { slug: "manasota-key",      name: "Manasota Key",      note: "Most volatile shoreline in our coverage area. Beach renourishment, dune restoration, and Stump Pass sand transport are present-tense operations.", distance: "16 mi", condo: true, hoa: true },
+        { slug: "anna-maria-island", name: "Anna Maria Island", note: "Three towns, three building departments, three short-term-rental ordinances. Each association we manage operates inside its specific town's rule set.", distance: "50 mi", condo: true, hoa: true },
+      ],
+    },
+    {
+      eye: "Region 4 · South County & Charlotte",
+      titlePlain: "Englewood and the south end —",
+      titleItalic: "where Sarasota meets Charlotte County.",
+      blurb: "Englewood spans the Sarasota / Charlotte county line. North Port is the population growth center of Sarasota County. Different permitting authorities, different reserve-study profiles, different owner demographics — and the Charlotte County hub page covers the southern reach into Port Charlotte and Punta Gorda.",
+      cities: [
+        { slug: "englewood",         name: "Englewood",         note: "Splits across Sarasota County (north) and Charlotte County (south). Manasota Key barrier island plus Lemon Bay frontage. Mixed building era.", distance: "14 mi", condo: true, hoa: true },
+        { slug: "north-port",        name: "North Port",        note: "Sarasota County's fastest-growing city. Newer-build inland condos and master-planned HOA communities in Heron Creek, Bobcat Trail, and Wellen Park.", distance: "20 mi", condo: true, hoa: true },
+        { slug: "charlotte-county",  name: "Charlotte County",  note: "Port Charlotte, Punta Gorda, and the south end of our coverage area. Distinct county-level permitting and storm-recovery profile.", distance: "30 mi", condo: true, hoa: false, charlotteOverride: true },
+      ],
+    },
+    {
+      eye: "Region 5 · Manatee County",
+      titlePlain: "The northern reach —",
+      titleItalic: "Bradenton and the Anna Maria approach.",
+      blurb: "Bradenton riverfront condos and gated single-family HOAs along the I-75 corridor. Different county building authority (Manatee, not Sarasota) means different permit tracks; we navigate both routinely.",
+      cities: [
+        { slug: "bradenton",         name: "Bradenton",         note: "Riverfront mid-rise condos along the Manatee River; gated single-family HOAs and 55+ deed-restricted communities along Tara and Cortez Road.", distance: "40 mi", condo: true, hoa: true },
+      ],
+    },
+  ],
+
+  // ─── COVERAGE NOTES ──────────────────────────────────────
+  notes: {
+    eye: "How this map actually works",
+    titlePlain: "Drive time matters more than driving distance.",
+    titleItalic: "matters more than driving distance.",
+    paragraphs: [
+      "Distance from our Venice office is shown for every city, but it isn't the operational measure that matters. Manager visit cadence is. The associations we manage in Venice and Nokomis see a manager bi-weekly; Sarasota and Lakewood Ranch run on a monthly visit cycle plus emergency dispatch as needed. Boards in Bradenton and Anna Maria Island operate on the same monthly cadence with the same SLA on response.",
+      "The 24-hour written response window is uniform across the coverage area. The 48-hour post-storm site assessment SLA is uniform. Vendor staging, after-hours coverage, and the Vantaca portal are uniform. What varies is the manager's drive time on a planned visit — and we've staffed and routed for that since 1978.",
+      "If your association sits outside the cities listed below, write to us anyway. We've taken on associations as far north as Parrish and Palmetto, and as far south as Punta Gorda. Coverage is not a hard radius — it's a question of whether the operating profile fits how we work.",
+    ],
+  },
+
+  // ─── CTA ─────────────────────────────────────────────────
+  cta: {
+    eye: "Don't see your city above?",
+    titlePlain: "Tell us where the association is.",
+    titleItalic: "We'll tell you whether we're the right fit.",
+    body: "Coverage is operational, not geographic. The fastest way to find out whether your association is a good match is to send us the basics — building / community type, unit count, current management situation, and roughly where you are. We'll respond inside five business days.",
+    primary:   { label: "Request a proposal", href: "/request-proposal/index.html" },
+    secondary: { label: "Call (941) 485-0605", href: "tel:+19414850605" },
+  },
+
+  footer: {},
+};
+
+// ─── Region-row component ─────────────────────────────────
+const SAHero = ({ content }) => {
+  const c = content;
+  return (
+    <section className="sa-hero">
+      <div className="kc-container">
+        <div className="sa-hero-grid">
+          <div>
+            <div className="sa-hero-eye">{c.eyebrow}</div>
+            <h1 className="sa-hero-h">{italicize(c.titlePlain, c.titleItalic)}</h1>
+            <p className="sa-hero-lede">{c.lede}</p>
+          </div>
+          <div className="sa-hero-meta">
+            {c.meta.map((m, i) => (
+              <div key={i} className="sa-hero-meta-cell">
+                <div className="sa-hero-meta-k">{m.k}</div>
+                <div className="sa-hero-meta-v">{m.v}</div>
+                <div className="sa-hero-meta-sub">{m.sub}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const SARegion = ({ region, indexOffset }) => {
+  return (
+    <section className="sa-region">
+      <div className="kc-container">
+        <div className="sa-region-head">
+          <div>
+            <div className="sa-region-eye">{region.eye}</div>
+            <h2 className="sa-region-h">{italicize(region.titlePlain, region.titleItalic)}</h2>
+          </div>
+          <p className="sa-region-blurb">{region.blurb}</p>
+        </div>
+        <div>
+          <div className="sa-cities-headrow">
+            <div></div>
+            <div>City / area</div>
+            <div>Coverage profile</div>
+            <div>From HQ</div>
+          </div>
+          <div className="sa-cities">
+            {region.cities.map((city, i) => {
+              const num = String(indexOffset + i + 1).padStart(2, '0');
+              const condoHref = city.charlotteOverride
+                ? '/condo-association-management-sarasota/charlotte-county/'
+                : `/condo-association-management-sarasota/${city.slug}/`;
+              const hoaHref = `/hoa-management-company-sarasota/${city.slug}/`;
+              return (
+                <div key={city.slug} className="sa-city">
+                  <div className="sa-city-num">{num}</div>
+                  <div className="sa-city-name">{city.name}</div>
+                  <div className="sa-city-note">{city.note}</div>
+                  <div className="sa-city-distance">{city.distance}</div>
+                  <div className="sa-city-links" style={{ gridColumn: '2 / span 3', justifySelf: 'start', marginTop: 4 }}>
+                    {city.condo
+                      ? <a className="sa-city-link" data-pillar="condo" href={kcHref(condoHref)}>Condo coverage <span aria-hidden="true">→</span></a>
+                      : <span className="sa-city-link" data-pillar="condo" data-disabled="true">Condo · coming soon</span>}
+                    {city.hoa
+                      ? <a className="sa-city-link" data-pillar="hoa" href={kcHref(hoaHref)}>HOA coverage <span aria-hidden="true">→</span></a>
+                      : <span className="sa-city-link" data-pillar="hoa" data-disabled="true">HOA · coming soon</span>}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const SANotes = ({ content }) => (
+  <section className="sa-region" style={{ background: '#fcfaf6' }}>
+    <div className="kc-container">
+      <div className="sa-region-head">
+        <div>
+          <div className="sa-region-eye">{content.eye}</div>
+          <h2 className="sa-region-h">{italicize(content.titlePlain, content.titleItalic)}</h2>
+        </div>
+        <div style={{ display: 'grid', gap: 16 }}>
+          {content.paragraphs.map((p, i) => (
+            <p key={i} style={{ fontFamily: 'var(--font-body)', fontSize: 16, lineHeight: 1.6, color: 'var(--deep-ink)', opacity: .82, margin: 0, maxWidth: '64ch' }}>{p}</p>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+const SACta = ({ content }) => (
+  <section className="sa-cta">
+    <div className="kc-container">
+      <div className="sa-cta-grid">
+        <div>
+          <div style={{ fontFamily: 'var(--font-heading)', fontStyle: 'italic', fontWeight: 600, fontSize: 14, color: 'var(--brass, #d6b06d)', marginBottom: 16 }}>{content.eye}</div>
+          <h2 className="sa-cta-h">{italicize(content.titlePlain, content.titleItalic)}</h2>
+          <p className="sa-cta-p">{content.body}</p>
+        </div>
+        <div className="sa-cta-actions">
+          <a className="kc-btn kc-btn-brass kc-btn-lg" href={kcHref(content.primary.href)}>{content.primary.label} <span className="kc-arrow">→</span></a>
+          <a className="kc-btn kc-btn-ghost" href={content.secondary.href}>{content.secondary.label}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+// Helper — italicize() not exported globally from shared, so re-implement:
+function italicize(plain, italic) {
+  if (!italic || !plain) return plain || '';
+  const idx = plain.lastIndexOf(italic);
+  if (idx < 0) return <span>{plain} <em>{italic}</em></span>;
+  return <span>{plain.slice(0, idx)}<em>{italic}</em></span>;
+}
+
+const Page = () => {
+  const offsets = [];
+  let acc = 0;
+  CONTENT.regions.forEach(r => { offsets.push(acc); acc += r.cities.length; });
+  return (
+    <div className="kc-page">
+      <KCNav active={null} />
+      <KCBreadcrumbs content={CONTENT.breadcrumbs} />
+      <SAHero content={CONTENT.hero} />
+      {CONTENT.regions.map((r, i) => <SARegion key={i} region={r} indexOffset={offsets[i]} />)}
+      <SANotes content={CONTENT.notes} />
+      <SACta content={CONTENT.cta} />
+      <KCFooter content={CONTENT.footer} />
+    </div>
+  );
+};
+
+KCSeo.apply(CONTENT.meta, {
+  pageType:    "hub",
+  pageUrl:     CONTENT.meta.canonical,
+  breadcrumbs: CONTENT.breadcrumbs.items,
+});
+
+const renderWhenReady = () => {
+  if (typeof KCNav === 'undefined') return setTimeout(renderWhenReady, 30);
+  ReactDOM.createRoot(document.getElementById('root')).render(<Page />);
+  requestAnimationFrame(() => { if (window.lucide) window.lucide.createIcons(); });
+  setTimeout(() => { if (window.lucide) window.lucide.createIcons(); }, 400);
+};
+renderWhenReady();
+</script>
+
+</body>
+</html>

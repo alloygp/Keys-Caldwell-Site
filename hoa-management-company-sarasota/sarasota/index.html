@@ -228,6 +228,21 @@ const CONTENT = {
     hours: "Mon – Fri · 8:30am – 5:00pm ET",
   },
 
+  // ─── NEARBY ───────────────────────────────────────────
+  // Cross-link strip into adjacent hoa city pages.
+  // Lets a board that landed here but realized this isn't
+  // the right city jump to a neighbor without bouncing.
+  nearby: {
+    eyebrow: "Nearby HOA coverage",
+    titlePlain: "Boards in Sarasota also evaluate us against firms managing",
+    titleItalic: "these adjacent markets.",
+    pillar: "hoa",
+    cities: [
+      { slug: "lakewood-ranch", name: "Lakewood Ranch", distance: "12 mi", note: "Master-planned country. Layered CDD + master + sub-association governance is the dominant operational reality." },
+      { slug: "siesta-key", name: "Siesta Key", distance: "10 mi", note: "Densest barrier-island stock in our coverage. SB-4D milestone work is present-tense." },
+      { slug: "longboat-key", name: "Longboat Key", distance: "14 mi", note: "Two-county footprint, Town of Longboat as primary building authority. High per-unit valuations." },
+    ],
+  },
   footer: {},
 };
 
@@ -242,6 +257,7 @@ const Page = () => (
     <KCGeoDirections  content={CONTENT.directions} />
     <KCGeoLocal       content={CONTENT.local} />
     <KCTestimonial    content={CONTENT.testimonial} />
+    <KCGeoNearby     content={CONTENT.nearby} />
     <KCCtaBand        content={CONTENT.ctaBand} />
     <KCFooter         content={CONTENT.footer} />
   </div>

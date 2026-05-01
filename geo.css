@@ -429,3 +429,110 @@
   .kc-geosvc-grid { grid-template-columns: 1fr; }
   .kc-geolocal-card { padding: 24px 20px; }
 }
+
+
+/* ═══ KCGeoNearby — cross-link strip ═══════════════════════ */
+.kc-geo-nearby {
+  background: #fcfaf6;
+  border-top: 1px solid var(--shell-line);
+  padding: 80px 0;
+}
+.kc-geo-nearby-head {
+  margin-bottom: 48px;
+  max-width: 720px;
+}
+.kc-geo-nearby-h2 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(28px, 2.8vw, 38px);
+  line-height: 1.15;
+  color: var(--deep-ink);
+  letter-spacing: -0.018em;
+  margin: 16px 0 0;
+  text-wrap: balance;
+}
+.kc-geo-nearby-h2 em {
+  font-style: italic;
+  color: var(--kc-indigo);
+  font-weight: 700;
+}
+.kc-geo-nearby-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.kc-geo-nearby-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 22px 22px;
+  background: #fff;
+  border: 1px solid var(--shell-line);
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--deep-ink);
+  transition: border-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+}
+.kc-geo-nearby-card:hover {
+  border-color: var(--kc-indigo);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(40, 50, 90, 0.06);
+}
+.kc-geo-nearby-card-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.kc-geo-nearby-name {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 19px;
+  letter-spacing: -0.012em;
+  color: var(--deep-ink);
+  line-height: 1.15;
+}
+.kc-geo-nearby-distance {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 12px;
+  color: var(--kc-indigo);
+  opacity: .7;
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+}
+.kc-geo-nearby-note {
+  font-family: var(--font-body);
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--deep-ink);
+  opacity: .72;
+  flex: 1;
+  margin-bottom: 14px;
+}
+.kc-geo-nearby-cta {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--kc-indigo);
+  letter-spacing: 0.005em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.kc-geo-nearby-cta span {
+  transition: transform 160ms ease;
+}
+.kc-geo-nearby-card:hover .kc-geo-nearby-cta span {
+  transform: translateX(3px);
+}
+
+@media (max-width: 1024px) {
+  .kc-geo-nearby-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .kc-geo-nearby-grid { grid-template-columns: 1fr; }
+}

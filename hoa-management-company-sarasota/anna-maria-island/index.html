@@ -225,6 +225,21 @@ const CONTENT = {
     hours: "Mon – Fri · 8:30am – 5:00pm ET",
   },
 
+  // ─── NEARBY ───────────────────────────────────────────
+  // Cross-link strip into adjacent hoa city pages.
+  // Lets a board that landed here but realized this isn't
+  // the right city jump to a neighbor without bouncing.
+  nearby: {
+    eyebrow: "Nearby HOA coverage",
+    titlePlain: "Manatee-County neighbors and adjacent barrier islands Anna Maria",
+    titleItalic: "boards also evaluate.",
+    pillar: "hoa",
+    cities: [
+      { slug: "bradenton", name: "Bradenton", distance: "12 mi", note: "Manatee-County mainland via Manatee Avenue causeway. Riverfront condos and gated HOAs." },
+      { slug: "longboat-key", name: "Longboat Key", distance: "8 mi", note: "Adjacent barrier island to the south. The two-county footprint and demanding building stock." },
+      { slug: "sarasota", name: "Sarasota", distance: "20 mi", note: "Major metro to the south. Master-planned governance plus the full range of building stock." },
+    ],
+  },
   footer: {},
 };
 
@@ -239,6 +254,7 @@ const Page = () => (
     <KCGeoDirections  content={CONTENT.directions} />
     <KCGeoLocal       content={CONTENT.local} />
     <KCTestimonial    content={CONTENT.testimonial} />
+    <KCGeoNearby     content={CONTENT.nearby} />
     <KCCtaBand        content={CONTENT.ctaBand} />
     <KCFooter         content={CONTENT.footer} />
   </div>

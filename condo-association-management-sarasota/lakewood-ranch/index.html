@@ -219,6 +219,21 @@ const CONTENT = {
     hours: "Mon – Fri · 8:30am – 5:00pm ET",
   },
 
+  // ─── NEARBY ───────────────────────────────────────────
+  // Cross-link strip into adjacent condo city pages.
+  // Lets a board that landed here but realized this isn't
+  // the right city jump to a neighbor without bouncing.
+  nearby: {
+    eyebrow: "Nearby condo coverage",
+    titlePlain: "Adjacent master-planned and metro markets Lakewood Ranch",
+    titleItalic: "boards also weigh.",
+    pillar: "condo",
+    cities: [
+      { slug: "sarasota", name: "Sarasota", distance: "12 mi", note: "Adjacent metro, full range of building stock — from villa HOAs to bay-front condo towers." },
+      { slug: "bradenton", name: "Bradenton", distance: "10 mi", note: "Manatee County permitting. Riverfront condos plus 55+ deed-restricted HOAs along Tara." },
+      { slug: "north-port", name: "North Port", distance: "36 mi", note: "Master-planned-community country to the south. CDD + master/sub-association governance overlap." },
+    ],
+  },
   footer: {},
 };
 
@@ -233,6 +248,7 @@ const Page = () => (
     <KCGeoDirections  content={CONTENT.directions} />
     <KCGeoLocal       content={CONTENT.local} />
     <KCTestimonial    content={CONTENT.testimonial} />
+    <KCGeoNearby     content={CONTENT.nearby} />
     <KCCtaBand        content={CONTENT.ctaBand} />
     <KCFooter         content={CONTENT.footer} />
   </div>

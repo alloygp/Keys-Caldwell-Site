@@ -18,6 +18,8 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+
+  <!-- Pillar pages -->
   <url>
     <loc>https://keys-caldwell.com/condo-association-management-sarasota/</loc>
     <lastmod>2026-05-01</lastmod>
@@ -31,11 +33,58 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://keys-caldwell.com/condo-association-management-sarasota/venice/</loc>
+    <loc>https://keys-caldwell.com/accounting/</loc>
     <lastmod>2026-05-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://keys-caldwell.com/reserve-studies/</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Service-areas hub -->
+  <url>
+    <loc>https://keys-caldwell.com/service-areas/</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Condo geo pages — 12 cities + Charlotte County -->
+  <url><loc>https://keys-caldwell.com/condo-association-management-sarasota/venice/</loc>            <lastmod>2026-05-01</lastmod><priority>0.7</priority></url>
+  <url><loc>https://keys-caldwell.com/condo-association-management-sarasota/sarasota/</loc>          <lastmod>2026-05-01</lastmod><priority>0.7</priority></url>
+  <url><loc>https://keys-caldwell.com/condo-association-management-sarasota/nokomis/</loc>           <lastmod>2026-05-01</lastmod><priority>0.7</priority></url>
+  <url><loc>https://keys-caldwell.com/condo-association-management-sarasota/osprey/</loc>            <lastmod>2026-05-01</lastmod><priority>0.7</priority></url>
+  <url><loc>https://keys-caldwell.com/condo-association-management-sarasota/lakewood-ranch/</loc>    <lastmod>2026-05-01</lastmod><priority>0.7</priority></url>
+  <url><loc>https://keys-caldwell.com/condo-association-management-sarasota/siesta-key/</loc>        <lastmod>2026-05-01</lastmod><priority>0.7</priority></url>
+  <url><loc>https://keys-caldwell.com/condo-association-management-sarasota/longboat-key/</loc>      <lastmod>2026-05-01</lastmod><priority>0.7</priority></url>
+  <url><loc>https://keys-caldwell.com/condo-association-management-sarasota/casey-key/</loc>         <lastmod>2026-05-01</lastmod><priority>0.7</priority></url>
+  <url><loc>https://keys-caldwell.com/condo-association-management-sarasota/englewood/</loc>         <lastmod>2026-05-01</lastmod><priority>0.7</priority></url>
+  <url><loc>https://keys-caldwell.com/condo-association-management-sarasota/manasota-key/</loc>      <lastmod>2026-05-01</lastmod><priority>0.7</priority></url>
+  <url><loc>https://keys-caldwell.com/condo-association-management-sarasota/bradenton/</loc>         <lastmod>2026-05-01</lastmod><priority>0.7</priority></url>
+  <url><loc>https://keys-caldwell.com/condo-association-management-sarasota/anna-maria-island/</loc> <lastmod>2026-05-01</lastmod><priority>0.7</priority></url>
+  <url><loc>https://keys-caldwell.com/condo-association-management-sarasota/north-port/</loc>        <lastmod>2026-05-01</lastmod><priority>0.7</priority></url>
+  <url><loc>https://keys-caldwell.com/condo-association-management-sarasota/charlotte-county/</loc>  <lastmod>2026-05-01</lastmod><priority>0.7</priority></url>
+
+  <!-- HOA geo pages — 13 cities -->
+  <url><loc>https://keys-caldwell.com/hoa-management-company-sarasota/venice/</loc>            <lastmod>2026-05-01</lastmod><priority>0.7</priority></url>
+  <url><loc>https://keys-caldwell.com/hoa-management-company-sarasota/sarasota/</loc>          <lastmod>2026-05-01</lastmod><priority>0.7</priority></url>
+  <url><loc>https://keys-caldwell.com/hoa-management-company-sarasota/nokomis/</loc>           <lastmod>2026-05-01</lastmod><priority>0.7</priority></url>
+  <url><loc>https://keys-caldwell.com/hoa-management-company-sarasota/osprey/</loc>            <lastmod>2026-05-01</lastmod><priority>0.7</priority></url>
+  <url><loc>https://keys-caldwell.com/hoa-management-company-sarasota/lakewood-ranch/</loc>    <lastmod>2026-05-01</lastmod><priority>0.7</priority></url>
+  <url><loc>https://keys-caldwell.com/hoa-management-company-sarasota/siesta-key/</loc>        <lastmod>2026-05-01</lastmod><priority>0.7</priority></url>
+  <url><loc>https://keys-caldwell.com/hoa-management-company-sarasota/longboat-key/</loc>      <lastmod>2026-05-01</lastmod><priority>0.7</priority></url>
+  <url><loc>https://keys-caldwell.com/hoa-management-company-sarasota/casey-key/</loc>         <lastmod>2026-05-01</lastmod><priority>0.7</priority></url>
+  <url><loc>https://keys-caldwell.com/hoa-management-company-sarasota/englewood/</loc>         <lastmod>2026-05-01</lastmod><priority>0.7</priority></url>
+  <url><loc>https://keys-caldwell.com/hoa-management-company-sarasota/manasota-key/</loc>      <lastmod>2026-05-01</lastmod><priority>0.7</priority></url>
+  <url><loc>https://keys-caldwell.com/hoa-management-company-sarasota/bradenton/</loc>         <lastmod>2026-05-01</lastmod><priority>0.7</priority></url>
+  <url><loc>https://keys-caldwell.com/hoa-management-company-sarasota/anna-maria-island/</loc> <lastmod>2026-05-01</lastmod><priority>0.7</priority></url>
+  <url><loc>https://keys-caldwell.com/hoa-management-company-sarasota/north-port/</loc>        <lastmod>2026-05-01</lastmod><priority>0.7</priority></url>
+
+  <!-- Other live pages -->
   <url>
     <loc>https://keys-caldwell.com/about/</loc>
     <lastmod>2026-05-01</lastmod>

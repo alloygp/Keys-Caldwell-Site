@@ -221,6 +221,21 @@ const CONTENT = {
     hours: "Mon – Fri · 8:30am – 5:00pm ET",
   },
 
+  // ─── NEARBY ───────────────────────────────────────────
+  // Cross-link strip into adjacent condo city pages.
+  // Lets a board that landed here but realized this isn't
+  // the right city jump to a neighbor without bouncing.
+  nearby: {
+    eyebrow: "Nearby condo coverage",
+    titlePlain: "Other barrier islands and metros Siesta Key",
+    titleItalic: "boards consider.",
+    pillar: "condo",
+    cities: [
+      { slug: "sarasota", name: "Sarasota", distance: "10 mi", note: "Mainland of Stickney Point. Master-planned governance plus downtown bay-front towers." },
+      { slug: "longboat-key", name: "Longboat Key", distance: "18 mi", note: "Adjacent barrier island. Two-county footprint and demanding building stock." },
+      { slug: "casey-key", name: "Casey Key", distance: "14 mi", note: "Smaller, lower-density barrier island just to the south." },
+    ],
+  },
   footer: {},
 };
 
@@ -235,6 +250,7 @@ const Page = () => (
     <KCGeoDirections  content={CONTENT.directions} />
     <KCGeoLocal       content={CONTENT.local} />
     <KCTestimonial    content={CONTENT.testimonial} />
+    <KCGeoNearby     content={CONTENT.nearby} />
     <KCCtaBand        content={CONTENT.ctaBand} />
     <KCFooter         content={CONTENT.footer} />
   </div>

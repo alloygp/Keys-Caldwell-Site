@@ -221,6 +221,22 @@ const CONTENT = {
     hours: "Mon – Fri · 8:30am – 5:00pm ET",
   },
 
+  // ─── NEARBY ───────────────────────────────────────────
+  // Cross-link strip into adjacent hoa city pages.
+  // Lets a board that landed here but realized this isn't
+  // the right city jump to a neighbor without bouncing.
+  nearby: {
+    eyebrow: "Nearby HOA coverage",
+    titlePlain: "South-county neighbors Englewood boards also",
+    titleItalic: "evaluate.",
+    pillar: "hoa",
+    cities: [
+      { slug: "manasota-key", name: "Manasota Key", distance: "4 mi", note: "Adjacent barrier island. Most volatile shoreline in our coverage area." },
+      { slug: "venice", name: "Venice", distance: "14 mi", note: "Our HQ city, north on US-41." },
+      { slug: "north-port", name: "North Port", distance: "18 mi", note: "South Sarasota County's growth city. Master-planned communities throughout." },
+      { slug: "charlotte-county", name: "Charlotte County", distance: "12 mi", note: "South across the county line. Port Charlotte and Punta Gorda." },
+    ],
+  },
   footer: {},
 };
 
@@ -235,6 +251,7 @@ const Page = () => (
     <KCGeoDirections  content={CONTENT.directions} />
     <KCGeoLocal       content={CONTENT.local} />
     <KCTestimonial    content={CONTENT.testimonial} />
+    <KCGeoNearby     content={CONTENT.nearby} />
     <KCCtaBand        content={CONTENT.ctaBand} />
     <KCFooter         content={CONTENT.footer} />
   </div>

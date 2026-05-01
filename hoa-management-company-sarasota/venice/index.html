@@ -228,6 +228,21 @@ const CONTENT = {
     hours: "Mon – Fri · 8:30am – 5:00pm ET",
   },
 
+  // ─── NEARBY ───────────────────────────────────────────
+  // Cross-link strip into adjacent hoa city pages.
+  // Lets a board that landed here but realized this isn't
+  // the right city jump to a neighbor without bouncing.
+  nearby: {
+    eyebrow: "Nearby HOA coverage",
+    titlePlain: "Other cities boards in Venice typically",
+    titleItalic: "evaluate alongside us.",
+    pillar: "hoa",
+    cities: [
+      { slug: "nokomis", name: "Nokomis", distance: "4 mi", note: "Six minutes north on US-41. Bay-front mid-rises along Albee Road and a handful of gulf-side buildings on Casey Key." },
+      { slug: "osprey", name: "Osprey", distance: "8 mi", note: "Twelve minutes up the bay corridor. Layered master/sub governance and active seawall capital work." },
+      { slug: "casey-key", name: "Casey Key", distance: "5 mi", note: "Closest barrier island to our office. Low density, exclusive, bridge-dependent operations." },
+    ],
+  },
   footer: {},
 };
 
@@ -242,6 +257,7 @@ const Page = () => (
     <KCGeoDirections  content={CONTENT.directions} />
     <KCGeoLocal       content={CONTENT.local} />
     <KCTestimonial    content={CONTENT.testimonial} />
+    <KCGeoNearby     content={CONTENT.nearby} />
     <KCCtaBand        content={CONTENT.ctaBand} />
     <KCFooter         content={CONTENT.footer} />
   </div>
