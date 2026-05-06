@@ -1,8 +1,9 @@
-# https://keys-caldwell.com/robots.txt
-# Allow all reputable crawlers, point them at the sitemap.
+# https://keys-caldwell.alloygp.co/robots.txt
+# Staging environment — block all crawlers.
+# Production robots.txt is on the main branch and is unaffected by this file.
 
 User-agent: *
-Allow: /
+Disallow: /
 
 # Block legacy/duplicate URLs that Google still has indexed
 # (these are also 301 redirected — see _reference/REDIRECTS.md)
