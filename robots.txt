@@ -1,4 +1,4 @@
-# https://keys-caldwell.alloygp.co/robots.txt
+# https://stg-keys-caldwell.alloygp.co/robots.txt
 # Staging environment — block all crawlers.
 # Production robots.txt is on the main branch and is unaffected by this file.
 
