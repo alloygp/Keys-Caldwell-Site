@@ -1,8 +1,8 @@
 // =====================================================================
 // Keys-Caldwell — Geo page primitives
 // ---------------------------------------------------------------------
-// Used by: /condo-association-management-sarasota/<city>/index.html
-//          /hoa-management-company-sarasota/<city>/index.html
+// Used by: /condo-management/<city>/index.html
+//          /hoa-management/<city>/index.html
 //
 // Geo pages are 400-600 word local-pack landing pages. Their job is
 // to rank for "<service> + <city>" queries and convert ~5% of traffic
@@ -19,13 +19,18 @@
 // =====================================================================
 
 // Splits a headline string into "before <em>italic</em> after" using the
-// chosen italic substring. If italic isn't present in plain, renders plain
-// alone (no double-print). Mirror of the helper in shared.jsx.
+// chosen italic substring. If italic isn't a substring of plain, treats it
+// as a trailing clause (concat with a space) — that's how every geo content
+// block authors the pair. Mirror of the helper in shared.jsx.
 const geoItalicize = (text, italicPart) => {
-  if (!italicPart || !text) return text;
-  if (!text.includes(italicPart)) return text;
-  const [before, after] = text.split(italicPart);
-  return <>{before}<em>{italicPart}</em>{after}</>;
+  if (!italicPart) return text || null;
+  if (!text) return <em>{italicPart}</em>;
+  if (text.includes(italicPart)) {
+    const [before, after] = text.split(italicPart);
+    return <>{before}<em>{italicPart}</em>{after}</>;
+  }
+  // Trailing-clause form: "Plain part" + " " + "italic part."
+  return <>{text} <em>{italicPart}</em></>;
 };
 
 // ---------- KCGeoHero ----------
@@ -268,13 +273,15 @@ const KCGeoLocal = ({ content }) => {
 // content = {
 //   eyebrow, titlePlain, titleItalic,
 //   pillar: 'condo' | 'hoa',  // controls the link target
-//   cities: [{ slug, name, distance, note }]
+//   cities: [{ slug, name, distance, note, href? }]
+// href, when present, overrides the pillar-derived URL — use it to
+// cross-link to the sister-pillar twin of the same city.
 // }
 const KCGeoNearby = ({ content }) => {
   const c = content || {};
   const base = c.pillar === 'hoa'
-    ? '/hoa-management-company-sarasota/'
-    : '/condo-association-management-sarasota/';
+    ? '/hoa-management/'
+    : '/condo-management/';
   return (
     <section className="kc-geo-nearby">
       <div className="kc-container">
@@ -286,7 +293,7 @@ const KCGeoNearby = ({ content }) => {
         </div>
         <div className="kc-geo-nearby-grid">
           {(c.cities || []).map((city, i) => (
-            <a key={i} className="kc-geo-nearby-card" href={kcHref(base + city.slug + '/')}>
+            <a key={i} className="kc-geo-nearby-card" href={kcHref(city.href || (base + city.slug + '/'))}>
               <div className="kc-geo-nearby-card-top">
                 <div className="kc-geo-nearby-name">{city.name}</div>
                 <div className="kc-geo-nearby-distance">{city.distance}</div>

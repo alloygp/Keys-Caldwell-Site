@@ -14,8 +14,35 @@
 //   primaryCta, secondaryCta,
 //   aside: { eyebrow, h, p, stats: [{num, suffix?, label}] }
 // }
-const KCPillarHero = ({ content: c }) => (
-  <section className="kc-pillar-hero">
+const KCPillarHero = ({ content: c }) => {
+  const v = c.videoBg;
+  const hasVideo = !!v && (v.vimeoId || v.src);
+  return (
+  <section className={'kc-pillar-hero' + (hasVideo ? ' has-video-bg' : '')}>
+    {hasVideo && (
+      <div className="kc-pillar-hero-video" aria-hidden="true">
+        {v.vimeoId ? (
+          <iframe
+            src={`https://player.vimeo.com/video/${v.vimeoId}?background=1&autoplay=1&loop=1&muted=1&controls=0&autopause=0&playsinline=1`}
+            frameBorder="0"
+            allow="autoplay; fullscreen; picture-in-picture"
+            title=""
+            tabIndex="-1"
+          ></iframe>
+        ) : (
+          <video
+            src={v.src}
+            autoPlay muted loop playsInline preload="metadata"
+            poster={v.poster}
+            // Slow ambient playback. Tune per-page via videoBg.rate
+            // (1.0 = normal, 0.75 = relaxed, 0.5 = slow but can stutter).
+            // Default is 0.75 — calmer than real time, smooth on most footage.
+            onLoadedMetadata={(e) => { e.currentTarget.playbackRate = (typeof v.rate === 'number' ? v.rate : 0.75); }}
+          ></video>
+        )}
+        <div className="kc-pillar-hero-video-overlay"></div>
+      </div>
+    )}
     <div className="kc-container">
       <div>
         <div className="kc-pillar-hero-eye">
@@ -45,7 +72,8 @@ const KCPillarHero = ({ content: c }) => (
       </aside>
     </div>
   </section>
-);
+  );
+};
 
 // ---------- KCProblem ----------
 // content = { eyebrow, titlePlain, titleItalic, intro, cards: [{n, h, p}] }

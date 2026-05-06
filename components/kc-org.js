@@ -85,7 +85,7 @@ window.KC_ORG = {
       id:        "james-bradley",
       name:      "James Bradley",
       jobTitle:  "President",
-      bio:       "James Bradley acquired Keys-Caldwell in 2024 after a national career in community-association capital project management. He oversees the firm's strategy, capital project division, and the integration of CityBooks accounting and AccuReserve reserve studies.",
+      bio:       "James Bradley acquired Keys-Caldwell in 2024 after a national career in community-association capital project management. He oversees the firm's strategy, capital project division, and modern association accounting and reserve-study practices.",
       image:     "/assets/team/james-bradley.jpg",  // TODO: produce
       url:       "/about/index.html#james-bradley",
       sameAs:    [],
@@ -105,7 +105,7 @@ window.KC_ORG = {
       id:        "ande-duda",
       name:      "Ande Duda, CPA",
       jobTitle:  "Staff CPA",
-      bio:       "Ande Duda is the staff Certified Public Accountant supervising association financials at Keys-Caldwell, providing CPA-level oversight of CityBooks accounting, reserve fund accounting, and monthly financial reporting for every association we manage.",
+      bio:       "Ande Duda is the staff Certified Public Accountant supervising association financials at Keys-Caldwell, providing CPA-level oversight of operating accounting, reserve fund accounting, and monthly financial reporting for every association we manage.",
       image:     "/assets/team/ande-duda.jpg",  // TODO: produce
       url:       "/about/index.html#ande-duda",
       sameAs:    [],
