@@ -441,27 +441,27 @@ const KCFooter = ({ content }) => {
   const places = c.places || 'VENICE · SARASOTA · BRADENTON · ENGLEWOOD · NORTH PORT';
   const columns = c.columns || [
     { title: 'Services', links: [
-      { label: 'Condo association management', href: '/condo-management/index.html' },
-      { label: 'HOA management',                href: '/hoa-management/index.html' },
-      { label: 'Accounting',                  href: '/accounting/index.html' },
-      { label: 'Reserve studies',             href: '/reserve-studies/index.html' },
-      { label: 'Property services',             href: '/property-services/index.html' },
-      { label: 'Service areas',                  href: '/service-areas/index.html' },
-      { label: 'Pricing & scope',               href: '/pricing/index.html' },
+      { label: 'Condo association management', href: '/condo-management/index.html',  live: true },
+      { label: 'HOA management',               href: '/hoa-management/index.html',    live: true },
+      { label: 'Accounting',                   href: '/accounting/index.html' },
+      { label: 'Reserve studies',              href: '/reserve-studies/index.html' },
+      { label: 'Property services',            href: '/property-services/index.html' },
+      { label: 'Service areas',                href: '/service-areas/index.html' },
+      { label: 'Pricing & scope',              href: '/pricing/index.html' },
     ]},
     { title: 'Boards', links: [
-      { label: 'Request a proposal',  href: '/request-proposal/index.html' },
+      { label: 'Request a proposal',  href: '/request-proposal/index.html', live: true },
       { label: 'Resources & guides',  href: '/blog/index.html' },
-      { label: 'Case studies',        href: '/case-studies/index.html' },
-      { label: 'Testimonials',        href: '/testimonials/index.html' },
-      { label: 'FAQ',                 href: '/faq/index.html' },
+      { label: 'Case studies',        href: '/case-studies/index.html',     live: true },
+      { label: 'Testimonials',        href: '/testimonials/index.html',     live: true },
+      { label: 'FAQ',                 href: '/faq/index.html',              live: true },
     ]},
     { title: 'Firm', links: [
-      { label: 'About Keys-Caldwell', href: '/about/index.html' },
+      { label: 'About Keys-Caldwell', href: '/about/index.html',                      live: true },
       { label: 'Service areas',       href: '/service-areas/index.html' },
       { label: 'Careers',             href: '/careers/index.html' },
       { label: 'For owners',          href: '/owners/index.html' },
-      { label: 'Owner portal login',  href: 'https://keys-caldwell.cincwebaxis.com/' },
+      { label: 'Owner portal login',  href: 'https://keys-caldwell.cincwebaxis.com/', live: true },
     ]},
   ];
   const fineLeft  = c.fineLeft  || 'Keys-Caldwell, Inc. · Independently owned · In Venice since 1978';
@@ -484,7 +484,17 @@ const KCFooter = ({ content }) => {
           {columns.map(col => (
             <div key={col.title}>
               <div className="kc-footer-col-title">{col.title}</div>
-              {col.links.map(l => (<a key={l.label} href={kcHref(l.href)}>{l.label}</a>))}
+              {col.links.map(l => {
+                const clickable = l.live;
+                return (
+                  <a key={l.label} href={kcHref(l.href)}
+                    className={!clickable ? 'kc-footer-link--staged' : ''}
+                    aria-disabled={!clickable || undefined}
+                    tabIndex={!clickable ? -1 : undefined}
+                    onClick={!clickable ? (e => e.preventDefault()) : undefined}
+                  >{l.label}</a>
+                );
+              })}
             </div>
           ))}
         </div>

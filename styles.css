@@ -229,7 +229,8 @@
   color: #92600a;
   background: rgba(146,96,10,0.10);
 }
-.kc-nav-submenu-link--staged {
+.kc-nav-submenu-link--staged,
+.kc-footer-link--staged {
   opacity: 0.35;
   cursor: default;
   pointer-events: none;
