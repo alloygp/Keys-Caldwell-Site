@@ -262,20 +262,22 @@ const KCNav = ({ active = 'home', variant = 'shell', content }) => {
                         <ul>
                           {col.items.map((it, j) => {
                             const cur = isCurrentHref(it.href);
-                            const isLive = it.badge === '✓ Live';
+                            const isLive   = it.badge === '✓ Live';
+                            const isReview = it.badge === '★ In Review';
+                            const isClickable = isLive || isReview;
                             return (
                               <li key={j}>
                                 <a
                                   href={kcHref(it.href)}
-                                  className={'kc-nav-submenu-link' + (cur ? ' is-current' : '') + (!isLive ? ' kc-nav-submenu-link--staged' : '')}
+                                  className={'kc-nav-submenu-link' + (cur ? ' is-current' : '') + (!isClickable ? ' kc-nav-submenu-link--staged' : '')}
                                   aria-current={cur ? 'page' : undefined}
-                                  aria-disabled={!isLive || undefined}
-                                  tabIndex={!isLive ? -1 : undefined}
-                                  onClick={!isLive ? (e => e.preventDefault()) : undefined}
+                                  aria-disabled={!isClickable || undefined}
+                                  tabIndex={!isClickable ? -1 : undefined}
+                                  onClick={!isClickable ? (e => e.preventDefault()) : undefined}
                                 >
                                   <span className="kc-nav-submenu-link-label">
                                     {it.label}
-                                    {it.badge && <span className={'kc-nav-submenu-badge' + (it.badge === '✓ Live' ? ' kc-nav-submenu-badge--live' : '')}>{it.badge}</span>}
+                                    {isReview && <span className="kc-nav-submenu-badge kc-nav-submenu-badge--review">{it.badge}</span>}
                                     {cur && <span className="kc-nav-submenu-here" aria-hidden="true">You are here</span>}
                                   </span>
                                   {it.desc && <span className="kc-nav-submenu-link-desc">{it.desc}</span>}

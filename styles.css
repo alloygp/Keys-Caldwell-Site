@@ -225,6 +225,10 @@
   color: #1a7f4b;
   background: rgba(26,127,75,0.10);
 }
+.kc-nav-submenu-badge--review {
+  color: #92600a;
+  background: rgba(146,96,10,0.10);
+}
 .kc-nav-submenu-link--staged {
   opacity: 0.35;
   cursor: default;
