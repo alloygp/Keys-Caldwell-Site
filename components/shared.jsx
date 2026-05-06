@@ -61,8 +61,8 @@ const KCNav = ({ active = 'home', variant = 'shell', content }) => {
       columns: [
         { title: 'Practice areas', items: [
           { label: 'Services — overview',          href: '/services/index.html', desc: 'How proposals & engagements work.', badge: 'Start here' },
-          { label: 'Condo association management', href: '/condo-management/index.html', desc: 'Coastal mid-rise & high-rise.' },
-          { label: 'HOA management',                href: '/hoa-management/index.html',     desc: 'Single-family & master-planned.' },
+          { label: 'Condo association management', href: '/condo-management/index.html', desc: 'Coastal mid-rise & high-rise.', badge: '✓ Live' },
+          { label: 'HOA management',                href: '/hoa-management/index.html',     desc: 'Single-family & master-planned.', badge: '✓ Live' },
         ]},
         { title: 'Departments', items: [
           { label: 'Accounting',         href: '/accounting/index.html', desc: 'CPA-supervised reporting.' },
@@ -83,14 +83,14 @@ const KCNav = ({ active = 'home', variant = 'shell', content }) => {
       eyebrow: 'About Keys-Caldwell',
       columns: [
         { title: 'The firm', items: [
-          { label: 'About Keys-Caldwell',  href: '/about/index.html',  desc: 'Three eras at one address.', badge: 'Start here' },
+          { label: 'About Keys-Caldwell',  href: '/about/index.html',  desc: 'Three eras at one address.', badge: '✓ Live' },
           { label: 'Our team & leadership', href: '/about/index.html#team', desc: 'Founders, managers, accounting.' },
           { label: 'Careers',               href: '/careers/index.html', desc: 'Joining the firm.' },
         ]},
         { title: 'Proof', items: [
-          { label: 'Testimonials',  href: '/testimonials/index.html', desc: 'In their words.' },
-          { label: 'Case studies',  href: '/case-studies/index.html', desc: 'Anonymized board outcomes.' },
-          { label: 'FAQ',           href: '/faq/index.html',          desc: 'Common board questions.' },
+          { label: 'Testimonials',  href: '/testimonials/index.html', desc: 'In their words.', badge: '✓ Live' },
+          { label: 'Case studies',  href: '/case-studies/index.html', desc: 'Anonymized board outcomes.', badge: '✓ Live' },
+          { label: 'FAQ',           href: '/faq/index.html',          desc: 'Common board questions.', badge: '✓ Live' },
         ]},
       ],
       feature: {
@@ -271,7 +271,7 @@ const KCNav = ({ active = 'home', variant = 'shell', content }) => {
                                 >
                                   <span className="kc-nav-submenu-link-label">
                                     {it.label}
-                                    {it.badge && <span className="kc-nav-submenu-badge">{it.badge}</span>}
+                                    {it.badge && <span className={'kc-nav-submenu-badge' + (it.badge === '✓ Live' ? ' kc-nav-submenu-badge--live' : '')}>{it.badge}</span>}
                                     {cur && <span className="kc-nav-submenu-here" aria-hidden="true">You are here</span>}
                                   </span>
                                   {it.desc && <span className="kc-nav-submenu-link-desc">{it.desc}</span>}
