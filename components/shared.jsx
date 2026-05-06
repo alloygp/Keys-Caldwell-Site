@@ -262,12 +262,16 @@ const KCNav = ({ active = 'home', variant = 'shell', content }) => {
                         <ul>
                           {col.items.map((it, j) => {
                             const cur = isCurrentHref(it.href);
+                            const isLive = it.badge === '✓ Live';
                             return (
                               <li key={j}>
                                 <a
                                   href={kcHref(it.href)}
-                                  className={'kc-nav-submenu-link' + (cur ? ' is-current' : '')}
+                                  className={'kc-nav-submenu-link' + (cur ? ' is-current' : '') + (!isLive ? ' kc-nav-submenu-link--staged' : '')}
                                   aria-current={cur ? 'page' : undefined}
+                                  aria-disabled={!isLive || undefined}
+                                  tabIndex={!isLive ? -1 : undefined}
+                                  onClick={!isLive ? (e => e.preventDefault()) : undefined}
                                 >
                                   <span className="kc-nav-submenu-link-label">
                                     {it.label}

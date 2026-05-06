@@ -225,6 +225,11 @@
   color: #1a7f4b;
   background: rgba(26,127,75,0.10);
 }
+.kc-nav-submenu-link--staged {
+  opacity: 0.35;
+  cursor: default;
+  pointer-events: none;
+}
 .kc-nav-submenu-link-desc {
   display: block;
   font-size: 13px; line-height: 1.45;
