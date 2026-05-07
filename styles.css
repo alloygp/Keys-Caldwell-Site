@@ -1517,12 +1517,15 @@ select.kc-form-input {
 }
 
 /* ── Page transitions ───────────────────────────────────────────────────── */
+/* Body starts hidden; JS adds .kc-ready after React mounts to fade in.
+   This hides both the CSS-load flash AND the React mount flash. */
 body {
-  animation: kc-page-in 0.22s ease both;
+  opacity: 0;
 }
-@keyframes kc-page-in {
-  from { opacity: 0; transform: translateY(6px); }
-  to   { opacity: 1; transform: translateY(0);   }
+body.kc-ready {
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  opacity: 1;
+  transform: translateY(0);
 }
 body.kc-leaving {
   transition: opacity 0.18s ease, transform 0.18s ease;

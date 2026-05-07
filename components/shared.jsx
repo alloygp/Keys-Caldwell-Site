@@ -169,20 +169,28 @@ const KCNav = ({ active = 'home', variant = 'shell', content }) => {
     return () => window.removeEventListener('keydown', onKey);
   }, []);
 
-  // Page-exit fade — intercept internal link clicks, fade out, then navigate
+  // Page transitions — fade in after React mounts, fade out before navigating
   React.useEffect(() => {
+    // Fade in: double rAF ensures we're past first paint and React's render
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        document.body.classList.add('kc-ready');
+      });
+    });
+
+    // Fade out: intercept internal link clicks
     const onClick = (e) => {
       const a = e.target.closest('a[href]');
       if (!a) return;
       const href = a.getAttribute('href');
       if (!href) return;
-      // Skip external, hash, mailto, tel, and already-navigating clicks
       if (href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') ||
           /^https?:\/\//i.test(href) || href.startsWith('//')) return;
       if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
       e.preventDefault();
+      document.body.classList.remove('kc-ready');
       document.body.classList.add('kc-leaving');
-      setTimeout(() => { window.location.href = a.href; }, 190);
+      setTimeout(() => { window.location.href = a.href; }, 200);
     };
     document.addEventListener('click', onClick);
     return () => document.removeEventListener('click', onClick);
