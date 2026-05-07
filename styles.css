@@ -1517,19 +1517,25 @@ select.kc-form-input {
 }
 
 /* ── Page transitions ───────────────────────────────────────────────────── */
-/* Body starts hidden; JS adds .kc-ready after React mounts to fade in.
-   This hides both the CSS-load flash AND the React mount flash. */
-body {
-  opacity: 0;
+
+/* Native MPA View Transitions — Chrome 126+, Edge 126+.
+   Matches alloygp.co (Astro ViewTransitions). One line does the crossfade. */
+@view-transition {
+  navigation: auto;
 }
-body.kc-ready {
-  transition: opacity 0.25s ease, transform 0.25s ease;
-  opacity: 1;
-  transform: translateY(0);
-}
-body.kc-leaving {
-  transition: opacity 0.18s ease, transform 0.18s ease;
-  opacity: 0;
-  transform: translateY(-4px);
-  pointer-events: none;
+
+/* JS fallback for Firefox / Safari / older Chrome.
+   Body starts hidden; .kc-ready fades it in after React mounts. */
+@supports not (view-transition-name: none) {
+  body { opacity: 0; }
+  body.kc-ready {
+    transition: opacity 0.25s ease;
+    opacity: 1;
+  }
+  body.kc-leaving {
+    transition: opacity 0.18s ease, transform 0.18s ease;
+    opacity: 0;
+    transform: translateY(-4px);
+    pointer-events: none;
+  }
 }

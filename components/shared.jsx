@@ -169,16 +169,21 @@ const KCNav = ({ active = 'home', variant = 'shell', content }) => {
     return () => window.removeEventListener('keydown', onKey);
   }, []);
 
-  // Page transitions — fade in after React mounts, fade out before navigating
+  // Page transitions
+  // Modern Chrome/Edge: @view-transition { navigation: auto } in CSS handles it natively.
+  // Firefox/Safari fallback: JS fade-out on click, fade-in after React mounts.
   React.useEffect(() => {
-    // Fade in: double rAF ensures we're past first paint and React's render
+    const hasNativeTransitions = CSS.supports('view-transition-name', 'none');
+    if (hasNativeTransitions) return; // CSS handles it, nothing to do
+
+    // Fade in after React mounts (double rAF = past first paint)
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
         document.body.classList.add('kc-ready');
       });
     });
 
-    // Fade out: intercept internal link clicks
+    // Fade out on internal navigation
     const onClick = (e) => {
       const a = e.target.closest('a[href]');
       if (!a) return;
