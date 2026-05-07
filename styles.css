@@ -1515,3 +1515,18 @@ select.kc-form-input {
   .kc-form { grid-template-columns: 1fr; padding: 28px; }
   .kc-proposal-h { font-size: 32px; }
 }
+
+/* ── Page transitions ───────────────────────────────────────────────────── */
+body {
+  animation: kc-page-in 0.22s ease both;
+}
+@keyframes kc-page-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0);   }
+}
+body.kc-leaving {
+  transition: opacity 0.18s ease, transform 0.18s ease;
+  opacity: 0;
+  transform: translateY(-4px);
+  pointer-events: none;
+}

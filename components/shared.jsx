@@ -105,13 +105,13 @@ const KCNav = ({ active = 'home', variant = 'shell', content }) => {
       eyebrow: 'Education for Florida boards',
       columns: [
         { title: 'Most-read guides', items: [
-          { label: 'Florida SIRS & Milestone Inspections', href: '/blog/florida-sirs-milestone-inspection-guide/index.html', desc: 'The 2025 statute, in plain English.', badge: 'Most read' },
+          { label: 'Florida SIRS & Milestone Inspections', href: '/blog/florida-sirs-milestone-inspection-guide/index.html', desc: 'The 2025 statute, in plain English.', badge: '★ In Review' },
           { label: 'Florida law changes — 2024–26 wave',   href: '/blog/florida-law-changes/index.html',                    desc: 'SB-4D, HB 1021, HB 913.' },
           { label: 'Reserve studies & special assessments', href: '/blog/reserve-study-special-assessment/index.html',      desc: 'How under-funding becomes a crisis.' },
           { label: 'How to change management companies',   href: '/blog/how-to-change-management-company/index.html',       desc: 'The board\'s practical playbook.' },
         ]},
         { title: 'Browse', items: [
-          { label: 'All guides & resources', href: '/blog/index.html',           desc: 'The full library.' },
+          { label: 'All guides & resources', href: '/blog/index.html',           desc: 'The full library.', badge: '★ In Review' },
           { label: 'Glossary',               href: '/blog/glossary/index.html',  desc: 'Florida CAM terminology.' },
           { label: 'Events & webinars',      href: '/blog/events/index.html',    desc: 'Board education nights.' },
         ]},
@@ -124,7 +124,7 @@ const KCNav = ({ active = 'home', variant = 'shell', content }) => {
         href:    '/blog/state-of-the-association-2026/index.html',
       }
     }},
-    { key: 'pricing', label: 'Pricing',          href: '/pricing/index.html' },
+    { key: 'pricing', label: 'Pricing',          href: '/request-proposal/index.html' },
   ];
   const cta = content?.cta || { label: 'Request a proposal', href: '/request-proposal/index.html' };
   const phone = content?.phone || '(941) 485-0605';
@@ -167,6 +167,25 @@ const KCNav = ({ active = 'home', variant = 'shell', content }) => {
     const onKey = (e) => { if (e.key === 'Escape') { setOpenKey(null); closeMobile(); } };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
+  }, []);
+
+  // Page-exit fade — intercept internal link clicks, fade out, then navigate
+  React.useEffect(() => {
+    const onClick = (e) => {
+      const a = e.target.closest('a[href]');
+      if (!a) return;
+      const href = a.getAttribute('href');
+      if (!href) return;
+      // Skip external, hash, mailto, tel, and already-navigating clicks
+      if (href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') ||
+          /^https?:\/\//i.test(href) || href.startsWith('//')) return;
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      e.preventDefault();
+      document.body.classList.add('kc-leaving');
+      setTimeout(() => { window.location.href = a.href; }, 190);
+    };
+    document.addEventListener('click', onClick);
+    return () => document.removeEventListener('click', onClick);
   }, []);
 
   // Lock body scroll when mobile drawer is open
