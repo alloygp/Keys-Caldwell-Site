@@ -838,6 +838,7 @@ const KCHero = ({ content }) => {
     eyebrow: 'Credentials',
     items: ['BBB A+ accredited', 'Florida CAM Licensed', 'Independently owned'],
   };
+  const heroPhotoStyle = photo.src ? { backgroundImage: 'url(' + assetBase + photo.src + ')' } : null;
   return (
     <section className="kc-hero">
       <div className="kc-container">
@@ -856,7 +857,7 @@ const KCHero = ({ content }) => {
             </div>
           </div>
           <div className="kc-hero-stack">
-            <div className="kc-hero-photo" role="img" aria-label={photo.alt} style={photo.src ? { backgroundImage: 'url(' + assetBase + photo.src + ')' } : undefined}>
+            <div className="kc-hero-photo" role="img" aria-label={photo.alt} style={heroPhotoStyle}>
               <div className="kc-hero-photo-cap">{photo.caption}</div>
               <div className="kc-hero-overlay">
                 <div className="kc-hero-overlay-eye">{photo.overlayEye}</div>
