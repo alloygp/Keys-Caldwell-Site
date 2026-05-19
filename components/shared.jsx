@@ -74,7 +74,7 @@ const KCNav = ({ active = 'home', variant = 'shell', content }) => {
       feature: {
         eyebrow: 'For board treasurers',
         title:   'Send us your governing documents.',
-        body:    'We\'ll come back with a tailored proposal — typically within five business days.',
+        body:    'We\'ll come back with a tailored proposal, typically within five business days.',
         label:   'Request a proposal',
         href:    '/request-proposal/index.html',
       }
@@ -96,7 +96,7 @@ const KCNav = ({ active = 'home', variant = 'shell', content }) => {
       feature: {
         eyebrow: 'Heritage',
         title:   '48 years in Venice.',
-        body:    'Keys-Caldwell has been at 1162 Indian Hills Boulevard since 1978 — through three ownership eras and the same plain-spoken culture.',
+        body:    'Keys-Caldwell has been at 1162 Indian Hills Boulevard since 1978, through three ownership eras and the same plain-spoken culture.',
         label:   'Read the story',
         href:    '/about/index.html',
       }
@@ -119,7 +119,7 @@ const KCNav = ({ active = 'home', variant = 'shell', content }) => {
       feature: {
         eyebrow: 'New every quarter',
         title:   'State of the Association · 2026',
-        body:    'Our annual report on what changed in Florida statute, insurance, reserves, and capital costs — with implications for boards.',
+        body:    'Our annual report on what changed in Florida statute, insurance, reserves, and capital costs, with implications for boards.',
         label:   'Read the report',
         href:    '/blog/state-of-the-association-2026/index.html',
       }
@@ -545,7 +545,7 @@ const KCPillars = ({ content }) => {
   const c = content || {};
   const eyebrow = c.eyebrow || 'Two paths · One firm';
   const title   = c.title   || <>Condo association management. <em>Or HOA management.</em> Both run by the same Venice team.</>;
-  const intro   = c.intro   || `We manage low- and mid-rise coastal condos along with master-planned and small-lot HOAs across Sarasota County. The four-chamber model is the same — what changes is the building stock, the regulatory frame, and the issues that come back if you don't fix them right.`;
+  const intro   = c.intro   || `We manage low- and mid-rise coastal condos along with master-planned and small-lot HOAs across Sarasota County. The four-chamber model is the same; what changes is the building stock, the regulatory frame, and the issues that come back if you don't fix them right.`;
   const pillars = c.pillars || [
     {
       eyebrow: 'Primary practice · Coastal condos',
@@ -553,8 +553,8 @@ const KCPillars = ({ content }) => {
       desc: 'Aging mid-rise structures need a manager who reads the SIRS report and a firm that has the bench to act on it. We run the building, handle the capital projects, and keep insurance carriers writing the policy.',
       bullets: [
         'Florida SIRS & milestone inspection coordination',
-        'Reserve studies on a graduated continuum — self-assessment to subscription',
-        'Capital projects — roofs, balconies, seawalls, concrete',
+        'Reserve studies on a graduated continuum: self-assessment to subscription',
+        'Capital projects: roofs, balconies, seawalls, concrete',
         'Insurance broker relationships for renewal & claims',
         'CPA-supervised accounting with monthly board packets',
       ],
@@ -565,13 +565,13 @@ const KCPillars = ({ content }) => {
     {
       eyebrow: 'Secondary practice · HOAs',
       title: 'HOA management for single-family neighborhoods and small-lot communities.',
-      desc: 'Covenant enforcement, common-area maintenance, annual meetings, and budget planning — handled by a manager you can reach, with the same accounting infrastructure behind every report.',
+      desc: 'Covenant enforcement, common-area maintenance, annual meetings, and budget planning, all handled by a manager you can reach with the same accounting infrastructure behind every report.',
       bullets: [
         'Covenant enforcement & documented violations process',
         'Common-area maintenance & vendor management',
         'Annual meeting facilitation & election support',
         'Budget planning with reserve-fund discipline',
-        'Vantaca portal for owners — front-desk for boards',
+        'Vantaca portal for owners, front-desk for boards',
       ],
       cta: 'Explore HOA management',
       places: 'Bradenton · Charlotte · North Port',
@@ -612,12 +612,12 @@ const KCFourChamber = ({ content }) => {
   const c = content || {};
   const eyebrow = c.eyebrow || 'Our four-chamber service model';
   const title   = c.title   || <>Four departments. <em>One point of accountability.</em></>;
-  const intro   = c.intro   || 'Every Keys-Caldwell community has a single association manager — but behind them is the full firm. When boards need accounting, property, or after-hours support, those answers come from specialists, not a callback queue.';
+  const intro   = c.intro   || 'Every Keys-Caldwell community has a single association manager, but behind them is the full firm. When boards need accounting, property, or after-hours support, those answers come from specialists, not a callback queue.';
   const items   = c.items   || [
     { icon: 'building-2',  n: '01', title: 'Community management', desc: 'A dedicated association manager attends every meeting, enforces the documents, manages vendors, and answers when boards call.' },
     { icon: 'dollar-sign', n: '02', title: 'Accounting', desc: 'CPA-supervised financials, daily reconciliation, transparent monthly reporting, and reserve oversight that flags shortfalls early.', href: '/accounting/index.html' },
     { icon: 'wrench',      n: '03', title: 'Property services', desc: 'In-house maintenance coordination for the day-to-day, plus capital project management for roofs, seawalls, and structural milestones.' },
-    { icon: 'phone',       n: '04', title: 'Client services', desc: 'Owners reach a real person — front-desk, after hours, weekends. Boards hear about issues before they escalate.' },
+    { icon: 'phone',       n: '04', title: 'Client services', desc: 'Owners reach a real person: front-desk, after hours, weekends. Boards hear about issues before they escalate.' },
   ];
   return (
     <section className="kc-section kc-section-white">
@@ -660,9 +660,9 @@ const KCHeritage = ({ content }) => {
   const eyebrow = c.eyebrow || 'Three eras · One address';
   const lede    = c.lede    || 'Keys-Caldwell has been in Venice since 1978, through three ownership eras, the same plain-spoken culture, and now national-level expertise behind every association manager.';
   const eras    = c.eras    || [
-    { year: '1978', label: 'Founding era', body: 'Annette Caldwell opens Keys-Caldwell on Indian Hills Boulevard in Venice — a locally owned firm built on plain talk and reliable follow-through.' },
+    { year: '1978', label: 'Founding era', body: 'Annette Caldwell opens Keys-Caldwell on Indian Hills Boulevard in Venice, a locally owned firm built on plain talk and reliable follow-through.' },
     { year: '2007', label: 'Kraut era',    body: 'Jim Kraut takes the helm. Keys-Caldwell becomes one of the region\'s most recognized association management firms, with contracts measured in decades, not years.' },
-    { year: '2024', label: 'Bradley era',  body: 'James Bradley acquires the firm. Lauren Wilson leads operations. The relationship-driven culture stays — paired with modern systems, CPA-level accounting, and national capital-project expertise.' },
+    { year: '2024', label: 'Bradley era',  body: 'James Bradley acquires the firm. Lauren Wilson leads operations. The relationship-driven culture stays, paired with modern systems, CPA-level accounting, and national capital-project expertise.' },
   ];
   return (
     <section className="kc-heritage">
@@ -693,7 +693,7 @@ const KCQuote = ({ content }) => {
   const c = content || {};
   const eyebrow = c.eyebrow || 'Personality in a sentence';
   const quote   = c.quote   || <>"As small as they want us to be,<br/>but as big as they need us to be."</>;
-  const attribution = c.attribution || '— A Keys-Caldwell board president · Venice';
+  const attribution = c.attribution || 'A Keys-Caldwell board president · Venice';
   return (
     <section className="kc-quote">
       <div className="kc-container">
@@ -713,10 +713,10 @@ const KCDifferentiators = ({ content }) => {
   const title   = c.title   || 'Six things we won\'t compromise on.';
   const items   = c.items   || [
     { title: 'Local expertise, 48 years deep',     desc: 'Forty-eight years in Venice and Sarasota means we know which contractors show up, which vendors last, and which issues come back if you don\'t fix them right.' },
-    { title: 'CPA-level financial oversight',      desc: 'A nationally-scaled accounting platform supports 500+ associations — daily reconciliation, stoplight risk grading, and Ande Duda CPA on staff. Every association reviewed monthly.' },
-    { title: 'Reserve study expertise',            desc: 'A graduated reserve-study continuum — from a $150 self-assessment to a fully managed subscription study. Boards see capital risk five years out, not five months.' },
+    { title: 'CPA-level financial oversight',      desc: 'A nationally-scaled accounting platform supports 500+ associations, with daily reconciliation, stoplight risk grading, and Ande Duda CPA on staff. Every association reviewed monthly.' },
+    { title: 'Reserve study expertise',            desc: 'A graduated reserve-study continuum, from a $150 self-assessment to a fully managed subscription study. Boards see capital risk five years out, not five months.' },
     { title: 'Departmental accountability',        desc: 'Four chambers. Every function has an owner. No "let me transfer you" loops between vague property-management departments.' },
-    { title: 'Scope-based pricing — no buffet',    desc: 'Every contract is priced on a custom man-hour estimate, not a tier. Boards co-build the scope. The product is time and expertise.' },
+    { title: 'Scope-based pricing, no buffet',     desc: 'Every contract is priced on a custom man-hour estimate, not a tier. Boards co-build the scope. The product is time and expertise.' },
     { title: 'Institutional continuity',           desc: 'Associations don\'t want a new manager every eighteen months. Many of our contracts run twenty years and longer. A board member can reasonably expect not to switch firms during their term.' },
   ];
   return (
@@ -746,7 +746,7 @@ const KCDifferentiators = ({ content }) => {
 const KCTestimonial = ({ content }) => {
   const c = content || {};
   const eyebrow = c.eyebrow || 'From a board treasurer';
-  const quote   = c.quote   || 'Our previous manager learned about a $400,000 reserve gap when the SIRS report landed. Keys-Caldwell flagged it during budget planning — three years before the assessment would have come due. Owners saw a manageable annual increase instead of a six-figure surprise.';
+  const quote   = c.quote   || 'Our previous manager learned about a $400,000 reserve gap when the SIRS report landed. Keys-Caldwell flagged it during budget planning, three years before the assessment would have come due. Owners saw a manageable annual increase instead of a six-figure surprise.';
   const name    = c.name    || 'Michael Cochran';
   const role    = c.role    || 'Board Treasurer · 32-unit coastal condo · Venice, FL';
   const initials = c.initials || 'MC';
@@ -777,8 +777,8 @@ const KCTestimonial = ({ content }) => {
 const KCCtaBand = ({ content }) => {
   const c = content || {};
   const eyebrow = c.eyebrow || 'Considering a change?';
-  const title   = c.title   || 'Send us your governing documents. We\'ll come back with a tailored proposal — typically within five business days.';
-  const body    = c.body    || 'We\'ll review your current scope, your reserve position, and your building\'s capital horizon. The call is consultative, not a pitch — boards leave with a clearer picture of what they should expect from their management firm, whether that\'s us or someone else.';
+  const title   = c.title   || 'Send us your governing documents. We\'ll come back with a tailored proposal, typically within five business days.';
+  const body    = c.body    || 'We\'ll review your current scope, your reserve position, and your building\'s capital horizon. The call is consultative, not a pitch. Boards leave with a clearer picture of what they should expect from their management firm, whether that\'s us or someone else.';
   const primary   = c.primary   || { label: 'Request a proposal', href: '/request-proposal/index.html' };
   const secondary = c.secondary || { label: 'Meet the team',      href: '/about/index.html' };
   const phone = c.phone || '(941) 485-0605';
@@ -826,7 +826,7 @@ const KCHero = ({ content }) => {
     caption: 'Sarasota County · Florida',
     overlayEye: 'For HOA & condo boards',
     overlayH: 'Tell us about your community.',
-    overlayP: 'Send us your governing documents and a few details about your association. We\'ll come back with a tailored management proposal — typically within five business days.',
+    overlayP: 'Send us your governing documents and a few details about your association. We\'ll come back with a tailored management proposal, typically within five business days.',
     overlayCta: { label: 'Get a management proposal', href: '/request-proposal/index.html' },
   };
   const trustStats = c.trustStats || [
