@@ -830,7 +830,7 @@ const KCHero = ({ content }) => {
     overlayCta: { label: 'Get a management proposal', href: '/request-proposal/index.html' },
   };
   const trustStats = c.trustStats || [
-    { num: '48',    label: 'Years in Venice, FL' },
+    { num: '48',    label: 'Years in Venice' },
     { num: '50',    suffix: '+', label: 'Communities under active management' },
     { num: '20',    suffix: '+', label: 'Year average client tenure' },
   ];
