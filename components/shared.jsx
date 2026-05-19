@@ -95,7 +95,7 @@ const KCNav = ({ active = 'home', variant = 'shell', content }) => {
       ],
       feature: {
         eyebrow: 'Heritage',
-        title:   '48 years at the same Venice address.',
+        title:   '48 years in Venice.',
         body:    'Keys-Caldwell has been at 1162 Indian Hills Boulevard since 1978 — through three ownership eras and the same plain-spoken culture.',
         label:   'Read the story',
         href:    '/about/index.html',
@@ -658,7 +658,7 @@ const KCFourChamber = ({ content }) => {
 const KCHeritage = ({ content }) => {
   const c = content || {};
   const eyebrow = c.eyebrow || 'Three eras · One address';
-  const lede    = c.lede    || 'Keys-Caldwell has been at the same Venice address since 1978 — through three ownership eras, the same plain-spoken culture, and now national-level expertise behind every association manager.';
+  const lede    = c.lede    || 'Keys-Caldwell has been in Venice since 1978, through three ownership eras, the same plain-spoken culture, and now national-level expertise behind every association manager.';
   const eras    = c.eras    || [
     { year: '1978', label: 'Founding era', body: 'Annette Caldwell opens Keys-Caldwell on Indian Hills Boulevard in Venice — a locally owned firm built on plain talk and reliable follow-through.' },
     { year: '2007', label: 'Kraut era',    body: 'Jim Kraut takes the helm. Keys-Caldwell becomes one of the region\'s most recognized association management firms, with contracts measured in decades, not years.' },
@@ -830,7 +830,7 @@ const KCHero = ({ content }) => {
     overlayCta: { label: 'Get a management proposal', href: '/request-proposal/index.html' },
   };
   const trustStats = c.trustStats || [
-    { num: '48',    label: 'Years at the same Venice address' },
+    { num: '48',    label: 'Years in Venice, FL' },
     { num: '50',    suffix: '+', label: 'Communities under active management' },
     { num: '20',    suffix: '+', label: 'Year average client tenure' },
   ];
