@@ -838,6 +838,7 @@ const KCHero = ({ content }) => {
     eyebrow: 'Credentials',
     items: ['BBB A+ accredited', 'Florida CAM Licensed', 'Independently owned'],
   };
+  const assetBase = (typeof window !== 'undefined' && window.KC_ASSET_BASE) || '';
   const heroPhotoStyle = photo.src ? { backgroundImage: 'url(' + assetBase + photo.src + ')' } : null;
   return (
     <section className="kc-hero">
