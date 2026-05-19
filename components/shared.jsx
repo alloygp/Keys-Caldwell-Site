@@ -212,7 +212,7 @@ const KCNav = ({ active = 'home', variant = 'shell', content }) => {
     <header className="kc-nav" data-variant={variant} onMouseLeave={close}>
       <div className="kc-nav-utility">
         <div className="kc-nav-utility-inner">
-          <a className="kc-nav-utility-link" href={kcHref('/owners/index.html')}>
+          <a className="kc-nav-utility-link" href="https://support.vantaca.com/auth/v3/signin?brand_id=360000132992&locale=en-us&return_to=https%3A%2F%2Fsupport.vantaca.com%2Fhc%2Fen-us%2Farticles%2F360050060451-Vantaca-Home-Portal&role=end_user" target="_blank" rel="noopener noreferrer">
             <svg width="11" height="11" viewBox="0 0 12 12" fill="none" aria-hidden="true">
               <path d="M5 7.5V8.5M3.5 5.5V4.25C3.5 2.875 4.62 1.75 6 1.75C7.38 1.75 8.5 2.875 8.5 4.25V5.5M3 5.5H9C9.27 5.5 9.5 5.73 9.5 6V9.75C9.5 10.02 9.27 10.25 9 10.25H3C2.73 10.25 2.5 10.02 2.5 9.75V6C2.5 5.73 2.73 5.5 3 5.5Z" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
@@ -445,7 +445,8 @@ const KCNav = ({ active = 'home', variant = 'shell', content }) => {
             );
           })}
           <a
-            href={kcHref('/owners/index.html')}
+            href="https://support.vantaca.com/auth/v3/signin?brand_id=360000132992&locale=en-us&return_to=https%3A%2F%2Fsupport.vantaca.com%2Fhc%2Fen-us%2Farticles%2F360050060451-Vantaca-Home-Portal&role=end_user"
+            target="_blank" rel="noopener noreferrer"
             className="kc-nav-mobile-row kc-nav-mobile-leaf kc-nav-mobile-owners"
             onClick={closeMobile}
           >
@@ -978,7 +979,7 @@ const KCTestimonialPair = ({ content }) => {
 const KCProposalForm = ({ content }) => {
   const c = content || {};
   const eyebrow = c.eyebrow || 'Request a proposal';
-  const intro   = c.intro   || `Tell us a little about your association. We'll come back with a tailored proposal — typically within five business days.`;
+  const intro   = c.intro   || `Tell us a little about your association. We'll come back with a tailored proposal, typically within five business days.`;
   const action  = c.action  || 'mailto:info@keys-caldwell.com';
   const fields  = c.fields  || [
     { name: 'name',         label: 'Your name',                       type: 'text',  required: true },
@@ -991,7 +992,7 @@ const KCProposalForm = ({ content }) => {
     { name: 'city',         label: 'City',                             type: 'text',  placeholder: 'Venice' },
     { name: 'currentMgmt',  label: 'Current management situation',     type: 'select', options: ['Self-managed', 'Currently with another firm', 'Newly formed', 'Other'] },
     { name: 'timing',       label: 'Decision timing',                  type: 'select', options: ['Immediately', '30–60 days', '60–90 days', 'Just exploring'] },
-    { name: 'message',      label: 'Anything else we should know?',    type: 'textarea', full: true, placeholder: 'Reserve gaps, capital projects, vendor pain points, board priorities — whatever helps us prepare.' },
+    { name: 'message',      label: 'Anything else we should know?',    type: 'textarea', full: true, placeholder: 'Reserve gaps, capital projects, vendor pain points, board priorities: whatever helps us prepare.' },
   ];
   return (
     <section className="kc-proposal-form" id="proposal-form">
@@ -1009,7 +1010,7 @@ const KCProposalForm = ({ content }) => {
             <p className="kc-proposal-p">{intro}</p>
             <ul className="kc-proposal-bullets">
               <li>We'll review your governing documents and most recent reserve study.</li>
-              <li>We'll prepare a custom man-hour scope — no buffet pricing.</li>
+              <li>We'll prepare a custom man-hour scope, no buffet pricing.</li>
               <li>You'll get a 30-minute consultative call, regardless of whether you hire us.</li>
             </ul>
           </div>
